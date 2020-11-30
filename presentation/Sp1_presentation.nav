@@ -1,0 +1,85 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Simplicial Homology}{3}{Simplicial Homology}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{$n-simplex$}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{$n-simplex$}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{4}{$\Delta -complex$}}
+\headcommand {\slideentry {1}{2}{1}{4/4}{$\Delta -complex$}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{5}{Chain Complex}}
+\headcommand {\slideentry {1}{3}{1}{5/5}{Chain Complex}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{3}{2}{6/6}{Chain Complex}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{3}{3}{7/7}{Chain Complex}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionpages {5}{7}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{8}{Computing Homology}}
+\headcommand {\slideentry {1}{4}{1}{8/8}{Computing Homology}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{4}{2}{9/9}{Computing Homology}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{4}{3}{10/10}{Computing Homology}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {1}{4}{4}{11/11}{Computing Homology}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@sectionpages {3}{11}}
+\headcommand {\beamer@subsectionpages {8}{11}}
+\headcommand {\sectionentry {2}{Maps of Complexes and Maps on Homology}{12}{Maps of Complexes and Maps on Homology}{0}}
+\headcommand {\slideentry {2}{0}{1}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{0}{2}{13/13}{}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {2}{0}{3}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@sectionpages {12}{14}}
+\headcommand {\beamer@subsectionpages {12}{14}}
+\headcommand {\sectionentry {3}{\v {C}ech and Vietoris-Rips Complex}{15}{\v {C}ech and Vietoris-Rips Complex}{0}}
+\headcommand {\beamer@subsectionpages {15}{14}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{15}{Definition}}
+\headcommand {\slideentry {3}{1}{1}{15/15}{Definition}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{16}{\v {C}ech Complex Example}}
+\headcommand {\slideentry {3}{2}{1}{16/16}{\v {C}ech Complex Example}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{17}{Vietoris-Rips Complex Example}}
+\headcommand {\slideentry {3}{3}{1}{17/17}{Vietoris-Rips Complex Example}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {3}{3}{2}{18/18}{Vietoris-Rips Complex Example}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@sectionpages {15}{18}}
+\headcommand {\beamer@subsectionpages {17}{18}}
+\headcommand {\sectionentry {4}{Persistent Homology}{19}{Persistent Homology}{0}}
+\headcommand {\beamer@subsectionpages {19}{18}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{19}{Persistance}}
+\headcommand {\slideentry {4}{1}{1}{19/19}{Persistance}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {4}{1}{2}{20/20}{Persistance}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@subsectionpages {19}{20}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{21}{Computations}}
+\headcommand {\slideentry {4}{2}{1}{21/21}{Computations}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {4}{2}{2}{22/22}{Computations}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {4}{2}{3}{23/23}{Computations}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {4}{2}{4}{24/24}{Computations}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\slideentry {4}{2}{5}{25/25}{Computations}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\beamer@partpages {1}{25}}
+\headcommand {\beamer@subsectionpages {21}{25}}
+\headcommand {\beamer@sectionpages {19}{25}}
+\headcommand {\beamer@documentpages {25}}
+\headcommand {\gdef \inserttotalframenumber {25}}

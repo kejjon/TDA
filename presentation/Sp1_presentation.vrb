@@ -1,0 +1,13 @@
+\footnotesize
+ \setlength{\arraycolsep}{0.5pt}
+ \medmuskip = 0mu % default: 4mu plus 2mu minus 4mu
+ \[
+                    \begin{tikzcd}[ampersand replacement=\&]
+  \& C_\bullet^0                                         \&  \& C_\bullet^1                                         \&  \& C_\bullet^2                                                                 \\ \\
+  \& 0 \arrow[d]                                         \&  \& 0 \arrow[d]                                         \&  \& 0 \arrow[d]                                                                 \\
+2 \& 0 \arrow[rr] \arrow[d, "\partial^0_2=0"]            \&  \& 0 \arrow[rr] \arrow[d, "\partial^1_2=0"]            \&  \& \mathbb{Z} \arrow[d, "\partial_2^2 = {\begin{pmatrix} 1 \\ 1  \\  -1  \end{pmatrix}}"] \\
+1 \& 0 \arrow[d, "\partial^0_1=0"] \arrow[rr]            \&  \& \mathbb{Z}^3 \arrow[rr] \arrow[d, "\partial_1^1 = \partial_1^2"]                   \&  \& \mathbb{Z}^3 \arrow[d, "\partial_1^2 = {\begin{pmatrix} -1 & 0 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{pmatrix}}"]                                                      \\
+0 \& \mathbb{Z}^3 \arrow[d, "\partial^0_0=0"] \arrow[rr] \&  \& \mathbb{Z}^3 \arrow[rr] \arrow[d, "\partial^1_0=0"] \&  \& \mathbb{Z}^3 \arrow[d, "\partial^2_0=0"]                                    \\
+  \& 0                                                   \&  \& 0                                                   \&  \& 0
+\end{tikzcd}
+\]

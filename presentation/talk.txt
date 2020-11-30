@@ -1,0 +1,30 @@
+. The n dimensional analog of the triangle is the n simplex. This is the
+smallest convex set in a Euclidean space
+R
+m containing n + 1 points v0
+, ··· , vn
+that do not lie in a hyperplane of dimension less than n, where by a hyperplane
+we mean the set of solutions of a system
+of linear equations. An equivalent condition would be that the difference vectors
+v1 − v0
+, ··· , vn − v0 are linearly independent. The points vi are the vertices of the
+simplex, and the simplex itself is denoted [v0
+, ··· , vn].
+
+ordering of the vertices: 
+https://us04web.zoom.us/j/8238489635?pwd=bzVKU3g4K1ZGTXNSTnc2OEZBNTVhQT09
+https://us04web.zoom.us/j/8238489635?pwd=bzVKU3g4K1ZGTXNSTnc2OEZBNTVhQT09
+
+
+
+The Rips complex is much easier to compute with, and its persistent
+homology accurately models that of the Cech complex. 
+
+filtered complex is an increasing sequence of simplicial complexes. It determines an
+ inductive system of homology groups
+
+Specifically, we show that the persistent homology of a filtered ddimensional simplicial
+ complex is simply the standard homology of a particular graded
+module over a polynomial ring. 
+Our analysis of persistent homology, on the other hand, provides a
+complete, effective, and implementable algorithm for any filtered complex.
