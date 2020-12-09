@@ -5,4 +5,9 @@ Allen Hatcher.
 \newblock {\em Algebraic topology}.
 \newblock Cambridge University Press, Cambridge, 2002.
 
+\bibitem[ZC05]{Zomorodian_Carlsson_2005}
+Afra Zomorodian and Gunnar Carlsson.
+\newblock Computing persistent homology.
+\newblock {\em Discrete & Computational Geometry}, 33(2):249–274, Feb 2005.
+
 \end{thebibliography}

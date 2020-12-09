@@ -7,12 +7,18 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
 \usepackage{xcolor}
+\usepackage{pst-solides3d}
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots}
-\usetikzlibrary{decorations.markings,shapes.misc, arrows.meta}
 \usepackage{tkz-fct}
+\usepackage{tikz-cd}
+\usepackage{tkz-euclide}
+\usetikzlibrary{decorations.markings,shapes.misc,arrows.meta,shapes.geometric,intersections}
+
 \usepackage[margin=1in]{geometry}
 
 \usepackage[colorlinks=true,          % link colors, set to 'false' for print version
@@ -25,6 +31,12 @@
 \include{biblio}
 
 \DeclareMathOperator{\Ima}{Im}
+
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+\newcommand{\vertsimeq}{\rotatebox{90}{$\,\simeq$}}
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+\newcommand{\simequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertsimeq}{#2}}{#1}}
+
 
 \author{Kejsi Jonuzaj}
 \title{Persistent Homology and TDA}
@@ -118,7 +130,7 @@
              The boundary $\partial\Delta^n$ is defined as the union of all the faces of $\Delta^n$, and
              $\mathring{\Delta^n} = \Delta^n - \partial\Delta^n $ denotes interior of $\Delta^n$. 
              
-		      \begin{defn}[$\Delta$-complex]
+		      \begin{defn}[$\Delta$-complex]\label{Delta-complex}
 		      	A $\Delta-complex$ structure on a space X is a collection of maps $\sigma_\alpha: \Delta^n \rightarrow X $ , with n depending on the index $\alpha$, such that:
                     \begin{enumerate}
                         \item The restriction $\sigma_\alpha | \mathring{\Delta^n}$ is                      injective, and each point of X is in the image of exactly one such restriction $\sigma_\alpha | \mathring{\Delta^n}$.
@@ -161,6 +173,7 @@
               
               $ \Delta^1 = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} = [e_0, e_1] $ \\
               
+            
               
              
               \begin{tikzpicture}
@@ -243,17 +256,166 @@
             $[e_0, e_2]$ or $(t_0, 0, t_2)$, where $t_0 + t_2 = 1$, \\
             $[e_0, e_1]$ or $(t_0, t_1, 0)$, where $t_0 + t_1 = 1$. \\
               
-             
-              
+            %Notice that to get  the other faces of the delta-complex structure on the sphere you can use the "l_1 sphere",
+            % |x|+|y|+|z|=1, which is mapped to S^2 by (x,y,z)\mapsto (x,y,z)/\sqrt{x^2+y^2+z^2}.
 
-              $\sigma_2((t_0, t_1, t_2)) = \frac{(t_0, t_1, t_2)}{\sqrt(t_0^2 + t_1^2 + t_2^2)}$ \\ 
-              $\sigma|_{[e_1, e_2]}(t_1, t_2) =\frac{(t_1, t_2)}{\sqrt(t_1^2 + t_2^2)}$, \quad
-              $\sigma|_{[e_0, e_2]]}(t_0, t_2) =\frac{(t_0, t_2)}{\sqrt(t_0^2 + t_2^2)}$ , \quad
-              $\sigma|_{[e_0, e_1]}(t_1, t_2) =\frac{(t_0, t_1)}{\sqrt(t_0^2 + t_1^2)}$ ,
+              $\sigma_2((t_0, t_1, t_2)) = \frac{(t_0, t_1, t_2)}{\sqrt{(t_0^2 + t_1^2 + t_2^2)}}$ \\ 
+              $\sigma|_{[e_1, e_2]}(t_1, t_2) =\frac{(t_1, t_2)}{\sqrt{(t_1^2 + t_2^2)}}$, \quad
+              $\sigma|_{[e_0, e_2]]}(t_0, t_2) =\frac{(t_0, t_2)}{\sqrt{(t_0^2 + t_2^2)}}$ , \quad
+              $\sigma|_{[e_0, e_1]}(t_1, t_2) =\frac{(t_0, t_1)}{\sqrt{(t_0^2 + t_1^2)}}$ ,
      \end{Ex}
 
-		    
-		    
+		     Usually simplicial homology is defined by simplicial complexes, which are the $\Delta-complexes$ whose simpleces are uniquely determined by their vertices. In a simplicial complex any n-simplex has n+1 distinct vertices, and no other n-simplex has the same set of vertices. 
+		     
+		     Another definition of simplicial complexes that will be important in indroducing Persistent Homology is a coombinatorical description. 
+		     
+		     \emph{Combinatorically} we can define a simplicial complex as: 
+		     
+		     \begin{defn} [Simplicial Complex] 
+              Given a partially ordered set: $V = \{1, 2, \cdots, m\} (=[m])$ 
+              a simplicial complex is a collection $\mathcal{K}$ of subsets of $V$, such that:\\
+              \begin{enumerate}
+              \item $\emptyset \in \mathcal{K}$
+              \item $\{i\} \in \mathcal{K}$ (singleton)
+              \item If $\mathcal{J} \subseteq I \in \mathcal{K} \Rightarrow \mathcal{J} \in \mathcal{K}$
+              \end{enumerate}
+		      
+		     \end{defn}
+
+            
+%               $(\forall I \in \mathcal{K} (\forall J \subseteq I)) \Rightarrow \mathcal{J} \in \mathcal{K}$\\
+            \begin{Ex}
+              Consider the following partially ordereed set  $ V = \{1, 2, 3, 4\}$: 
+              The simplicial complex 
+              $\mathcal{K} = \{I = \{1, 2, 3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{4\}, \emptyset\}$
+             
+             \begin{center}
+              
+
+              \begin{tikzpicture}[line join = round, line cap = round]
+
+                % 0-simplex
+                \coordinate [label=below:$4$] (0) at (3,1.5);
+                % 2-simplex
+                \coordinate [label=below:$1$] (1) at (4,0);
+                \coordinate [label=below:$2$] (2) at (6,0);
+                \coordinate [label=above:$3$] (3) at (5,{sqrt(3)});
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with
+                    {\arrow{to}}}]
+                  % 0-simplex
+                  \draw[fill] (0) circle [radius=0.03];
+                  % 2-simplex
+                  \draw[fill] (1) circle [radius=0.025];
+                  \draw[fill] (2) circle [radius=0.025];
+                  \draw[fill] (3) circle [radius=0.025];
+                  \draw[thick, postaction={decorate}] (1)--(2);
+                  \draw[thick, postaction={decorate}] (1)--(3);
+                  \draw[thick, postaction={decorate}] (2)--(3);
+                  \filldraw[opacity=.3, gray] (1) --  (2) --  (3) -- cycle;
+
+                \end{scope}
+              \end{tikzpicture}
+             
+             \end{center}
+             The topological realization of $\mathcal{K}$ is: 
+             
+              $|\mathcal{K}| = \underset{I\in K \ne \emptyset}{\cup} (Conv(e_i))$ where $e_i$ is in the standard basis $e_1, \cdots e_n \in \mathbb{R}^n$ 
+            \end{Ex}
+            
+            A subcomplex of $\mathcal{K}$ is a subset $L \subseteq \mathcal{K}$ that is also a simplicial complex.
+            A \emph{filtration} of complex $\mathcal{K}$ is a nested subsequence of complexes: 
+             \[
+              \emptyset = \mathcal{K}^0 \subseteq \mathcal{K}^1 \subseteq \dots \mathcal{K}^m = \mathcal{K}  
+             \]
+             For generality, we let $\mathcal{K}^i = \mathcal{K}^m$ for all $i \geq m$. $\mathcal{K}$ is called a filetered complex, and below there is a short example of a filtered complex: 
+             
+             \begin{center}
+              
+            \begin{tikzpicture}[line join = round, line cap = round]
+                % 1st
+                \coordinate (0) at (0,1);
+                \coordinate (1) at (1,0);
+                % arrow 1st to 2nd
+                \coordinate (a1) at (1.3, 0.5);
+                \coordinate (a2) at (1.7, 0.5);
+                % 2nd
+                \coordinate (2) at (2,1);
+                \coordinate (3) at (3,0);
+                \coordinate (4) at (3,1);
+                % arrow 2nd to 3rd
+                \coordinate (a3) at (3.3, 0.5);
+                \coordinate (a4) at (3.7, 0.5);
+                % 3rd
+                \coordinate (5) at (4,1);
+                \coordinate (6) at (4,0);
+                \coordinate (7) at (5,1);
+                \coordinate (8) at (5,0);
+                % arrow 3rd to 4th
+                \coordinate (a5) at (5.3, 0.5);
+                \coordinate (a6) at (5.7, 0.5);
+                % 4th
+                \coordinate (9) at (6,1);
+                \coordinate (10) at (6,0);
+                \coordinate (11) at (7,1);
+                \coordinate (12) at (7,0);
+                % arrow 4th to 5th
+                \coordinate (a7) at (7.3, 0.5);
+                \coordinate (a8) at (7.7, 0.5);
+                % 5th
+                \coordinate (13) at (8,1);
+                \coordinate (14) at (8,0);
+                \coordinate (15) at (9,1);
+                \coordinate (16) at (9,0);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (0) circle [radius=0.03];
+                  \draw[fill] (1) circle [radius=0.03];
+                  \draw[fill] (2) circle [radius=0.03];
+                  \draw[fill] (3) circle [radius=0.03];
+                  \draw[fill] (4) circle [radius=0.03];
+                  \draw[fill] (5) circle [radius=0.03];
+                  \draw[fill] (6) circle [radius=0.03];
+                  \draw[fill] (7) circle [radius=0.03];
+                  \draw[fill] (8) circle [radius=0.03];
+                  \draw[fill] (9) circle [radius=0.03];
+                  \draw[fill] (10) circle [radius=0.03];
+                  \draw[fill] (11) circle [radius=0.03];
+                  \draw[fill] (12) circle [radius=0.03];
+                  \draw[fill] (13) circle [radius=0.03];
+                  \draw[fill] (14) circle [radius=0.03];
+                  \draw[fill] (15) circle [radius=0.03];
+                  \draw[fill] (16) circle [radius=0.03];
+                  % hooks
+                  \draw [right hook->] (a1) -- (a2);
+                  \draw [right hook->] (a3) -- (a4);
+                  \draw [right hook->] (a5) -- (a6);
+                  \draw [right hook->] (a7) -- (a8);
+                  % 2nd
+                  \draw[thick] (3)--(4);
+                  \draw[thick] (2)--(4);
+                  % 3rd
+                  \draw[thick] (5)--(6);
+                  \draw[thick] (5)--(7);
+                  \draw[thick] (6)--(8);
+                  \draw[thick] (7)--(8);
+                  % 4th
+                  \draw[thick] (9)--(10);
+                  \draw[thick] (9)--(11);
+                  \draw[thick] (10)--(12);
+                  \draw[thick] (11)--(12);
+                  \draw[thick] (9)--(12);
+                  % 5th
+                  \draw[thick] (13)--(14);
+                  \draw[thick] (13)--(15);
+                  \draw[thick] (14)--(16);
+                  \draw[thick] (15)--(16);
+                  \draw[thick] (13)--(16);
+                \end{scope}
+                \filldraw [opacity=.33,red] (8,1) -- (9,1) -- (9,0) -- cycle;
+              \end{tikzpicture}
+             \end{center}
+
 		      
 
 		
@@ -290,7 +452,7 @@
               \] 
             where the '\^{}' symbol denotes the absence of that vertex.
             
-            \begin{Lemma}
+            \begin{Lemma}\label{delta2}
              The composition $\partial^2=0$ below is zero 
              \[
                 \xymatrix{
@@ -335,32 +497,37 @@
 		 \section{Homology Calculations: Examples}
 		 
 		 $S^1$ with several different $\Delta$-complex structures. An interval $[0;1]$.
-		 
+         ... comment about diff delta structures resulting in same homology ...
 		 
               \subsection{$ S^1$}
                 \subsubsection{Method I: Triangulation}
                 To compute the homolgy group of the circle $S^1$ we can triangulate the circle in the following way: \\
                 
-                        \begin{tikzpicture}[line join = round, line cap = round]
+                \[
+                       \begin{tikzpicture}[line join = round, line cap = round]
               
                                 % 2-simplex
                                 \coordinate [label=below:$v_0$] (3) at (4,0);
                                 \coordinate [label=below:$v_1$] (4) at (6,0);
                                 \coordinate [label=above:$v_2$] (5) at (5,{sqrt(3)});
+                                \coordinate (0) at (4.8, 0.5);
+                               
                                 
                                 \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
                                     
+                                  
                                     \draw[fill] (3) circle [radius=0.025];
                                     \draw[fill] (4) circle [radius=0.025];
                                     \draw[fill] (5) circle [radius=0.025];
                                     \draw[thick, postaction={decorate}] (3)--(4) node [midway, below] {a};
                                     \draw[thick, postaction={decorate}] (3)--(5) node [near start, above=10pt] {c};
+
                                     \draw[thick, postaction={decorate}] (4)--(5) node [near start, above=10pt] {b};
+                                    \draw[->,>=latex'] (0) arc[radius=0.25,start angle=225,delta angle=300];
                                     
                                 \end{scope}
-
-                        \end{tikzpicture}
-                    
+                    \end{tikzpicture} 
+                    \]
                     We can construct the following chain complex which is a sequence of homomorphisms of abelian groups: 
 
 	\[
@@ -558,16 +725,16 @@ Finally, the homology groups of the circle are:
  \subsubsection{Method II}
                   To compute the homolgy group of the circle $S^1$ we can construct the circle, by two verteces and two edges, in the following way: \\
                 
-              \begin{tikzpicture}[scale=1.5, >=latex, radius = 1]
-                    \draw[thick, arrows = {-Latex[length=10]}]
-                        (212:0) arc[start angle = 180, end angle = 0];
-                    \draw[thick, arrows = {-Latex[length=10]}]
-                        (212:1) arc[start angle = 180, end angle = 0];
-                    \fill (60:1) circle[radius=0.02] node[above right] (n1) {my first node};
-                    \fill (-60:1) circle[radius=0.02] node[below right] (n2) {my second node};
+              \[
+              \begin{tikzpicture}[>=stealth',x=1cm, y=1cm]
 
-            \end{tikzpicture}
-                       
+                  \draw (0,0) node[circle, inner sep=1pt, fill=black, label={left:{$v_0$}}] (A) {};
+                  \draw (3,0) node[circle, inner sep=1pt, fill=black, label={right:{$v_1$}}] (B) {};
+                  \draw [thick, ->] (A) to [out=80, in=100] node[midway, above]{a} (B) ;
+                  \draw [thick, ->] (A) to [out=280, in=260] node[midway, below]{b} (B) ;
+
+                \end{tikzpicture}
+                \]       
                     We can construct the following chain complex which is a sequence of homomorphisms of abelian groups: 
 
 	\[
@@ -609,21 +776,14 @@ $H_0 = \frac{\ker\partial_0}{\Ima\partial_1} = \frac{ \langle v_0, v_1 \rangle  
 
 \par
 Second, let's compute $H_1$: \\
-$\ker\partial_1 = \left\{ \left(\begin{array}{c}
-                    m\\
-                    m\\
-                    m\\
-            \end{array} \right), m \in \mathbb{Z} = \right\} = \left(\begin{array}{c}
-                    1\\
-                    1\\
-                    1\\
-            \end{array} \right) \mathbb{Z} \simeq \mathbb{Z}$ \\ 
+$\ker\partial_1 = \langle a-b \rangle$ 
+		since $\partial_1(\alpha a + \beta b) = (\alpha + \beta)(v_1 - v_0) = 0 \implies \alpha = -\beta$ so the kernel is generated by the element $(a - b)$ \\
 $\Ima\partial_2 = \{0\}$ since $C_2 = \{0\}$ \\
 $H_1 = \frac{\ker\partial_1}{\Ima\partial_2} = 
 		\frac{ \ker{\partial_1} }{ \{0\} } = \ker{\partial_1} \simeq \mathbb{Z}$ \\
 
 
-Finally, the homology groups of the circle are: 
+Finally, the homology groups of the circle with a different $\Delta- complex$ on it are the same: 
 		\[
 	  		H_n^\Delta(S^1) \simeq \left\{
 			      \begin{array}{rl}
@@ -772,14 +932,6 @@ One way to calculate the homology groups of a projective plain $\mathbb{R} \math
 The n-th homology group is defined as % $H_n = \frac{\ker\partial_n}{\Ima\partial_{n+1}}$.
 $H_n= \ker\partial_n\left/ \Ima \partial_n \right. $\\
 
-%\[
-%	\ZZ\left/ 2\ZZ \right.
-%\]
-
-
-%\[
-%	\left( \frac{1}{2}+\frac{4}{5} \right)
-%\]
 
 
 \par
@@ -829,22 +981,1830 @@ Finally, the homology groups of the projective plane are:
 
 		
     \section{Maps of Complexes}
+    In the previous sections, we considered boundary homomorphisms between abilean groups as part of a chain complex. In this section, we will draw our attention to maps between chain complexes.
+    
+    \begin{defn}(Maps of Chain Complexes)
+
+     Let $(C_\bullet, \partial)$ and $(D_\bullet, \delta)$ be two chain complexes. 
+     A map of chain complexes is a morphism $f$ that is a sequence of homomorphisms $(f_n)_{n  \in  Z}$:
+     
+            \[
+                  \begin{tikzcd}[ampersand replacement=\&]
+                    (C_\bullet, \partial) \& C_\bullet \ \ldots \arrow[r]  \& C_n \arrow[r, "\partial n"] \arrow[d, "{f_n}"]   \& C_{n-1} \arrow[r, "\partial {n-1}"] \arrow[d, "f_{n-1}"]   \& C_{n-2} \arrow[r, "\partial {n-2}"] \arrow[d, "f_{n-2}"]    \& \ldots \ C_\bullet \\
+                    (D_\bullet, \delta) \& D_\bullet \ \ldots \arrow[r]    \& D_n \arrow[r, "\delta n"]    \& D_{n-1} \arrow[r, "\delta {n-1}"]    \& D_{n-2} \arrow[r, "\delta {n-2}"]   \& \ldots \ D_\bullet \\
+                  \end{tikzcd}
+                \]
+            \[
+                  f_n : C_n \rightarrow D_n \quad s.t, \quad   f_{n-1} \circ \partial n = \delta_n \circ f_n \; \forall n \in \mathbb{Z}
+                  \]
+                   \[
+                  \begin{tikzcd}[ampersand replacement=\&]
+                    \& C_n \arrow[r, "\partial n"] \arrow[d, "{f_n}"]    \& C_{n-1} \arrow[d, "{f_{n-1}}"] \\
+                    \& D_n \arrow[r, "\delta n"]    \& D_{n-1} \\
+                  \end{tikzcd} 
+                   \quad         commutes.
+                \]
+
+
+    \end{defn}
+
+    
+    
     \subsection{Maps on Homology}
+     
+            
+                A homomorphism of chain complexes induces a homomorphism on the homology.
+                The induced map can be defined as:
+               \begin{align*}
+                  H_n(f) &:  H_n(C_\bullet) \rightarrow H_n(D_\bullet)  \\
+                  H_n(f) &: [x] \mapsto [f_n(x)]
+                \end{align*}
 
-		      
-		      
+                To prove the claim above it is enough to check that $H_n(f)$ is well-defined.
+                We can prove well-definess by checking if cycles are send to cycles and boundaries to boundaries. \\
+                
+                (1) Let us take a cycle $x \in C_n$, so that $x \in \ker (\partial_n)$, $\partial_n(x) = 0$
 
+                    \begin{align*}
+                        \delta_n \circ f_n(x) = f_{n-1} \circ \partial n(x) = f_{n-1}(0) = 0 
+                        &\Rightarrow f_n(x) \in \ker \delta_n , f_n(x) \, is \, a \, cycle \\
+                        &\Rightarrow f_n(\ker \partial n) \subseteq \ker \delta_n \\
+                    \end{align*}
+                So, cycles are send to cycles.
+
+                (2) Let us take a boundary $y \in C_n$, so that $y \in \Ima\partial_{n+1}$ 
+                $\Rightarrow \exists z \in C_{n+1}$ such that $\partial_{n+1}(z) = y$ 
+                \begin{align*}
+                  &\null f_n(y) = f_n(\partial_{n+1}(z))  = \delta_{n+1}(f_{n+1}(z)) \\
+                  &\null \Rightarrow f_n(y) \in \Ima\partial_{n+1} f_n(y) \, is \, a \, boundary\\
+                  &\null \Rightarrow f_n(Im\partial_{n+1}) \subseteq Im(\delta_{n+1})
+                \end{align*}
+                So, boundaries are send to boundaries.
+
+                \begin{align*}
+                   H_n(f) &:  H_n(C_\bullet) \rightarrow H_n(D_\bullet)  \\
+                   H_n(f) &:  \ker{\partial_n} \left/ \Ima(\partial_{n+1}) \right. \rightarrow \ker{\delta_n} \left/ \Ima(\delta_{n+1}) \right. \\
+                             & [x] \mapsto [f_n(x)] \\
+                             & x + \Ima\partial_{n+1} \mapsto f_n(x) + f_n(\Ima\delta_{n+1}) =  f_n(x) + Im(\delta_{n+1}) = [f_n(x)] 
+                \end{align*} \qed
+
+                Let us consider an example between maps of complexes defined by the three spaces below.
+               
+               
+               
+    \begin{center}
+     
+    $\mathcal{X}$  \hspace{3.5cm}  $\mathcal{Y}$  \hspace{3.5cm}  $\mathcal{Z}$ \\~\\
+                    
+                    
+    \begin{tikzpicture}[line join = round, line cap = round]
+
+                        % first-simplex
+                        \coordinate [label=below:$v_0$] (0) at (0,0);
+                        \coordinate [label=below:$v_1$] (1) at (2,0);
+                        \coordinate [label=above:$v_2$] (2) at (1,{sqrt(3)});
+                       
+                         % second-simplex
+                        \coordinate [label=below:$v_0$] (3) at (4,0);
+                        \coordinate [label=below:$v_1$] (4) at (6,0);
+                        \coordinate [label=above:$v_2$] (5) at (5,{sqrt(3)});
+                        
+                        % third-simpex
+                        \coordinate [label=below:$v_0$] (6) at (8,0);
+                        \coordinate [label=below:$v_1$] (7) at (10,0);
+                        \coordinate [label=above:$v_2$] (8) at (9,{sqrt(3)});
+
+                        \begin{scope}[decoration={markings,mark=at position 0.5 with
+                            {\arrow{to}}}]
+                            % first-simplex
+                            \draw[fill] (0) circle [radius=0.03];
+                            \draw[fill] (1) circle [radius=0.03];
+                            \draw[fill] (2) circle [radius=0.03];
+                            \draw [thin, right hook->] (2.75, 0.86) -- (3.25, 0.86);  
+                            % second-simplex
+                            \draw[fill] (3) circle [radius=0.03];
+                            \draw[fill] (4) circle [radius=0.03];
+                            \draw[fill] (5) circle [radius=0.03];
+                            \draw[thick, postaction={decorate}] (3)--(4);
+                            \draw[thick, postaction={decorate}] (3)--(5);
+                            \draw[thick, postaction={decorate}] (4)--(5);
+                           \draw [thin, right hook->] (6.75, 0.86) -- (7.25, 0.86);  
+                           % third-simpex
+                            \draw[fill] (6) circle [radius=0.03];
+                            \draw[fill] (7) circle [radius=0.03];
+                            \draw[fill] (8) circle [radius=0.03];
+                            \draw[thick, postaction={decorate}] (6)--(7);
+                            \draw[thick, postaction={decorate}] (6)--(8);
+                            \draw[thick, postaction={decorate}] (7)--(8);
+                            \filldraw[opacity=.3, gray] (6) --  (7) --  (8) -- cycle;
+                        \end{scope}
+
+                    \end{tikzpicture} 
+                    
+            $C_\bullet^0  \longrightarrow   C_\bullet^1   \longrightarrow C_\bullet^2$  \\~\\
+                    
+                    
+    \end{center}
+    
+    Maps between complexes:
+    \[
+        \begin{tikzcd}[ampersand replacement=\&]
+                \& C_\bullet^0   \arrow[rr]                                     \&  \& C_\bullet^1 \arrow[rr]                               \&  \& C_\bullet^2                                                                 \\ \\
+                \& 0 \arrow[d]                                         \&  \& 0 \arrow[d]                                         \&  \& 0 \arrow[d]                                                                 \\ 
+                2 \& 0 \arrow[rr] \arrow[d, "\partial^0_2=0"]            \&  \& 0 \arrow[rr] \arrow[d, "\partial^1_2=0"]            \&  \& \mathbb{Z} \arrow[d, "\partial_2^2 = {\begin{pmatrix} 1 \\ 1  \\  -1  \end{pmatrix}}"] \\
+                1 \& 0 \arrow[d, "\partial^0_1=0"] \arrow[rr]            \&  \& \mathbb{Z}^3 \arrow[rr] \arrow[d, "\partial_1^1 = \partial_1^2"]                   \&  \& \mathbb{Z}^3 \arrow[d, "\partial_1^2 = {\begin{pmatrix} -1 & 0 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{pmatrix}}"]                                                      \\
+                0 \& \mathbb{Z}^3 \arrow[d, "\partial^0_0=0"] \arrow[rr] \&  \& \mathbb{Z}^3 \arrow[rr] \arrow[d, "\partial^1_0=0"] \&  \& \mathbb{Z}^3 \arrow[d, "\partial^2_0=0"]                                    \\
+                \& 0                                                   \&  \& 0                                                   \&  \& 0                                                                          
+    \end{tikzcd}
+\]
+        Induced maps on homology:
+       \[             
+     \begin{tikzcd}[ampersand replacement=\&]
+            \& H(C_\bullet^0)   \arrow[rr]                                     \&  \& H(C_\bullet^1) \arrow[rr]                               \&  \& H(C_\bullet^2)                                                                 \\ \\
+            \& 0 \arrow[d]                                         \&  \& 0 \arrow[d]                                         \&  \& 0 \arrow[d]                                                                 \\ 
+            2 \& 0 \arrow[rr] \arrow[d]            \&  \& 0 \arrow[rr] \arrow[d]            \&  \& 0 \arrow[d] \\
+            1 \& 0 \arrow[d] \arrow[rr]            \&  \& \mathbb{Z} \arrow[rr] \arrow[d]                   \&  \& 0 \arrow[d]                                              \\
+            0 \& \mathbb{Z}^3 \arrow[d] \arrow[rr] \&  \& \mathbb{Z} \arrow[rr] \arrow[d] \&  \& \mathbb{Z} \arrow[d]                                    \\
+            \& 0                                                   \&  \& 0                                                   \&  \& 0                                                                          
+    \end{tikzcd}
+         \]           
+                    
+     \chapter{Singular Homology and Homotopy Invariance}
+     
+     
+     In the previous chapter, we considered a parametrization of a space by simplexes, where the maps $\sigma_\alpha: \Delta^n \rightarrow X$ had restrictions defined in \ref{Delta-complex}. If we only require that the $\sigma$ map is continous, then by definition that would be a singular $n-simplex$ in a space $X$.
+     The lack of other restrictions on the map $\sigma: \Delta^n \rightarrow X$, convey that $\sigma$ does not need to be a `nice` embedding, in fact it can have singularites, where its image does not look like a simplex.
+     
+     $C_n(X)$ is a free abelien group with generators the set of singluar $n-simplexes$ in X: the continous maps $\sigma: \Delta^n \rightarrow X$. The elements of $C_n(X)$ are singular $n-chains$ defined as $\sum_i(n_i\sigma_i)$ for $n_i \in \ZZ$. The boundary operator $\partial_n: C_n(x) \rightarrow C_{n-1}(X)$ is defined the same way as in simplicial $n-chains$, by the formula: 
+     \[
+		         \partial_n(\sigma) = \sum\limits_i (-1)^i \sigma | [v_0, ... ,\hat{v_i}, ... , v_n]
+              \] 
+     By preserving the order of the vertices, the $\sigma |[v_0, ... ,\hat{v_i}, ... , v_n]$ is identified with the map $\Delta^{n-1} \rightarrow X$. The proof of lemma \ref{delta2}, $\partial_2 = 0$, holds true also for singular simplexes. Therefore, the singular homology group is defined the same way: $H_n(x) = \ker\partial_n \left/ \Ima \partial_{n+1} \right.$. The elements in the $\ker$ are singular cycles, and the elements in the $\Ima$ singular boundaries. \\
+     
+      Let us consider some explicit examples of $C_n(X)$: 
+      \begin{itemize}
+       \item 
+      For a topological space $X$: 
+      $C_0(X)$ consists of all maps $\sigma: \Delta^0 \rightarrow X$, which means that $C_0(X)$ is a free group on the points of $X$.
+      \item
+      If X = $\RR$: $C_1(X)$ consists of all maps $\sigma: \Delta^1 \rightarrow \RR$, which means that $C_0(X)$ is a free group on continus maps:
+      \[
+        [0, 1] \simeq \Delta^1 \rightarrow \\R
+      \]
+      In this case $C_1(X)$ can be considered as a vector space with vectors the maps: $[0, 1] \rightarrow \RR$.
+      \end{itemize}
+      
+    From the examples above, it is clear that the groups $C_n(X)$ can be so large to the point where the number of singular $n-simplexes$ in a space $X$ is uncountable. It is not easy to see that even in singular homology where $X$ is generated by a finite number of simplexes, $H_n(X)$ should be finite generated for all n, and that $H_n(X)$ should be 0 for $n > dim(X)$. 
+    
+    At first glance, singular homology seems to be more general than simplicial homology, however if for an arbitrary space X , we define the singular complex $S(X)$ as a $\Delta-complex$ with one $n-simplex \ \Delta_\sigma^n$ for each singular $n-simplex$ $\sigma: \Delta^n \rightarrow X$, then $H_n^\Delta(S(X))$ is the same as $H_n(X)$. In this case singular homology can be viewed as a special case of simplicial homology.
+    
+    By the definition of singular homology groups $H_n(X)$, it follows that if two spaces $X, Y$ are homeomorphic, the singular homology groups are isomorphic $ H_n(X) \simeq H_n(Y)$.
+    
+    \emph{More generally}, \\
+    A countinous map $f: X \rightarrow Y$ induces a chain map: $f_\#: C_n(X) \rightarrow C_n(Y)$.
+    \begin{gather*}
+        f_\#(\sigma: \Delta^ n \rightarrow X) = f \circ \sigma \\
+                    \xymatrix{
+                        \Delta^n  \ar[r]^{\sigma} & 
+                        X  \ar[r]^{f} & Y  }
+    \end{gather*}
+    
+    The boundary operator of $f_\#$ is equal to $\partial_n(f \circ \sigma) = f \circ \partial_n(\sigma)$. 
+    
+    $H_n(f_\#) = f_*: H_n(X) \rightarrow H_n(Y)$ \\
+    
+    \par
+    If we additionally require $f$ to be a bijection and have a continous inverse $f^{-1}$, so $f$ is a homoemorphism, then $f_\#: C_n(X) \simeq C_n(Y)$
+    \begin{align*}
+        \sigma &\mapsto f \circ \sigma \\
+        \mu \circ f^{-1} &\mapsfrom \mu  
+    \end{align*}
+    Then the induced singular homology map $f_*: H_n(X) \simeq H_n(Y)$ defines an isomorphism.
+    
+    Moreover,
+    \begin{gather}
+        f_* \ preserves \ composition, (f \circ g)_* = f_* \circ g_* \\
+        f_* \ preserves \ the \ identity, id: X \rightarrow Y \ goes \ to \ id_*:  H_n(X) \rightarrow H_n(Y)
+    \end{gather}
+    
+    \emph{Category Theory Interpretation}: If we consider $Top$ to be the category of topological spaces where maps are countinous:
+    \[{Hom}_{Top}(X, Y) = \{f: X \rightarrow Y, f \ is \ continous\},\] and $Ab$ the category of abelian groups were maps are group homomorphisms: \[{Hom}_{Ab}(G, H) = \{\phi: G \rightarrow H, \phi \ is \ group \ homomorphism\}\] then for each $n \geq 0$: 
+     \begin{align*}
+        H_n: Top &\rightarrow Ab \\
+            X &\rightsquigarrow H_n(X) \\
+        f: X \rightarrow Y &\rightsquigarrow f_*:  H_n(X) \rightarrow H_n(Y) 
+    \end{align*}
+    $H_n$ is a functor and (2.1) (2.2) hold.  \\
+    If we also consider the category, Homotopic Topology $HoTop$ of topological spaces where maps are continous up to homotopy, then we obtain the following commutative diagram: 
+    
+	\[
+		\xymatrix{
+			Top  \ar[r]^{H_n} \ar[d] 
+			& Ab  \\
+			HoTop \ar@{.>}[ur] }
+	\]
+	
+	\[ {Hom}_{HoTop}(X, Y) = {Hom}_{Top}(X, Y) \left/ \simeq \right. \]
+    
+    \emph{Remark}: The continous maps $f, g: X \rightarrow Y$ are homotopic if
+    \begin{align*}
+     &\exists \ H: X \times [0, 1] \rightarrow Y , \\
+     &for \ x \in X \ and \ t \in [0, 1]: H(x, t) = H_t(x) \\
+     &s.t \ H(x, 0) = f(x) \ and \ H(x, 1) = g(x) \\ 
+     &i.e \ H|_{x \times \{0\}} = f \ and \ H|_{x \times \{1\}} = g 
+     \end{align*}
+     
+     Let us consider some explicit homotopic maps: 
+     
+     \begin{itemize}
+      \item $f, g: \RR \rightarrow \RR$ where $f = id, f(x) = x \ \forall \ x \in X$, and $g = 0, \ g(x) = 0 \ \forall \ x \in X$ \\
+      $H: \RR \times [0, 1] \rightarrow \RR$ \\
+      $H(x, t) = (1-t)x$, clearly $H(x, 0) = x$ and $H(x, 1) = 0$
+      \item $f, g: S^1 \rightarrow \RR^2$ where $f \ is \ an \ inclusion, f(x,y) = (x,y) \ \forall \ (x, y) \in S^1$, and $g = 0, \ g(x,y) = 0 \ \forall \ (x, y) \in S^1$ \\
+      $H: S^1 \times [0, 1] \rightarrow \RR^2$ \\
+      $H(x, y, t) = (1-t)\langle x, y \rangle$, clearly $H(x, y, 0) = \langle x, y \rangle$ and $H(x, y, 1) = 0$
+     \end{itemize}
+
+     \label{homotopicSpaces}If $f, g: X \rightarrow Y$ are homotopic, then the induced maps on homology
+     $f_*, g_*: H_n(X) \rightarrow H_n(X)$, are the same $f_* = g_* \ \forall{n}$
+     
+     Define $p_n: C_n^{sing}(X) \rightarrow C_{n+1}^{sing}(Y) $ s.t $f_\# - g_\# = \partial p + p\partial$ \\
+    
+        \begin{equation*}
+                    \xymatrix@+3em{
+                        & C_{n + 1}(X)
+                            \ar[r]^{\partial_{n + 1}}
+                            \ar@<0.5ex>[d]^{g_{n + 1}}
+                            \ar@<-0.5ex>[d]_{f_{n + 1}}
+                        & C_n(X)
+                            \ar[r]^{\partial_n}
+                            \ar@<0.5ex>[d]^{g_n}
+                            \ar@<-0.5ex>[d]_{f_n}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_n}
+                        & C_{n - 1}(X)
+                            \ar@<0.5ex>[d]^{g_{n - 1}}
+                            \ar@<-0.5ex>[d]_{f_{n - 1}}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{n - 1}}
+                            \\
+                        & C_{n + 1}(Y) \ar[r]^{\delta_{n + 1}}
+                        & C_n(Y) \ar[r]^{\delta_n}
+                        & C_{n - 1}(Y)
+                    }
+            \end{equation*}
+
+   
+     
+
+     
+        For $\sigma: \Delta^n \rightarrow X$ the map $p_n(\sigma): \Delta^{n+1} \rightarrow Y$ should be a continous map. \\
+        $H: X \times [0, 1] \rightarrow Y$, $H|_{x \times \{0\}} = f \ and \ H|_{x \times \{1\}} = g $
+        \[
+         \xymatrix{
+                        \Delta^n \times[0, 1] \ar[r]^{\sigma \times 1} & 
+                        {X \times [0, 1]} \ar[r]^{H} & Y  }
+        \]
+        The idea is to write $\Delta^n \times[0, 1]$ as union of $\Delta^{n+1}$. 
+        Let us consider some explicit examples of the $p$ maps:
+        \begin{itemize}
+         \item $p_0: C_0(X) \rightarrow C_1(Y)$ \\
+         $p_0(\sigma) = H_0(\sigma \times 1) |_{[v_0w_0]}: \Delta^1 \rightarrow Y$ \\
+         We can parametrize $\Delta^1$, as $\Delta^1 = \{ (t_0, t_1) | \ t_0 + t_1 = 1, \ t_0, t_1 \geq 1 \}$ \\
+         $\Delta^1 = \{1\} \subseteq \RR$, $\sigma(1) = q$ \\
+         \begin{align*}
+             \Delta^0 \times [0, 1] &\simeq \Delta^{1} \\
+             \{1\} \times \{t\} &\mapsto (1-t, t) \\
+             \sigma \times 1: (1, t) &\mapsto (\sigma(1), t) \\
+            H_0( \sigma \times 1): (1, t) &\mapsto H(q, t), \ where \ H(q, 0) = f(q), \  H(q, 1) = g(q)\\
+         \end{align*} 
+         \item $p_1: C_1(X) \rightarrow C_2(Y)$ \\
+         $p_1(\sigma) = \sum_{i = 0}^1 H_0(\sigma \times 1) |_{[v_0 ... w_1]} = H_0(\sigma \times 1) |_{[v_0 w_0 w_1]} - H_0(\sigma \times 1) |_{[v_0 v_1 w_1]}$ \\
+         \begin{align*}
+             \Delta^1 \times [0, 1] &\simeq [0, 1] \times [0, 1] \\
+             ((t_0, t_1), t) &\mapsto (t_0, t) \\
+             \sigma \times 1: (1, t) &\mapsto (\sigma(1), t) \\
+            H_0( \sigma \times 1): (1, t) &\mapsto H(q, t), \ where \ H(q, 0) = f(q), \  H(q, 1) = g(q)\\
+         \end{align*} 
+                 \begin{equation*}
+                    \xymatrix@+3em{
+                        & C_2(X)
+                            \ar[r]^{\partial_2}
+                        & C_1(X)
+                            \ar[r]^{\partial_1}
+                            \ar@<0.5ex>[d]^{g}
+                            \ar@<-0.5ex>[d]_{f}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_1}
+                        & C_0(X)
+                            \ar[r]^{\partial_0}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{0}}
+                        & 0
+                            \\
+                        & C_2(Y) \ar[r]^{\delta_{2}}
+                        & C_1(Y) \ar[r]^{\delta_1}
+                        & C_0(Y) \ar[r]^{\delta_0}
+                        & 0
+                    }
+            \end{equation*}
+            
+            From the diagram above: $\delta_2p_1 + p_0\partial_1: C_1(X) \rightarrow C_1(Y)$ \\
+             \begin{align*}
+                (p_0 \circ \partial_1)(\sigma) &= p_0(\sigma|_{[v_1]} - \sigma|_{[v_0]}) \\
+                &= H_0(\sigma \times 1)|_{[v_1w_1]} - H_0(\sigma \times 1)|_{[v_0w_0]} \\
+                &= H_0(\sigma|_{[v_1]} \times 1)|_{[v_1w_1]} - H_0(\sigma|_{[v_0]} \times 1)|_{[v_0w_0]} \\
+                &= H_0(\sigma \times 1)|_{[v_1] \times [0, 1]} - H_0(\sigma \times 1)|_{[v_0] \times [0, 1]} \\
+           \end{align*} 
+           \begin{align*}
+                (\delta_2 \circ p_1)(\sigma) &= \delta_2(H_0(\sigma \times 1)|_{[v_0w_0w_1]} - H_0(\sigma \times 1)|_{[v_0v_1w_1]}) \\
+                &= H_0 (\sigma \times 1)|_{[w_0w_1]} - H_0 (\sigma \times 1)|_{[v_0w_1]} + H_0 (\sigma \times 1)|_{[v_0w_0]} \\ 
+                &- H_0 (\sigma \times 1)|_{[v_1w_1]} + H_0 (\sigma \times 1)|_{[v_0w_1]} - H_0 (\sigma \times 1)|_{[v_0v_1]} \\
+           \end{align*} 
+         So , $(\delta_2p_1 + p_0\partial_1)(\sigma) = H_0 (\sigma \times 1)|_{[w_0w_1]} - H_0 (\sigma \times 1)|_{[v_0v_1]} = g \circ \sigma - f \circ \sigma = (g-f) \circ \sigma$ \\
+         \[ \Rightarrow \delta_2p_1 + p_0\partial_1 = g-f \] 
+        \end{itemize}
+     
+     
+     \begin{thm} \label{homotopicChainSameHomology}
+      If two chain maps $f_\bullet, g_\bullet: (C_\bullet, \partial) \rightarrow (D_\bullet, \delta) $ are chain-homotopic then they induce the same homomorphism on homology:
+     \end{thm}
+     More explicitly:
+                \begin{equation*}
+                    \xymatrix@+3em{
+                    {\dots} \ar[r]^{\partial_{n + 2}}
+                        & C_{n + 1}
+                            \ar[r]^{\partial_{n + 1}}
+                            \ar@<0.5ex>[d]^{g_{n + 1}}
+                            \ar@<-0.5ex>[d]_{f_{n + 1}}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{n + 1}}
+                        & C_n
+                            \ar[r]^{\partial_n}
+                            \ar@<0.5ex>[d]^{g_n}
+                            \ar@<-0.5ex>[d]_{f_n}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_n}
+                        & C_{n - 1}
+                            \ar[r]^{\partial_{n - 1}}
+                            \ar@<0.5ex>[d]^{g_{n - 1}}
+                            \ar@<-0.5ex>[d]_{f_{n - 1}}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{n - 1}}
+                        & {\dots}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{n - 2}}\\
+                    {\dots} \ar[r]^{\delta_{n + 2}}
+                        & D_{n + 1} \ar[r]^{\delta_{n + 1}}
+                        & D_n \ar[r]^{\delta_n}
+                        & D_{n - 1} \ar[r]^{\delta_{n - 1}}
+                        & {\dots}
+                    }
+            \end{equation*}
+            
+
+     
+            \begin{align*}
+                  H_n(f) &:  H_n(C_\bullet) \rightarrow H_n(D_\bullet)  \\
+                  H_n(f) &: [x] \mapsto [f_n(x)]
+                \end{align*}
+                
+        If $f_n - g_n = \delta_{n+1}p_n + p_{n-1}\partial_n \Rightarrow H_n(f) = H_n(g)$ 
+        
+        \emph{Proof}: Let us proof that the maps $f_n, g_n$ induce the same homology.\\
+        For any $x \in \ker\partial_n \Rightarrow \partial_nx = 0$, \\
+        $(f_n - g_n)(x) = \delta_{n+1}p_n(x) + p_{n-1}\delta_n(x) = \delta_{n+1}(p_n(x)) \in \Ima(\partial_{n+1})$ \\
+        $\Rightarrow (f_n - g_n)(x) \in \Ima(\partial_{n+1})$
+            \[
+				\left|
+				  \begin{array}{l}
+				  	H_n(f) ([x]) = [f_n(x)] \\
+				  	H_n(g) ([x]) = [g_n(x)] \\
+				  \end{array} \Rightarrow [f_n(x)] - [g_n(x)] = [f_n(x) - g_n(x)] = [\delta_{n+1}p_n(x)] = [0]
+				\right.
+			\]
+			since $\delta_{n+1}(p_n(x)) \in \Ima(\partial_{n+1})$. \\
+			So, $[f_n(x)] = [g_n(x)] \Rightarrow H_n(f) = H_n(g) \qed$ \\
+			
+        \begin{Ex}
+         Let $X$ be a $1-simplex$ and $Y$ a $2-simplex$:
+         \begin{center}
+                 
+
+                \begin{tikzpicture}[line join = round, line cap = round]
+
+                  1-simplex
+                  \coordinate [label=left:$v_0$] (1) at (1,0.86);
+                  \coordinate [label=below:$v_1$] (2) at (3,0.86);
+
+                  2-simplex
+                  \coordinate [label=below:$v_0$] (3) at (6,0);
+                  \coordinate [label=below:$v_1$] (4) at (8,0);
+                  \coordinate [label=above:$v_2$] (5) at (7,{sqrt(3)});
+
+                  \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                   \draw [thin, right hook->] (4, 0.86) -- (5, 0.86); 
+                    1-simplex
+                    \draw[fill] (1) circle [radius=0.025];
+                    \draw[fill] (2) circle [radius=0.025];
+                    \draw[thick, postaction={decorate}] (1)--(2);
+                    2-simplex
+                    \draw[fill] (3) circle [radius=0.025];
+                    \draw[fill] (4) circle [radius=0.025];
+                    \draw[fill] (5) circle [radius=0.025];
+                    \draw[thick, postaction={decorate}] (3)--(4);
+                    \draw[thick, postaction={decorate}] (3)--(5);
+                    \draw[thick, postaction={decorate}] (4)--(5);
+                     \filldraw[opacity=.3, gray] (3) --  (4) --  (5) -- cycle;
+                  \end{scope}
+
+                \end{tikzpicture}
+                \end{center}
+          \begin{equation*}
+                    C_\bullet(X, \partial): 
+                    \xymatrix@+3em{
+                        & 0
+                            \ar[r]^{\partial_2}
+                        & \ZZ
+                            \ar[r]^{\partial_1}
+                        & \ZZ^{\oplus^2}
+                            \ar[r]^{\partial_0 = 0}
+                        & 0
+                    }
+            \end{equation*}
+         \begin{equation*}
+                    D_\bullet(Y, \delta): 
+                    \xymatrix@+3em{
+                        & \ZZ
+                            \ar[r]^{\delta_2}
+                        & \ZZ^{\oplus^3}
+                            \ar[r]^{\delta_1}
+                        & \ZZ^{\oplus^3}
+                            \ar[r]^{\delta_0 = 0}
+                        & 0
+                    }
+            \end{equation*}
+            
+        Let's introduce maps on the chain complexes: 
+         \begin{align*}
+        f_n: C_n(X, \partial) \rightarrow C_n^{\prime}(Y, \delta) \\
+        g_n: C_n(X, \partial) \rightarrow C_n^{\prime}(Y, \delta)
+         \end{align*}
+        
+         \begin{equation*}
+                    \xymatrix@+3em{
+                        & 0
+                            \ar[r]^{\partial_2}
+                        & \ZZ
+                            \ar[r]^{\partial_1 = \left[\begin{smallmatrix} -1 \\ 1 \end{smallmatrix}\right]}
+                            \ar@<-0.5ex>[d]_{f_1 = \left[\begin{smallmatrix}0 \\
+                            0  \\
+                            1 \\ \end{smallmatrix}\right]}
+                            \ar@<0.5ex>[d]^{g_1 = \left[\begin{smallmatrix} 0 \\
+                                1 \\
+                                0 \\ \end{smallmatrix}\right]}
+                            \ar[dl]_{\scriptstyle p_1 = id}
+                        & \ZZ^{\oplus^2}
+                            \ar[r]^{\partial_0 = 0}
+                            \ar@<-0.5ex>[d]_{f_0 = \left[\begin{smallmatrix}1 & 0 \\
+                            0 & 0 \\
+                            0 & 1 \\ \end{smallmatrix}\right]}
+                            \ar@<0.5ex>[d]^{g_0 = \left[\begin{smallmatrix}1 & 0 \\
+                            0 & 1 \\
+                            0 & 0 \\ \end{smallmatrix}\right]}
+                            \ar[dl]
+                        & 0
+                            \\
+                        & \ZZ \ar[r]_{\delta_2 = \left[\begin{smallmatrix}1  \\
+                            -1 \\
+                            1 \\ \end{smallmatrix}\right]}
+                        & \ZZ^{\oplus^3} 
+                            \ar[r]_{\delta_1 = \left[\begin{smallmatrix}0 & -1 & -1 \\
+                                -1 & 0 & 1 \\
+                                1 & 1 & 0 \\ \end{smallmatrix}\right]}
+                        & \ZZ^{\oplus^3} 
+                        \ar[r]_{\delta_0 = 0}
+                        & 0
+                    }
+            \end{equation*}
+            We can define $p_0 = \begin{bmatrix} 0 & 1 \\ 0 & 0 \\ 0 & 0 \\ \end{bmatrix}$
+            and $p_1 = id_\ZZ$ \\
+            For $n = 0$: 
+             \begin{align*}
+            f_0 - g_0 &= \begin{bmatrix} 1 & 0 \\
+                            0 & 0 \\
+                            0 & 1 \\ \end{bmatrix} -
+            \begin{bmatrix}1 & 0 \\
+                            0 & 1 \\
+                            0 & 0 \\ \end{bmatrix} = 
+                            \begin{bmatrix}0 & 0 \\
+                            0 & -1 \\
+                            0 & 1 \\ \end{bmatrix} \\
+           \delta_{1}p_0 + 0 \circ \partial_0 &= \begin{bmatrix} 0 & -1 & -1 \\
+                                -1 & 0 & 1 \\
+                                1 & 1 & 0 \\ \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 0 & 0 \\ 0 & 0 \\ \end{bmatrix} = \begin{bmatrix} 0 & 0 \\
+                            0 & -1 \\
+                            0 & 1 \\ \end{bmatrix} 
+            \end{align*}
+         
+         For the choice of the maps $p_0, f_0, g_0$: $f_0 \simeq g_0 \rightarrow$ homotopic equivalent \\
+         For $n = 1$: 
+           \begin{align*}
+            f_1 - g_1 &= \begin{bmatrix} 0 \\
+                            0  \\
+                            1 \\  \end{bmatrix} -
+            \begin{bmatrix} 0 \\
+                            1  \\
+                            0 \\ \end{bmatrix} = 
+                            \begin{bmatrix}0 \\
+                            -1 \\
+                            1 \\ \end{bmatrix} \\
+           \delta_{2}p_1 + p_0 \circ \partial_1 &= \begin{bmatrix} 1  \\
+                            -1 \\
+                            1 \\  \end{bmatrix} \begin{bmatrix} 1 \\ \end{bmatrix}
+                            + \begin{bmatrix} 0 & 1 \\ 0 & 0 \\ 0 & 0 \\   \end{bmatrix} \begin{bmatrix} -1 \\ 1 \end{bmatrix} 
+                            = \begin{bmatrix} 0 \\
+                            -1 \\
+                            1 \\\end{bmatrix} 
+            \end{align*}
+             For the choice of the maps $p_1, p_0, f_1, g_1$: $f_1 \simeq g_1 \rightarrow$ homotopic equivalent \\
+             By theorem \ref{homotopicChainSameHomology}, $H_0(f) = H_0(g)$ and $H_1(f) = H_1(g)$. \\
+             More precicely, $H_0(f) = H_0(g) = id_\ZZ$ and $H_1(f) = H_1(g) = 0$, since
+             $H_0(X) = H_0(Y) = \\Z$ and $H_n(X) = H_n(Y) = 0 \ \forall \ n > 0$
+        \end{Ex}
+        \begin{Lemma}
+         A chain complex $(C_\bullet, \partial)$ is contractable if $ id_C \ is \ homotopic \ equivalent \ to \ 0_C$
+        \end{Lemma}
+        If $ id_C \simeq 0_C$, then $H_n(C_\bullet) = 0 \ \forall n$ \\
+        Examples: 
+        \begin{itemize}
+         \item $C_\bullet: \ \xymatrix{
+                        \ZZ  \ar[r]^{0} & 
+                        \ZZ  \ar[r] & 0  }$ \\
+        $H_0(C_\bullet) = \ZZ = H_1(C_\bullet)$ implies that $C_\bullet$ is not contractable 
+        \item $D_\bullet: \ \xymatrix{
+                        \ZZ  \ar[r]^{2} & 
+                        \ZZ  \ar[r] & 0  }$ \\
+        $H_0(D_\bullet) = \ZZ / 2\ZZ$, $H_1(D_\bullet) = 0$ implies that $D_\bullet$ is not contractable 
+        \item $E_\bullet: \ \xymatrix{
+                        \ZZ  \ar[r]^{1} & 
+                        \ZZ  \ar[r] & 0  }$ \\
+        $H_0(E_\bullet) = 0 = H_1(E_\bullet) \Rightarrow$ need to check that $ id_E \simeq 0_E$
+        
+        \begin{equation*}
+                    \xymatrix@+3em{
+                        & 0
+                            \ar[r]
+                        & \ZZ
+                            \ar[r]^{\partial_1 = 1}
+                            \ar[d]|*+<1ex,1ex>{\scriptstyle id - 0}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_1}
+                        & \ZZ
+                            \ar[r]^{\partial_0 = 0}
+                             \ar[d]|*+<1ex,1ex>{\scriptstyle id - 0}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{0}}
+                        & 0
+                            \\
+                        & 0 \ar[r]
+                        & \ZZ \ar[r]^{\partial_1 = 1}
+                        & \ZZ \ar[r]^{\partial_0 = 0}
+                        & 0
+                    }
+            \end{equation*}
+        We can assign $p_0 = id$, $p_1 = 0$. \\ 
+        For a cycle $\sigma  \in E_1 = \ZZ$: \\
+        $(\partial_2p_1 + p_0\partial_1)(\sigma) = \partial_2p_1(\sigma) + p_0\partial_1(\sigma) = 0 + \sigma = \sigma = id - 0(\sigma) \Rightarrow id_E \simeq 0_E \Rightarrow (E_\bullet, \partial)$ is contractable
+        
+        \item $F_\bullet: \ \xymatrix{
+                        \dots  \ar[r]^{2} & 
+                        \ZZ/4  \ar[r]^{2} & 
+                        \ZZ/4  \ar[r]^{\partial = 2} & 
+                        \ZZ/4  \ar[r]^{2} & 
+                        \ZZ/4  \ar[r]^{2} & \dots  }$ \\
+        $\ker\partial = \Ima\partial = (2) \Rightarrow H_n(F_\bullet) = 0 \ \forall \ n \Rightarrow$ need to check that $ id_F \simeq 0_F$
+        
+        \begin{equation*}
+                    \xymatrix@+3em{
+                        & \dots
+                            \ar[r]^{2}
+                        & \ZZ/4
+                            \ar[r]^{2}
+                            \ar[d]|*+<1ex,1ex>{\scriptstyle id - 0}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_1}
+                        & \ZZ/4
+                            \ar[r]^{2}
+                             \ar[d]|*+<1ex,1ex>{\scriptstyle id - 0}
+                            \ar[dl]|*+<1ex,1ex>{\scriptstyle p_{0}}
+                        &  \dots
+                            \\
+                        & \dots \ar[r]^{2}
+                        & \ZZ/4 \ar[r]^{2}
+                        & \ZZ/4 \ar[r]^{2}
+                        & \dots
+                    }
+            \end{equation*}
+        In $\ZZ / 4$ we have four classes $\overline{0}, \overline{1}, \overline{2}, \overline{4}$. 
+        The boudary operator $\partial = mult(2)$ maps the four classes only in two maps $\overline{0}, \overline{2}$. So, the $\partial$ cannot be surjective. \\
+        For a cycle $\sigma \in \ZZ / 4$: \\
+        Since $((2)p_1 + p_0(2))(\sigma) \in (2), \  ((2)p_1 + p_0(2))(\sigma) \neq \sigma \Rightarrow (F_\bullet, \partial)$ is not contractable
+        \end{itemize}
+        
+        \begin{thm} \label{homotopic}
+         Given topological spaces $X, Y$ with maps $f: X \rightarrow Y$ and $g: Y \rightarrow X$ \\ 
+%          and maps of complexes: $f_\#: C_n^{sing}(X) \rightarrow C_n^{sing}(Y) $ and $g_\#: C_n^{sing}(Y) \rightarrow C_n^{sing}(X) $: \\
+         If 
+         \begin{align*}
+         f \circ g \simeq id_Y \\
+         g \circ f \simeq id_X
+         \end{align*}
+         where $\simeq$ denotes homotopic equivalence, then
+        \[
+                    \xymatrix{
+                        H_n(X) \ar@/^/[rr]|{f_*}
+                        && H_n(Y) \ar@/^/[ll]|{g_*} }
+                       \quad  \forall \ n \in \ZZ
+          \] $H_n(X)$ is isomorphic to $H_n(Y)$, $ \Rightarrow f_* = (g_*)^{-1} $where $f_*, g_*$ are the induced maps on homology. 
+        \end{thm}
+        \begin{Ex}
+         Let $X$ be the n-dimentional sphere and $Y$ the (n+1)-dimentional real cordinate space without the origin, $X = S^n$ and $Y = \RR^{n+1} / \{0\}$
+         \[
+          \begin{tikzpicture}[>=stealth',x=1cm,y=1cm]
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (1.5,1.5);
+
+                \draw[thick, -] (A)--(B);
+                \draw[thick, -] (A) circle [radius=1];
+
+                \node at (A) {};
+                \node[label={left:$\overrightarrow{x}$}] at (B) {};
+
+                \tkzInterLC[R](A,B)(A,0.75cm) % line (A,B) and circle(A,2cm)
+                \tkzGetPoints{E}{F} % intersection points
+                \node[label={below:$\frac{\overrightarrow{x}}{\lVert \overrightarrow{x} \rVert}$}] at (F) {};
+             \end{tikzpicture}
+            \]
+         \begin{align*}
+         &f: S^n \hookrightarrow \RR^{n+1} / \{0\} \ is \ the  \ usual \ inclusion \\
+         &g: \RR^{n+1} / \{0\}  \rightarrow S^n \ s.t \ g(\overrightarrow{x}) = \frac{\overrightarrow{x}}{\lVert \overrightarrow{x} \rVert}
+         \end{align*}
+         
+         Clearly, $g \circ f \simeq id_S^n$ while $f \circ g: \overrightarrow{x} \mapsto \frac{\overrightarrow{x}}{\lVert \overrightarrow{x} \rVert} \neq id_{\RR^{n+1} / \{0\}}$ \\
+         Let's prove that $f \circ g$ is homotopic equivalent to $id_{\RR^{n+1} / \{0\}}$: 
+         We can construct a function 
+         \begin{align*}
+            F: [0, 1] &\times \RR^{n+1} / \{0\}  \longrightarrow \RR^{n+1} / \{0\} \\
+            F(t, \overrightarrow{x}) &= (t( f \circ g) + (1-t)1_{\RR^{n+1} / \{0\}})\overrightarrow{x} \\
+            &= t(\frac{\overrightarrow{x}}{\lVert \overrightarrow{x} \rVert}) + (1-t)\overrightarrow{x}
+         \end{align*}
+         Clearly, $F(0, \overrightarrow{x}) = \overrightarrow{x} = id_{\RR^{n+1} / \{0\}}$  and
+         $F(1, \overrightarrow{x}) = (\frac{\overrightarrow{x}}{\lVert \overrightarrow{x} \rVert}) = f \circ g$. \\
+         So, $f \circ g \simeq id_{\RR^{n+1} / \{0\}}$, and by theorem \ref{homotopic} $\Rightarrow f_* = (g_*)^{-1}$.
+        \end{Ex}
+        \begin{Ex}
+         Let $X$ be a $1-simplex$ and $Y$ a $0-simplex$:
+          \begin{equation*}
+                    C_\bullet(X, \partial): 
+                    \xymatrix@+3em{
+                        & 0
+                            \ar[r]^{\partial_2}
+                        & \ZZ
+                            \ar[r]^{\partial_1}
+                        & \ZZ^{\oplus^2}
+                            \ar[r]^{\partial_0 = 0}
+                        & 0
+                    }
+            \end{equation*}
+         \begin{equation*}
+                    C_\bullet^{\prime}(Y, \partial^{\prime}): 
+                    \xymatrix@+3em{
+                        & 0
+                            \ar[r]^{0}
+                        & 0
+                            \ar[r]^{\partial_1^\prime = 0}
+                        & \ZZ
+                            \ar[r]^{\partial_0^\prime = 0}
+                        & 0
+                    }
+            \end{equation*}
+            
+        Let's introduce maps on the chain complexes: 
+         \begin{align*}
+        f_n: C_n(X, \partial) \rightarrow C_n^{\prime}(Y, \partial^{\prime}) \\
+        g_n: C_n^{\prime}(Y, \partial^{\prime}) \rightarrow C_n(X, \partial) 
+         \end{align*}
+        
+         \begin{equation*}
+                    \xymatrix@+3em{
+                        & 0
+                            \ar[r]^{\partial_2}
+                        & \ZZ
+                            \ar[r]^{\partial_1}
+                            \ar[d]|*+<1ex,1ex>{\scriptstyle 0}
+                            \ar[dl]_{\scriptstyle p_1}
+                        & \ZZ^{\oplus^2}
+                            \ar[r]^{\partial_0 = 0}
+                            \ar@<0.5ex>[d]^{f_0 = \left[\begin{smallmatrix}1 & 1 \end{smallmatrix}\right]}
+                            \ar[dl]_{\scriptstyle p_{0}}
+                        & 0
+                            \\
+                        & 0 \ar[r]^{0}
+                        & 0 \ar[r]^{\partial_1^\prime = 0}
+                        & \ZZ 
+                        \ar[r]^{\partial_0^\prime = 0}
+                        \ar@<0.5ex>[u]^{\left[\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right] = g_0}
+                        & 0
+                    }
+            \end{equation*}
+            For $n = 0$: 
+             \begin{align*}
+            &f_0 \circ g_0 = \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = id_\ZZ \\
+            &g_0 \circ f_0 = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \begin{bmatrix} 1 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix} \neq id_{\ZZ^{\oplus^2}}
+         \end{align*}
+         
+         Let's prove that $g_0 \circ f_0$ is homotopic equivalent to $id_{\ZZ^{\oplus^2}}$:\\
+         For an arbitrary element
+         $\begin{bmatrix} x \\ y \end{bmatrix} \in \ZZ^{\oplus^2}$: \\
+         $(g_0 \circ f_0 - id_{\ZZ^{\oplus^2}})\begin{bmatrix} x \\ y \end{bmatrix} = 
+         \begin{bmatrix} 0 & 1 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} = 0 $ and
+          $(\partial_1^\prime p_0 + 0 \circ \partial_0) \begin{bmatrix} x \\ y \end{bmatrix} = 0 \Longrightarrow g_0 \circ f_0 \simeq id_{\ZZ^{\oplus^2}}$ \\
+%          For $n = 1$: 
+%          \begin{align*}
+%             &f_1 \circ g_1 \simeq id_0 = 0 \\
+%             &g_1 \circ f_1 \, is \, not \,  homotopic \, equivalent \, to \, id_\ZZ \; since \; g_1 \circ f_1 = 0
+%          \end{align*}
+         To be continued and rechecked
+        \end{Ex}
+        
+
+        \subsection{Exact Sequences}
+        
+        \begin{defn}
+         A sequence of homomorphisms: 
+                 \[
+                 \xymatrix@+3em{
+                        & \dots
+                            \ar[r]
+                        & A_{n+1}
+                            \ar[r]^{\alpha_{n+1}}
+                        & A_n
+                            \ar[r]^{\alpha_n}
+                        & A_{n-1}
+                            \ar[r]^{\alpha_{n-1}}
+                        & \dots }
+                    \]
+                
+        is $\underline{exact}$ if $ \ker\alpha_n = \Ima\alpha_{n+1} \ \forall \ n $. 
+        \end{defn}
+
+                 $ \Ima\alpha_{n+1} \subseteq \ker\alpha_n$ is equivalent to $\alpha_n\alpha_{n+1} = 0$ since $(A_\bullet, \alpha)$ is a chain complex.\\
+                 \& $ \ker\alpha_n \subset \Ima\alpha_{n+1} \Rightarrow H_{n} \ is\ trivial: \ H_{n} = 0 \ \forall \ n $ \\
+
+                Examples of short exact sequences:
+
+                \begin{enumerate}
+                \item $ 0 \rightarrow A \xrightarrow{\alpha} B \ is\ exact\ \iff \ker\alpha = 0, \alpha \ is\ injective $
+                \item $ A \xrightarrow{\alpha} B \rightarrow 0 \ is\ exact\ \iff \Ima\alpha = B, \alpha \ is\ surjective $
+                \item
+                  $
+                    0 \rightarrow A \xrightarrow{\alpha} B \rightarrow 0 \ is\ exact\ \iff \Ima\alpha = B \ and \ \ker\alpha = \{0\}, \alpha \ is \ an \ isomorphism$ 
+                \item
+                  $ 0 \rightarrow A \xrightarrow{\alpha} B \xrightarrow{\beta} C \rightarrow 0 \ is\ exact\ \iff $
+                   \begin{enumerate}
+                    \item 
+                     $\ker \alpha = \Ima(0 \rightarrow A) = 0\ \Rightarrow \alpha\ is\ injective$
+                    \item
+                    $\Ima\beta = C \Rightarrow \beta \ is\ surjective$ 
+                    \item
+                    $\ker \beta = \Ima\alpha $
+                    
+                   \end{enumerate}
+
+                    So, $\beta$  induces an isomorphism $C \simeq \frac{B}{\Ima\alpha}$.  
+                    $C$ can written as $C \simeq B/A$ if $\alpha$ is an inclusion of A as a subgroup of B.
+                \end{enumerate}
+
+                
+                Let us consider a short exact sequence of chain complexes: \\
+                \[ 
+                0 \rightarrow A_\bullet \xrightarrow{i} B_\bullet \xrightarrow{\pi} C_\bullet \rightarrow 0 
+                \] 
+                
+                $A_\bullet, \ B_\bullet, \ C_\bullet$ are chain complexes and $i, \pi$ are maps between chain complexes where \\
+                $\ker \pi = \Ima i, \quad \pi:surjective \ and \ i: injective$\\
+                \[
+                  \begin{tikzcd}[ampersand replacement=\&]
+                    \& \            \& \& 0 \arrow[d]                   \&  \& 0      \arrow[d]                 \&  \& 0 \arrow[d] \\
+                    \& A_\bullet: \quad \arrow[rr] \& \& A_n \arrow[rr, "\partial"] \arrow[d, "i_n"] \&  \& A_{n-1} \arrow[rr, "\partial"] \arrow[d, "i_{n-1}"] \&  \& A_{n-2} \arrow[d, "i_{n-2}"] \arrow[rr] \& \& \ \\
+                    \& B_\bullet: \quad \arrow[rr] \& \& B_n \arrow[rr, "\partial"] \arrow[d, "\pi_n"] \&  \& B_{n-1} \arrow[rr, "\partial"] \arrow[d, "\pi_{n-1}"] \&  \& B_{n-2} \arrow[d, "\pi_{n-2}"] \arrow[rr] \& \& \ \\
+                    \& C_\bullet: \quad \arrow[rr] \& \& C_n \arrow[rr, "\partial"] \arrow[d] \&  \& C_{n-1} \arrow[rr, "\partial"] \arrow[d] \&  \& C_{n-2} \arrow[d] \arrow[rr] \& \& \ \\
+                    \& \            \& \& 0                             \&  \& 0                                 \&  \& 0\\
+                  \end{tikzcd}
+                \]
+    
+                
+                The induced sequence on homology: \\
+                \begin{align}
+                H_n(A_\bullet) \xrightarrow{i_*} H_n(B_\bullet) \xrightarrow{\pi_*} H_n(C_\bullet) \ \forall \  n
+                \end{align}
+                $\pi \circ i = 0 \Rightarrow \pi_* \circ i_* = 0, \quad H_n(\pi \circ i) = H_n(\pi) \circ H_n(i)$\\
+                (2.3) \underline{need not} be a short exact sequence. However, we can create a long exact sequence of homology: \\
+                
+                 \begin{align*}
+                H_{n+1}(C_\bullet) \xrightarrow{\partial n+1} H_n(A_\bullet) \xrightarrow{i_*} H_n(B_\bullet) \xrightarrow{\pi_*} H_n(C_\bullet) \xrightarrow{\delta} H_{n-1}(A_\bullet) \rightarrow H_{n-1}(B_\bullet) \rightarrow H_{n-1}(C_\bullet) \\
+                \end{align*}
+                \begin{align*}
+                0 \rightarrow \Ima \delta_{n+1} \rightarrow H_n(A) \xrightarrow{i_*} H_n(B) \xrightarrow{\pi_*} H_n(C) \rightarrow \ker \delta_n \rightarrow 0 \\
+                \\
+                \end{align*}
+                
+
+%                 The short exact sequence of chain complexes above induces a long exact sequence on the homology:
+% 
+%                 \begin{align*}
+%                   \cdots \rightarrow H_n(A) \rightarrow H_n(B) \rightarrow H_n(C) \xrightarrow{\delta} H_{n-1}(A) \rightarrow H_{n-1}(B) \rightarrow H_{n-1}(C) \\ \xrightarrow{\delta} H_{n-2}(A) \rightarrow H_{n-2}(B) \rightarrow H_{n-2}(C) \rightarrow \cdots
+%                 \end{align*}
+                where the $\delta$ map is defined as:
+                \begin{align*}
+                  \delta: H_n(C) &\rightarrow H_{n-1}(A)\\
+                  [c] &\mapsto [a]
+                \end{align*}
+                For a element $b \in B_n$ there exists $c = \pi_n(b)$ since $\pi$ is onto. \\
+                If we apply the boudary map $\partial: B_{n} \rightarrow B_{n-1}$ on $b$, then
+                $\partial b \in B_{n-1}$,  $\pi_n(\partial b) = \partial(\pi_n(b)) = 0$\\
+                We can take an element $a \in A_{n-1}$ such that $i(a) = \partial(b)$\\
+                $
+                  \partial (\partial b) = \partial (i(a)) = i(\partial a) \Rightarrow \partial a = 0\ since\ i\ is\ injective \ \Rightarrow \partial b = (0) \in A_{n-1}
+                $
+
+                
+                \begin{Ex} Let consider $X$ to be a $1-simplex$ and $Y$ a $2-simplex$ \\
+            
+                \begin{center}
+                 
+
+                \begin{tikzpicture}[line join = round, line cap = round]
+
+                  1-simplex
+                  \coordinate [label=left:$v_0$] (1) at (1,0.86);
+                  \coordinate [label=below:$v_1$] (2) at (3,0.86);
+
+                  2-simplex
+                  \coordinate [label=below:$v_0$] (3) at (6,0);
+                  \coordinate [label=below:$v_1$] (4) at (8,0);
+                  \coordinate [label=above:$v_2$] (5) at (7,{sqrt(3)});
+
+                  \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                   \draw [thin, right hook->] (4, 0.86) -- (5, 0.86); 
+                    1-simplex
+                    \draw[fill] (1) circle [radius=0.025];
+                    \draw[fill] (2) circle [radius=0.025];
+                    \draw[thick, postaction={decorate}] (1)--(2);
+                    2-simplex
+                    \draw[fill] (3) circle [radius=0.025];
+                    \draw[fill] (4) circle [radius=0.025];
+                    \draw[fill] (5) circle [radius=0.025];
+                    \draw[thick, postaction={decorate}] (3)--(4);
+                    \draw[thick, postaction={decorate}] (3)--(5);
+                    \draw[thick, postaction={decorate}] (4)--(5);
+                     \filldraw[opacity=.3, gray] (3) --  (4) --  (5) -- cycle;
+                  \end{scope}
+
+                \end{tikzpicture}
+                \end{center}
+                A short exact sequence of chain complexes for $X, Y$:
+                
+                \[
+                  \begin{tikzcd}[ampersand replacement=\&, sep=large]
+                        \& \            \&  \& 0 \arrow[d] \&  \& 0 \arrow[d] \& \& \\
+                    A_\bullet: \& 0 \arrow[rr] \&  \& \mathbb{Z} \arrow[rr, "\partial = {\left[\begin{smallmatrix}-1\\1\end{smallmatrix}\right]}"] \arrow[d,swap,"i_1 = {\left[\begin{smallmatrix}0\\0\\1\end{smallmatrix}\right]}"] \&  \& \mathbb{Z}^{\oplus^{2}} \arrow[rr] \arrow[d, "i_0 = {\left[\begin{smallmatrix}1&0\\0&0\\0&0\end{smallmatrix}\right]}"] \&  \& 0\\
+                    B_\bullet: \& 0 \arrow[rr] \&  \& \mathbb{Z}^{\oplus^{3}} \arrow[rr, "\partial = {\left[\begin{smallmatrix}0&-1&-1\\-1&0&1\\1&1&0\end{smallmatrix}\right]}"] \arrow[d, "\pi_1"] \&  \& \mathbb{Z}^{\oplus^{3}} \arrow[d, "\pi_0"] \arrow[rr] \&  \& 0\\
+                    C_\bullet: \& 0 \arrow[rr] \&  \& C_1        \arrow[rr] \arrow[d] \&  \& C_0               \arrow[d] \arrow[rr] \&  \& 0\\
+                        \& \            \&  \& 0                               \&  \& 0\\
+                  \end{tikzcd}
+                \]
+                The short exact sequence of complexes induces a long exact sequence on homology: 
+                \[ 
+                0 \rightarrow H_1(A) \rightarrow H_1(B) \rightarrow H_1(C) \xrightarrow{\delta} H_0(A) \rightarrow H_0(B) \rightarrow H_0(C) \rightarrow 0 \]
+                Explicitly, the long exact sequence is:
+            
+                \[ 
+                0 \rightarrow 0 \rightarrow \mathbb{Z} \rightarrow H_1(C) \xrightarrow{\delta} \mathbb{Z} \xrightarrow{1} \mathbb{Z} \xrightarrow{\alpha} H_0(C) \rightarrow 0 
+                \]
+                \begin{align*}
+                  &\ker(1) = \{0\} = \Ima \delta\\
+                  &\ker(\alpha) = \Ima(1) = \mathbb{Z}
+                \end{align*}
+                \begin{align*}
+                  C_1 &= \mathbb{Z}^{\oplus^{3}} / \Ima i_1 \simeq \mathbb{Z}^{\oplus^{2}}\\
+                  C_0 &= \mathbb{Z}^{\oplus^{3}} / \Ima i_0 \simeq \mathbb{Z}
+                \end{align*}
+                The boundary operator between $C_1, C_0$:
+                  \begin{align*}
+                 &\partial: C_1 \rightarrow C_0 \\
+                 &\partial: \begin{bmatrix}
+                    a\\b
+                  \end{bmatrix}
+                  \mapsto (a+b)
+                \end{align*}
+            
+                
+%                 \begin{align*}
+%                   \begin{bmatrix}
+%                     1\\0
+%                   \end{bmatrix}
+%                   \mapsto
+%                   \begin{bmatrix}
+%                     1\\0\\0
+%                   \end{bmatrix}
+%                   \begin{bmatrix}
+%                     a\\b
+%                   \end{bmatrix}
+%                   \mapsto (a+b)
+%                   \\
+%                   \begin{bmatrix}
+%                     a\\b
+%                   \end{bmatrix}
+%                   =
+%                   \begin{bmatrix}
+%                     a\\-a+a+b
+%                   \end{bmatrix}
+%                   =
+%                   \begin{bmatrix}
+%                     a\\-a
+%                   \end{bmatrix}
+%                   +
+%                   \begin{bmatrix}
+%                     0\\a+b
+%                   \end{bmatrix}
+%                 \end{align*}
+            
+                \begin{align*}
+                  \begin{bmatrix}
+                    a\\b
+                  \end{bmatrix}
+                  =
+                  \begin{bmatrix}
+                    a\\b\\0
+                  \end{bmatrix} mod(\Ima i_1) \xmapsto{\partial = \left[\begin{smallmatrix}0&-1&-1\\-1&0&1\\1&1&0\end{smallmatrix}\right]} \begin{bmatrix}
+                    -b\\-a\\a+b
+                  \end{bmatrix}
+                  =
+                  \begin{bmatrix}
+                    0\\0\\a+b
+                  \end{bmatrix}
+                \end{align*}
+
+                \begin{align*}
+                  H_1(C) = \left\{\begin{bmatrix}a\\-a\end{bmatrix}\right\} \simeq \mathbb{Z} \\
+                  H_0(C) = C_0 / C_0 = 0
+                \end{align*}
+                \\
+                \end{Ex}
+                Let us take an example when $Y \subseteq X$ subspace, the short exact sequence of chain complexes is: \\
+                \[ 
+                0 \rightarrow C_n(Y) \rightarrow C_n(X) \rightarrow C_n(X) / C_n(Y) \rightarrow 0
+                \] 
+                We get a long exact sequence on homology: \\
+                \[ H_n(Y) \rightarrow H_n(X) \rightarrow H_n(X, Y) \xrightarrow{\delta} H_{n-1}(Y) \rightarrow H_{n-1}(X) \rightarrow \cdots \]
+
+                \begin{Ex} Consider $X$ to be the annulus, and the shaded area $Y \subseteq X$
+                \[
+                \begin{tikzpicture}
+                    \draw (-3,0) -- (3,0);
+                    \draw (0,-3) -- (0,3);
+                    \filldraw[fill=gray!30,opacity=0.5] (-180:1) arc (-180:180:1) -- (180:2) arc (180:-180:2) -- cycle;
+                    \filldraw[fill=black!30,opacity=0.7] (0:1) arc (0:-180:1) -- (-180:2) arc (-180:0:2) -- cycle;
+                    
+                \end{tikzpicture}
+                \]
+                    \begin{align*}
+                    &X = \{(x,y) | 1 \le x^2 + y^2 \le 2\}\\
+                    &Y = \{(x,y) | 1 \le x^2 + y^2 \le 2, y \le 0\}\\
+                    &\delta\ :\ H_1(X,Y) \rightarrow H_0(Y)\\
+                    &\delta([\sigma]) = [\partial \sigma] = [\sigma(1) - \sigma(0)]
+                    \end{align*}
+                \end{Ex}
+
+                In "good cases" $H_n(X,Y) = H_n(X/Y)$ \\
+                
+            
+                For two topological spaces $Y \subseteq X$ ``pairs of spaces''.\\
+                We can construct the following chain complex: \\
+                $0 \rightarrow C_n(Y) \xrightarrow{i} C_n(X) \xrightarrow{\pi} C_n(X) / C_n(Y) \rightarrow 0, \quad C_n(X, Y)\ are\ relative\ chains$ \\
+                Elements of $C_n$: $\sigma: \Delta^n \rightarrow Y \subseteq X$ \\
+                
+                \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+                \begin{align*}
+                  \partial: C_n(X,Y) &\rightarrow C_{n-1}(X, Y)\\
+                  \delta \Mod{C_n(Y)} &\mapsto \partial \delta \Mod{C_{n-1}(Y)}\\
+                  H_n(X, Y) \equiv H_n(C_\bullet(X, Y)) &= Z_n(X, Y) / B_n(X, Y),\quad cycle / boundary\\
+                \end{align*}
+
+               
+                \begin{defn}[Retraction] 
+                  Consider $Y \subseteq X $, a retraction of $X$ onto $Y$ is a map $r: X \rightarrow Y$ such that, $ r(X) = Y$ and $r^2 = r$.\\
+                \end{defn}
+                  i.e. $r(y) = Y$ if $y \in Y$\\
+                  $i: Y \rightarrow X \quad r \circ i = id_Y \quad i \circ r \ne id_x$ 
+                  but $r_* \circ i_* = id$ in homology\\
+
+                \begin{defn} [Deformation retract]
+                  Consider $Y \subseteq X: subspace$\\
+                  $Y$ is a deformation retract of $X$ if there is a \underline{homotopy} between $id_X$ and a retraction $r: X \rightarrow Y$\\
+                  \begin{align*}
+                    \left.
+                    \begin{array}{cl}
+                      (F_t) \quad F_t: X \rightarrow X \quad &F_0: id_X\\
+                                           &F_1: X \rightarrow Y \quad F_1|_Y = id_Y\\
+                                           &F_1(X) = Y
+                    \end{array}
+                                             \right| F_0 \simeq F_1\ homotopic,\ id_X \simeq r\\
+                  \end{align*}
+                \end{defn}
+                $(X, Y)$ is a "good pair" if
+                \begin{itemize}
+                \item $Y \subseteq X$ -\ closed
+                \item There is open $V \subseteq X,\ such \ that \ V$ is a deformation retracts on $Y$.
+                \end{itemize}
+
+                \begin{Ex}
+                \begin{align*}
+                  &(\mathbb{R}^{n+1}, S^n) \textrm{ is a good pair}\\
+                  &S^n \subseteq \mathbb{R}^{n+1} \textrm{ - closed}\\
+                  &S^n \subseteq (\mathbb{R}^{n+1} / \{0\}) \textrm{ and is a deformation retracted of it}
+                \end{align*}
+                \end{Ex}
+
+               \begin{Ex} Consider $X$ to be a torus, and $Y$ a point on its surface: \\
+               
+               \[
+               \begin{tikzpicture}
+                        \useasboundingbox (-3,-1.5) rectangle (3,1.5);
+                        \draw (0,0) ellipse (3 and 1.5);
+                        \coordinate [label=below:$\ast$] (0) at (-1,-0.5);
+                        \draw[fill] (0) circle [radius=0.03];
+                        \begin{scope}
+                            \clip (0,-1.8) ellipse (3 and 2.5);
+                            \draw (0,2.2) ellipse (3 and 2.5);
+                        \end{scope}
+                        \begin{scope}
+                            \clip (0,2.2) ellipse (3 and 2.5);
+                            \draw (0,-2.2) ellipse (3 and 2.5);
+                        \end{scope}
+                \end{tikzpicture}
+                \]
+                \begin{align*}
+                  &Y = \underset{pt}{\{*\}} \hookrightarrow X\\
+                  &0 \rightarrow C_n(Y) \rightarrow C_n(X) \rightarrow C_n(X/\ast) \rightarrow 0\\
+                  &H_n(Y) = \left\{ \begin{array}{cc}0&n\ne0\\\mathbb{Z}&n=0\end{array} \right. \quad \\
+                  &\cdots \rightarrow H_n(Y) \rightarrow H_n(X) \rightarrow H_n(X,\ast) \rightarrow H_{n-1}(Y) \rightarrow \cdots\\
+                  &\cdots \rightarrow H_0(Y) \rightarrow H_0(X) \rightarrow H_0(X,\ast) \rightarrow 0\\
+                  &n > 0: \quad H_n(X,\star) = H_n(X)\\
+                  &n = 0: \quad 0 \rightarrow \mathbb{Z} \rightarrow H_0(X) \rightarrow H_0(X,\ast) \rightarrow 0\\
+                  &H_0(X,\star) = H_0(x)/\mathbb{Z}, \quad i.e. \left.\begin{array}{l}H_0(X) = \mathbb{Z}^d\\H_0(X) = \mathbb{Z}^{d-1}\end{array} \right.\\
+                \end{align*}
+               \end{Ex}
+               
+                \emph{Remark:} Sometimes one introduces ``reduced homolgy''
+                \begin{align*}
+                  &\dots \rightarrow C_n(X) \rightarrow C_{n-1} \rightarrow \cdots \xrightarrow{\partial_1} C_0(X) \xrightarrow{\epsilon} \mathbb{Z} \rightarrow 0, \quad \tilde{H_n}(X) \textrm{ - reduced homology}\\
+                  & \sum n_i\sigma_ i \mapsto \sum_in_i \in C_0(X)\\
+                  &\tilde{H_n}(X) = \left\{\begin{array}{l}H_n(X), n > 0\\H_0^{sing}(X) = H_0(X)\oplus\mathbb{Z}\end{array} \right.\\
+                  & H_n(X,\ast) \rightarrow \tilde{H_n}(X)\\
+                \end{align*}
+            
+              Let us consider some examples of Reduced Homology: \\
+
+              \begin{Ex}
+               
+               Consider $X = S^1 \times [0, 1]$, and $Y = S^1 \times \{0\}$: \\
+
+                \begin{center}
+                 
+
+              \begin{tikzpicture}
+                \tikzstyle{point}=[thick,draw=black,cross out,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+                \begin{axis}[
+                  legend pos=south west,
+                  axis x line=middle,
+                  axis y line=middle,
+                  width=5cm,
+                  height=5cm,
+                  xmin=0,    % start the diagram at this x-coordinate
+                  xmax=1.5,    % end   the diagram at this x-coordinate
+                  ymin=-0.5,    % start the diagram at this y-coordinate
+                  ymax=1.5,    % end   the diagram at this y-coordinate
+                  enlargelimits=true,
+                  tension=0.08]
+                  \addplot[domain=0:1] {-x+1};
+                  \node[point] at (axis cs:1,0) {};
+                  \node[point] at (axis cs:0,1) {};
+                  \node[above] at (axis cs:0.7,0.6) {$\Delta^1$};
+                  \node[below] at (axis cs:0.5,-0.3) {$(t, 1-t)$};
+                \end{axis}
+                \draw (3,2) node (A) {};
+                \draw (7,3) node (B) {};
+                \draw [thick, ->] (A) to [bend left=45] node[midway, above]{$\sigma$} (B) ;
+
+                \draw (8.5,2) node[cylinder,draw=black,thick,aspect=1.5,minimum height=3cm,minimum width=2cm,shape border rotate=90] {};
+              \end{tikzpicture}
+
+                \end{center}
+                    \begin{align*}
+                        &\sigma: \Delta^1 \mapsto S^1 \times [0, 1] \\
+                        &\sigma: t \mapsto (\cos 2\pi t, \sin 2\pi t, 1)\\
+                    \end{align*}
+
+                The boundary operator on $\sigma$: $\partial\sigma = 0 \rightsquigarrow [\sigma] \in H_1(X)$ \\ The space $X$ is homotopic equivalent to $S^1$ so, $H_1(X) \simeq H_1(S^1) \simeq \ZZ$, considered in \ref{homotopicSpaces}. \\
+              Let us take the quotient map $X/Y$. The space $Y$ will contract into a point creating a cone.
+              
+            \begin{center}
+             
+              \begin{tikzpicture}
+                \tikzstyle{point}=[thick,draw=black,cross out,inner sep=0pt,minimum width=4pt,minimum height=4pt]
+                \begin{axis}[
+                  legend pos=south west,
+                  axis x line=middle,
+                  axis y line=middle,
+                  width=5cm,
+                  height=5cm,
+                  xmin=0,    % start the diagram at this x-coordinate
+                  xmax=1.5,    % end   the diagram at this x-coordinate
+                  ymin=-0.5,    % start the diagram at this y-coordinate
+                  ymax=1.5,    % end   the diagram at this y-coordinate
+                  enlargelimits=true,
+                  tension=0.08]
+                  \addplot[domain=0:1] {-x+1};
+                  \node[point] at (axis cs:1,0) {};
+                  \node[point] at (axis cs:0,1) {};
+                  \node[above] at (axis cs:0.7,0.6) {$\Delta'$};
+                \end{axis}
+                \draw (3,2) node (A) {};
+                \draw (7,3) node (B) {};
+                \draw [thick, ->] (A) to [bend left=45] node[midway, above]{$\sigma$} (B) ;
+
+                \def\rx{1}    % horizontal radius of the ellipse
+                \def\ry{0.25}  % vertical radius of the ellipse
+                \def\z{1.5}     % distance from center of ellipse to origin
+
+                \pgfmathparse{asin(\ry/\z)}
+                \let\angle\pgfmathresult
+
+                \coordinate (h) at (8.5, 1 + \z);
+                \coordinate (O) at (8.5, 1);
+                \coordinate (A) at ({8.5 + -\rx*cos(\angle)}, {\z-\ry*sin(\angle) + 1});
+                \coordinate (B) at ({8.5 + \rx*cos(\angle)}, {\z-\ry*sin(\angle) + 1});
+
+                \draw[fill=white!50] (A) -- (O) -- (B) -- cycle;
+                \draw[fill=white!30] (h) ellipse ({\rx} and {\ry});
+              \end{tikzpicture}
+            \end{center}
+
+              In $H_1(X, Y)$ the class $[\sigma] \in H_1(X)$ goes to 0 and the long exact sequence on homolgy is: 
+              
+              \[ 
+                H_1(Y) \rightarrow H_1(X) \rightarrow H_1(X, Y) \rightarrow H_0(X, Y) \rightarrow H_0(Y) \rightarrow H_0(X) \rightarrow 0
+              \]
+              where $H_1(Y), H_1(X), H_0(Y), H_0(X) \simeq \ZZ$. 
+              
+              FIGURE here:
+              
+              \begin{align*}
+               &\partial \sigma_1 = \sigma_1 |_{[12]}  - \sigma_1 |_{[02]}  + \sigma_1 |_{[01]}  \\
+               &\partial \sigma_2 = \sigma_2 |_{[12]}  - \sigma_2 |_{[02]}  + \sigma_2 |_{[01]}  \\
+               &\partial (\sigma_1 + \sigma_2) = \sigma_1 |_{[12]} + \sigma_2 |_{[01]}  
+              \end{align*}
+              We can choose $\sigma = \sigma_1 |_{[12]} = \partial (\sigma_1 + \sigma_2) - \sigma_2 |_{[01]} $, $\sigma_2 |_{[01]} \in C_1(Y)$ \\
+              $\sigma \in B_1(X, Y) \Rightarrow [\sigma] = 0 \in H_1(X, Y)$ 
+                
+             
+              
+              
+              
+              \end{Ex}
+            
+%               Notes on 4 November
+%               \\
+%               Gradient Ring and Module.
+%               \\
+%               R. Gradient ring $R = \underset{i \in \mathbb{Z}}{\oplus} R_i, \quad R_i \subseteq R$, Ab subgroups\\
+%               Ex.
+%               \begin{align*}
+%                 &R = A[t], (A \textrm{ - commutative ring})\\
+%                 &R_0 = A, R_1 = \{at, a \in A\}, \cdots, R_i = \{at', a \in A\}
+%               \end{align*}
+%               Ex. $R = R[x,y,z], \quad R_i = \{cx^{d_{1}}y^{d_{2}}z^{d_{3}} | \sum^3_{k=1}d_k = i\}$\\
+%               Ex. $R_1 \approxeq \mathbb{R}^3$ as a vector space $\{ax + by + cz\}$\\
+%               \\
+%               \begin{align*}
+%                 &\mathbb{N} \textrm{ - graded}, \quad \underset{i \ge 0}{\oplus}R_i, \quad M = \underset{i \in \mathbb{Z}}{\oplus} M \in R \textrm{ - mod}\\
+%                 &\textrm{Graded module over } R_i, \ni M_i \subseteq M \textrm{ - ab. subgroups}\\
+%                 &R_i: M_k \subseteq M_{k+1}\\
+%                 &\textrm{Reminder: } R \textrm{ is a PID if it's a domain (no zero divizors)}\\
+%               \end{align*}
+%               Ex.
+%               \begin{align*}
+%                 &R = \mathbb{Z},\ or\ = (n),\ n \in \mathbb{Z}\\
+%                 &R = k[1],\ b\ -\ field\\
+%               \end{align*}
+%               $\ast$ Check classification then for modules over PID. Thm 21. ZC and Artiin.\\
+%               $\oplus D^\beta \oplus \underset{i}{\oplus} (D/d_1D)$\\
+%               Graded version, $\underset{i}{\oplus} \sum^{\alpha_i}D \oplus(\underset{i}{\oplus}\sum^{\alpha_i}D/d_iD), \quad \sum^{\alpha_i}$ shift by $\alpha_i$\\
+%               Ex. $D = h[t], \quad (e.g. \mathbb{R}[t])$\\
+%               We can think of $D$ as module over itself\\
+%               $K \oplus Kt \oplus Kt^2 \oplus \cdots$\\
+%               It's also a graded module over itself\\
+%               $\sum^\alpha D = t^\alpha K[t] \subseteq k[t]$, idea of $D \Rightarrow D$ - module\\
+%               $M = M_\alpha \oplus M_{\alpha+1} \oplus \cdots$\\
+%               $(\sum^\alpha D)_i = D_{\alpha+i}$\\
+%               Comment or reduction (on the index that changes the basis): $\partial_k: \underset{\{e_i\}}{C_k} \rightarrow \underset{\{e_i^n\}}{C_{k-1}}$\\
+%               $(C_{k}, C_{k1}: $ free ab groups or free R module)\\
+%               \begin{align*}
+%                 &\textrm{Get} M_K: \textrm{ matrix of } \partial_K. \quad e_n: {\begin{pmatrix}e_1, \cdots, e_{mk}\end{pmatrix}}{\begin{pmatrix}u_1\\\vdots\\u_{mk}\end{pmatrix}} \in C_k\\
+%                 &\partial_k(eu) = \overset{n}{e}(H_u)\\
+%                 &\mathcal{U}
+%               \end{align*}
+%               \\
+%               Simplicial Complexes Combinatorically:
+%               $l = \{1, 2, \cdots, m\} (=[m])$ partially ordered\\
+%               Simplicial Complex is a collection $\mathcal{K}$ of subsetsof $V$\\
+%               \begin{enumerate}
+%               \item $\emptyset \in \mathcal{K}$
+%               \item $\{i\} \in \mathcal{K}$ (simplicial)
+%               \item $I \in \mathcal{K}$ and $\mathcal{J} \subseteq I \Rightarrow \mathcal{J} \in \mathcal{K}$
+%               \end{enumerate}
+%               $(\forall I \in \mathcal{K} (\forall J \subseteq I)) \Rightarrow \mathcal{J} \in \mathcal{K}$\\
+%               Example: $\{1, 2, 3, 4\} = V$\\
+%               $\mathcal{K} = \{\{1, 2, 3\} = I, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{4\}, \emptyset\}$
+%               \\
+%               \\
+%               \begin{tikzpicture}[line join = round, line cap = round]
+% 
+%                 0-simplex
+%                 \coordinate [label=below:$4$] (0) at (3,1.5);
+%                 2-simplex
+%                 \coordinate [label=below:$1$] (1) at (4,0);
+%                 \coordinate [label=below:$2$] (2) at (6,0);
+%                 \coordinate [label=above:$3$] (3) at (5,{sqrt(3)});
+% 
+%                 \begin{scope}[decoration={markings,mark=at position 0.5 with
+%                     {\arrow{to}}}]
+%                   0-simplex
+%                   \draw[fill] (0) circle [radius=0.03];
+%                   2-simplex
+%                   \draw[fill] (1) circle [radius=0.025];
+%                   \draw[fill] (2) circle [radius=0.025];
+%                   \draw[fill] (3) circle [radius=0.025];
+%                   \draw[thick, postaction={decorate}] (1)--(2);
+%                   \draw[thick, postaction={decorate}] (1)--(3);
+%                   \draw[thick, postaction={decorate}] (2)--(3);
+%                 \end{scope}
+%               \end{tikzpicture}
+%               \\
+%               $\underset{I\in K \ne \emptyset}{\cup} (Conv(e_i)) = |\mathcal{K}|$ topology realization of $e_1, \cdots e_n \in \mathbb{R}^n$ standard basis\\
+%               $X$ - top. sp\\
+%               $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ - cover indexes, $\mathcal{U} = \{\mathcal{U}_1, \mathcal{U}_2, \cdots, \mathcal{U}_n\}$\\
+%               $\underset{\alpha}{\cup} \quad \mathcal{U}_\alpha = X$\\
+%               $\underset{"nerve\ of\ the\ cover"}{\mathcal{N}(\mathcal{U})}$: simplix of $cx$\\
+%               Vertices of $\mathcal{N}(\mathcal{U}), \quad (\mathcal{N}(\mathcal{U}) = \{1, 2, \cdots, m\})$\\
+%               $(k - 1)$ - faces, $\quad \{i_1, \cdots, i_k \} \in \mathcal{N}(\mathcal{U}), \quad i1 U_{1_{i}} \cap \cdots \cap \mathcal{U}_{i_{k}} \ne \emptyset$\\
+%               Examples:
+%               \begin{align*}
+%                 &S^1 = \mathcal{U} \cup V\\
+%                 &\textrm{Cover} \mathcal{U} = {U, V}\\
+%               \end{align*}
+%               \begin{tikzpicture}
+%                 \node[circle,draw] (a) at (0,0) {};
+%                 \draw[thick,-] (a) to[in=220,out=330,looseness=20] (a);
+%                 \node[circle,draw] (b) at (2,-1) {};
+%                 \draw[thick,-] (b) to[in=140,out=40,looseness=20] node[midway,above] {$V$} (b);
+%               \end{tikzpicture}
+%               \\
+%               $\mathcal{U} = S' \backslash \{0, 0\}$\\
+%               \begin{tikzpicture}
+%                 \node[circle,draw] (a) at (0,0) {};
+%                 \node[circle,draw] (b) at (0,-2) {};
+%                 \draw[thick,-] (b) to[in=180,out=180] node[midway,left] {$\underset{U_1}{\mathcal{U}} \cap \underset{U_2}{V} = $} (a);
+%                 \draw[thick,-] (b) to[in=0,out=0] (a);
+%               \end{tikzpicture}
+%               \\
+%               $\{\{1, 2\}, \{1\},\{2\}, \emptyset\} = \mathcal{N}(\mathcal{U})$\\
+%               Thm: (Alexandroff, ``nerve thm'') of $X$ - paracompact\\
+%               $\mathcal{U} = \{\mathcal{U}_2\}$ - open cover ($\mathcal{V}_2 \subseteq X$ - open) and a good cover ($all\ \mathcal{V}_2 \&\ all\ \mathcal{V}_i \cap \cdots \cap \mathcal{V}_{i_{k}}$ are contractible or $\emptyset$)\\
+%               $\underset{\underset{redirohan}{topological}}{\mathcal{N}(\mathcal{U})}$ is homotopic eq to $X$\\
+%               Yes can recover $X$ by the homotopic equivalence of the nerve $(\mathcal{U})$\\
+
+                
+             \chapter{Persistent Homology}
+               
+              
+              Graded Rings and Modules. \\
+               
+              A graded ring is a ring $\langle R, +, \cdot \rangle$ equipped with a direct sum decomposition of Abelian
+              groups $R \cong \underset{i \in \mathbb{Z}}{\oplus} R_i$, so multiplication is defined by bilinear pairings $R_n \otimes R_m \rightarrow R_{n+m}$. \\
+              
+              Elements in a single $R_i$ are called homogeneous and have degree i, $\deg e = i$ for all $e \in R_i$.
+              
+              \begin{Ex}
+                $ R = A[t]$, where  $(A \textrm{ - commutative ring})$
+              \begin{align*}
+                R_0 = A, \quad R_1 = \{at, a \in A\}, \quad \dots \ , R_i = \{at^i, a \in A\}
+              \end{align*}
+              \end{Ex}
+              \begin{Ex}
+                $R = \RR[x,y,z]$ 
+                \[
+                R_i = \{cx^{d_{1}}y^{d_{2}}z^{d_{3}} | \sum^3_{k=1}d_k = i\}\\
+                \]
+              For example $R_1 \simeq \mathbb{R}^3$ as a vector space $\{ax + by + cz\}$\\
+              \end{Ex}
+              
+%               $\mathbb{N}$ - graded $\underset{i \ge 0}{\oplus}R_i$\\
+              
+               A graded module $M$ over a graded ring $R$ is a module equipped with a direct sum decomposition $M \cong \underset{i \in \mathbb{Z}}{\oplus} M_i$, so that the action of R on M is defined is bilinear pairings $R_n \otimes M_m \rightarrow M_{n+m}$. \\
+              
+              A graded ring (module) is non-negatively graded if $R_i = 0 \ (M_i = 0)$ for all $i < 0$.
+              
+              \underline{Reminder:} $R$ is a PID if it's a domain (no zero divisors) \& $\forall$ ideal is principal\\
+              
+             For example: 
+              \begin{align*}
+                &R = \ZZ, \ I = (n),\ n \in \mathbb{Z} \\
+                &R = k[t],\ k\ -\ field\\
+              \end{align*}
+              
+              \begin{thm} [Structure Theorem] \label{Structure}
+              If $D$ is a PID, then every finitely generated D-module is isnomorphic to a direct sum of cyclic D-module. That is, it decomposes uniquely into the form
+              \begin{align}
+                D^\beta \oplus (\underset{i}{\oplus} D/d_iD)),
+              \end{align}
+              for $d_i \in D$, $\beta \in \ZZ$, such that $d_i| d_{i+1}.$ Similarly, every graded module $M$ over a graded PID D decomposes uniquely into the form
+               \begin{align}
+                (\underset{i}{\oplus} \Sigma^{\alpha_i} D) \oplus (\underset{i}{\oplus} \Sigma ^{\gamma_j} D/d_jD)),
+              \end{align}
+              where $d_j \in D$ are homogeneous elements so that $d_j|d_{j+1}$, $\alpha_i, \gamma_j in \ZZ$, and $\Sigma^\alpha$ denotes an $\alpha$-shift upward in grading.
+              \end{thm}
+              The free portion on the left is a vector includes generators that may generate an infinite number of elements. Decomposition (3.1) has a vector space of dimension $\beta$. The torsional portion on the right includes generators that
+               may generate a finite number of elements. These torsional elements are also homogeneous. Intuitively then, the theorem describes finitely generated modules and graded modules as structures that look like vector spaces but also
+                have some dimensions that are "finite" in size.
+              
+             
+              \begin{Ex}
+               Let us take $D = k[t] - \textrm{graded ring} (\textrm{e.g. } \mathbb{R}[t])$
+               then: 
+               \[
+                D = \equalto{k}{M_0} \oplus \equalto{kt}{M_1} \oplus \equalto{kt^2}{M_2} \oplus \cdots
+                \]
+                is also a graded module over itself.
+              \begin{align*}
+                &M = \sum^\alpha D = t^\alpha k[t] \subseteq k[t] \textrm{  is an ideal of } D \Rightarrow D \textrm{ - module}\\
+                &M = \simequalto{M_\alpha}{k} \oplus \simequalto{M_{\alpha+1}}{kt} \oplus \cdots\\
+                &(\sum^\alpha D)_i = D_{\alpha+i}\\
+              \end{align*}
+              \end{Ex}
+              
+              Reduction: 
+              
+              \begin{align*}
+                &\partial_k: \underset{\{e_i\}}{C_k} \rightarrow \underset{\{\hat{e_i}\}}{C_{k-1}}\\
+                &(C_{k}, C_{k-1}: \textrm{free abelian groups or free R-module})\\
+                &\textrm{Get} \ M_k: \textrm{ matrix of } \partial_K\\
+                &e \cdot u: {\begin{pmatrix}e_1, \cdots, e_{m_k}\end{pmatrix}}{\begin{pmatrix}u_1\\\vdots\\u_{m_k}\end{pmatrix}} \in C_k\\
+                &\partial_k(eu) = \hat{e}(M_u)\\
+              \end{align*}
+              Row-operation
+              \begin{align*}
+                &R_i \mapsto R_i + qR_j \textrm{ on } M\\
+                &M \mapsto i\underbrace{\begin{pmatrix}1&&&& \\ & \ddots &&& \\ && 1 & \cdots & q \\ &&& \ddots & \\ &&&& 1 \end{pmatrix}}_\text{A} M\\
+                &R_2 \mapsto R_2 + 2R_3\\
+                &\begin{pmatrix}1&0&0\\0&1&2\\0&0&1\end{pmatrix} M\\
+                &\begin{pmatrix}e_1 & e_2 & e_3\end{pmatrix}\begin{pmatrix}1&0&0\\0&1&2\\0&0&1\end{pmatrix} \mapsto \begin{pmatrix}e_1 & e_2 & 2e_2 + e_3\end{pmatrix}
+              \end{align*}
+              Column operations:
+              \begin{align*}
+                M \mapsto MB, B_2\begin{pmatrix}1&&&& \\ & \ddots &&& \\ && 1 && \\ && \vdots & \ddots & \\ && q && 1 \end{pmatrix}
+              \end{align*}
+              \\
+              Interpretation of row/column operations on a matrix of a map in terms of changing bases.
+              \begin{align*}
+                &\partial: \xi = \underline{e}u \mapsto \hat{e} M u
+                \ where\ u = [\xi]\underline{e}
+              \end{align*}
+              \\
+              Suppose we perform a column-operation $M \mapsto MB$. This is supposed to change the matrix of a map - keeping the map unchanged
+              \begin{align*}
+                &\xi = \equalto{\underline{e}u}{\underline{e} B (B^{-1}u)} \mapsto \hat{e} M u = \hat{e} M B (B^{-1}u)\\
+                &\textrm{If we set } \underline{e}' = \underline{e}B\\
+                &\partial: \xi = \underline{e}' v \mapsto \underline{\hat{e}} MB v\\
+                &v = [\xi]_{\underline{e}'}
+              \end{align*}
+              \\
+              Similarly, suppose we perform a row-operation $M \mapsto AM$. Then
+              \begin{align*}
+                \xi = \underline{e}u \mapsto \underline{\hat{e}}Mu &= \underline{\hat{e}}A^{-1}AMu\\
+                                                           &= \underline{\hat{e}}'AMu\\
+              \end{align*}
+              That is, if $M = [\partial]_{\underline{e}\underline{\hat{e}}}$, then
+              \begin{align*}
+                &AMB = [\partial]_{\underline{e}B, \underline{\hat{e}}A^{-1}}\\
+                &A = I + qE_{ij}: R_i \mapsto R_i + qR_j \ (\textrm{via } M \mapsto AM)\\
+                &A^{-1} = I - qE_{ij}\\
+                &\underline{\hat{e}} A^{-1} = (\hat{e}_1, \cdots, \hat{e}_{m_{k-1}})\begin{pmatrix}1 &&&& \\ & 1 &&& \\ && \ddots & \cdots & q\\ &&& 1 &\\ &&&& 1\end{pmatrix}i =\\
+                &= (\hat{e}_1, \cdots, \hat{e}_j - q\hat{e}_i, \cdots), \textrm{i.e. } \hat{e}_j \mapsto \hat{e}_j - q\hat{e}_i\\
+              \end{align*}
+            
+              \begin{align*}
+                &B = I + qE_{ji}: C_i \mapsto C_i + qC_j (\textrm{via } M \mapsto MB)\\
+                &\underline{e}B = (e_1, \cdots, e_{m_{k}})\begin{pmatrix}1 &&&& \\ & 1 &&& \\ && \ddots & \cdots & q\\ &&& 1 &\\ &&&& 1\end{pmatrix}j = (e_1, \cdots, e_i + qe_j, \cdots)\\
+              \end{align*}
+              \begin{align*}
+                &\textrm{Let } V \simeq \mathbb{\RR}^n (\textrm{be a vector space})\\
+                &B = \{e_1, \cdots, e_n\}\\
+                &V = \underline{e}X = (e_1, \cdots, e_a)\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}= \sum_{i=1}^nx_ie_i \quad (e_i \in V, x_i \in \mathbb{R})\\
+                &B^1 = \{f_1, \cdots, f_n\}\\
+                &v = \underline{e}X = \underbrace{\underline{e} T^{-1}}_\text{\underline{f}}(\underbrace{TX}_\text{Y})= (f_1, \cdots, f_n) Y\\
+                &(f_1, \cdots, f_n) = (l_1, \cdots, l_n) T^{-1}\\
+                &Y = TX \\
+                \end{align*}
+              \\
+              Smith normal form (for PID):
+              \begin{align*}
+                &\exists A, B:\\
+                &\partial_k \equiv AMB = \left(\begin{array}{c|c}
+                               \begin{pmatrix}b_1 && \\ & \ddots & \\ && b_l\end{pmatrix}& \overbrace{0}^\text{}\\
+                               \hline
+                               0 & 0 \\
+                             \end{array}\right)^{b_{i} | b_{ix1}}
+                \\
+                &rank Z_k = m_k - e_k\\
+                &rank\ Free(H_k) = m_k - l_k - l_{k+1}
+              \end{align*}
+              \\
+              \underline{On persistence:}
+              
+              We have a ``filtered chain complex''
+              \\
+              $\equalto{(0)}{C_\bullet^0} \subseteq C_\bullet^1 \subseteq C_\bullet^2 \subseteq \cdots \subseteq \equalto{C_\bullet^m}{C_\bullet}$\\
+              It may come from a fitted simplicial complex: \\
+              \\
+              \begin{center}
+               
+
+              \begin{tikzpicture}[line join = round, line cap = round]
+                % 1st
+                \coordinate (0) at (0,1);
+                \coordinate (1) at (1,0);
+                % arrow 1st to 2nd
+                \coordinate (a1) at (1.3, 0.5);
+                \coordinate (a2) at (1.7, 0.5);
+                % 2nd
+                \coordinate (2) at (2,1);
+                \coordinate (3) at (3,0);
+                \coordinate (4) at (3,1);
+                % arrow 2nd to 3rd
+                \coordinate (a3) at (3.3, 0.5);
+                \coordinate (a4) at (3.7, 0.5);
+                % 3rd
+                \coordinate (5) at (4,1);
+                \coordinate (6) at (4,0);
+                \coordinate (7) at (5,1);
+                \coordinate (8) at (5,0);
+                % arrow 3rd to 4th
+                \coordinate (a5) at (5.3, 0.5);
+                \coordinate (a6) at (5.7, 0.5);
+                % 4th
+                \coordinate (9) at (6,1);
+                \coordinate (10) at (6,0);
+                \coordinate (11) at (7,1);
+                \coordinate (12) at (7,0);
+                % arrow 4th to 5th
+                \coordinate (a7) at (7.3, 0.5);
+                \coordinate (a8) at (7.7, 0.5);
+                % 5th
+                \coordinate (13) at (8,1);
+                \coordinate (14) at (8,0);
+                \coordinate (15) at (9,1);
+                \coordinate (16) at (9,0);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (0) circle [radius=0.03];
+                  \draw[fill] (1) circle [radius=0.03];
+                  \draw[fill] (2) circle [radius=0.03];
+                  \draw[fill] (3) circle [radius=0.03];
+                  \draw[fill] (4) circle [radius=0.03];
+                  \draw[fill] (5) circle [radius=0.03];
+                  \draw[fill] (6) circle [radius=0.03];
+                  \draw[fill] (7) circle [radius=0.03];
+                  \draw[fill] (8) circle [radius=0.03];
+                  \draw[fill] (9) circle [radius=0.03];
+                  \draw[fill] (10) circle [radius=0.03];
+                  \draw[fill] (11) circle [radius=0.03];
+                  \draw[fill] (12) circle [radius=0.03];
+                  \draw[fill] (13) circle [radius=0.03];
+                  \draw[fill] (14) circle [radius=0.03];
+                  \draw[fill] (15) circle [radius=0.03];
+                  \draw[fill] (16) circle [radius=0.03];
+                  % hooks
+                  \draw [right hook->] (a1) -- (a2);
+                  \draw [right hook->] (a3) -- (a4);
+                  \draw [right hook->] (a5) -- (a6);
+                  \draw [right hook->] (a7) -- (a8);
+                  % 2nd
+                  \draw[thick] (3)--(4);
+                  \draw[thick] (2)--(4);
+                  % 3rd
+                  \draw[thick] (5)--(6);
+                  \draw[thick] (5)--(7);
+                  \draw[thick] (6)--(8);
+                  \draw[thick] (7)--(8);
+                  % 4th
+                  \draw[thick] (9)--(10);
+                  \draw[thick] (9)--(11);
+                  \draw[thick] (10)--(12);
+                  \draw[thick] (11)--(12);
+                  \draw[thick] (9)--(12);
+                  % 5th
+                  \draw[thick] (13)--(14);
+                  \draw[thick] (13)--(15);
+                  \draw[thick] (14)--(16);
+                  \draw[thick] (15)--(16);
+                  \draw[thick] (13)--(16);
+                \end{scope}
+                \filldraw [opacity=.33,red] (8,1) -- (9,1) -- (9,0) -- cycle;
+              \end{tikzpicture}
+              \end{center}
+              
+              \[
+                \begin{tikzcd}[ampersand replacement=\&]
+                  \& 0 \arrow[rr] \arrow[d]                      \&\& 0 \arrow[rr] \arrow[d]                                \&\& 0 \arrow[rr] \arrow[d]                            \&\& 0 \arrow[rr] \arrow[d]                            \&\& \mathbb{Z} \arrow[d]\\
+                  \& 0 \arrow[hookrightarrow]{rr}{f^1} \arrow[d] \&\& \mathbb{Z}^2 \arrow[hookrightarrow]{rr}{f_2} \arrow[d] \&\& \mathbb{Z}^4 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^5 \arrow[d] \arrow[hookrightarrow]{rr} \&\& \mathbb{Z}^4 \arrow[d]\\
+                  \& \mathbb{Z}^2 \arrow[hookrightarrow]{rr}{f^1} \arrow[d] \&\& \mathbb{Z}^3 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^4 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^4 \arrow[d] \arrow[hookrightarrow]{rr} \&\& \mathbb{Z}^4 \arrow[d]\\
+                  \& 0 \arrow[hookrightarrow]{rr}{f^1}           \&\& 0 \arrow[hookrightarrow]{rr}         \&\& 0 \arrow[hookrightarrow]{rr}          \&\& 0 \arrow[hookrightarrow]{rr} \&\& 0 \\
+                  \& C_\bullet^1 \arrow[hookrightarrow]{rr}{f^1}       \&\& C_\bullet^2 \arrow[hookrightarrow]{rr}{f^2} \&\& C_\bullet^3 \arrow[hookrightarrow]{rr}{f^3} \&\& C_\bullet^4 \arrow[hookrightarrow]{rr}{f^4} \&\& C_\bullet^5 \\
+                \end{tikzcd}
+              \]
+              \begin{defn} (Persistant Homology Group)
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+                Given a filtered complex, the i-th complex $K^i$ has associated boundary operators 
+                $\partial^i_k$, matrices $M^i_k$ , and groups $C^i_k$, $Z^i_k$, $B^i_k$, and $H^i_k$ for all $i, k \geq 0$
+                The p-persistent k-th homology group of $K^i$ is 
+                        \[
+                        H_k^{i, p} = Z_k^i \left/ (B_k^{i+p} \cap Z_k^i) \right.
+            \]
+            \end{defn}
+              
+              \begin{align*}
+                &\textrm{If } p = 0: H_k(C_\bullet^i) = Z_k^i / \underset{\equiv B_k^i}{(B_k^i \cap Z_k^i})
+              \end{align*}
+              \\
+              ``Persistence cx''\\
+              $\{C_\bullet^i\}: \ge 0 \quad f: C_\bullet^i \rightarrow C_\bullet^{i+1}$ for chain maps\\
+              ``Persistence mod''\\
+              \begin{align*}
+                &\{M^i, \varphi^i: M^i \rightarrow M^{i+1}\} = M\\
+                &\alpha(M) = \underset{i \ge 0}{\oplus} M_i\\
+                &t \cdot(m^0,m^1, \cdots) = (0, \varphi^0(m^0), \varphi^1(m^1), \cdots)\\
+                &\left(\begin{array}{c|c|c|c}
+                        0 &&& \\ \hline \varphi^0 & 0 && \\ \hline & \varphi^1 & 0 & \\ \hline && \varphi^2 &
+                      \end{array}\right)
+              \end{align*}
+              
+              \begin{thm} (Correspondence) The correspondence $\alpha$ defines an equivalence of categories between the category of persistence modules of finite type over $R$ and the category of finitely generated non-negatively graded modules over $R[t]$.
+              \end{thm}
+
+              
+
+              \begin{align*}
+                \varphi: \mathbb{R}^n \rightarrow \mathbb{R}\\
+                \varphi: \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \mapsto &(A_1, \cdots, A_n)\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\\
+                                                             &A_1x_1 + \cdots + A_nx_n\\
+                (\varphi_1, \cdots, \varphi_{n-1}) \mathbb{R}^n \rightarrow \mathbb{R}^{n-1}\\
+                \underline{x} \mapsto \begin{pmatrix}A_{11} & \cdots & A_{m-1}\\ \cdots&\cdots&\cdots\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\\
+                \textrm{e.g.} \begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}:\begin{pmatrix}x\\y\\z\end{pmatrix} \mapsto \begin{pmatrix}x\\y\end{pmatrix}\\
+              \end{align*}
+
+             \underline{setup:} chain complex with a filtration
+              \begin{align*}
+                C_\bullet^0 \hookrightarrow C_\bullet^1 \hookrightarrow C_\bullet^2 \hookrightarrow \cdots\\
+                H_k^{i-p} = Z_k^i / B_k^{i+p} \cap Z_k^i\\
+                Z_k^i = \ker (\partial_k^i : C_k^i \rightarrow C_{k-1}^i)\\
+                =\Ima ((H_k^i = H_k | C_\bullet^i) \rightarrow (H_k | C_\bullet^{i+p}))\\
+              \end{align*}
+              Ex:\\
+              \begin{center}
+                \begin{tikzpicture}[line join = round, line cap = round]
+                  \coordinate (0) at (0,0);
+                  \coordinate (1) at (1,0);
+                  \coordinate (2) at (3,0);
+                  \coordinate (3) at (4,0);
+                  \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                    \draw[fill] (0) circle [radius=0.03];
+                    \draw[fill] (1) circle [radius=0.03];
+                    \draw[fill] (2) circle [radius=0.03];
+                    \draw[fill] (3) circle [radius=0.03];
+                    \draw[thick] (2)--(3);
+                  \end{scope}
+                \end{tikzpicture}
+              \end{center}
+              \begin{align*}
+                \\
+                \begin{tikzcd}[ampersand replacement=\&, sep=large]
+                  \& C_\bullet^0 \&\& C_\bullet^1 \\
+                  1 \& (0) \arrow[hookrightarrow]{rr} \arrow[d,swap,"\partial_1=0"]          \&\& \mathbb{Z} \arrow[d,"\partial_1={\begin{bmatrix}-1\\1\end{bmatrix}}"]\\
+                  0 \& \mathbb{Z}^2 \arrow[hookrightarrow]{rr} \arrow[d,swap,"\partial_0=0"] \&\& \mathbb{Z}^2 \arrow[d,"\partial_0={\begin{bmatrix}0&0\end{bmatrix}}"]\\
+                  \& 0 \arrow[hookrightarrow]{rr}              \&\& 0\\
+                \end{tikzcd}
+              \end{align*}
+              \\
+              \underline{$p = 0$}
+              \begin{align*}
+                &H_k^{i,0} = Z_k^i / B_k^i \cap Z_k^i\\
+                &H_1^{0,0} = (0) \quad H_1^{1,0} = (0)\\
+                &H_0^{0,0} = \mathbb{Z}^2 \quad H_0^{1,0} \simeq \mathbb{Z}\\
+              \end{align*}
+              \\
+              \underline{$p = 1$}
+              \begin{align*}
+                &H_k^{i,1} = Z_k^i / B_k^{i+1} \cap Z_k^i\\
+                &H_1^{0,1} = Z_0^1 / B_1^{1} \cap Z_1^0 = (0) \quad H_1^{1,1} = (0)\\
+                &H_0^{0,1} = Z_0^0 / B_0^{1} \cap Z_0^0 = \mathbb{Z}^2 / \Ima \begin{bmatrix}-1\\1\end{bmatrix} \simeq \mathbb{Z}\\
+              \end{align*}
+              \\
+              \begin{tikzpicture}[line join = round, line cap = round]
+                % 1st
+                \coordinate [label=above:$a$] (0) at (0,1);
+                \coordinate [label=above:$b$] (1) at (1,1);
+                % arrow 1st to 2nd
+                \coordinate (a1) at (1.3, 0.5);
+                \coordinate (a2) at (1.7, 0.5);
+                % 2nd
+                \coordinate [label=above:$a$] (2) at (2,1);
+                \coordinate [label=below:$d$] (3) at (2,0);
+                \coordinate [label=above:$b$] (4) at (3,1);
+                \coordinate [label=below:$c$] (5) at (3,0);
+                % arrow 2nd to 3rd
+                \coordinate (a3) at (3.3, 0.5);
+                \coordinate (a4) at (3.7, 0.5);
+                % 3rd
+                \coordinate [label=above:$a$] (6) at (4,1);
+                \coordinate [label=below:$d$] (7) at (4,0);
+                \coordinate [label=above:$b$] (8) at (5,1);
+                \coordinate [label=below:$c$] (9) at (5,0);
+                % arrow 3rd to 4th
+                \coordinate (a5) at (5.3, 0.5);
+                \coordinate (a6) at (5.7, 0.5);
+                % 4th
+                \coordinate [label=above:$a$] (10) at (6,1);
+                \coordinate [label=below:$d$] (11) at (6,0);
+                \coordinate [label=above:$b$] (12) at (7,1);
+                \coordinate [label=below:$c$] (13) at (7,0);
+                % arrow 4th to 5th
+                \coordinate (a7) at (7.3, 0.5);
+                \coordinate (a8) at (7.7, 0.5);
+                % 5th
+                \coordinate [label=above:$a$] (14) at (8,1);
+                \coordinate [label=below:$d$] (15) at (8,0);
+                \coordinate [label=above:$b$] (16) at (9,1);
+                \coordinate [label=below:$c$] (17) at (9,0);
+                % arrow 5th to 6th
+                \coordinate (a9) at (9.3, 0.5);
+                \coordinate (a10) at (9.7, 0.5);
+                % 6th
+                \coordinate [label=above:$a$] (18) at (10,1);
+                \coordinate [label=below:$d$] (19) at (10,0);
+                \coordinate [label=above:$b$] (20) at (11,1);
+                \coordinate [label=below:$c$] (21) at (11,0);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (0) circle [radius=0.03];
+                  \draw[fill] (1) circle [radius=0.03];
+                  \draw[fill] (2) circle [radius=0.03];
+                  \draw[fill] (3) circle [radius=0.03];
+                  \draw[fill] (4) circle [radius=0.03];
+                  \draw[fill] (5) circle [radius=0.03];
+                  \draw[fill] (6) circle [radius=0.03];
+                  \draw[fill] (7) circle [radius=0.03];
+                  \draw[fill] (8) circle [radius=0.03];
+                  \draw[fill] (9) circle [radius=0.03];
+                  \draw[fill] (10) circle [radius=0.03];
+                  \draw[fill] (11) circle [radius=0.03];
+                  \draw[fill] (12) circle [radius=0.03];
+                  \draw[fill] (13) circle [radius=0.03];
+                  \draw[fill] (14) circle [radius=0.03];
+                  \draw[fill] (15) circle [radius=0.03];
+                  \draw[fill] (16) circle [radius=0.03];
+                  \draw[fill] (17) circle [radius=0.03];
+                  \draw[fill] (18) circle [radius=0.03];
+                  \draw[fill] (19) circle [radius=0.03];
+                  \draw[fill] (20) circle [radius=0.03];
+                  \draw[fill] (21) circle [radius=0.03];
+                  % hooks
+                  \draw [right hook->] (a1) -- (a2);
+                  \draw [right hook->] (a3) -- (a4);
+                  \draw [right hook->] (a5) -- (a6);
+                  \draw [right hook->] (a7) -- (a8);
+                  \draw [right hook->] (a9) -- (a10);
+                  % 2nd
+                  \draw[thick] (5)--(4);
+                  \draw[thick] (2)--(4);
+                  % 3rd
+                  \draw[thick] (6)--(7);
+                  \draw[thick] (6)--(8);
+                  \draw[thick] (7)--(9);
+                  \draw[thick] (8)--(9);
+                  % 4th
+                  \draw[thick] (10)--(11);
+                  \draw[thick] (10)--(12);
+                  \draw[thick] (11)--(13);
+                  \draw[thick] (12)--(13);
+                  \draw[thick] (10)--(13);
+                  % 5th
+                  \draw[thick] (14)--(15);
+                  \draw[thick] (14)--(16);
+                  \draw[thick] (15)--(17);
+                  \draw[thick] (16)--(17);
+                  \draw[thick] (14)--(17);
+                  % 6th
+                  \draw[thick] (18)--(19);
+                  \draw[thick] (18)--(20);
+                  \draw[thick] (19)--(21);
+                  \draw[thick] (20)--(21);
+                  \draw[thick] (18)--(21);
+                \end{scope}
+                \filldraw [opacity=.33,red] (8,1) -- (9,1) -- (9,0) -- cycle;
+                \filldraw [opacity=.33,red] (10,1) -- (11,1) -- (11,0) -- cycle;
+                \filldraw [opacity=.33,blue] (10,1) -- (10,0) -- (11,0) -- cycle;
+              \end{tikzpicture}
+              \\
+              \[
+                \begin{tikzcd}[ampersand replacement=\&, sep=normal]
+                  \& 0     \&\& 1    \&\& 2     \&\& 3     \&\& 4     \&\& 5\\
+                  \& C_\bullet^0 \arrow[rr] \&\& C_\bullet^1 \arrow[rr] \&\& C_\bullet^2 \arrow[rr] \&\& C_\bullet^3 \arrow[rr] \&\& C_\bullet^4 \arrow[rr] \&\& C_\bullet^5\\
+                  2 \& 0 \arrow[d]  \arrow[rr]           \&\& 0 \arrow[d]  \arrow[rr]           \&\& 0 \arrow[d]  \arrow[rr]           \&\& 0 \arrow[d]  \arrow[rr]           \&\& \mathbb{Z} \arrow[rr] \arrow[d]  \&\& \mathbb{Z}^2 \arrow[d]\\
+                  1 \& 0 \arrow[d]  \arrow[rr]           \&\& \mathbb{Z}^2 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^5 \arrow[rr] \arrow[d,"\partial_1^3"] \&\& \mathbb{Z}^5 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^5 \arrow[d]\\
+                  0 \& \mathbb{Z}^2 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[d]\\
+                  \& 0 \&\& 0 \&\& 0 \&\& 0 \&\& 0 \&\& 0\\
+                \end{tikzcd}
+              \]
+              \\
+              \underline{Exc} Compute explicitly some $H_k^{i,p}$\\
+              e.g. $H_1^{3,2} = Z_1^3 = B_1^5 \cap Z_1^3$\\
+              Here the matrix of $\partial_1^3$ is\\
+              \begin{align*}
+                \left(\begin{array}{c|ccccc}
+                        &ab&bc&cd&ad&ac\\\hline
+                        d&0&0&1&1&0\\
+                        c&0&1&-1&0&1\\
+                        b&1&-1&0&0&0\\
+                        a&-1&0&0&-1&-1\\
+                      \end{array}\right) = M_1
+              \end{align*}
+              \\
+              Introduce the structure of a graded module over $k[t]$ (on $R[t]$)\\
+              Degrees $\iff$ appearance in the translation\\
+              \begin{itemize}
+              \item $a,b \}$ deg 0
+              \item $\left.\begin{array}{c}c,d\\ab,bc\end{array}\right\}$ deg 1
+              \item $ab, dc$ deg2
+              \item $ac$ deg 3
+              \item $abc$ deg 4
+              \item $adc$ deg 5
+              \end{itemize}
+              If we work in ($\mathbb{Z}/2\mathbb{Z}$)$[t]$\\
+              \begin{align*}
+                M_1 = \left(\begin{array}{c|ccccc}
+                        &ab&bc&cd&ad&ac\\\hline
+                        d&0&0&t&t&0\\
+                        c&0&1&t&0&t^2\\
+                        b&t&t&0&0&0\\
+                        a&t&0&0&t^2&t^3\\
+                      \end{array}\right)
+              \end{align*}
+              \\
+              \underline{Remarks:}\\
+              * Any ideal $\omega \subseteq R$ in a commutative ring in as R - module in a natural way: $\forall a \in \omega, \forall r \in R, r\cdot a \in \omega$ and $\omega \subseteq R$ is an ab\. group\. (R is a module over itself \& $\omega$ is a submodule)\\
+              * Hence for any
+              \begin{align*}
+                n \in \mathbb{N}\\
+                \equalto{(t^n)}{\{\equalto{t^n}{t^nk[t]} P(t), P \in k[t]\}} \subseteq k[t]
+              \end{align*}
+              is a $k[t]$ - module. This is a free $k[t]$ - module.\\
+              * $R = k[t]$ has a natural structure of \underline{graded ring}. The deg $i$ - elements are the (non-zero) elements of the line $R_i := kt^i \subseteq k[t]$ (in general: $R = \oplus R_i, R_iR_j \subseteq R_{i+j}$).
+              The ideal $(t^n) \subseteq k[t]$ is then a graded $k[t]$ - module (in general, this means $M = \underset{i}{\oplus} M_j, R = \underset{i}{\oplus} R_i, R_i \cdot M_j \subseteq M_{i+j}$) $(t^n) = t^n, k[t] = \underset{i \ge 0}{\oplus} \underbrace{kt^{n+i}}_{(t^{n})}$\\
+              i.e.\\
+              degree - i elements of $(t^n)$ are the monorvials of degree $(n+i)$\\
+              * While $(t^n) \subseteq k[t]$ is an ideal, so $k[t]$ - module - and so $k[t]$ - submodule; and a graded $k[t]$ - module, it is \underline{not} a graded $k[t]$ - submodule!\\
+              The grading of $(t^n)$ is \underline{not} the grading that is induced by the \underline{ambient} $k[t]$: it is \underline{shifted up} by $n$: $t^{n+i}$, as an alternative of $(t^n) = t^nk[t]$, has degree $i$, not degree $(n+i)$.\\
+              * In general, for a graded module $M$ over a graded ring $R$ we can define the \underline{twist of $M$ by $n$}, $M[n]$, also denoted by $\sum^nM$, is defined by $(\sum^nM)_i = M_{n+i}$.\\
+              i.e., by redefining/shifting the grading up by $n$. We see that we can identify $\sum^nk[t]$ with $(t^n) = t^nk[t]$ as \underline{graded modules} $(\sum^nk[t])_i = k[t]_{n+i} = kt^{n+i} \xrightarrow{id} kt^n\cdot t^i$\\
+              * A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ ie of the kind $p(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus m} \rightarrow k[t]^{\oplus r}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
+              * A map (morphism) if \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (ie: R - linear, ie: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
+              * In particular, a map of graded modules $\varphi: \sum^n\simequalto{k[t]}{(t^n)} \rightarrow \sum^p\simequalto{k[t]}{(t^p)}$ must send $(t^n)_i = kt^{n+i}$ to $(t^p)_i = kt^{p+i}$.\\
+              * As the shifts $\sum^nk[t]$ are still free modules, any $k[t]$ - module homomorphism $\varphi: (t^n) \rightarrow (t^n)$ is determined by some polynomial $p(t) \in k[t]$, ie by the image of a generator: $\varphi(t^n) = p(t)t^p$ as $\varphi(t^nq(t)) = q(t)\varphi(t^n)$. \underline{However} if $\varphi$ is a \underline{graded} module homomorphism, we must have that $\varphi(t^n) = \underbrace{(mt^p)}_{p(t)}t^p$, ie, that $p(t)$ be homogeneous. Similarly, for direct sums $\underset{i}{\oplus}(t^{ni}) \rightarrow \underset{i}{\oplus}(t^{pj})$.\\
+              * \underline{In particular:} if $n \ge p$, any map of modules $\varphi: k[t] \rightarrow k[t], 1 \mapsto p(t)$ determines a map of \underline{graded} modules
+              \begin{align*}
+                &(t^n) = \sum^nk[t] \rightarrow (t^p) = \sum^pk[t]\\
+                &t^n \mapsto (p(t)t^{n-p})t^p
+              \end{align*}
+              \\
+              E.g, the identity map on $k[t]$ induces $t^n \mapsto t^{n-p} \cdot t^p$ (The "matrix element" of the identity on $k[t]$ is $t^{n-p}$). Ditto for direct sums.\\
+              * Everything so far works similarly for $\mathbb{Z}[t]$ or $A[t]$, A - common ring. In particular, look again at the simplicial complex \cite{Zomorodian_Carlsson_2005}
+
+
+
+
  
 \bibliographystyle{alpha}
 \bibliography{biblio}
