@@ -1,4 +1,15 @@
-\begin{thebibliography}{Hat02}
+\begin{thebibliography}{dSMVJ11}
+
+\bibitem[Bau19]{Bauer_2019}
+Ulrich Bauer.
+\newblock Ripser: efficient computation of vietoris-rips persistence barcodes.
+\newblock {\em arXiv:1908.02518 [cs, math]}, Aug 2019.
+\newblock arXiv: 1908.02518.
+
+\bibitem[dSMVJ11]{de_Silvia}
+Vin de~Silva, Dmitriy Morozov, and Mikael Vejdemo-Johansson.
+\newblock Dualities in persistent (co)homology.
+\newblock {\em Inverse Problems}, 27(12):124003, Dec 2011.
 
 \bibitem[Hat02]{hatcher}
 Allen Hatcher.

@@ -3082,6 +3082,85 @@ Finally, the homology groups of the projective plane are:
                 0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-t\\t\end{bmatrix}} \equalto{(1)^{\oplus2}}{\mathbb{Z}t^{\oplus2}} \rightarrow 0
               \end{align*} 
 
+            \section{Computing Vietoris-Rips persistence barcodes using Ripser}
+            
+            In order to explicitely calculate persistance homology groups of point cloud data, I have created a Python scrip, that randomly generates points in a topological space, with and without noise, and then by
+            using Ripser.py package, it calculates and plots Vietoris-Rips persistence barcodes. The library used is actually a wrapper around the original software written in C++. Before introducing details and results of my implemetation, we will consider details in optimization, methodology, computation and implementation of the Ripser software.
+            
+            Ripser is a software design and implemented to calculate Vietoris-Rips persistance barcodes. The algorithm uses
+            an implicit representation of the coboundary operator and of the filtration order. Ripser has been optimized by
+            avoiding any explicit construction and storage of the filtration coboundary matrix, resulting in a significant imporvement in time and memory usage. 
+            
+            The predominant approach to persistence computation consist of two steps: the generation of a filtration
+            boundary matrix, and the computation of persistence barcodes using matrix reduction. Often, the construction of the filtration boundary matrix becomes
+                the bottleneck for the computation of Vietoris-Rips barcodes.  
+            
+            That is why, Ripser takes a different approach by avioding construction and storage of the whole filtration boundary matrix. The algorithm discards parts of the matrix and recomputes them when necessary. To reduce the memory usage, Ripser does not use an explicit matrix data structure, but uses a arithmetic operator,
+            that recomputes the coboundary map of a simplex whenever needed. The filtration is specified using another algorithmic operator for
+            comparing simplices with respect to their appearance in the filtration order.
+            
+            The computation of persistent homology implemented in Ripser is based on matrix reduction and uses four key
+            optimizations in order to achieve an efficient implementation:
+            
+            \begin{enumerate}
+             \item Clearing birth columns:
+             Avoid computation of unnecessary cycles, by using the spectrial structure of a boundary matris $D$, $D^2 = 0$
+             \item Cohomology : 
+             Using Cohomology to compute persistence barcodes, since it is faster
+             \item Implicit representation of boundary and reduced boundary matrices:
+              Decouple the description of the filtration and of the boundary operator, representing the boundary matrix only algorithmically
+                instead of explicitly, and to avoid the storage of the entire unreduced and reduced boundary matrices, retaining
+                only the much smaller reduction matrix encoding the column operations
+            \item Apparent and emergent pairs :
+            The construction of the coboundary matrix columns can be shortcut when a
+            certain easily identified type of persistence pair, called an emergent coface pair, is encountered
+            \end{enumerate}
+
+            To construct the algorithm, Ripser Software makes use of simplicial complexes and filtaration intruduced in chapter \ref{chapter1}, with focus on the Vietoris Ripser complex, introduced in 
+            section [kejsi ref]. Despite the Vietris -Rips filtration, a reindexing and refinement of the filtration is used. In order to compute persistent homology, one needs to apply one further step of
+            reindexing, refining the essential filtration to an essential simplexwise one. 
+            
+            To ease the computation of the Vietoris-Rips filtration, Ripser makes use of sublevel sets of fucntions and persistent homology. The Ripser package considers only simplicial homology with 
+            coefficents in prime field $\mathbb{F}_p$. The homology computation is made possible by using simplexwise refinement. A simplexwise filtration gives rise to a filtration boundary matrix,
+            which is the matrix of the boundary operator of the chain complex $C_*(K)$ with respect to the ordered basis given by the oriented simplices in filtration order. 
+            
+            During computation simplices are indexed in a combinatorial number system. Also, Ripser defines a refinement of the Vietoris-Rips filtration to an essential simplexwise filtration, as required for the computation of persistent homology. The simplexes are ordered by increasing diameter, then by increasing dimension and then by decreasing lexicographic vertex order. The result is called the 
+            \emph{lexicographically refined Vietoris-Rips filtration}.
+            
+            \subsection{Computation and Implementation}
+            
+            In the center of the algorithm for computing persistent homology, there is the matrix reduction method. The matrix reduction method is similar to the one intruduced in the previous section. However, since the matrix reduation process can be expensive in time and memory usage, a technique for clearing columns is used. 
+            Another interesting approach is the choice to opt for computing persistence barcodes using cohomology instead of homology of Vietoris-Rips filtration. This approach is backed up by de Silva et all \cite{de_Silvia}, and it further optimizes the clearing of columns. Furthermore, as already mentioned before, the matrix reduction is done implicitly. 
+            Apart from the computation techniqes mentioned above, there are several more optimizations that are
+            presented in detail in \cite{Bauer_2019}
+            
+            In ragrards to the implemetation, some importatn data structures of the C++ implementation of Ripser algorithm are: 
+            
+            \begin{itemize}
+             \item Input: The input for Ripser is a finite metric space $(X, d)$, encoded in a comma (or whitespace, or other nonnumerical character) separated list as either a distance matrix (full, lower, or upper triangular part), or as a list
+of points in some Euclidean space
+            \item Vertices and Simplices: Vertices are identified with natural numbers ${0, . . . , n ? 1}$, where n is the cardinality of
+the input space. Simplices are indexed by natural numbers according to the combinatorial number system.
+            \item Coefficients: Ripser supports the computation of persistent homology with coefficients in a prime field $\mathbb{F}_p$, for any prime number $p < 2^{16}$
+            \item Column and matrix data sutrctures: The basic data type for entries in a $(diameter_entry_t$) boundary or
+coefficient matrix is a tuple consisting of a simplex index $(index_t)$, a floating point value $(value_t)$ caching
+the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if coefficients are enabled.
+
+            \end{itemize}
+            
+            \subsection{Details and Results}
+            
+            The Python project is designed and implemented as a command line tool, that would allow the user to enter the name
+            of a common space, the number of points, and the presence or absence of noise. 
+            
+            The application can be supplied with 3 different options - ``space'', ``points'', and ''no\_noise``. The options ``space'' (--space or -s) stands for the different types of spaces that can be used. By default a sphere in $\RR^3$  shall be applied. Other options include a cylinder in $\RR^3$ (cylinder\_3), a torus in $\RR^3$ (torus\_3) and $\RR^4$ (torus\_4), klein bottle in $\RR^4$ (klein\_bottle\_4), projective plane in $\RR^4$ (pro\_plane\_4) and $\RR^6$ (pro\_plane\_6). After that, we have a ``points'' (--points or -p) parameter, indicating the number of points to be generated, where by default 500 shall be outputed. Last, the ``no\_noise'' (-n or --no-noise) parameter is wether or not to add noise to the generated points - it being enabled by default.
+            
+            The application uniformly generates the number of points inputed by the user into a square $1 \times 1$. Then the resulting points are saved in a $n$-dimentional array and used as a domain for the functions that are parameterizing surfaces that are included in the application. The points in the sqaure are mapped on the surface of a common space. When the parameter "$-n$" is passed through the command line to the application, noise is introduced in the mapping of the points to the appropriate surface. The noise can generated randomly as uniform distribution or a gaussain distribution, where the user can choose the $\sigma$ and standart deviation, or the bounds for for the uniform segment.
+            
+            If the space is embedded in $\mathbb{R}^3$ the points generated on the surface will be plotted in a 3D graph. Regardless the generated points wil be outputed on the console. Then the application will pop out a figure of the calculation of Vietoris-Rips persistance barcodes up to the homology specified in the code. Each persistent diagram is a pair (birth time, death time). After that another figure will pop up showing seperately the computaions of the Vietoris-Rips persistance barcodes in the respective homology. The last graph plots life time of each point instead of birth and death. 
+
+            
+            
 
 
 

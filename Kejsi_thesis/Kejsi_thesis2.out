@@ -10,4 +10,5 @@
 \BOOKMARK [0][-]{chapter.3}{Persistent Homology}{}% 10
 \BOOKMARK [1][-]{section.3.1}{Background}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.2}{The Persistence Module}{chapter.3}% 12
-\BOOKMARK [0][-]{chapter.4}{Computing Persitent Homology}{}% 13
+\BOOKMARK [0][-]{chapter.4}{Computing Persistent Homology}{}% 13
+\BOOKMARK [1][-]{section.4.1}{Computing Vietoris-Rips persistence barcodes using Ripser}{chapter.4}% 14
