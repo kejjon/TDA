@@ -18,6 +18,8 @@
 \usepackage{tikz-cd}
 \usepackage{tkz-euclide}
 \usetikzlibrary{decorations.markings,shapes.misc,arrows.meta,shapes.geometric,intersections}
+\usepackage{cancel}
+
 
 \usepackage[margin=1in]{geometry}
 
@@ -48,37 +50,62 @@
 \tableofcontents
 
 
+    
       \chapter{Chain Complexes And Simplicial Homology}
+      \label{chapter1}
 
+      \section{Introduction} 
+      
+	      
+	      The key method of  algebraic topology is to assign various \emph{algebraic structures} -- groups, rings, modules --  to topological spaces.
+	      This should be done in a
+	      \emph{ functorial way}. 
+	      Roughly, functoriality means that maps of topological spaces (and compositions thereof) give rise to 
+	      homomorphisms of the respective algebraic structures
+	      (and compositions thereof), and that the structures assigned to homeomorphic spaces are isomorphic. 
+	      See (\ref{functoriality}) or \cite{hatcher}[Ch.2.3] for a more detailed discussion.
+	      %
+	      In this way,
+	      we can think of these algebraic structures as \emph{invariants} of the spaces under consideration.
+	      Questions about topological
+	      spaces  are converted into questions about algebraic structures, which  are typically ``more rigid''. This rigidity can
+	      be used to demonstrate, for example,  that maps between certain spaces do not exist, or that certain spaces are not homeomorphic, etc. 
+	      
+	      \emph{Computing} these algebraic invariants is a different matter altogether. There are notorious examples of invariants that are unknown or
+	      hard to compute even for simple enough spaces, such as spheres.
+	      
 	      \section{$\Delta$-complexes}
+	      
+	      We begin now with a setup that allows for fairly easy calculations. We shall
+	      assign a collection of abelian groups to a topological space $X$ \emph{equipped with some additional structure}.
+	      This additional structure -- called \emph{$\Delta$-complex structure} -- is a way of ``parametrizing'' $X$ by points, 
+	      segments, triangles, tetrahedra (and their higher-dimensional analogues) and will be introduced in Definition \ref{Delta-complex}.
+	      %
+	      While the structure of a $\Delta$-complex makes computations easy, it will be completely unclear whether the groups that we obtain are sensitive
+	      to this additional structure, or are in fact invariants  of the space $X$ itself. In other words, the functoriality of this construction will be completely unclear.
+	      %
+	      This will be rectified in Chapter \ref{SingularHomology}.
+	      
+	       We start with the basic building blocks: simplices.
 		   
-            \begin{defn}[Standard Simplex - \emph{n-simplex}]
-			    \label {n-simplex} The standard n-simplex is a subset of $\RR^{n+1}$ given by 
+            \begin{defn}[Standard Simplex]
+			    \label {n-simplex} The \emph{standard $n$-simplex in $\RR^{n+1}$} is the convex hull $\Delta^n$ of the standard basis vectors
+			    $\{e_0,\ldots, e_n\}$, i.e.,
 			    \[
 			     \Delta^n = \{(t_0, t_1, ... , t_n) \in \RR^{n+1} 
-			     | \; \sum\limits_i t_i = 1 \; and \; t_i \geq 0 \; \forall \, i \}
+			     | \; \sum\limits_i t_i = 1 \; and \; t_i \geq 0 \; \forall \, i \}\subseteq \RR^{n+1}
 			    \]
-             \cite [103] {hatcher}
-              whose vertices are unit vectors along the coordiante axis. 
+			    More generally, an \emph{$n$-simplex in $\RR^{n+1}$} is the convex hull $[v_0,\ldots,v_n]$ of any $(n+1)$-tuple of
+			    vectors $v_0,\ldots,v_n\in \RR^{n+1}$ that do not lie in an $n$-dimensional hyperplane.
 		      \end{defn}
 		      
-		      ...
-		      Simplices in $\RR^n$, ordering of the vertices and orientation
-		      ... 
+		      Notice that with this definition, $\Delta^n=[e_0,\ldots,e_n]$.
 		      
-		      An \emph{n-simpex} is an \emph{n-dimensional} analog of a triangle.
-		      A \emph{n-simpex} is denoted by $ [v_0,... , v_n] $, where $ v_i $'s are 
-		      the vertices of the simplex. To compute homology is important to
-		      define the order of the vertices in a simplex. 
-              Ordering the vertices of a simplex $ [v_0,... , v_n] $ 
-              determines orientations of the edges $[v_i, v_j]$ according to increasing subscripts.
-              Specifying the ordering of the vertices also determines
-              a canonical linear homeomorphism from the standard \emph{n-simpex} 
-              $\Delta^n$ onto any \emph{n-simpex} $ [v_0,... , v_n] $ preserving 
-              the order of vertices $(t_0, t_1, ... , t_n) 
-              \mapsto \sum\limits_i t_i v_i$ in $ [v_0,... , v_n] $ \cite [103] {hatcher}. 
 		      
-		      In $\RR^n$ a \emph{0-simplex} is a point, a \emph{1-simplex} is a line segment, a \emph{2-simplex} is a triangle, \emph{3-simplex} is a tetrahedron, as shown below. \\
+		      Thus an $n$-simpex (plural simplices) is an $n$-dimensional analog of a triangle.
+		      %
+		      %
+		       A  \emph{0-simplex} is a point, a \emph{1-simplex} is a line segment, a \emph{2-simplex} is a triangle, \emph{3-simplex} is a tetrahedron, as shown below. \\
 		      
 		      \begin{tikzpicture}[line join = round, line cap = round]
 
@@ -126,12 +153,43 @@
                         \end{scope}
 
                     \end{tikzpicture}
+		      
+		      
+		      
+		      The vectors $v_i$, determining  $ [v_0,... , v_n] $
+		      are the \emph{vertices} of the simplex.
+		      %
+		      In our calculations we are going to work with a chosen \emph{ordering} of the vertices of the simplex. I.e., 
+		      we are going to use  ``simplex'' when we  mean ``a simplex together with an ordering of the vertices''.
+		      %
+		      This has a number of consequences. First, it
+              determines orientations of the edges $[v_i, v_j]$ according to increasing subscripts.
+              Second, specifying the ordering of the vertices  determines
+              a canonical linear homeomorphism from   
+              $\Delta^n$ onto any $n$-simpex $ [v_0,... , v_n] $ preserving 
+              the order of vertices, namely,
+              $\sum_i t_i\be_i\mapsto \sum_i t_i \bv_i$.
+	      %
+	      Once we fix an ordering of the vertices, we also obtain  an orientation of the $n$-simplex, i.e., the sign of
+	      $\det(v_0,\ldots,v_n)$. Two orderings determine the same orientation when they differ by an even permutation.
+	      
+	      By a \emph{face} of a $n$-simplex we shall mean an $(n-1)$-simplex spanned by some $n$-tuple of vertices of the simplex. That is,
+	      the $i$-th face of $[v_0,\ldots,v_n]$ is
+	       $[v_0,\ldots,\widehat{v_i},\ldots,v_n]$, where the hat indicates omission. Some sources refer to this face as an
+	       $(n-1)$-face, and talk about $k$-faces, for $0\leq k\leq n-1$.
+	      
+		      
+		     
                     
-             The boundary $\partial\Delta^n$ is defined as the union of all the faces of $\Delta^n$, and
+             The \emph{boundary} $\partial\Delta^n$ is defined as the union of all the faces of $\Delta^n$, and
              $\mathring{\Delta^n} = \Delta^n - \partial\Delta^n $ denotes interior of $\Delta^n$. 
+             %
+             Notice that with this definition  $\partial \Delta^0=\varnothing$ and $\Delta^0$ coincides with its interior!
+             
+             We now equip $X$ with additional structure: ``parametrization'' by simplices of various dimensions that satisfies a number of conditions.
              
 		      \begin{defn}[$\Delta$-complex]\label{Delta-complex}
-		      	A $\Delta-complex$ structure on a space X is a collection of maps $\sigma_\alpha: \Delta^n \rightarrow X $ , with n depending on the index $\alpha$, such that:
+		      	A $\Delta-complex$ structure on a topological space X is a collection of maps $\sigma_\alpha: \Delta^n \rightarrow X $ , with n depending on the index $\alpha$, such that:
                     \begin{enumerate}
                         \item The restriction $\sigma_\alpha | \mathring{\Delta^n}$ is                      injective, and each point of X is in the image of exactly one such restriction $\sigma_\alpha | \mathring{\Delta^n}$.
                         \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the  maps
@@ -141,16 +199,11 @@
 
 		      \end{defn}
 		      
-		      ...........................
-		      Some explicit examples of $\Delta$-complex structures on spaces. E.g., 
-		      a closed interval $[0;1]$
-		      $X=S^1$ with some \emph{explicit} maps from $\Delta^1$ (preferably several different ones) 
-		      $S^2$ with some explicit maps. More examples on some quotient spaces, $S^1\times S^1$, $\RR\PP^2$, Klein bottle.
-		      ................................
-		      
-        \begin{Ex}
+		     
+		     \begin{Ex}
         
-        Consider $\sigma_\alpha: \Delta^n \rightarrow X $ where $ X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $ \\
+        Consider   $ X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $ 
+        and the following maps $\sigma_\alpha: \Delta^n \rightarrow X $.
         
 		     
 		       \begin{tikzpicture}[scale=1.5]
@@ -167,10 +220,12 @@
                 \end{tikzpicture}
               
               
-		      For n = 0, $\alpha = 0$:  $\sigma_0: \Delta^0 \rightarrow S^1 $ where $\sigma_0(1) = (1, 0)$
-		      
-              For n = 1, $\alpha = 1$: In the figure below $t_0 + t_1 = 1$, $t_0, t_1 \geq 0$
-              
+		      %For n = 0, $\alpha = 0$: 
+		      First, $\sigma_0: \Delta^0 \rightarrow S^1 $, with  $\sigma_0(1) = (1, 0)$. Next,
+		       $\sigma_1: \Delta^1 \rightarrow S^1 $, defined by  $\sigma_1(t_0,t_1) = (\cos(2\pi t_0), \sin(2\pi t_0))$ \\
+              %For n = 1, $\alpha = 1$:
+              Recall (see the  figure) that $\Delta^1$ is the set of pairs $(t_0,t_1)$ with $t_0 + t_1 = 1$, $t_0, t_1 \geq 0$,
+              or equivalently, 
               $ \Delta^1 = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} = [e_0, e_1] $ \\
               
             
@@ -202,7 +257,7 @@
                     \end{axis}
             \end{tikzpicture}
 
-              $\sigma_1: \Delta^1 \rightarrow S^1 $ where $t_0 \in [0, 1]$ where $\sigma_1(t_0) = (\cos(2\pi t_0), \sin(2\pi t_0))$ \\
+              
               $\sigma|_{[e_0]} = \sigma_1(0) = (\cos(0), \sin(0)) = (1, 0)$ \\
               $\sigma|_{[e_1]} = \sigma_1(1) = (\cos(2\pi), \sin(2\pi)) = (1, 0)$
               
@@ -267,7 +322,7 @@
 
 		     Usually simplicial homology is defined by simplicial complexes, which are the $\Delta-complexes$ whose simpleces are uniquely determined by their vertices. In a simplicial complex any n-simplex has n+1 distinct vertices, and no other n-simplex has the same set of vertices. 
 		     
-		     Another definition of simplicial complexes that will be important in indroducing Persistent Homology is a coombinatorical description. 
+		     Another definition of simplicial complexes that will be important in indroducing Persistent Homology is a combinatorical description. 
 		     
 		     \emph{Combinatorically} we can define a simplicial complex as: 
 		     
@@ -324,6 +379,7 @@
             \end{Ex}
             
             A subcomplex of $\mathcal{K}$ is a subset $L \subseteq \mathcal{K}$ that is also a simplicial complex.
+            \label{complexfiltration}
             A \emph{filtration} of complex $\mathcal{K}$ is a nested subsequence of complexes: 
              \[
               \emptyset = \mathcal{K}^0 \subseteq \mathcal{K}^1 \subseteq \dots \mathcal{K}^m = \mathcal{K}  
@@ -439,12 +495,6 @@
 		      	   \(\partial_n\partial_{n+1}=0\) is equivalent to the inclusion $ \Ima\partial_{n+1} \subset \ker\partial_n $.
 		      \end{defn}
 		      
-		      ...............
-			    As a remark: complex of $R$-modules, for a commutative ring $R$.
-			    
-		      Chain complexes from a $\Delta$-complex structure: definining the differential and checking the $\partial^2=0$ property.
-		      ............................
-		       
 		      The map $\partial_n$ for a $\Delta$-complex $\mathcal{X}$ is a boundary homomorphism 
 		      $\partial_n: \Delta_n(\mathcal{X}) \rightarrow \Delta_{n-1}(\mathcal{X})$ where the action on a basis element of $\Delta_n(\mathcal{X})$ is: 
 		      \[
@@ -494,11 +544,35 @@
                 \end{aligned}
             \end{equation}
 		 
+        \emph{Remark: } Chain complexes can be also defined over $R-modules$, where $R$ is a commutative ring: 
+        
+        \begin{defn} (Chain complex of $R-module$)
+        A Chain complex of R-modules is a sequence: 
+                \[ (C_\bullet, d_\bullet)= (
+                        \xymatrix{
+                            {...}  \ar[r] & 
+                            C_{n+1}  \ar[r]^{d_{n+1}} & 
+                            C_n  \ar[r]^{d_n} & 
+                            C_{n-1}  \ar[r]^{d_{n-1}} & 
+                            {...} 
+                             } )
+                   \]
+        where for each $n \in \ZZ$, $C_n$ is an $R-module$ and $d_n \in Hom_{R}(C_n, C_{n-1})$ satisfies
+        $d_n \circ d_{n+1} = 0$
+        \end{defn}
+        
+        In chain complexes of $R-modules$, n is the degree of the $R-module \ C_n$. The $R-linear$ maps 
+        $d_n (n \in \ZZ)$ are called differential maps. \\
+        Also , a complex $C_\bullet$ is called non-negative (resp. positive) if $C_n = 0$, for all $n \in \ZZ_{<0}$ (resp. $n \in \ZZ_{\leq 0}$)
+        
+        Chain complexes together with morphisms of chain complexes (and composition given by
+        degreewise composition of R-morphisms) form a category, which we will denote by $Ch(_RMod)$
+
 		 \section{Homology Calculations: Examples}
 		 
-		 $S^1$ with several different $\Delta$-complex structures. An interval $[0;1]$.
-         ... comment about diff delta structures resulting in same homology ...
-		 
+		 In the first example of Homology calculations, it is important to notice that the homology groups are
+		 calculated in two methods, with different $\Delta$-structure on $S^1$. Even though, the circle is 
+		 parametrized by different $\Delta$-complex structures, the calculations below show that the Homology groups are the same. 
               \subsection{$ S^1$}
                 \subsubsection{Method I: Triangulation}
                 To compute the homolgy group of the circle $S^1$ we can triangulate the circle in the following way: \\
@@ -1130,12 +1204,13 @@ Finally, the homology groups of the projective plane are:
          \]           
                     
      \chapter{Singular Homology and Homotopy Invariance}
+        \label{SingularHomology}
      
      
      In the previous chapter, we considered a parametrization of a space by simplexes, where the maps $\sigma_\alpha: \Delta^n \rightarrow X$ had restrictions defined in \ref{Delta-complex}. If we only require that the $\sigma$ map is continous, then by definition that would be a singular $n-simplex$ in a space $X$.
      The lack of other restrictions on the map $\sigma: \Delta^n \rightarrow X$, convey that $\sigma$ does not need to be a `nice` embedding, in fact it can have singularites, where its image does not look like a simplex.
      
-     $C_n(X)$ is a free abelien group with generators the set of singluar $n-simplexes$ in X: the continous maps $\sigma: \Delta^n \rightarrow X$. The elements of $C_n(X)$ are singular $n-chains$ defined as $\sum_i(n_i\sigma_i)$ for $n_i \in \ZZ$. The boundary operator $\partial_n: C_n(x) \rightarrow C_{n-1}(X)$ is defined the same way as in simplicial $n-chains$, by the formula: 
+     $C_n(X)$ is a free abelian group with generators the set of singluar $n-simplexes$ in X: the continous maps $\sigma: \Delta^n \rightarrow X$. The elements of $C_n(X)$ are singular $n-chains$ defined as $\sum_i(n_i\sigma_i)$ for $n_i \in \ZZ$. The boundary operator $\partial_n: C_n(x) \rightarrow C_{n-1}(X)$ is defined the same way as in simplicial $n-chains$, by the formula: 
      \[
 		         \partial_n(\sigma) = \sum\limits_i (-1)^i \sigma | [v_0, ... ,\hat{v_i}, ... , v_n]
               \] 
@@ -1158,9 +1233,12 @@ Finally, the homology groups of the projective plane are:
     
     At first glance, singular homology seems to be more general than simplicial homology, however if for an arbitrary space X , we define the singular complex $S(X)$ as a $\Delta-complex$ with one $n-simplex \ \Delta_\sigma^n$ for each singular $n-simplex$ $\sigma: \Delta^n \rightarrow X$, then $H_n^\Delta(S(X))$ is the same as $H_n(X)$. In this case singular homology can be viewed as a special case of simplicial homology.
     
-    By the definition of singular homology groups $H_n(X)$, it follows that if two spaces $X, Y$ are homeomorphic, the singular homology groups are isomorphic $ H_n(X) \simeq H_n(Y)$.
     
-    \emph{More generally}, \\
+    \section{Homotopy invariance}
+    
+    A significant result that can be proven by singluar homology is that if two spaces $X, Y$ are homeomorphic, the singular homology groups are isomorphic $ H_n(X) \simeq H_n(Y)$.
+    
+    \emph{More generally}, 
     A countinous map $f: X \rightarrow Y$ induces a chain map: $f_\#: C_n(X) \rightarrow C_n(Y)$.
     \begin{gather*}
         f_\#(\sigma: \Delta^ n \rightarrow X) = f \circ \sigma \\
@@ -1187,7 +1265,7 @@ Finally, the homology groups of the projective plane are:
         f_* \ preserves \ the \ identity, id: X \rightarrow Y \ goes \ to \ id_*:  H_n(X) \rightarrow H_n(Y)
     \end{gather}
     
-    \emph{Category Theory Interpretation}: If we consider $Top$ to be the category of topological spaces where maps are countinous:
+    \emph{Category Theory Interpretation}: \label{functoriality} If we consider $Top$ to be the category of topological spaces where maps are countinous:
     \[{Hom}_{Top}(X, Y) = \{f: X \rightarrow Y, f \ is \ continous\},\] and $Ab$ the category of abelian groups were maps are group homomorphisms: \[{Hom}_{Ab}(G, H) = \{\phi: G \rightarrow H, \phi \ is \ group \ homomorphism\}\] then for each $n \geq 0$: 
      \begin{align*}
         H_n: Top &\rightarrow Ab \\
@@ -1728,7 +1806,7 @@ Finally, the homology groups of the projective plane are:
         \end{Ex}
         
 
-        \subsection{Exact Sequences}
+        \section{Exact Sequences}
         
         \begin{defn}
          A sequence of homomorphisms: 
@@ -2159,7 +2237,43 @@ Finally, the homology groups of the projective plane are:
               \]
               where $H_1(Y), H_1(X), H_0(Y), H_0(X) \simeq \ZZ$. 
               
-              FIGURE here:
+             \begin{center}
+              \begin{tikzpicture}[line join = round, line cap = round]
+
+                \coordinate [label=below:$0$] (1) at (1,0);
+                \coordinate [label=below:$1$] (2) at (3,0);
+                \coordinate [label=above:$2$] (3) at (2,{sqrt(3)});
+                \coordinate [label=above:$B$] (sb1) at (5,2);
+                \coordinate [label=above:$B$] (sb2) at (7,2);
+                \coordinate [label=below:$A$] (sa1) at (5,0);
+                \coordinate [label=below:$A$] (sa2) at (7,0);
+                \coordinate (ip1) at (2.2, 1.68);
+                \coordinate (ip2) at (2.75, -0.4);
+                \coordinate (ip3) at (5.5, 1.6);
+                \coordinate (ip4) at (6.75, 0.4);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (1) circle [radius=0.025];
+                  \draw[fill] (2) circle [radius=0.025];
+                  \draw[fill] (3) circle [radius=0.025];
+                  \draw[fill] (sb1) circle [radius=0.025];
+                  \draw[fill] (sb2) circle [radius=0.025];
+                  \draw[fill] (sa1) circle [radius=0.025];
+                  \draw[fill] (sa2) circle [radius=0.025];
+                  \draw[thick, postaction={decorate}] (1)--(2);
+                  \draw[thick, postaction={decorate}] (1)--(3);
+                  \draw[thick, postaction={decorate}] (2)--(3);
+                  \draw[thick, postaction={decorate}] (sb2)--(sb1);
+                  \draw[thick, postaction={decorate}] (sa1)--(sb1);
+                  \draw[thick, postaction={decorate}] (sa1)--(sa2);
+                  \draw[thick, postaction={decorate}] (sa2)--(sb2);
+                  \draw[thick, postaction={decorate}, loosely dotted] (sa1)--(sb2);
+                  \draw [thick, ->] (ip1) to [bend left=30] node[midway, above]{$\sigma_1$} (ip3) ;
+                  \draw [thick, ->] (ip2) to [out=300, in=230] node[midway, below]{$\sigma_2$} (ip4) ;
+                \end{scope}
+              \end{tikzpicture}
+             \end{center}
+
               
               \begin{align*}
                &\partial \sigma_1 = \sigma_1 |_{[12]}  - \sigma_1 |_{[02]}  + \sigma_1 |_{[01]}  \\
@@ -2289,8 +2403,22 @@ Finally, the homology groups of the projective plane are:
                 
              \chapter{Persistent Homology}
                
-              
-              Graded Rings and Modules. \\
+                Persistent homology (PH) is a method used in topological data analysis (TDA) to study
+                qualitative features of data that persist across multiple scales. Due to its construction, persistent homology computations are
+                robust to pertubation of the data. Also, PH is used to extract relevant features of the data, and separate them from noise. \\
+                
+                An important result in computing persistent homology is that the persistent homology of a filtered d-dimensional simplicial
+                complex is simply the standard homology of a particular graded module over a polynomial ring \cite{Zomorodian_Carlsson_2005}.\\ 
+                Before intruducing Persistent homology and understanding its calculation, we need to provide some priliminary concept from albegra. 
+                
+                We begin by reviewing graded modules and rings and then stating the structure of finitely generated modules over principal
+                ideal domains. Then, refering to the notions intruduced in Chapter \ref{chapter1}, we provide some
+                comments of the reduction algorithm used for computing simplicial homology. We conclude this chapter by describing persistent
+                homology.
+                
+                
+                \section{Background} 
+              \subsection{Graded Rings and Modules} 
                
               A graded ring is a ring $\langle R, +, \cdot \rangle$ equipped with a direct sum decomposition of Abelian
               groups $R \cong \underset{i \in \mathbb{Z}}{\oplus} R_i$, so multiplication is defined by bilinear pairings $R_n \otimes R_m \rightarrow R_{n+m}$. \\
@@ -2317,7 +2445,7 @@ Finally, the homology groups of the projective plane are:
               
               A graded ring (module) is non-negatively graded if $R_i = 0 \ (M_i = 0)$ for all $i < 0$.
               
-              \underline{Reminder:} $R$ is a PID if it's a domain (no zero divisors) \& $\forall$ ideal is principal\\
+              \emph{Note:} $R$ is a PID if it's a domain (no zero divisors) \& all its ideal are principal\\
               
              For example: 
               \begin{align*}
@@ -2325,6 +2453,7 @@ Finally, the homology groups of the projective plane are:
                 &R = k[t],\ k\ -\ field\\
               \end{align*}
               
+              The structure theorem describes finitely generated modules and graded modules over PIDs.
               \begin{thm} [Structure Theorem] \label{Structure}
               If $D$ is a PID, then every finitely generated D-module is isnomorphic to a direct sum of cyclic D-module. That is, it decomposes uniquely into the form
               \begin{align}
@@ -2355,15 +2484,32 @@ Finally, the homology groups of the projective plane are:
               \end{align*}
               \end{Ex}
               
-              Reduction: 
+              \subsection{Reduction} 
               
+              The reduction algorithm is the standard method used in computing homology. For simplicity, 
+              we describe the method for integer coefficents. However, the method applies also to modules over arbitrary PIDs. \\
+              
+              Given $C_k$, we can use as standard basis the oriented k-simplices:
               \begin{align*}
                 &\partial_k: \underset{\{e_i\}}{C_k} \rightarrow \underset{\{\hat{e_i}\}}{C_{k-1}}\\
                 &(C_{k}, C_{k-1}: \textrm{free abelian groups or free R-module})\\
-                &\textrm{Get} \ M_k: \textrm{ matrix of } \partial_K\\
+                & M_k: \textrm{standard matrix representation of } \partial_k\\
                 &e \cdot u: {\begin{pmatrix}e_1, \cdots, e_{m_k}\end{pmatrix}}{\begin{pmatrix}u_1\\\vdots\\u_{m_k}\end{pmatrix}} \in C_k\\
                 &\partial_k(eu) = \hat{e}(M_u)\\
               \end{align*}
+              
+               The null-space of $M_k$ corresponds to $Z_k$ and its range-space to
+                $B_{k?1}$. The reduction algorithm derives alternate bases for the
+                chain groups, relative to which the matrix for $\partial_k$ is diagonal. The algorithm utilizes the following elementary column operations on $M_k$:
+                
+                \begin{itemize}
+                 \item exchange column i, and column j,
+                 \item multiply column i by -1
+                 \item replace column i by (column i) + q(column j), where $q \in \ZZ$ and $i \ne j$
+                \end{itemize}
+
+                The algorithm also uses elementatry row operation that are similary defined. The idea of the reduction algorithm is to systematically modify the bases of $C_k$ and $C_{k?1}$ using elementary operations so that it reduce $M_k$ to its Smith normal form:
+                
               Row-operation
               \begin{align*}
                 &R_i \mapsto R_i + qR_j \textrm{ on } M\\
@@ -2429,16 +2575,20 @@ Finally, the homology groups of the projective plane are:
                              \end{array}\right)^{b_{i} | b_{ix1}}
                 \\
                 &rank Z_k = m_k - e_k\\
-                &rank\ Free(H_k) = m_k - l_k - l_{k+1}
+                &rank\ H_k = m_k - e_k - e_{k+1}
               \end{align*}
               \\
-              \underline{On persistence:}
+              \section{The Persistence Module}
               
-              We have a ``filtered chain complex''
-              \\
-              $\equalto{(0)}{C_\bullet^0} \subseteq C_\bullet^1 \subseteq C_\bullet^2 \subseteq \cdots \subseteq \equalto{C_\bullet^m}{C_\bullet}$\\
-              It may come from a fitted simplicial complex: \\
-              \\
+              Taking into consideration the construction of a filtered simplicial complex intruduced in section \ref{complexfiltration}, we can construct a filtered chain complex: \\
+              \[
+                    \equalto{(0)}{C_\bullet^0} \subseteq C_\bullet^1 \subseteq C_\bullet^2 \subseteq \cdots \subseteq \equalto{C_\bullet^m}{C_\bullet}
+              \]
+             
+             \begin{Ex}
+              
+              Let us consider the following filtered simplicial complex, and the filtered chain complex: \\
+
               \begin{center}
                
 
@@ -2535,6 +2685,9 @@ Finally, the homology groups of the projective plane are:
                   \& C_\bullet^1 \arrow[hookrightarrow]{rr}{f^1}       \&\& C_\bullet^2 \arrow[hookrightarrow]{rr}{f^2} \&\& C_\bullet^3 \arrow[hookrightarrow]{rr}{f^3} \&\& C_\bullet^4 \arrow[hookrightarrow]{rr}{f^4} \&\& C_\bullet^5 \\
                 \end{tikzcd}
               \]
+             \end{Ex}
+             
+             
               \begin{defn} (Persistant Homology Group)
  
                 Given a filtered complex, the i-th complex $K^i$ has associated boundary operators 
@@ -2800,7 +2953,73 @@ Finally, the homology groups of the projective plane are:
               \end{align*}
               \\
               E.g, the identity map on $k[t]$ induces $t^n \mapsto t^{n-p} \cdot t^p$ (The "matrix element" of the identity on $k[t]$ is $t^{n-p}$). Ditto for direct sums.\\
-              * Everything so far works similarly for $\mathbb{Z}[t]$ or $A[t]$, A - common ring. In particular, look again at the simplicial complex \cite{Zomorodian_Carlsson_2005}
+              * Everything so far works similarly for $\mathbb{Z}[t]$ or $A[t]$, A - common ring. In particular, look again at the simplicial complex 
+              
+              \begin{tikzpicture}[line join = round, line cap = round]
+                \coordinate [label=above:$a$] (a) at (10,1);
+                \coordinate [label=below:$d$] (d) at (10,0);
+                \coordinate [label=above:$b$] (b) at (11,1);
+                \coordinate [label=below:$c$] (c) at (11,0);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (a) circle [radius=0.03];
+                  \draw[fill] (d) circle [radius=0.03];
+                  \draw[fill] (b) circle [radius=0.03];
+                  \draw[fill] (c) circle [radius=0.03];
+                  % 6th
+                  \draw[thick, postaction={decorate}] (a)--(b);
+                  \draw[thick, postaction={decorate}] (a)--(d);
+                  \draw[thick, postaction={decorate}] (b)--(c);
+                  \draw[thick, postaction={decorate}] (c)--(d);
+                  \draw[thick, postaction={decorate}] (a)--(c);
+                \end{scope}
+                \filldraw [opacity=.33,red] (10,1) -- (11,1) -- (11,0) -- cycle;
+                \filldraw [opacity=.33,blue] (10,1) -- (10,0) -- (11,0) -- cycle;
+              \end{tikzpicture}
+              \\
+              The chain complex is $0 \rightarrow \mathbb{Z}^2 \xrightarrow{\partial_2} \mathbb{Z}^5 \xrightarrow{\partial_1} \mathbb{Z}^4 \rightarrow 0$. The matrices $M_2$ and $M_1$ of $\partial_2$ and $\partial_1$ without the indicated bases are:
+              \begin{align*}
+                M_2 = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\1&0\\1&0\\0&1\\0&-1\\-1&1\end{array}\right), M_1 = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&1&1&0\\0&1&-1&0&1\\1&-1&0&0&0\\-1&0&0&-1&-1\end{array}\right)
+              \end{align*}
+              \\
+              Then $\partial_1$ (ie $M_1$) induces a map of $\mathbb{Z}[t]$ - modules $\mathbb{Z}[t]^{\oplus5} \xrightarrow{M_1} \mathbb{Z}[t]^{\oplus4}$:
+              \begin{align*}
+                \underline{V} = \left(\begin{array}{c}p_1(t)\\p_2(t)\\p_3(t)\\p_4(t)\\p_5(t)\\\end{array}\right) \mapsto M_1 \underline{V}_\bullet
+              \end{align*}
+              \\
+              Using the grading (filtration) on the simplicial $cx$ we get a chain complex of graded $\mathbb{Z}[t]$ - modules\\
+              $0 \rightarrow (t^4)\oplus(t^5) \xrightarrow{\partial_2^1} (t)^{\oplus2}\oplus(t^2)^{\oplus2}\oplus(t^3) \xrightarrow{\partial_1^1} (t)^{\oplus2}\oplus(1)^{\oplus2} \rightarrow 0$\\
+              by the procedure on pg. The respective matrices are (without same bases)
+              \begin{align*}
+                M_2' = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\t^3&0\\t^3&0\\0&t^3\\0&-t^3\\-t^3&t^3\end{array}\right), M_1' = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&t&t&0\\0&1&-t&0&t^2\\t&-t&0&0&0\\-t&0&0&-t^2&-t^2\end{array}\right)
+              \end{align*}
+              \\
+              \underline{Note:} In Carlsson-Zomordian there is no difference in notation between $M_i$ and $M_i'$. Also, for the algorithm they order the elements such that the degree decreases down to rows. If we work in $\mathbb{R}[t]$, the matrices will be the same. In $\mathbb{Z}/2\mathbb{Z}[t]$ there won't be difference between $\pm 1$.\\
+              \underline{The example from p.1}\\
+              \\
+              \begin{tikzpicture}[line join = round, line cap = round]
+                \coordinate [label=above:$a$] (a) at (0,0);
+                \coordinate [label=above:$b$] (b) at (2,0);
+                \coordinate (c) at (4,0);
+                \coordinate (d) at (6,0);
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (a) circle [radius=0.04];
+                  \draw[fill] (d) circle [radius=0.04];
+                  \draw[fill] (b) circle [radius=0.04];
+                  \draw[fill] (c) circle [radius=0.04];
+                  \draw[draw=none] (a)--(b) node[midway,below] {deg 0};
+                  \draw[thick, postaction={decorate}] (c)--(d) node[midway,above] {ab} node[midway,below] {deg 1};
+                \end{scope}
+              \end{tikzpicture}
+              \\
+              The final $cx$ is $0 \rightarrow \mathbb{Z} \xrightarrow{\partial_1} \mathbb{Z}^{\oplus2} \rightarrow 0$. The matrix of $\partial_1$ is \begin{align*}M_1 = \begin{bmatrix}-1\\1\end{bmatrix}\end{align*}. This gives rise to the complexes of $\mathbb{Z}[t] - modules$.\\
+              \begin{align*}
+                0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-1\\1\end{bmatrix}} \mathbb{Z}t^{\oplus2} \rightarrow 0
+              \end{align*}
+              and of \underline{graded} $\mathbb{Z}[t]$ -modules.
+              \begin{align*}
+                0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-t\\t\end{bmatrix}} \equalto{(1)^{\oplus2}}{\mathbb{Z}t^{\oplus2}} \rightarrow 0
+              \end{align*} 
 
 
 
