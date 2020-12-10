@@ -1,324 +1,336 @@
-\documentclass[11pt,a4paper]{report}
-\usepackage{graphicx}
-\graphicspath{{./images/}}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-%\usepackage{tabto}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{mathtools}
-\usepackage{stmaryrd}
-\usepackage{xcolor}
-\usepackage{pst-solides3d}
-\usepackage{tikz}
-\usepackage{tikz-3dplot}
-\usepackage{pgfplots}
-\usepackage{tkz-fct}
-\usepackage{tikz-cd}
-\usepackage{tkz-euclide}
-\usetikzlibrary{decorations.markings,shapes.misc,arrows.meta,shapes.geometric,intersections}
-\usepackage{cancel}
-
-
-\usepackage[margin=1in]{geometry}
-
-\usepackage[colorlinks=true,          % link colors, set to 'false' for print version
-            linkcolor=blue,
-            citecolor=red,
-            urlcolor=blue]{hyperref}
-            
-\include{defs}
-
-\include{biblio}
-
-\DeclareMathOperator{\Ima}{Im}
-
-\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
-\newcommand{\vertsimeq}{\rotatebox{90}{$\,\simeq$}}
-\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
-\newcommand{\simequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertsimeq}{#2}}{#1}}
-
-
-\author{Kejsi Jonuzaj}
-\title{Persistent Homology and TDA}
-%\input{preamble}
-
-\begin{document}
-\maketitle
-\setcounter{tocdepth}{1}
-\tableofcontents
-
-
-    
-      \chapter{Chain Complexes And Simplicial Homology}
-      \label{chapter1}
-
-      \section{Introduction} 
-      
-	      
-	      The key method of  algebraic topology is to assign various \emph{algebraic structures} -- groups, rings, modules --  to topological spaces.
-	      This should be done in a
-	      \emph{ functorial way}. 
-	      Roughly, functoriality means that maps of topological spaces (and compositions thereof) give rise to 
-	      homomorphisms of the respective algebraic structures
-	      (and compositions thereof), and that the structures assigned to homeomorphic spaces are isomorphic. 
-	      See (\ref{functoriality}) or \cite{hatcher}[Ch.2.3] for a more detailed discussion.
-	      %
-	      In this way,
-	      we can think of these algebraic structures as \emph{invariants} of the spaces under consideration.
-	      Questions about topological
-	      spaces  are converted into questions about algebraic structures, which  are typically ``more rigid''. This rigidity can
-	      be used to demonstrate, for example,  that maps between certain spaces do not exist, or that certain spaces are not homeomorphic, etc. 
-	      
-	      \emph{Computing} these algebraic invariants is a different matter altogether. There are notorious examples of invariants that are unknown or
-	      hard to compute even for simple enough spaces, such as spheres.
-	      
-	      \section{$\Delta$-complexes}
-	      
-	      We begin now with a setup that allows for fairly easy calculations. We shall
-	      assign a collection of abelian groups to a topological space $X$ \emph{equipped with some additional structure}.
-	      This additional structure -- called \emph{$\Delta$-complex structure} -- is a way of ``parametrizing'' $X$ by points, 
-	      segments, triangles, tetrahedra (and their higher-dimensional analogues) and will be introduced in Definition \ref{Delta-complex}.
-	      %
-	      While the structure of a $\Delta$-complex makes computations easy, it will be completely unclear whether the groups that we obtain are sensitive
-	      to this additional structure, or are in fact invariants  of the space $X$ itself. In other words, the functoriality of this construction will be completely unclear.
-	      %
-	      This will be rectified in Chapter \ref{SingularHomology}.
-	      
-	       We start with the basic building blocks: simplices.
-		   
-            \begin{defn}[Standard Simplex]
-			    \label {n-simplex} The \emph{standard $n$-simplex in $\RR^{n+1}$} is the convex hull $\Delta^n$ of the standard basis vectors
-			    $\{e_0,\ldots, e_n\}$, i.e.,
-			    \[
-			     \Delta^n = \{(t_0, t_1, ... , t_n) \in \RR^{n+1} 
-			     | \; \sum\limits_i t_i = 1 \; and \; t_i \geq 0 \; \forall \, i \}\subseteq \RR^{n+1}
-			    \]
-			    More generally, an \emph{$n$-simplex in $\RR^{n+1}$} is the convex hull $[v_0,\ldots,v_n]$ of any $(n+1)$-tuple of
-			    vectors $v_0,\ldots,v_n\in \RR^{n+1}$ that do not lie in an $n$-dimensional hyperplane.
-		      \end{defn}
-		      
-		      Notice that with this definition, $\Delta^n=[e_0,\ldots,e_n]$.
-		      
-		      
-		      Thus an $n$-simpex (plural simplices) is an $n$-dimensional analog of a triangle.
-		      %
-		      %
-		       A  \emph{0-simplex} is a point, a \emph{1-simplex} is a line segment, a \emph{2-simplex} is a triangle, \emph{3-simplex} is a tetrahedron, as shown below. \\
-		      
-		      \begin{tikzpicture}[line join = round, line cap = round]
-
-                        % 0-simplex
-                        \coordinate [label=below:$v_0$] (0) at (0,0);
-                        % 1-simplex
-                        \coordinate [label=left:$v_0$] (1) at (1,0);
-                        \coordinate [label=below:$v_1$] (2) at (3,0);
-                        % 2-simplex
-                        \coordinate [label=below:$v_0$] (3) at (4,0);
-                        \coordinate [label=below:$v_1$] (4) at (6,0);
-                        \coordinate [label=above:$v_2$] (5) at (5,{sqrt(3)});
-                        % 3-simpex
-                        \coordinate [label=above:$v_3$] (6) at (8,{sqrt(2)},0);
-                        \coordinate [label=left:$v_0$] (7) at ({-.5*sqrt(3)+8},0,-.5);
-                        \coordinate [label=below:$v_1$] (8) at (8,0,1);
-                        \coordinate [label=right:$v_2$] (9) at ({.5*sqrt(3)+8},0,-.5);
-
-                        \begin{scope}[decoration={markings,mark=at position 0.5 with
-                            {\arrow{to}}}]
-                            % 0-simplex
-                            \draw[fill] (0) circle [radius=0.03];
-                            % 1-simplex
-                            \draw[fill] (1) circle [radius=0.025];
-                            \draw[fill] (2) circle [radius=0.025];
-                            \draw[thick, postaction={decorate}] (1)--(2);
-                            % 2-simplex
-                            \draw[fill] (3) circle [radius=0.025];
-                            \draw[fill] (4) circle [radius=0.025];
-                            \draw[fill] (5) circle [radius=0.025];
-                            \draw[thick, postaction={decorate}] (3)--(4);
-                            \draw[thick, postaction={decorate}] (3)--(5);
-                            \draw[thick, postaction={decorate}] (4)--(5);
-                            % 3-simplex
-                            \draw[fill] (6) circle [radius=0.03];
-                            \draw[fill] (7) circle [radius=0.025];
-                            \draw[fill] (8) circle [radius=0.025];
-                            \draw[fill] (9) circle [radius=0.025];
-                            \draw[thick, densely dotted,postaction={decorate}] (7)--(9);
-                            \draw[thick, postaction={decorate}] (7)--(8);
-                            \draw[thick, postaction={decorate}] (7)--(6);
-                            \draw[thick, postaction={decorate}] (8)--(9);
-                            \draw[thick, postaction={decorate}] (8)--(6);
-                            \draw[thick, postaction={decorate}] (9)--(6);
-                        \end{scope}
-
-                    \end{tikzpicture}
-		      
-		      
-		      
-		      The vectors $v_i$, determining  $ [v_0,... , v_n] $
-		      are the \emph{vertices} of the simplex.
-		      %
-		      In our calculations we are going to work with a chosen \emph{ordering} of the vertices of the simplex. I.e., 
-		      we are going to use  ``simplex'' when we  mean ``a simplex together with an ordering of the vertices''.
-		      %
-		      This has a number of consequences. First, it
-              determines orientations of the edges $[v_i, v_j]$ according to increasing subscripts.
-              Second, specifying the ordering of the vertices  determines
-              a canonical linear homeomorphism from   
-              $\Delta^n$ onto any $n$-simpex $ [v_0,... , v_n] $ preserving 
-              the order of vertices, namely,
-              $\sum_i t_i\be_i\mapsto \sum_i t_i \bv_i$.
-	      %
-	      Once we fix an ordering of the vertices, we also obtain  an orientation of the $n$-simplex, i.e., the sign of
-	      $\det(v_0,\ldots,v_n)$. Two orderings determine the same orientation when they differ by an even permutation.
-	      
-	      By a \emph{face} of a $n$-simplex we shall mean an $(n-1)$-simplex spanned by some $n$-tuple of vertices of the simplex. That is,
-	      the $i$-th face of $[v_0,\ldots,v_n]$ is
-	       $[v_0,\ldots,\widehat{v_i},\ldots,v_n]$, where the hat indicates omission. Some sources refer to this face as an
-	       $(n-1)$-face, and talk about $k$-faces, for $0\leq k\leq n-1$.
-	      
-		      
-		     
-                    
-             The \emph{boundary} $\partial\Delta^n$ is defined as the union of all the faces of $\Delta^n$, and
-             $\mathring{\Delta^n} = \Delta^n - \partial\Delta^n $ denotes interior of $\Delta^n$. 
-             %
-             Notice that with this definition  $\partial \Delta^0=\varnothing$ and $\Delta^0$ coincides with its interior!
-             
-             We now equip $X$ with additional structure: ``parametrization'' by simplices of various dimensions that satisfies a number of conditions.
-             
-		      \begin{defn}[$\Delta$-complex]\label{Delta-complex}
-		      	A $\Delta-complex$ structure on a topological space X is a collection of maps $\sigma_\alpha: \Delta^n \rightarrow X $ , with n depending on the index $\alpha$, such that:
-                    \begin{enumerate}
-                        \item The restriction $\sigma_\alpha | \mathring{\Delta^n}$ is                      injective, and each point of X is in the image of exactly one such restriction $\sigma_\alpha | \mathring{\Delta^n}$.
-                        \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the  maps
-                        $\sigma_\beta: \Delta^{n-1} \rightarrow X $. Here we are identifying the face of $\Delta^n$ with $\Delta^{n-1}$ by the canonical linear homeomorphism between them that preserves the ordering of the vertices.
-                        \item A set $A \subset X$ is open iff $\sigma^{-1}_{\alpha}(A)$ is open in $\Delta^n$ for each $\sigma_\alpha$
-                    \end{enumerate}
-
-		      \end{defn}
-		      
-		     
-		     \begin{Ex}
-        
-        Consider   $ X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $ 
-        and the following maps $\sigma_\alpha: \Delta^n \rightarrow X $.
-        
-		     
-		       \begin{tikzpicture}[scale=1.5]
-                \draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2); 
-                \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);
-                \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);
-                \draw (0,0) circle (1cm);
-                \draw[fill] (1,0) circle (0.04);
-
-                \foreach \x/\xtext in {-1, 1} 
-                \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
-                \foreach \y/\ytext in {-1, 1} 
-                \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
-                \end{tikzpicture}
-              
-              
-		      %For n = 0, $\alpha = 0$: 
-		      First, $\sigma_0: \Delta^0 \rightarrow S^1 $, with  $\sigma_0(1) = (1, 0)$. Next,
-		       $\sigma_1: \Delta^1 \rightarrow S^1 $, defined by  $\sigma_1(t_0,t_1) = (\cos(2\pi t_0), \sin(2\pi t_0))$ \\
-              %For n = 1, $\alpha = 1$:
-              Recall (see the  figure) that $\Delta^1$ is the set of pairs $(t_0,t_1)$ with $t_0 + t_1 = 1$, $t_0, t_1 \geq 0$,
-              or equivalently, 
-              $ \Delta^1 = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} = [e_0, e_1] $ \\
-              
-            
-              
-             
-              \begin{tikzpicture}
-                    \tikzstyle{point}=[thick,draw=black,cross out,inner sep=0pt,minimum width=4pt,minimum height=4pt]
-                    \begin{axis}[
-                        legend pos=south west,
-                        axis x line=middle,
-                        axis y line=middle,
-                        grid = major,
-                        width=5cm,
-                        height=5cm,
-                        grid style={dashed, gray!30},
-                        xmin=0,    % start the diagram at this x-coordinate
-                        xmax=1.5,    % end   the diagram at this x-coordinate
-                        ymin=0,    % start the diagram at this y-coordinate
-                        ymax=1.5,    % end   the diagram at this y-coordinate
-                        xlabel=$t_0$,
-                        ylabel=$t_1$,
-                        tick align=outside,
-                        minor tick num=-3,
-                        enlargelimits=true,
-                        tension=0.08]
-                    \addplot[domain=0:1, red, thick,samples=20] {-x+1};
-                    \node[point,label={[label distance=0cm]45:$e_0$}] at (axis cs:1,0) {};
-                    \node[point,label={[label distance=0cm]0:$e_1$}] at (axis cs:0,1) {};
-                    \end{axis}
-            \end{tikzpicture}
-
-              
-              $\sigma|_{[e_0]} = \sigma_1(0) = (\cos(0), \sin(0)) = (1, 0)$ \\
-              $\sigma|_{[e_1]} = \sigma_1(1) = (\cos(2\pi), \sin(2\pi)) = (1, 0)$
-              
-     \end{Ex}
-
-     \begin{Ex}
-        
-        Consider $\sigma_\alpha: \Delta^n \rightarrow X $ where $ X = S^2 = \{ (x,y,z) \in \RR^2 \, | \, x^2 + y^2 + z^2 = 1 \} $ \\
-        
-		     
-		      
-              
-              
-		      For n = 2, $\alpha = 2$:  $\sigma_2: \Delta^2 \rightarrow S^2 $
-		      
-              $ \Delta^1 = \{ (t_0, t_1, t_2) \, | \, t_0 + t_1 + t_2 = 1, \, t_i \geq 0 \; for \, i = 1, 2, 3] \} = [e_0, e_1, e_2] $ \\
-            \tdplotsetmaincoords{70}{130}
-            \begin{tikzpicture}[tdplot_main_coords, scale=2]
-                    \def\laxis{2}
-                    \def\ltriangle{1}
-                    \def\ltick{.2}
-                    %%% axes
-                    \draw [->] (0,0,0) -- (\laxis,0,0) node [below] {$t_0$};
-                    \draw [->] (0,0,0) -- (0,\laxis,0) node [right] {$t_1$};
-                    \draw [->] (0,0,0) -- (0,0,\laxis) node [left] {$t_2$};
-                    
-                    \draw [->, ultra thick] (0,0,0) -- (\ltriangle,0,0) node [below] {$e_0$};
-                    \draw [->, ultra thick] (0,0,0) -- (0,\ltriangle,0) node [right] {$e_1$};
-                    \draw [->, ultra thick] (0,0,0) -- (0,0,\ltriangle) node [left] {$e_2$};
-                    %%% axes ticks
-                    \pgfmathtruncatemacro{\nticks}{floor(\laxis)-1}
-                    \begin{scope}[
-                        help lines,
-                        every node/.style={inner sep=1pt,text=black}
-                        ]
-                        \foreach \coord in {1,...,\nticks} {
-                        \draw (\coord,\ltick,0) -- ++(0,-\ltick,0) -- ++(0,0,\ltick)
-                        node [pos=1,left] {\coord};
-                        \draw (\ltick,\coord,0) -- ++(-\ltick,0,0) -- ++(0,0,\ltick)
-                        node [pos=1,right] {\coord};
-                        \draw (\ltick,0,\coord) -- ++(-\ltick,0,0) -- ++(0,\ltick,0)
-                        node [at start,above right] {\coord};
-                        }
-                    \end{scope}
-                    %%% figure
-                    \filldraw [opacity=.33,red] (\ltriangle,0,0) -- (0,\ltriangle,0)
-                    -- (0,0,\ltriangle) -- cycle;
-            \end{tikzpicture}
-              
-            The faces are $[e_1, e_2]$ or $(0, t_1, t_2)$, where $t_1 + t_2 = 1$, \\
-            $[e_0, e_2]$ or $(t_0, 0, t_2)$, where $t_0 + t_2 = 1$, \\
-            $[e_0, e_1]$ or $(t_0, t_1, 0)$, where $t_0 + t_1 = 1$. \\
-              
-            %Notice that to get  the other faces of the delta-complex structure on the sphere you can use the "l_1 sphere",
-            % |x|+|y|+|z|=1, which is mapped to S^2 by (x,y,z)\mapsto (x,y,z)/\sqrt{x^2+y^2+z^2}.
-
-              $\sigma_2((t_0, t_1, t_2)) = \frac{(t_0, t_1, t_2)}{\sqrt{(t_0^2 + t_1^2 + t_2^2)}}$ \\ 
-              $\sigma|_{[e_1, e_2]}(t_1, t_2) =\frac{(t_1, t_2)}{\sqrt{(t_1^2 + t_2^2)}}$, \quad
-              $\sigma|_{[e_0, e_2]]}(t_0, t_2) =\frac{(t_0, t_2)}{\sqrt{(t_0^2 + t_2^2)}}$ , \quad
-              $\sigma|_{[e_0, e_1]}(t_1, t_2) =\frac{(t_0, t_1)}{\sqrt{(t_0^2 + t_1^2)}}$ ,
-     \end{Ex}
+\documentclass[11pt,a4paper]{report}	
+\usepackage{graphicx}	
+\graphicspath{{./images/}}	
+\usepackage[utf8]{inputenc}	
+\usepackage{amsmath}	
+%\usepackage{tabto}	
+\usepackage{amsfonts}	
+\usepackage{amssymb}	
+\usepackage{amsthm}	
+\usepackage{mathtools}	
+\usepackage{stmaryrd}	
+\usepackage{xcolor}	
+\usepackage{pst-solides3d}	
+\usepackage{tikz}	
+\usepackage{tikz-3dplot}	
+\usepackage{pgfplots}	
+\usepackage{tkz-fct}	
+\usepackage{tikz-cd}	
+\usepackage{tkz-euclide}	
+\usetikzlibrary{decorations.markings,shapes.misc,arrows.meta,shapes.geometric,intersections}	
+\usepackage{cancel}	
+\usepackage[margin=1in]{geometry}	
+\usepackage[colorlinks=true,          % link colors, set to 'false' for print version	
+            linkcolor=blue,	
+            citecolor=red,	
+            urlcolor=blue]{hyperref}	
+            	
+\include{defs}	
+\include{biblio}	
+\DeclareMathOperator{\Ima}{Im}	
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}	
+\newcommand{\vertsimeq}{\rotatebox{90}{$\,\simeq$}}	
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}	
+\newcommand{\simequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertsimeq}{#2}}{#1}}	
+\author{Kejsi Jonuzaj}	
+\title{Persistent Homology and TDA}	
+%\input{preamble}	
+\begin{document}	
+\maketitle	
+\setcounter{tocdepth}{1}	
+\tableofcontents	
+    	
+      \chapter{Chain Complexes And Simplicial Homology}	
+      \label{chapter1}	
+      \section{Introduction} 	
+      	
+	      	
+	      The key method of  algebraic topology is to assign various \emph{algebraic structures} -- groups, rings, modules --  to topological spaces.	
+	      This should be done in a	
+	      \emph{ functorial way}. 	
+	      Roughly, functoriality means that maps of topological spaces (and compositions thereof) give rise to 	
+	      homomorphisms of the respective algebraic structures	
+	      (and compositions thereof), and that the structures assigned to homeomorphic spaces are isomorphic. 	
+	      See (\ref{functoriality}) or \cite{hatcher}[Ch.2.3] for a more detailed discussion.	
+	      %	
+	      In this way,	
+	      we can think of these algebraic structures as \emph{invariants} of the spaces under consideration.	
+	      Questions about topological	
+	      spaces  are converted into questions about algebraic structures, which  are typically ``more rigid''. This rigidity can	
+	      be used to demonstrate, for example,  that maps between certain spaces do not exist, or that certain spaces are not homeomorphic, etc. 	
+	      	
+	      \emph{Computing} these algebraic invariants is a different matter altogether. There are notorious examples of invariants that are unknown or	
+	      hard to compute even for simple enough spaces, such as spheres.	
+	      	
+	      \section{$\Delta$-complexes}	
+	      	
+	      We begin now with a setup that allows for fairly easy calculations. We shall	
+	      assign a collection of abelian groups to a topological space $X$ \emph{equipped with some additional structure}.	
+	      This additional structure -- called \emph{$\Delta$-complex structure} -- is a way of ``parametrizing'' $X$ by points, 	
+	      segments, triangles, tetrahedra (and their higher-dimensional analogues) and will be introduced in Definition \ref{Delta-complex}.	
+	      %	
+	      While the structure of a $\Delta$-complex makes computations easy, it will be completely unclear whether the groups that we obtain are sensitive	
+	      to this additional structure, or are in fact invariants  of the space $X$ itself. In other words, the functoriality of this construction will be completely unclear.	
+	      %	
+	      This will be rectified in Chapter \ref{SingularHomology}.	
+	      	
+	       We start with the basic building blocks: simplices.	
+		   	
+            \begin{defn}[Standard Simplex]	
+			    \label {n-simplex} The \emph{standard $n$-simplex in $\RR^{n+1}$} is the convex hull $\Delta^n$ of the standard basis vectors	
+			    $\{e_0,\ldots, e_n\}$, i.e.,	
+			    \[	
+			     \Delta^n = \{(t_0, t_1, ... , t_n) \in \RR^{n+1} 	
+			     | \; \sum\limits_i t_i = 1 \; and \; t_i \geq 0 \; \forall \, i \}\subseteq \RR^{n+1}.	
+			    \]	
+			    More generally, an \emph{$n$-simplex in $\RR^{n+1}$} is the convex hull $[v_0,\ldots,v_n]$ of any $(n+1)$-tuple of	
+			    vectors $v_0,\ldots,v_n\in \RR^{n+1}$ that do not lie in an $n$-dimensional hyperplane.	
+		      \end{defn}	
+		      	
+		      Notice that with this definition, $\Delta^n=[e_0,\ldots,e_n]$.	
+		      	
+		      	
+		      Thus an $n$-simpex (plural simplices) is an $n$-dimensional analog of a triangle.	
+		      %	
+		      %	
+		       A  \emph{0-simplex} is a point, a \emph{1-simplex} is a line segment, a \emph{2-simplex} is a triangle, \emph{3-simplex} is a tetrahedron, as shown below. \\	
+		      	
+		      \begin{tikzpicture}[line join = round, line cap = round]	
+                        % 0-simplex	
+                        \coordinate [label=below:$v_0$] (0) at (0,0);	
+                        % 1-simplex	
+                        \coordinate [label=left:$v_0$] (1) at (1,0);	
+                        \coordinate [label=below:$v_1$] (2) at (3,0);	
+                        % 2-simplex	
+                        \coordinate [label=below:$v_0$] (3) at (4,0);	
+                        \coordinate [label=below:$v_1$] (4) at (6,0);	
+                        \coordinate [label=above:$v_2$] (5) at (5,{sqrt(3)});	
+                        % 3-simpex	
+                        \coordinate [label=above:$v_3$] (6) at (8,{sqrt(2)},0);	
+                        \coordinate [label=left:$v_0$] (7) at ({-.5*sqrt(3)+8},0,-.5);	
+                        \coordinate [label=below:$v_1$] (8) at (8,0,1);	
+                        \coordinate [label=right:$v_2$] (9) at ({.5*sqrt(3)+8},0,-.5);	
+                        \begin{scope}[decoration={markings,mark=at position 0.5 with	
+                            {\arrow{to}}}]	
+                            % 0-simplex	
+                            \draw[fill] (0) circle [radius=0.03];	
+                            % 1-simplex	
+                            \draw[fill] (1) circle [radius=0.025];	
+                            \draw[fill] (2) circle [radius=0.025];	
+                            \draw[thick, postaction={decorate}] (1)--(2);	
+                            % 2-simplex	
+                            \draw[fill] (3) circle [radius=0.025];	
+                            \draw[fill] (4) circle [radius=0.025];	
+                            \draw[fill] (5) circle [radius=0.025];	
+                            \draw[thick, postaction={decorate}] (3)--(4);	
+                            \draw[thick, postaction={decorate}] (3)--(5);	
+                            \draw[thick, postaction={decorate}] (4)--(5);	
+                            % 3-simplex	
+                            \draw[fill] (6) circle [radius=0.03];	
+                            \draw[fill] (7) circle [radius=0.025];	
+                            \draw[fill] (8) circle [radius=0.025];	
+                            \draw[fill] (9) circle [radius=0.025];	
+                            \draw[thick, densely dotted,postaction={decorate}] (7)--(9);	
+                            \draw[thick, postaction={decorate}] (7)--(8);	
+                            \draw[thick, postaction={decorate}] (7)--(6);	
+                            \draw[thick, postaction={decorate}] (8)--(9);	
+                            \draw[thick, postaction={decorate}] (8)--(6);	
+                            \draw[thick, postaction={decorate}] (9)--(6);	
+                        \end{scope}	
+                    \end{tikzpicture}	
+		      	
+		      	
+		      	
+		      The vectors $v_i$, determining  $ [v_0,... , v_n] $	
+		      are the \emph{vertices} of the simplex.	
+		      %	
+		      In our calculations we are going to work with a chosen \emph{ordering} of the vertices of the simplex. I.e., 	
+		      we are going to use  ``simplex'' when we  mean ``a simplex together with an ordering of the vertices''.	
+		      %	
+		      This has a number of consequences. First, it	
+              determines orientations of the edges $[v_i, v_j]$ according to increasing subscripts.	
+              Second, specifying an ordering of the vertices  determines	
+              a canonical linear homeomorphism from   	
+              $\Delta^n$ onto any $n$-simpex $ [v_0,... , v_n] $ preserving 	
+              the order of vertices, namely,	
+              $\sum_i t_i\be_i\mapsto \sum_i t_i \bv_i$.	
+	      %	
+	      Once we fix an ordering of the vertices, we also obtain  an orientation of the $n$-simplex, i.e., the sign of	
+	      $\det(v_0,\ldots,v_n)$. Two orderings determine the same orientation when they differ by an even permutation.	
+	      	
+	      By a \emph{face} of a $n$-simplex we shall mean an $(n-1)$-simplex spanned by some $n$-tuple of vertices of the simplex. That is,	
+	      the $i$-th face of $[v_0,\ldots,v_n]$ is	
+	       $[v_0,\ldots,\widehat{v_i},\ldots,v_n]$, where the hat indicates omission. Some sources refer to this face as an	
+	       $(n-1)$-face, and talk, more generally about $k$-faces, for $0\leq k\leq n-1$. These are $k$-simplices, obtained as	
+	       the convex hull of  a $k$-tuple of vertices. We always order the vertices of a face according to their order	
+	       in the larger simplex.	
+	       	
+	       \begin{Ex}	
+	       	Consider the (second) face $[v_0,v_1,v_3]$ of the $3$-simplex $[v_0,v_1,v_2,v_3]$ in $\RR^4$. The canonical order-preserving map	
+	       	$\Delta^2\to [v_0,v_1,v_3]$ is determined by $e_0\mapsto v_0$, $e_1\mapsto v_1$, $e_2\mapsto v_3$. The canonical order-preserving	
+	       	map from $\Delta^1$ to the edge $[v_1,v_3]$ is determined by $e_0\mapsto v_1$, $e_1\mapsto v_3$.	
+	       \end{Ex}	
+	      	
+		      	
+		     	
+                    	
+             The \emph{boundary} $\partial\Delta^n$ of the standard simplex is defined as the union of all the faces of $\Delta^n$, and	
+             $\mathring{\Delta}^n = \Delta^n - \partial\Delta^n $ denotes interior of $\Delta^n$. We define analogously the boundary and	
+             interior of an arbitary simplex in $\RR^n$.	
+             %	
+             Notice that with this definition  $\partial \Delta^0=\varnothing$ and $\mathring{\Delta}^0= \Delta^0$!	
+             	
+             We now equip $X$ with additional structure: ``parametrization'' of $X$ by simplices of various dimensions that satisfies a number of 	
+             compatibility conditions.	
+             	
+		      \begin{defn}[$\Delta$-complex]\label{Delta-complex}	
+		      	A $\Delta-complex$ structure on a topological space X is a collection of maps $\left\{\sigma_\alpha: \Delta^n \rightarrow X\right\}_\alpha $,	
+		      	with $n=n(\alpha)$ depending on the index $\alpha$, such that:	
+                    \begin{enumerate}	
+                        \item Each restriction $\sigma_\alpha | \mathring{\Delta}^n$ is                      injective, and each point of X is in the image of exactly one such	
+                        restriction $\sigma_\alpha | \mathring{\Delta}^n$.	
+                        \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the  maps	
+                        $\sigma_\beta: \Delta^{n-1} \rightarrow X $. Here a face of $\Delta^n$ is identified with $\Delta^{n-1}$ 	
+                        via the canonical order-preserving linear homeomorphism. 	
+                        \item A set $A \subset X$ is open iff $\sigma^{-1}_{\alpha}(A)$ is open in $\Delta^n$ for each $\sigma_\alpha$	
+                    \end{enumerate}	
+		      \end{defn}	
+			
+		     	
+		     	
+		     	
+		     \begin{Ex}	
+        	
+        Consider   $ X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $ 	
+        and the following maps $\sigma_\alpha: \Delta^n \rightarrow X $.	
+        	
+		     	
+		       \begin{tikzpicture}[scale=1.5]	
+                \draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2); 	
+                \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);	
+                \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);	
+                \draw (0,0) circle (1cm);	
+                \draw[fill] (1,0) circle (0.04);	
+                \foreach \x/\xtext in {-1, 1} 	
+                \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};	
+                \foreach \y/\ytext in {-1, 1} 	
+                \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};	
+                \end{tikzpicture}	
+              	
+              	
+		      %For n = 0, $\alpha = 0$: 	
+		      First, $\sigma_0: \Delta^0 \rightarrow S^1 $, with  $\sigma_0(1) = (1, 0)$. Next,	
+		       $\sigma_1: \Delta^1 \rightarrow S^1 $, defined by  $\sigma_1(t_0,t_1) = (\cos(2\pi t_0), \sin(2\pi t_0))$ \\	
+              %For n = 1, $\alpha = 1$:	
+              Recall (see the  figure) that $\Delta^1$ is the set of pairs $(t_0,t_1)$ with $t_0 + t_1 = 1$, $t_0, t_1 \geq 0$,	
+              or equivalently, 	
+              $ \Delta^1 = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} = [e_0, e_1] $ \\	
+              	
+            	
+              	
+             	
+              \begin{tikzpicture}	
+                    \tikzstyle{point}=[thick,draw=black,cross out,inner sep=0pt,minimum width=4pt,minimum height=4pt]	
+                    \begin{axis}[	
+                        legend pos=south west,	
+                        axis x line=middle,	
+                        axis y line=middle,	
+                        grid = major,	
+                        width=5cm,	
+                        height=5cm,	
+                        grid style={dashed, gray!30},	
+                        xmin=0,    % start the diagram at this x-coordinate	
+                        xmax=1.5,    % end   the diagram at this x-coordinate	
+                        ymin=0,    % start the diagram at this y-coordinate	
+                        ymax=1.5,    % end   the diagram at this y-coordinate	
+                        xlabel=$t_0$,	
+                        ylabel=$t_1$,	
+                        tick align=outside,	
+                        minor tick num=-3,	
+                        enlargelimits=true,	
+                        tension=0.08]	
+                    \addplot[domain=0:1, red, thick,samples=20] {-x+1};	
+                    \node[point,label={[label distance=0cm]45:$e_0$}] at (axis cs:1,0) {};	
+                    \node[point,label={[label distance=0cm]0:$e_1$}] at (axis cs:0,1) {};	
+                    \end{axis}	
+            \end{tikzpicture}	
+              	
+              $\sigma|_{[e_0]} = \sigma_1(0) = (\cos(0), \sin(0)) = (1, 0)$ \\	
+              $\sigma|_{[e_1]} = \sigma_1(1) = (\cos(2\pi), \sin(2\pi)) = (1, 0)$	
+              	
+     \end{Ex}	
+     \begin{Ex}	
+        	
+        Consider $\sigma_\alpha: \Delta^n \rightarrow X $ where $ X = S^2 = \{ (x,y,z) \in \RR^2 \, | \, x^2 + y^2 + z^2 = 1 \} $ \\	
+        	
+		     	
+		      	
+              	
+              	
+		      For n = 2, $\alpha = 2$:  $\sigma_2: \Delta^2 \rightarrow S^2 $	
+		      	
+              $ \Delta^1 = \{ (t_0, t_1, t_2) \, | \, t_0 + t_1 + t_2 = 1, \, t_i \geq 0 \; for \, i = 1, 2, 3] \} = [e_0, e_1, e_2] $ \\	
+            \tdplotsetmaincoords{70}{130}	
+            \begin{tikzpicture}[tdplot_main_coords, scale=2]	
+                    \def\laxis{2}	
+                    \def\ltriangle{1}	
+                    \def\ltick{.2}	
+                    %%% axes	
+                    \draw [->] (0,0,0) -- (\laxis,0,0) node [below] {$t_0$};	
+                    \draw [->] (0,0,0) -- (0,\laxis,0) node [right] {$t_1$};	
+                    \draw [->] (0,0,0) -- (0,0,\laxis) node [left] {$t_2$};	
+                    	
+                    \draw [->, ultra thick] (0,0,0) -- (\ltriangle,0,0) node [below] {$e_0$};	
+                    \draw [->, ultra thick] (0,0,0) -- (0,\ltriangle,0) node [right] {$e_1$};	
+                    \draw [->, ultra thick] (0,0,0) -- (0,0,\ltriangle) node [left] {$e_2$};	
+                    %%% axes ticks	
+                    \pgfmathtruncatemacro{\nticks}{floor(\laxis)-1}	
+                    \begin{scope}[	
+                        help lines,	
+                        every node/.style={inner sep=1pt,text=black}	
+                        ]	
+                        \foreach \coord in {1,...,\nticks} {	
+                        \draw (\coord,\ltick,0) -- ++(0,-\ltick,0) -- ++(0,0,\ltick)	
+                        node [pos=1,left] {\coord};	
+                        \draw (\ltick,\coord,0) -- ++(-\ltick,0,0) -- ++(0,0,\ltick)	
+                        node [pos=1,right] {\coord};	
+                        \draw (\ltick,0,\coord) -- ++(-\ltick,0,0) -- ++(0,\ltick,0)	
+                        node [at start,above right] {\coord};	
+                        }	
+                    \end{scope}	
+                    %%% figure	
+                    \filldraw [opacity=.33,red] (\ltriangle,0,0) -- (0,\ltriangle,0)	
+                    -- (0,0,\ltriangle) -- cycle;	
+            \end{tikzpicture}	
+              	
+            The faces are $[e_1, e_2]$ or $(0, t_1, t_2)$, where $t_1 + t_2 = 1$, \\	
+            $[e_0, e_2]$ or $(t_0, 0, t_2)$, where $t_0 + t_2 = 1$, \\	
+            $[e_0, e_1]$ or $(t_0, t_1, 0)$, where $t_0 + t_1 = 1$. \\	
+              	
+            %Notice that to get  the other faces of the delta-complex structure on the sphere you can use the "l_1 sphere",	
+            % |x|+|y|+|z|=1, which is mapped to S^2 by (x,y,z)\mapsto (x,y,z)/\sqrt{x^2+y^2+z^2}.	
+              $\sigma_2((t_0, t_1, t_2)) = \frac{(t_0, t_1, t_2)}{\sqrt{(t_0^2 + t_1^2 + t_2^2)}}$ \\ 	
+              $\sigma|_{[e_1, e_2]}(t_1, t_2) =\frac{(t_1, t_2)}{\sqrt{(t_1^2 + t_2^2)}}$, \quad	
+              $\sigma|_{[e_0, e_2]]}(t_0, t_2) =\frac{(t_0, t_2)}{\sqrt{(t_0^2 + t_2^2)}}$ , \quad	
+              $\sigma|_{[e_0, e_1]}(t_1, t_2) =\frac{(t_0, t_1)}{\sqrt{(t_0^2 + t_1^2)}}$ ,	
+     \end{Ex}	
+     	
+	  Here are some ``non-examples'': collections of maps $\sigma_\alpha:\Delta^n\to X$ that satisfy conditions (1) and (2), but not condition (3) from Definiton \ref{Delta-complex}.	
+     \begin{Ex}	
+     	Let $X=[0;1]$ or more generally, any other non-discrete space, having infinitely many points. Then the collection	
+     	of  maps $\{\sigma_x:\Delta^0\to X\}_{x\in X}$, $\sigma_x(1)=x$ 	
+     	satisfies (1) and (2), but not (3). We place  one $0$-simplex for each point of $X$, but  points in $[0;1]$ are not open.	
+     		
+     	Another  example is as follows. Let $X$ be the unit square $X=[0;1]\times [0;1]$. Consider, for each $y\in [0;1]$, a  map	
+     	$\lambda_y:\Delta^0\to X$, $\lambda_y(1)=(0,y)$, a map $\rho_y:\Delta^0\to X$, $\rho_y(1)=(1,y)$ and a map	
+     	$\sigma_y:\Delta^1\to X$, $\sigma_y(t_0,t_1)= (t_0,y)$. In this way we place  at height $y$ one $1$-simplex (as a horizontal segment), 	
+     	and two $0$-simplices, as its left and right end. The collection of maps $\{\sigma_y, \lambda_y, \rho_y\}_{y\in[0;1]}$ satisfies (1) and (2), 	
+     	but not (3).	
+     \end{Ex}	
+	  Thus condition (3) precludes inadequate choices of maps $\sigma_\alpha$, for example, covering a manifold (with boundary) of dimension $n$ by simplices	
+	  of smaller dimension.	
+	  More generally, condition (3) is important when one needs to deal with  infinite collections of simplices, in particular, when dealing with	
+	  infinite-dimensional (in appropriate sense) spaces $X$.	
 
 		     Usually simplicial homology is defined by simplicial complexes, which are the $\Delta-complexes$ whose simpleces are uniquely determined by their vertices. In a simplicial complex any n-simplex has n+1 distinct vertices, and no other n-simplex has the same set of vertices. 
 		     
@@ -2762,7 +2774,7 @@ Finally, the homology groups of the projective plane are:
               
               
               
-            \chapter{Computing Persitent Homology}
+            \chapter{Computing Persistent Homology}
             
             So far we have build the following setup to compute persistance homology on persistance chain complex:
               \begin{align*}
@@ -2941,7 +2953,7 @@ Finally, the homology groups of the projective plane are:
               \\
 %               \underline{Exc} Compute explicitly some $H_k^{i,p}$\\
 %               e.g. $H_1^{3,2} = Z_1^3 = B_1^5 \cap Z_1^3$\\
-              Some explicit computations are: 
+              Some explicit computations are: \\
               Here the matrix of $\partial_1^3$ is\\
               \begin{align*}
                 \left(\begin{array}{c|ccccc}
