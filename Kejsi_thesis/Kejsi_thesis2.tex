@@ -2578,13 +2578,45 @@ Finally, the homology groups of the projective plane are:
                 &rank\ H_k = m_k - e_k - e_{k+1}
               \end{align*}
               \\
+              
+              
+              
+              
+              
               \section{The Persistence Module}
+              
+              In this section we will combine the homology of all the complexes in the filtration
+            into a single algebraic structure. We then establish a correspondence that reveals a simple
+            description over fields. Most significantly, we illustrate that the persistent homology of
+            a filtered complex is simply the standard homology of a particular graded module over
+            a polynomial ring. 
               
               Taking into consideration the construction of a filtered simplicial complex intruduced in section \ref{complexfiltration}, we can construct a filtered chain complex: \\
               \[
                     \equalto{(0)}{C_\bullet^0} \subseteq C_\bullet^1 \subseteq C_\bullet^2 \subseteq \cdots \subseteq \equalto{C_\bullet^m}{C_\bullet}
               \]
              
+              \begin{defn} (Persistent Homology Group). Given a filtered complex, the i-th complex $K^i$ has associated boundary operators 
+                $\partial^i_k$, matrices $M^i_k$ , and groups $C^i_k$, $Z^i_k$, $B^i_k$, and $H^i_k$ for all $i, k \geq 0$
+                The p-persistent k-th homology group of $K^i$ is 
+                        \[
+                        H_k^{i, p} = Z_k^i \left/ (B_k^{i+p} \cap Z_k^i) \right.
+            \]
+            \end{defn}
+              
+              For $p = 0$, this is the usual homology formula:
+               \[ H_k(C_\bullet^i) = Z_k^i / {(B_k^i \cap Z_k^i}) = Z_k^i / B_k^i \]
+             \begin{defn} (Persistence Complex)
+             
+             A persistence complex $\mathcal{C}$ is a family of chain complexes $\{C_*^i\}_{i \geq 0}$ over R, together with a chain map's $f_i: C_*^i \rightarrow C_*^{i+1}$ so that we have the following diagram:
+             
+             \[
+               C_*^0 \xrightarrow{f^0} C_*^1 \xrightarrow{f^1} C_*^2 \xrightarrow{f^2} \dots
+             \]
+
+              
+             \end{defn}
+
              \begin{Ex}
               
               Let us consider the following filtered simplicial complex, and the filtered chain complex: \\
@@ -2679,63 +2711,70 @@ Finally, the homology groups of the projective plane are:
               \[
                 \begin{tikzcd}[ampersand replacement=\&]
                   \& 0 \arrow[rr] \arrow[d]                      \&\& 0 \arrow[rr] \arrow[d]                                \&\& 0 \arrow[rr] \arrow[d]                            \&\& 0 \arrow[rr] \arrow[d]                            \&\& \mathbb{Z} \arrow[d]\\
-                  \& 0 \arrow[hookrightarrow]{rr}{f^1} \arrow[d] \&\& \mathbb{Z}^2 \arrow[hookrightarrow]{rr}{f_2} \arrow[d] \&\& \mathbb{Z}^4 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^5 \arrow[d] \arrow[hookrightarrow]{rr} \&\& \mathbb{Z}^4 \arrow[d]\\
-                  \& \mathbb{Z}^2 \arrow[hookrightarrow]{rr}{f^1} \arrow[d] \&\& \mathbb{Z}^3 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^4 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^4 \arrow[d] \arrow[hookrightarrow]{rr} \&\& \mathbb{Z}^4 \arrow[d]\\
-                  \& 0 \arrow[hookrightarrow]{rr}{f^1}           \&\& 0 \arrow[hookrightarrow]{rr}         \&\& 0 \arrow[hookrightarrow]{rr}          \&\& 0 \arrow[hookrightarrow]{rr} \&\& 0 \\
-                  \& C_\bullet^1 \arrow[hookrightarrow]{rr}{f^1}       \&\& C_\bullet^2 \arrow[hookrightarrow]{rr}{f^2} \&\& C_\bullet^3 \arrow[hookrightarrow]{rr}{f^3} \&\& C_\bullet^4 \arrow[hookrightarrow]{rr}{f^4} \&\& C_\bullet^5 \\
+                  \& 0 \arrow[hookrightarrow]{rr}{f^0} \arrow[d] \&\& \mathbb{Z}^2 \arrow[hookrightarrow]{rr}{f^2} \arrow[d] \&\& \mathbb{Z}^4 \arrow[hookrightarrow]{rr}{f^3} \arrow[d] \&\& \mathbb{Z}^5 \arrow[d] \arrow[hookrightarrow]{rr} \&\& \mathbb{Z}^4 \arrow[d]\\
+                  \& \mathbb{Z}^2 \arrow[hookrightarrow]{rr}{f^0} \arrow[d] \&\& \mathbb{Z}^3 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^4 \arrow[hookrightarrow]{rr} \arrow[d] \&\& \mathbb{Z}^4 \arrow[d] \arrow[hookrightarrow]{rr} \&\& \mathbb{Z}^4 \arrow[d]\\
+                  \& 0 \arrow[hookrightarrow]{rr}{f^0}           \&\& 0 \arrow[hookrightarrow]{rr}         \&\& 0 \arrow[hookrightarrow]{rr}          \&\& 0 \arrow[hookrightarrow]{rr} \&\& 0 \\
+                  \& C_\bullet^0 \arrow[hookrightarrow]{rr}{f^0}       \&\& C_\bullet^1 \arrow[hookrightarrow]{rr}{f^1} \&\& C_\bullet^2 \arrow[hookrightarrow]{rr}{f^2} \&\& C_\bullet^3 \arrow[hookrightarrow]{rr}{f^3} \&\& C_\bullet^4 \\
                 \end{tikzcd}
               \]
              \end{Ex}
              
-             
-              \begin{defn} (Persistant Homology Group)
- 
-                Given a filtered complex, the i-th complex $K^i$ has associated boundary operators 
-                $\partial^i_k$, matrices $M^i_k$ , and groups $C^i_k$, $Z^i_k$, $B^i_k$, and $H^i_k$ for all $i, k \geq 0$
-                The p-persistent k-th homology group of $K^i$ is 
-                        \[
-                        H_k^{i, p} = Z_k^i \left/ (B_k^{i+p} \cap Z_k^i) \right.
-            \]
-            \end{defn}
-              
+             \begin{defn} (Persistence Module). A persistance module $\mathcal{M}$ is a family of $R-modules$, $M^i$, together
+             with homoemorphism $\varphi^i: M^i \rightarrow M^{i+1}\}$
+             \end{defn}
+
+             Suppose we have a persistance module  $\mathcal{M} = \{M^i, \varphi^i: M^i \rightarrow M^{i+1}\}$ over a
+             ring $R$, We can equip $R[t]$ with the standard grading and define a graded module over $R[t]$ by
+                \[ \alpha(M) = \underset{i \ge 0}{\oplus} M_i \], 
+                where the $R-module$ structure is the sum of the structures on the individual componets, and where the action of t is given by:
+                
               \begin{align*}
-                &\textrm{If } p = 0: H_k(C_\bullet^i) = Z_k^i / \underset{\equiv B_k^i}{(B_k^i \cap Z_k^i})
-              \end{align*}
-              \\
-              ``Persistence cx''\\
-              $\{C_\bullet^i\}: \ge 0 \quad f: C_\bullet^i \rightarrow C_\bullet^{i+1}$ for chain maps\\
-              ``Persistence mod''\\
-              \begin{align*}
-                &\{M^i, \varphi^i: M^i \rightarrow M^{i+1}\} = M\\
-                &\alpha(M) = \underset{i \ge 0}{\oplus} M_i\\
                 &t \cdot(m^0,m^1, \cdots) = (0, \varphi^0(m^0), \varphi^1(m^1), \cdots)\\
                 &\left(\begin{array}{c|c|c|c}
                         0 &&& \\ \hline \varphi^0 & 0 && \\ \hline & \varphi^1 & 0 & \\ \hline && \varphi^2 &
                       \end{array}\right)
               \end{align*}
               
+              $t$ simply shift elements of the module up in gradation. 
+              
+            \begin{Ex}
+
+              \begin{align*}
+                &\varphi: \mathbb{R}^n \rightarrow \mathbb{R}\\
+                &\varphi: \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \mapsto (A_1, \cdots, A_n)\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} = A_1x_1 + \cdots + A_nx_n\\
+                &(\varphi_1, \cdots, \varphi_{n-1}) \mathbb{R}^n \rightarrow \mathbb{R}^{n-1}\\
+                &\underline{x} \mapsto \begin{pmatrix}A_{11} & \cdots & A_{m-1}\\ \cdots&\cdots&\cdots\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\\
+                &\textrm{e.g.} \begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}:\begin{pmatrix}x\\y\\z\end{pmatrix} \mapsto \begin{pmatrix}x\\y\end{pmatrix}\\
+              \end{align*}
+
+            \end{Ex}
+            
+            
               \begin{thm} (Correspondence) The correspondence $\alpha$ defines an equivalence of categories between the category of persistence modules of finite type over $R$ and the category of finitely generated non-negatively graded modules over $R[t]$.
               \end{thm}
 
+            The Correspondence theorem gives us a simple decomposition when the ground ring is a field $F$. In this case the graded ring $F[t]$ is a PID and its only graded ideals are homogeneous of form $(t_n)$, so the structure of the $F[t]-module$ is described by sum (3.2) in structure theorem \ref{Structure}:
+            
+            \begin{align}
+                (\underset{i}{\oplus} \Sigma^{\alpha_i} F[t]) \oplus (\underset{j}{\oplus} \Sigma ^{\gamma_j} F[t]/(t^{n^j})).
+              \end{align}
               
-
+              
+              
+              
+            \chapter{Computing Persitent Homology}
+            
+            So far we have build the following setup to compute persistance homology on persistance chain complex:
               \begin{align*}
-                \varphi: \mathbb{R}^n \rightarrow \mathbb{R}\\
-                \varphi: \begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix} \mapsto &(A_1, \cdots, A_n)\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\\
-                                                             &A_1x_1 + \cdots + A_nx_n\\
-                (\varphi_1, \cdots, \varphi_{n-1}) \mathbb{R}^n \rightarrow \mathbb{R}^{n-1}\\
-                \underline{x} \mapsto \begin{pmatrix}A_{11} & \cdots & A_{m-1}\\ \cdots&\cdots&\cdots\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\\
-                \textrm{e.g.} \begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}:\begin{pmatrix}x\\y\\z\end{pmatrix} \mapsto \begin{pmatrix}x\\y\end{pmatrix}\\
+                &Persistence \ complex: C_\bullet^0 \hookrightarrow C_\bullet^1 \hookrightarrow C_\bullet^2 \hookrightarrow \cdots\\
+                &Persistent \ Homology \ Group: \ H_k^{i,p} = Z_k^i / B_k^{i+p} \cap Z_k^i\\
+                & where \ Z_k^i = \ker (\partial_k^i : C_k^i \rightarrow C_{k-1}^i)
+                =\Ima ((H_k^i = H_k ( C_\bullet^i) \rightarrow (H_k ( C_\bullet^{i+p}))\\
               \end{align*}
-
-             \underline{setup:} chain complex with a filtration
-              \begin{align*}
-                C_\bullet^0 \hookrightarrow C_\bullet^1 \hookrightarrow C_\bullet^2 \hookrightarrow \cdots\\
-                H_k^{i-p} = Z_k^i / B_k^{i+p} \cap Z_k^i\\
-                Z_k^i = \ker (\partial_k^i : C_k^i \rightarrow C_{k-1}^i)\\
-                =\Ima ((H_k^i = H_k | C_\bullet^i) \rightarrow (H_k | C_\bullet^{i+p}))\\
-              \end{align*}
-              Ex:\\
+              
+              \begin{Ex} Consider $X$ to be a space consisting of two points and $Y$, of an edge. 
+              Then we can construct the following persitence complex: \\ 
+        
               \begin{center}
                 \begin{tikzpicture}[line join = round, line cap = round]
                   \coordinate (0) at (0,0);
@@ -2754,7 +2793,7 @@ Finally, the homology groups of the projective plane are:
               \begin{align*}
                 \\
                 \begin{tikzcd}[ampersand replacement=\&, sep=large]
-                  \& C_\bullet^0 \&\& C_\bullet^1 \\
+                  \& C_\bullet^0 \arrow[hookrightarrow]{rr}{f_0} \&\& C_\bullet^1 \\
                   1 \& (0) \arrow[hookrightarrow]{rr} \arrow[d,swap,"\partial_1=0"]          \&\& \mathbb{Z} \arrow[d,"\partial_1={\begin{bmatrix}-1\\1\end{bmatrix}}"]\\
                   0 \& \mathbb{Z}^2 \arrow[hookrightarrow]{rr} \arrow[d,swap,"\partial_0=0"] \&\& \mathbb{Z}^2 \arrow[d,"\partial_0={\begin{bmatrix}0&0\end{bmatrix}}"]\\
                   \& 0 \arrow[hookrightarrow]{rr}              \&\& 0\\
@@ -2774,7 +2813,14 @@ Finally, the homology groups of the projective plane are:
                 &H_1^{0,1} = Z_0^1 / B_1^{1} \cap Z_1^0 = (0) \quad H_1^{1,1} = (0)\\
                 &H_0^{0,1} = Z_0^0 / B_0^{1} \cap Z_0^0 = \mathbb{Z}^2 / \Ima \begin{bmatrix}-1\\1\end{bmatrix} \simeq \mathbb{Z}\\
               \end{align*}
-              \\
+              \end{Ex}
+              
+              \begin{Ex}
+               Let us consider the following filtered complex: \\
+
+              \begin{center}
+               
+
               \begin{tikzpicture}[line join = round, line cap = round]
                 % 1st
                 \coordinate [label=above:$a$] (0) at (0,1);
@@ -2880,7 +2926,8 @@ Finally, the homology groups of the projective plane are:
                 \filldraw [opacity=.33,red] (10,1) -- (11,1) -- (11,0) -- cycle;
                 \filldraw [opacity=.33,blue] (10,1) -- (10,0) -- (11,0) -- cycle;
               \end{tikzpicture}
-              \\
+              \end{center}
+              
               \[
                 \begin{tikzcd}[ampersand replacement=\&, sep=normal]
                   \& 0     \&\& 1    \&\& 2     \&\& 3     \&\& 4     \&\& 5\\
@@ -2892,8 +2939,9 @@ Finally, the homology groups of the projective plane are:
                 \end{tikzcd}
               \]
               \\
-              \underline{Exc} Compute explicitly some $H_k^{i,p}$\\
-              e.g. $H_1^{3,2} = Z_1^3 = B_1^5 \cap Z_1^3$\\
+%               \underline{Exc} Compute explicitly some $H_k^{i,p}$\\
+%               e.g. $H_1^{3,2} = Z_1^3 = B_1^5 \cap Z_1^3$\\
+              Some explicit computations are: 
               Here the matrix of $\partial_1^3$ is\\
               \begin{align*}
                 \left(\begin{array}{c|ccccc}
@@ -2904,7 +2952,8 @@ Finally, the homology groups of the projective plane are:
                         a&-1&0&0&-1&-1\\
                       \end{array}\right) = M_1
               \end{align*}
-              \\
+              \end{Ex}
+              \
               Introduce the structure of a graded module over $k[t]$ (on $R[t]$)\\
               Degrees $\iff$ appearance in the translation\\
               \begin{itemize}

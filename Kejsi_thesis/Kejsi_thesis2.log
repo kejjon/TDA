@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  10 DEC 2020 02:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  10 DEC 2020 17:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1020,8 +1020,12 @@ File: tikzlibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.g
 eometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+)) (c:/texlive/2020/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
+(c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
+
 (c:/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
@@ -1288,22 +1292,22 @@ No file biblio.tex.
 (./Kejsi_thesis2.aux)
 \openout1 = `Kejsi_thesis2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1332,7 +1336,7 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 45.
+ on input line 47.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1369,7 +1373,7 @@ your preamble.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box73
-Package hyperref Info: Link coloring ON on input line 45.
+Package hyperref Info: Link coloring ON on input line 47.
 (c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -1381,37 +1385,37 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count392
 )
-LaTeX Info: Redefining \ref on input line 45.
-LaTeX Info: Redefining \pageref on input line 45.
-LaTeX Info: Redefining \nameref on input line 45.
+LaTeX Info: Redefining \ref on input line 47.
+LaTeX Info: Redefining \pageref on input line 47.
+LaTeX Info: Redefining \nameref on input line 47.
 
 (./Kejsi_thesis2.out) (./Kejsi_thesis2.out)
 \@outlinefile=\write5
 \openout5 = `Kejsi_thesis2.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
 
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
 
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
-7.
+9.
 
 (c:/texlive/2020/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 47
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 49
 .
 
 (c:/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 47
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 49
 .
 
 (c:/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
@@ -1453,215 +1457,210 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.51       \chapter
+l.54       \chapter
                    {Chain Complexes And Simplicial Homology} [1
 
 ]
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 53.
+(hyperref)                removing `math shift' on input line 77.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 53.
+(hyperref)                removing `\Delta' on input line 77.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 53.
+(hyperref)                removing `math shift' on input line 77.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--255
+Underfull \hbox (badness 10000) in paragraph at lines 224--230
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 272--274
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-<xymatrix 8x1 307> [4] <xymatrix 3x1 96> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 468--472
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--313
 
  []
 
-<xymatrix 5x1 179> [5]
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
+
+ []
+
+[4] <xymatrix 8x1 307> <xymatrix 3x1 96> <xymatrix 3x1 96>
+Underfull \hbox (badness 10000) in paragraph at lines 521--525
+
+ []
+
+[5] <xymatrix 5x1 179>
+Underfull \hbox (badness 10000) in paragraph at lines 578--579
+
+ []
+
+<xymatrix 4x1 141> [6] <xymatrix 4x1 141>
+Underfull \hbox (badness 10000) in paragraph at lines 633--635
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--645
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--687
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--699
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--763
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 770--771
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 773--786
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 800--801
 
  []
 
 <xymatrix 4x1 141> <xymatrix 4x1 141>
-Underfull \hbox (badness 10000) in paragraph at lines 580--582
+Underfull \hbox (badness 10000) in paragraph at lines 840--842
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--592
+Underfull \hbox (badness 10000) in paragraph at lines 844--850
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 623--634
+Underfull \hbox (badness 10000) in paragraph at lines 852--858
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 635--646
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 647--696
+[8] <xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
+Underfull \hbox (badness 10000) in paragraph at lines 917--919
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 697--710
+Underfull \hbox (badness 10000) in paragraph at lines 921--925
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 717--718
+Underfull \hbox (badness 10000) in paragraph at lines 927--937
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 720--733
+Underfull \hbox (badness 10000) in paragraph at lines 939--945
+
+ []
+
+[9] <xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1008
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 747--748
-
- []
-
-<xymatrix 4x1 141> [7] <xymatrix 4x1 141>
-Underfull \hbox (badness 10000) in paragraph at lines 787--789
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1019
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 791--797
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1035
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--805
-
- []
-
-<xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
-Underfull \hbox (badness 10000) in paragraph at lines 864--866
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 868--872
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 874--884
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 886--892
-
- []
-
-<xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
-Underfull \hbox (badness 10000) in paragraph at lines 952--955
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 959--966
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 968--982
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 984--990
+Underfull \hbox (badness 10000) in paragraph at lines 1037--1043
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 1044--1046
+Underfull \hbox (badness 10000) in paragraph at lines 1097--1099
 
  []
 
-[11] [12]
+[11] [12] [13]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1218
 
  []
 
-<xymatrix 3x1 96> <xymatrix 3x1 96> [13
+[14
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1195--1196
-
- []
-
-<xymatrix 2x2 123> [14]
+] <xymatrix 3x1 96> <xymatrix 3x1 96>
 Underfull \hbox (badness 10000) in paragraph at lines 1252--1253
 
  []
 
+<xymatrix 2x2 123> [15]
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1310
+
+ []
+
 <xymatrix 4x2 532> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 1290--1294
+Underfull \hbox (badness 10000) in paragraph at lines 1347--1351
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1300--1302
+Underfull \hbox (badness 10000) in paragraph at lines 1357--1359
 
  []
 
-<xymatrix 5x2 454> [15]
-Underfull \hbox (badness 10000) in paragraph at lines 1329--1330
+<xymatrix 5x2 454> [16]
+Underfull \hbox (badness 10000) in paragraph at lines 1386--1387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1340--1342
+Underfull \hbox (badness 10000) in paragraph at lines 1397--1399
 
  []
 
 <xymatrix 5x2 786>
-Underfull \hbox (badness 10000) in paragraph at lines 1398--1401
+Underfull \hbox (badness 10000) in paragraph at lines 1455--1458
 
  []
 
-[16]
+[17]
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no - in font nullfont!
 Missing character: There is no s in font nullfont!
@@ -1699,227 +1698,226 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
  <xymatrix 5x1 145> <xymatrix 5x1 145> <xymatrix 5x2 531> <xymatrix 3x1
-89> [17] <xymatrix 3x1 89> <xymatrix 3x1 89> <xymatrix 5x2 438> <xymatrix 6x1
-231> <xymatrix 5x2 452> <xymatrix 3x1 110> [18] <xymatrix 5x1 145> <xymatrix
-5x1 145> <xymatrix 5x2 495> <xymatrix 6x1 183> [19]
-Underfull \hbox (badness 10000) in paragraph at lines 1772--1774
+89> [18] <xymatrix 3x1 89> <xymatrix 3x1 89> <xymatrix 5x2 438> <xymatrix 6x1
+231> <xymatrix 5x2 452> <xymatrix 3x1 110> [19] <xymatrix 5x1 145> <xymatrix
+5x1 145> <xymatrix 5x2 495> <xymatrix 6x1 183> [20]
+Underfull \hbox (badness 10000) in paragraph at lines 1829--1831
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1800--1801
+Underfull \hbox (badness 10000) in paragraph at lines 1857--1858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1805--1807
+Underfull \hbox (badness 10000) in paragraph at lines 1862--1864
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1818--1819
+Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1821--1824
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1881
 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 1853--1854
-
- []
-
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 1973--1975
+Underfull \hbox (badness 10000) in paragraph at lines 1910--1911
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1976--1977
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1979--1981
-
- []
-
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 2001--2002
+Underfull \hbox (badness 10000) in paragraph at lines 2030--2032
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2004--2008
+Underfull \hbox (badness 10000) in paragraph at lines 2033--2034
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2018--2019
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2020--2023
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2025--2027
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2051--2052
+Underfull \hbox (badness 10000) in paragraph at lines 2036--2038
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 2089--2090
+Underfull \hbox (badness 10000) in paragraph at lines 2058--2059
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2093--2094
+Underfull \hbox (badness 10000) in paragraph at lines 2061--2065
 
  []
 
-[24] [25]
+
+Underfull \hbox (badness 10000) in paragraph at lines 2075--2076
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2077--2080
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2082--2084
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2108--2109
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 2146--2147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2150--2151
+
+ []
+
+[25] [26]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2350--2351
+Underfull \hbox (badness 10000) in paragraph at lines 2406--2409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2352--2354
+Underfull \hbox (badness 10000) in paragraph at lines 2423--2425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2367--2369
+Underfull \hbox (badness 10000) in paragraph at lines 2438--2440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2373--2374
+Underfull \hbox (badness 10000) in paragraph at lines 2444--2445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2377--2378
+Underfull \hbox (badness 10000) in paragraph at lines 2448--2449
 
  []
 
-[26
+[27
 
-] [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 2494--2499
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2494--2499
+]
+Underfull \hbox (badness 10000) in paragraph at lines 2489--2491
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 2607--2612
+[28] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 2579--2581
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2641--2643
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 2680--2788
+Underfull \hbox (badness 10000) in paragraph at lines 2594--2595
 
  []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 2797--2802
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2810--2814
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2822--2823
+Underfull \hbox (badness 10000) in paragraph at lines 2622--2623
 
  []
 
 [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 2899--2919
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2919--2920
-
- []
-
-[34] (./Kejsi_thesis2.bbl [35]) [36
+Chapter 4.
+[34
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2937.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2937.
+Underfull \hbox (badness 10000) in paragraph at lines 2936--2941
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2949--2953
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 2961--2962
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 3038--3058
+
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 3058--3059
+
+ []
+
+(./Kejsi_thesis2.bbl [38]) [39
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3076.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3076.
  (./Kejsi_thesis2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2937.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2937.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3076.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3076.
 
 Package rerunfilecheck Info: File `Kejsi_thesis2.out' has not changed.
-(rerunfilecheck)             Checksum: 018D5B39D04D312F71FBD2BE63892C44;461.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2937.
+(rerunfilecheck)             Checksum: 63638621D6792D34B13CD035F21B326E;837.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3076.
  ) 
 Here is how much of TeX's memory you used:
- 43363 strings out of 480876
- 987078 string characters out of 5911488
- 1474754 words of memory out of 5000000
- 57984 multiletter control sequences out of 15000+600000
- 552893 words of font info for 110 fonts, out of 8000000 for 9000
+ 43424 strings out of 480876
+ 987849 string characters out of 5911488
+ 1470320 words of memory out of 5000000
+ 58023 multiletter control sequences out of 15000+600000
+ 553823 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,23n,100p,729b,2158s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
@@ -1945,10 +1943,10 @@ texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2020/texmf-dist
 e1/public/xypic/xyatip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xyp
 ic/xybtip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash10.p
 fb>
-Output written on Kejsi_thesis2.pdf (37 pages, 392505 bytes).
+Output written on Kejsi_thesis2.pdf (40 pages, 406067 bytes).
 PDF statistics:
- 417 PDF objects out of 1000 (max. 8388607)
- 334 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 474 PDF objects out of 1000 (max. 8388607)
+ 388 compressed objects within 4 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
