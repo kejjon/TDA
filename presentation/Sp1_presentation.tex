@@ -3,32 +3,44 @@
 
 \usecolortheme{crane}
 \setbeamertemplate{caption}[numbered]
+\usepackage{float}
 \usepackage{graphicx}
-\graphicspath{{./images/}}
+\usepackage{subcaption}
+\graphicspath{{./ripser/}}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 %\usepackage{tabto}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
 \usepackage{xcolor}
+\usepackage{pst-solides3d}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{tkz-fct}
 \usepackage{tikz-cd}
-\usetikzlibrary{arrows}
+\usepackage[affil-it]{authblk}
+\usepackage{tkz-euclide}
+\usetikzlibrary{decorations.markings,shapes.misc,arrows.meta,shapes.geometric,intersections}
+\usepackage{cancel}
+
 \usepackage[all,knot,arc,poly]{xy}
-\usetikzlibrary{decorations.markings,arrows,chains,matrix,positioning,scopes}
 \let\amsamp=&
 
 % \include{defs}
-
+\newcommand {\RR}{\mathbb{R}}
+\newcommand{\cK}{\mathcal{K}}
 \include{biblio}
 
 \DeclareMathOperator{\Ima}{Im}
 
-\title{Topological Data Analysis}
-\subtitle{Introducing Persistent Homology}
+\title{Persistent Homology and TDA}
+\subtitle{Senior Thesis}
 \author{Kejsi Jonuzaj}
-\institute{American University in Bulgaria}
+\institute{American University in Bulgaria\\Departament of Mathematics and Science\\ \ \\Supervisor: Prof. Peter Dalakov}
 \date{\today}
 
 \begin{document}
@@ -44,7 +56,7 @@
   
   \end{frame}
   
-  \section{Simplicial Homology}
+  \section{Chain Complex and Simplicial Homology}
   \subsection{$n-simplex$}
   
   \begin{frame}
@@ -112,16 +124,70 @@
   \subsection{$\Delta-complex$}
   \begin{frame}
   \frametitle{$\Delta-complex$}
-%   \begin{definition}[$\Delta$-complex]
-% 		      	A $\Delta-complex$ structure on a space X is a collection of maps $\sigma_\alpha: \Delta^n \rightarrow X $ , with n depending on the index $\alpha$, such that:
-%                     \begin{enumerate}
-%                         \item The restriction $\sigma_\alpha | \mathring{\Delta^n}$ is                      injective, and each point of X is in the image of exactly one such restriction $\sigma_\alpha | \mathring{\Delta^n}$.
-%                         \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the  maps
-%                         $\sigma_\beta: \Delta^{n-1} \rightarrow X $. Here we are identifying the face of $\Delta^n$ with $\Delta^{n-1}$ by the canonical linear homeomorphism between them that preserves the ordering of the vertices.
-%                         \item A set $A \subset X$ is open iff $\sigma^{-1}_{\alpha}(A)$ is open in $\Delta^n$ for each $\sigma_\alpha$
-%                     \end{enumerate}
-% 
-% 		      \end{definition}
+  \begin{definition}[$\Delta$-complex]
+		      	A $\Delta-complex$ structure on a space X is a collection of maps $\sigma_\alpha: \Delta^n \rightarrow X $ , with n depending on the index $\alpha$, such that:
+                    \begin{enumerate}
+                        \item The restriction $\sigma_\alpha | \mathring{\Delta^n}$ is                      injective, and each point of X is in the image of exactly one such restriction $\sigma_\alpha | \mathring{\Delta^n}$.
+                        \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the  maps
+                        $\sigma_\beta: \Delta^{n-1} \rightarrow X $. Here we are identifying the face of $\Delta^n$ with $\Delta^{n-1}$ by the canonical linear homeomorphism between them that preserves the ordering of the vertices.
+                        \item A set $A \subset X$ is open iff $\sigma^{-1}_{\alpha}(A)$ is open in $\Delta^n$ for each $\sigma_\alpha$
+                    \end{enumerate}
+
+		      \end{definition}
+\end{frame}
+
+\begin{frame}
+        \frametitle{Example - $S^1$}
+        Consider   $X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $. 
+        We are going to describe  explicitly two  maps $\sigma_0: \Delta^0 \rightarrow S^1$, $\sigma_1:\Delta^1\to S^1$, which equip
+        $S^1$ with the structure of a $\Delta$-complex. 
+        
+        For the explicit description, keep in mind that $\Delta^0=\{1\}\subseteq \RR$ and that 
+         \[ \Delta^1 = \left\{(t_0,t_1)\left| t_0+t_1=1\right.   \right\}  = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} \]
+         So in particular, any (continuous) map
+          $\Delta^1\to S^1$ is determined by and determines  a (continuous) map $[0;1]\to S^1$.
+	      \end{frame}
+	      
+	      \begin{frame}
+	      
+	            First, we define $\sigma_0: \Delta^0 \rightarrow S^1 $ by  $\sigma_0(1) = (1, 0)$. Next,
+		       $\sigma_1: \Delta^1 \rightarrow S^1 $ is defined by  $\sigma_1(t_0,t_1) = (\cos(2\pi t_0), \sin(2\pi t_0))$, 
+		       which is clearly continuous.
+		       
+		       The map $\sigma_1$ is one-to-one on $\mathring{\Delta}^1$, and so is, trivially, $\sigma_0$ on $\mathring{\Delta}^0$.  The images of the two
+		       maps cover the circle, with $\sigma_1\left( \mathring{\Delta}^1\right)=S^1\backslash\{(1,0)\}$ and
+		        $\sigma_0\left( \mathring{\Delta}^0\right)=\{(1,0)\}$.
+            
+              Finally, we check the compatibility property (2) of $\sigma_1$ and $\sigma_0$.
+              
+              The restrictions of $\sigma_1$ to the two faces of $\Delta^1$ coincide with $\sigma_0$:
+              
+              \[
+		  \sigma_1|_{[e_1]} = \sigma_1(0,1) = (\cos(0), \sin(0)) = (1, 0)=\sigma_0(1)
+              \]
+              \[
+		  \sigma_1|_{[e_0]} = \sigma_1(1,0) = (\cos(2\pi), \sin(2\pi)) = (1, 0)=\sigma_0(1)
+	      \]
+              
+              Property (3) holds as well.
+              There are numerous other $\Delta$-complex structures on $S^1$, and we shall discuss some of them later on.
+\end{frame}
+
+\begin{frame}
+ \frametitle{Abstract Simplicial Complex}
+ 		     \begin{definition} [Abstract  Simplicial Complex] 
+              Given a finite  set $\{1, 2, \cdots, m\} (=[m])$ an \emph{abstract simplicial complex} is a collection $\mathcal{K}$ of subsets of $[m]$, such that:
+              \begin{enumerate}
+              \item $\emptyset \in \mathcal{K}$
+              \item $\{i\} \in \mathcal{K}$ (singletons are in $\mathcal{K}$)
+              \item If $I \in \mathcal{K}$ and $J\subseteq I$, then $\mathcal{J} \in \mathcal{K}$
+              \end{enumerate}
+              The elements of $[m]$ are the \emph{vertices}, and the elements of $\mathcal{K}$ are the \emph{simplices}, where $I\in \mathcal{K}$ is an $(|I|-1)$-simplex.
+		     \end{definition}
+\end{frame}
+
+
+\begin{frame}
 \begin{figure}
     \includegraphics[width=50mm,scale=0.5]{Simplicial_complex_example.png}
     \caption{A simplicial 3-complex}
@@ -129,6 +195,50 @@
     \end{figure}
 		       
  \end{frame}
+ 
+ \begin{frame}
+  Consider the following partially ordereed set  $ V = \{1, 2, 3, 4\}$: 
+              The simplicial complex 
+              $\mathcal{K} = \{I = \{1, 2, 3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{4\}, \emptyset\}$
+             
+             \begin{center}
+              
+
+              \begin{tikzpicture}[line join = round, line cap = round]
+
+                % 0-simplex
+                \coordinate [label=below:$4$] (0) at (3,1.5);
+                % 2-simplex
+                \coordinate [label=below:$1$] (1) at (4,0);
+                \coordinate [label=below:$2$] (2) at (6,0);
+                \coordinate [label=above:$3$] (3) at (5,{sqrt(3)});
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with
+                    {\arrow{to}}}]
+                  % 0-simplex
+                  \draw[fill] (0) circle [radius=0.03];
+                  % 2-simplex
+                  \draw[fill] (1) circle [radius=0.025];
+                  \draw[fill] (2) circle [radius=0.025];
+                  \draw[fill] (3) circle [radius=0.025];
+                  \draw[thick, postaction={decorate}] (1)--(2);
+                  \draw[thick, postaction={decorate}] (1)--(3);
+                  \draw[thick, postaction={decorate}] (2)--(3);
+                  \filldraw[opacity=.3, gray] (1) --  (2) --  (3) -- cycle;
+
+                \end{scope}
+              \end{tikzpicture}
+             
+             \end{center}
+             
+             Given an abstract simplex $\cK$, we can construct its
+             \emph{topological realization}  as
+             
+              \[|\mathcal{K}| = \underset{\varnothing \neq I\in \cK }{\bigcup} (\textrm{Conv}(e_i),i\in I)\subseteq \RR^m\] 
+              where $\{e_i\}$ is in the standard basis $e_1, \cdots e_m \in \mathbb{R}^m$.
+ \end{frame}
+
+ 
   \subsection{Chain Complex}
   \begin{frame}
    \begin{definition}[Chain complex]
@@ -148,9 +258,11 @@
 		      	   where \(\partial_n\partial_{n+1}=0\) for each n  in $\mathbb{Z}$. The equation
 		      	   \(\partial_n\partial_{n+1}=0\) is equivalent to the inclusion $ \Ima\partial_{n+1} \subset \ker\partial_n $.
 		      \end{definition}
-            where the boundary homomorphisms $ \partial_n $ of $[v_0, v_1, ... , v_n]$ is a defined as
-            $ \Sigma_i (-1)^i [v_0, ... , \hat{v_i}, ... , v_n] $ where the '\^{}' symbol denotes the absence 
-            of that vertex.
+            The boundary map
+		      $\partial_n: \Delta_n(\mathcal{X}) \rightarrow \Delta_{n-1}(\mathcal{X})$ for the would-be chain complex $\Delta_\bullet(X)$ is defined as
+		      \[
+		         \partial_n(\sigma_\alpha) = \sum\limits_i (-1)^i \sigma_\alpha | [v_0, ... ,\widehat{v_i}, ... , v_n].
+              \]
  \end{frame}
  
  \begin{frame}
@@ -210,136 +322,281 @@
   \subsection{Computing Homology}
 
  \begin{frame}
- \frametitle{Computing Homology of $S^1$ in $\mathbb{Z}$}
+ \frametitle{Computing Homology of $\mathbb{R} \mathbb{P}^2$ in $\mathbb{Z}$}
  
-Space $\mathcal{X} = S^1$  \\~\\
-        \begin{figure}
-            \begin{tikzpicture}[line join = round, line cap = round]
-              
-                                % 2-simplex
-                                \coordinate [label=below:$v_0$] (3) at (3,0);
-                                \coordinate [label=below:$v_1$] (4) at (5,0);
-                                \coordinate [label=above:$v_2$] (5) at (4,{sqrt(3)});
-                                \coordinate [label=above:$\simeq$] (1) at (2,0.5);
-                                \coordinate (0) at (3.8, 0.5);
-                                
-                                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
-                                    
-                                    \draw[fill] (1) circle [radius=0];
-                                    \draw[fill] (3) circle [radius=0.025];
-                                    \draw[fill] (4) circle [radius=0.025];
-                                    \draw[fill] (5) circle [radius=0.025];
-                                    
-                                    \draw[thick, postaction={decorate}] (3)--(4) node [midway, below] {a};
-                                    \draw[thick, postaction={decorate}] (3)--(5) node [near start, above=10pt] {c};
-                                    \draw[thick, postaction={decorate}] (4)--(5) node [near start, above=10pt] {b};
-                                    \draw[->,>=latex'] (0) arc[radius=0.25,start angle=225,delta angle=300];
-                                    \draw[thick] (0,{sqrt(3)/2}) circle (1.2cm);
-
-                                    
-                            \end{scope}
-                \end{tikzpicture} 
-                \caption{Triangulation of $S^1$}
-            \end{figure}
-            
- \end{frame}
- 
- \begin{frame}
- 
-   We can construct the following chain complex which is a sequence of homomorphisms of abelian groups: 
+ One way to calculate the homology groups of a projective plain $\mathbb{R} \mathbb{P}^2$ is by triangulating it into two 2-simplices A and B, upper triangle and lower one respectively.
 
 	\[
 		\xymatrix{
-			0  \ar[r]^{\partial_2 = 0} & 
-			C_1  \ar[r]^{\partial_1} & 
+			w \ar @{} [d]^(0.3) {\;\, A }
+			& v  \ar[l]_b \ar[d]^a  \\
+			v \ar[u]^a \ar[r]_b \ar[ur]|{c}
+			& w \ar @{} [u]^(0.3) {B \;\, } }
+	\]
+	
+	We can construct the following chain complex which is a sequence of homomorphisms of abelian groups:
+
+    \[
+		\xymatrix{
+			0  \ar[r]^{\partial_3 = 0} &
+			C_2  \ar[r]^{\partial_2} &
+			C_1  \ar[r]^{\partial_1} &
 			C_0  \ar[r]^{\partial_0 = 0}
 			& 0 \\ }
 	\]
 
- where \(\partial_n\partial_{n+1}=0\) for each n  in $\mathbb{Z}$ and 
+ where \(\partial_n\partial_{n+1}=0\) for each n  in $\mathbb{Z}$
+ \end{frame}
  
-			\[
+ \begin{frame}
+  \[
 				\left|
 				  \begin{array}{l}
-				  	C_0= \langle v_0, v_1, v_2 \rangle \\
-				  	C_1=\langle a, b, c \rangle \\
-                    C_n=\{0\} \quad \forall n \geqslant 2 
+				  	C_0=\langle v,w \rangle\\
+				  	C_1=\langle a, b, c \rangle\\
+                                C_2=\langle A, B \rangle\\
+				      C_n=\{0\} \quad \forall n \geqslant 3
 				  \end{array}
-				\right., 
+				\right.,
 			\]
 
-			\[
-                \xymatrix{
-                    0  \ar[r]^{\partial_2 = 0} & 
-                    \mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_1} & 
-                    \mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_0 = 0}
-                    & 0 \\ }
-	        \]
-	        
+    \[
+		\xymatrix{
+			0  \ar[r]^{\partial_3 = 0} &
+			\mathbb{Z}^{\oplus^2}  \ar[r]^{\partial_2} &
+			\mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_1} &
+			\mathbb{Z}^{\oplus^2}  \ar[r]^{\partial_0 = 0}
+			& 0 \\ }
+	\]
+The n-th homology group is defined as $H_n= \ker\partial_n\left/ \Ima \partial_n \right.$
+\\
+The homology groups of the projective plane are:
+		\[
+	  		H_n^\Delta(\mathbb{R} \mathbb{P}^2) \simeq \left\{
+			      \begin{array}{rl}
+			     \mathbb{Z}, & \textrm{for} \: n = 0\\
+			     \frac{\mathbb{Z}}{2\mathbb{Z}}, & \textrm{for} \: n = 1\\
+                        0 & \textrm{for} \: n \geqslant 2
+			      \end{array}
+			 \right.
+	  	\]
+
+\end{frame}
+
+\begin{frame}
+Let's compute $H_1$: \\
+$\ker\partial_1 = \langle a-b,c \rangle$
+		since $\partial_1(\alpha a + \beta b + \gamma c) = (\alpha + \beta)(w-v) = 0  \implies \alpha = -\beta$ \\
+The general element in $C_1$: $ (\alpha a + \beta b + \gamma c)= \alpha(a-b) + \gamma c $,
+so the $\ker\partial_1$ can be generated by the elements a-b and c \\
+$\Ima\partial_2 = \langle -a+b+c,\, a-b+c \rangle $
+		since $\partial_2(\alpha A + \beta B) = \alpha(-a+b+c) + \beta(a-b+c)$ \\
+$H_1 = \frac{\ker\partial_1}{\Ima\partial_2} =
+		\frac{ \langle a-b, \,c \rangle  }{ \langle -a+b+c,\, a-b+c \rangle }$\\
+The group $\langle a-b, c \rangle$ can be also generated by the elements
+		$ m=a-b+c, and \: c $ where $ a - b = m -c $. So, \\
+$H_1 = \frac{ \langle a-b, \,c \rangle  }{ \langle -a+b+c,\, a-b+c \rangle } = \frac{ \langle a-b+c, \, c \rangle  }{ \langle a-b+c,\, -a+b+c \rangle } $ \\
+If we let $t=a-b+c$ then $-a+b+c = -t + 2c $ then the group $\langle t,\, -t+2c \rangle$ can be also generated by the elements $ t \: and \: 2c $. \\
+In terms of t and c, $H_1 = \frac{ \langle t, \,c \rangle  }{ \langle t,\, 2c \rangle } = \frac{  \langle c \rangle  }{ \langle 2c \rangle } \simeq \frac{\mathbb{Z}}{2\mathbb{Z}}$
  \end{frame}
- 
-    \begin{frame}
-    \frametitle{$H_0$ - \# of connected components}
-            The n-th homology group is defined as $H_n = \frac{\ker\partial_n}{\Ima\partial_{n+1}}$. \\
 
+ \begin{frame}
+ \frametitle{Maps of Chain Complexes}
 
-First, let's compute $H_0$: 
+     Let $(C_\bullet, \partial)$ and $(D_\bullet, \delta)$ be two chain complexes.
+     A map of chain complexes is a morphism $f$ that is a sequence of homomorphisms $(f_n)_{n  \in  Z}$:
 
-$\ker\partial_0 = C_0 = \langle v_0, v_1, v_2 \rangle$ since $\partial_0 = 0$.
-
-To calculate $\Ima\partial_1$, let's compute:
-$\partial_1(\alpha a + \beta b + \gamma c) = \alpha (v_1-v_0) + \beta (v_2-v_1) - \gamma (v_2-v_0) 
-= (\gamma -\alpha)v_0 + (\alpha - \beta)v_1 + (-(\gamma - \alpha)-(\alpha - \beta))v_2 $ 
- \[ \Ima\partial_1 = \left\{ \left(\begin{array}{c}
-          		                 	( \gamma - \alpha )\\
-          		                 	(\alpha - \beta)\\
-          		                 	-(\gamma - \alpha)-(\alpha - \beta)\\
-          		                 \end{array} \right), \quad \alpha, \beta, \gamma \subseteq \mathbb{Z} \right\} 
-          		                 \subseteq \mathbb{Z}^{\oplus^3} \]
-    There exist an isomorphism $\Ima\partial_1 \simeq \mathbb{Z}^2$
-    
-$H_0 = \frac{\ker\partial_0}{\Ima\partial_1} = \mathbb{Z}^{3} \left/ {
-    \left(\begin{array}{c}
-                    1\\
-                    0\\
-                    -1\\
-            \end{array} \right)\mathbb{Z} \oplus
-    \left(\begin{array}{c}
-                    0\\
-                    1\\
-                    -1\\
-            \end{array} \right)\mathbb{Z}} \right. \simeq \mathbb{Z}$ 
-
-    \end{frame}
- 
-  \begin{frame}
-  \frametitle{$H_1$ - \# of holes}
-        Second, let's compute $H_1$: \\
-        $\ker\partial_1 = \left\{ \left(\begin{array}{c}
-                            m\\
-                            m\\
-                            m\\
-                    \end{array} \right), m \in \mathbb{Z} = \right\} = \left(\begin{array}{c}
-                            1\\
-                            1\\
-                            1\\
-                    \end{array} \right) \mathbb{Z} \simeq \mathbb{Z}$ \\ 
-        $\Ima\partial_2 = \{0\}$ since $C_2 = \{0\}$ \\
-        $H_1 = \frac{\ker\partial_1}{\Ima\partial_2} = 
-                \frac{ \ker{\partial_1} }{ \{0\} } = \ker{\partial_1} \simeq \mathbb{Z}$ 
-
-                
-        Finally, the homology groups of the circle are: 
-                \[
-                    H_n^\Delta(S^1) \simeq \left\{
-                        \begin{array}{rl}
-                        \mathbb{Z}, & \textrm{for} \: n = 0, 1\\
-                        
-                                0 & \textrm{for} \: n \geqslant 2
-                        \end{array}
-                    \right.
+            \[
+                  \begin{tikzcd}[ampersand replacement=\&]
+                    (C_\bullet, \partial) \& C_\bullet \ \ldots \arrow[r]  \& C_n \arrow[r, "\partial n"] \arrow[d, "{f_n}"]   \& C_{n-1} \arrow[r, "\partial {n-1}"] \arrow[d, "f_{n-1}"]   \& C_{n-2} \arrow[r, "\partial {n-2}"] \arrow[d, "f_{n-2}"]    \& \ldots \ C_\bullet \\
+                    (D_\bullet, \delta) \& D_\bullet \ \ldots \arrow[r]    \& D_n \arrow[r, "\delta n"]    \& D_{n-1} \arrow[r, "\delta {n-1}"]    \& D_{n-2} \arrow[r, "\delta {n-2}"]   \& \ldots \ D_\bullet \\
+                  \end{tikzcd}
+                \]
+            \[
+                  f_n : C_n \rightarrow D_n \quad s.t, \quad   f_{n-1} \circ \partial n = \delta_n \circ f_n \; \forall n \in \mathbb{Z}
+                  \]
+                   \[
+                  \begin{tikzcd}[ampersand replacement=\&]
+                    \& C_n \arrow[r, "\partial n"] \arrow[d, "{f_n}"]    \& C_{n-1} \arrow[d, "{f_{n-1}}"] \\
+                    \& D_n \arrow[r, "\delta n"]    \& D_{n-1} \\
+                  \end{tikzcd}
+                   \quad         commutes.
                 \]
  \end{frame}
+
+ \begin{frame}
+ \frametitle{Maps of Chain Complexes induce Maps on Homology}
+   A homomorphism of chain complexes induces a homomorphism on the homology.
+                The induced map can be defined as:
+               \begin{align*}
+                  H_n(f) &:  H_n(C_\bullet) \rightarrow H_n(D_\bullet)  \\
+                  H_n(f) &: [x] \mapsto [f_n(x)]
+                \end{align*}
+
+                To prove the claim above it is enough to check that $H_n(f)$ is well-defined.
+                We can prove well-defines by checking if cycles are send to cycles and boundaries to boundaries. \\
+
+                (1) Let us take a cycle $x \in C_n$, so that $x \in \ker (\partial_n)$, $\partial_n(x) = 0$
+
+                    \begin{align*}
+                        \delta_n \circ f_n(x) = f_{n-1} \circ \partial n(x) = f_{n-1}(0) = 0
+                        &\Rightarrow f_n(x) \in \ker \delta_n , f_n(x) \, is \, a \, cycle \\
+                        &\Rightarrow f_n(\ker \partial n) \subseteq \ker \delta_n \\
+                    \end{align*}
+                      So, cycles are send to cycles.
+
+ \end{frame}
+
+ \begin{frame}
+                (2) Let us take a boundary $y \in C_n$, so that $y \in \Ima\partial_{n+1}$
+                $\Rightarrow \exists z \in C_{n+1}$ such that $\partial_{n+1}(z) = y$
+                \begin{align*}
+                  &\null f_n(y) = f_n(\partial_{n+1}(z))  = \delta_{n+1}(f_{n+1}(z)) \\
+                  &\null \Rightarrow f_n(y) \in \Ima\partial_{n+1} f_n(y) \, is \, a \, boundary\\
+                  &\null \Rightarrow f_n(Im\partial_{n+1}) \subseteq Im(\delta_{n+1})
+                \end{align*}
+                So, boundaries are send to boundaries.
+
+                \begin{align*}
+                   H_n(f) &:  H_n(C_\bullet) \rightarrow H_n(D_\bullet)  \\
+                   H_n(f) &:  \ker{\partial_n} \left/ \Ima(\partial_{n+1}) \right. \rightarrow \ker{\delta_n} \left/ \Ima(\delta_{n+1}) \right. \\
+                             & [x] \mapsto [f_n(x)] \\
+                             & x + \Ima\partial_{n+1} \mapsto f_n(x) + f_n(\Ima\delta_{n+1}) =  f_n(x) + Im(\delta_{n+1}) = [f_n(x)]
+                \end{align*}
+ \end{frame}
+
+ 
+%  \begin{frame}
+%   \frametitle{Computing Homology of $S^1$ in $\mathbb{Z}$}
+% 
+% Space $\mathcal{X} = S^1$  \\~\\
+%         \begin{figure}
+%             \begin{tikzpicture}[line join = round, line cap = round]
+%               
+%                                 2-simplex
+%                                 \coordinate [label=below:$v_0$] (3) at (3,0);
+%                                 \coordinate [label=below:$v_1$] (4) at (5,0);
+%                                 \coordinate [label=above:$v_2$] (5) at (4,{sqrt(3)});
+%                                 \coordinate [label=above:$\simeq$] (1) at (2,0.5);
+%                                 \coordinate (0) at (3.8, 0.5);
+%                                 
+%                                 \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+%                                     
+%                                     \draw[fill] (1) circle [radius=0];
+%                                     \draw[fill] (3) circle [radius=0.025];
+%                                     \draw[fill] (4) circle [radius=0.025];
+%                                     \draw[fill] (5) circle [radius=0.025];
+%                                     
+%                                     \draw[thick, postaction={decorate}] (3)--(4) node [midway, below] {a};
+%                                     \draw[thick, postaction={decorate}] (3)--(5) node [near start, above=10pt] {c};
+%                                     \draw[thick, postaction={decorate}] (4)--(5) node [near start, above=10pt] {b};
+%                                     \draw[->,>=latex'] (0) arc[radius=0.25,start angle=225,delta angle=300];
+%                                     \draw[thick] (0,{sqrt(3)/2}) circle (1.2cm);
+% 
+%                                     
+%                             \end{scope}
+%                 \end{tikzpicture} 
+%                 \caption{Triangulation of $S^1$}
+%             \end{figure}
+%             
+%  \end{frame}
+%  
+%  \begin{frame}
+%  
+%    We can construct the following chain complex which is a sequence of homomorphisms of abelian groups: 
+% 
+% 	\[
+% 		\xymatrix{
+% 			0  \ar[r]^{\partial_2 = 0} & 
+% 			C_1  \ar[r]^{\partial_1} & 
+% 			C_0  \ar[r]^{\partial_0 = 0}
+% 			& 0 \\ }
+% 	\]
+% 
+%  where \(\partial_n\partial_{n+1}=0\) for each n  in $\mathbb{Z}$ and 
+%  
+% 			\[
+% 				\left|
+% 				  \begin{array}{l}
+% 				  	C_0= \langle v_0, v_1, v_2 \rangle \\
+% 				  	C_1=\langle a, b, c \rangle \\
+%                     C_n=\{0\} \quad \forall n \geqslant 2 
+% 				  \end{array}
+% 				\right., 
+% 			\]
+% 
+% 			\[
+%                 \xymatrix{
+%                     0  \ar[r]^{\partial_2 = 0} & 
+%                     \mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_1} & 
+%                     \mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_0 = 0}
+%                     & 0 \\ }
+% 	        \]
+% 	        
+%  \end{frame}
+%  
+%     \begin{frame}
+%     \frametitle{$H_0$ - \# of connected components}
+%             The n-th homology group is defined as $H_n = \frac{\ker\partial_n}{\Ima\partial_{n+1}}$. \\
+% 
+% 
+% First, let's compute $H_0$: 
+% 
+% $\ker\partial_0 = C_0 = \langle v_0, v_1, v_2 \rangle$ since $\partial_0 = 0$.
+% 
+% To calculate $\Ima\partial_1$, let's compute:
+% $\partial_1(\alpha a + \beta b + \gamma c) = \alpha (v_1-v_0) + \beta (v_2-v_1) - \gamma (v_2-v_0) 
+% = (\gamma -\alpha)v_0 + (\alpha - \beta)v_1 + (-(\gamma - \alpha)-(\alpha - \beta))v_2 $ 
+%  \[ \Ima\partial_1 = \left\{ \left(\begin{array}{c}
+%           		                 	( \gamma - \alpha )\\
+%           		                 	(\alpha - \beta)\\
+%           		                 	-(\gamma - \alpha)-(\alpha - \beta)\\
+%           		                 \end{array} \right), \quad \alpha, \beta, \gamma \subseteq \mathbb{Z} \right\} 
+%           		                 \subseteq \mathbb{Z}^{\oplus^3} \]
+%     There exist an isomorphism $\Ima\partial_1 \simeq \mathbb{Z}^2$
+%     
+% $H_0 = \frac{\ker\partial_0}{\Ima\partial_1} = \mathbb{Z}^{3} \left/ {
+%     \left(\begin{array}{c}
+%                     1\\
+%                     0\\
+%                     -1\\
+%             \end{array} \right)\mathbb{Z} \oplus
+%     \left(\begin{array}{c}
+%                     0\\
+%                     1\\
+%                     -1\\
+%             \end{array} \right)\mathbb{Z}} \right. \simeq \mathbb{Z}$ 
+% 
+%     \end{frame}
+%  
+%   \begin{frame}
+%   \frametitle{$H_1$ - \# of holes}
+%         Second, let's compute $H_1$: \\
+%         $\ker\partial_1 = \left\{ \left(\begin{array}{c}
+%                             m\\
+%                             m\\
+%                             m\\
+%                     \end{array} \right), m \in \mathbb{Z} = \right\} = \left(\begin{array}{c}
+%                             1\\
+%                             1\\
+%                             1\\
+%                     \end{array} \right) \mathbb{Z} \simeq \mathbb{Z}$ \\ 
+%         $\Ima\partial_2 = \{0\}$ since $C_2 = \{0\}$ \\
+%         $H_1 = \frac{\ker\partial_1}{\Ima\partial_2} = 
+%                 \frac{ \ker{\partial_1} }{ \{0\} } = \ker{\partial_1} \simeq \mathbb{Z}$ 
+% 
+%                 
+%         Finally, the homology groups of the circle are: 
+%                 \[
+%                     H_n^\Delta(S^1) \simeq \left\{
+%                         \begin{array}{rl}
+%                         \mathbb{Z}, & \textrm{for} \: n = 0, 1\\
+%                         
+%                                 0 & \textrm{for} \: n \geqslant 2
+%                         \end{array}
+%                     \right.
+%                 \]
+%  \end{frame}
 
 
   \section{Maps of Complexes and Maps on Homology}
@@ -438,23 +695,69 @@ $H_0 = \frac{\ker\partial_0}{\Ima\partial_1} = \mathbb{Z}^{3} \left/ {
     \end{frame}
     
     
+    \begin{frame}
+     Consider a short exact sequence of chain complexes: \\
+                \[
+                0 \rightarrow A_\bullet \xrightarrow{i} B_\bullet \xrightarrow{\pi} C_\bullet \rightarrow 0
+                \]
+
+                $A_\bullet, \ B_\bullet, \ C_\bullet$ are chain complexes and $i, \pi$ are maps between chain complexes where
+                $\ker \pi = \Ima i, \quad \pi:surjective \ and \ i: injective$\\
+                induces long exact sequence of homology:\\
+                \begin{align*}
+                H_{n+1}(C_\bullet) \xrightarrow{\partial n+1} H_n(A_\bullet) \xrightarrow{i_*} H_n(B_\bullet) \xrightarrow{\pi_*} H_n(C_\bullet) \xrightarrow{\delta} H_{n-1}(A_\bullet) \rightarrow \\ H_{n-1}(B_\bullet) \rightarrow H_{n-1}(C_\bullet) \\
+                \end{align*}
+    \end{frame}
+
+    \begin{frame}
+     \frametitle{The Equivalence of Simplicial and Singular Homology}
+     singular $n-simplex$ in a space $X$ is a map $\sigma: \Delta^n \rightarrow X$
+     We considered a parameterization of a space by simplexes, where the maps $\sigma_\alpha: \Delta^n \rightarrow X$ had restrictions. If we only require that the $\sigma$ map is continous, then by definition that would be a singular $n-simplex$ in a space $X$.\\
+     The lack of other restrictions on the map $\sigma: \Delta^n \rightarrow X$, convey that $\sigma$ does not need to be a `nice` embedding, in fact it can have singularities, where its image does not look like a simplex.
+
+     $C_n(X)$ is a free abelian group with generators the set of singluar $n-simplexes$ in X: the continous maps $\sigma: \Delta^n \rightarrow X$.
+     \begin{theorem}
+     The homomorphisms $H^{\Delta}_{n}(X,A) \rightarrow H_n(X,A)$ are isomorphisms for
+all $n$ and all $\Delta$-complex pairs $(X, A)$.
+     \end{theorem}
+    \end{frame}
+
+    \begin{frame}
+     In addition to the long exact sequence of homology groups for a pair $(X, A)$, there is another sort of long exact sequence, known as a Mayer-Vietoris sequence, which is equally powerful but is sometimes more convenient to use. For a pair of subspaces $A, B \subset X$ such that $X$ is the union of the interiors of $A$ and $B$ , this exact sequence has the form
+     \[ ... \rightarrow H_n(A \cap B) \xrightarrow{\phi} H_n(A) \oplus H_n(B) \xrightarrow{\Psi} H_n(X) \xrightarrow{\partial} H_{n-1}(A \cap B) \rightarrow ... \rightarrow H_0(X) \rightarrow 0 \]
+     \\
+      The Mayer-Vietoris sequence is then the long exact sequence of homology groups associated to the short exact sequence of chain complexes formed by the short exact sequences
+      \[ 0 \rightarrow C_n(A \cap B) \xrightarrow{\Phi} C_n(A) \oplus C_n(B) \xrightarrow{\Psi} C_n(A + B) \rightarrow 0 \]
+    \end{frame}
+    
+    \begin{frame}
+    \frametitle{The Nerve Theorem}
+      If $X$ is a topological space, and $X = \underset{\alpha}{\cup} \quad \mathcal{U}_\alpha$ 
+             where $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ are cover indexes, $\mathcal{U} = \{\mathcal{U}_1, \mathcal{U}_2, \cdots, \mathcal{U}_n\}$, given a cover $\mathcal{U}$ (not necessarily open) of a space $X$, the nerve of $\mathcal{U}$ is a simplicial complex  $\mathcal{N}(\mathcal{U})$ whose n-simplices consist of sets of $n+1$ elements of $\mathcal{U}$ with non-empty intersections.
+              Vertices of $\mathcal{N}(\mathcal{U})= \{1, 2, \cdots, m\}$ are 
+              $(k - 1)$ - faces if $\ \mathcal{U}_{i_{1}} \cap \cdots \cap \mathcal{U}_{i_{k}} 
+              \ne \emptyset$ for $ \{i_1, \cdots, i_k \} \in \mathcal{N}(\mathcal{U})$
+              \\
+              \begin{theorem}[The Nerve Theorem]
+              
+            If $X$ is a paracompact space, and $U$ is an open cover of $X$ such that the
+            intersection of any finite subfamily of $U$ is either empty or contractible,
+            then the realization of the nerve of $U$ is homotopy equivalent to X.
+            
+              \end{theorem}
+    \end{frame}
+
+
+    
     \section{\v{C}ech and Vietoris-Rips Complex}
     \subsection{Definition}
  \begin{frame}
 If $\mathcal{X}$ is a metric space and $r \geq 0$:
-\begin{definition}
- The \v{C}ech Complex has vertix set $\mathcal{X}$ and simplex $[v_0, v_1, ..., v_n]$ when
- \[
-  \bigcap_{i = 0}^n \mathcal{B}(v_i; r/2) \neq \varnothing
- \]
-
+\begin{definition} [\v{C}ech Complex]
+           Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the \v{C}ech Complex, $\mathcal{C}_\epsilon$, is the abstract simplicial complex whose k-simplices are determined by unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ whose closed $\epsilon/2-ball$ neighborhoods have a point of common intersection. 
  \end{definition}
- \begin{definition}
- The Vietoris Rips Complex has vertix set $\mathcal{X}$ and simplex $[v_0, v_1, ..., v_n]$ when
- \[
-  d(v_i, v_j) \leq r \; \forall i, j
-  \]
-
+ \begin{definition} [Vietoris-Rips Complex]
+              Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the Rips Complex, $\mathcal{R}_\epsilon$, is the abstract simplicial complex whose k-simplices correspond to unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ which are pairwise within distance $\epsilon$.
  \end{definition}
  
  Relation of \v{C}ech and Vietoris-Rips Complex: 
@@ -597,23 +900,192 @@ If $\mathcal{X}$ is a metric space and $r \geq 0$:
             \end{frame}
     
 \section{Persistent Homology}
-  \subsection{Persistance}
- \begin{frame}
- \begin{definition}
+
+\subsection{Persistance}
+
+\begin{frame}
+\begin{definition}
  
-    Given a filtered complex, the i-th complex $K^i$ has associated boundary operators 
-    $\partial^i_k_$, matrices $M^i_k$ , and groups $C^i_k$, $Z^i_k$, $B^i_k$, and $H^i_k$ for all $i, k \geq 0$
+    Given a filtered complex, the i-th complex $K^{i}$ has associated boundary operators 
+    $\partial^{i_{k}}$, matrices $M^i_k$ , and groups $C^i_k$, $Z^i_k$, $B^i_k$, and $H^i_k$ for all $i, k \geq 0$
     The p-persistent k-th homology group of $K^i$ is 
             \[
              H_k^{i, p} = Z_k^i \left/ (B_k^{i+p} \cap Z_k^i) \right.
             \]
 
-            \end{definition}
+\end{definition}
              \vspace{0.5in}
              Example: 
-             p = i = k = 1: $ H_1^{1, 1} = Z_1^1 \left/ (B_2^{1} \cap Z_1^1) \right. \mathbb{Z} \left/ ( \{0\} \cap \mathbb{Z}) \right. = \mathbb{Z} $ \\~\\
+             p = i = k = 1: $ H_1^{1, 1} = Z_1^1 \left/ (B_2^{1} \cap Z_1^1) \right. \mathbb{Z} \left/ ( \{0\} \cap \mathbb{Z}) \right. = \mathbb{Z}$
 
-            \end{frame}
+\end{frame}
+
+\begin{frame}
+  \begin{tikzpicture}[line join = round, line cap = round]
+                % 1st
+                \coordinate [label=above:$a$] (0) at (0,1);
+                \coordinate [label=above:$b$] (1) at (1,1);
+                % arrow 1st to 2nd
+                \coordinate (a1) at (1.3, 0.5);
+                \coordinate (a2) at (1.7, 0.5);
+                % 2nd
+                \coordinate [label=above:$a$] (2) at (2,1);
+                \coordinate [label=below:$d$] (3) at (2,0);
+                \coordinate [label=above:$b$] (4) at (3,1);
+                \coordinate [label=below:$c$] (5) at (3,0);
+                % arrow 2nd to 3rd
+                \coordinate (a3) at (3.3, 0.5);
+                \coordinate (a4) at (3.7, 0.5);
+                % 3rd
+                \coordinate [label=above:$a$] (6) at (4,1);
+                \coordinate [label=below:$d$] (7) at (4,0);
+                \coordinate [label=above:$b$] (8) at (5,1);
+                \coordinate [label=below:$c$] (9) at (5,0);
+                % arrow 3rd to 4th
+                \coordinate (a5) at (5.3, 0.5);
+                \coordinate (a6) at (5.7, 0.5);
+                % 4th
+                \coordinate [label=above:$a$] (10) at (6,1);
+                \coordinate [label=below:$d$] (11) at (6,0);
+                \coordinate [label=above:$b$] (12) at (7,1);
+                \coordinate [label=below:$c$] (13) at (7,0);
+                % arrow 4th to 5th
+                \coordinate (a7) at (7.3, 0.5);
+                \coordinate (a8) at (7.7, 0.5);
+                % 5th
+                \coordinate [label=above:$a$] (14) at (8,1);
+                \coordinate [label=below:$d$] (15) at (8,0);
+                \coordinate [label=above:$b$] (16) at (9,1);
+                \coordinate [label=below:$c$] (17) at (9,0);
+                % arrow 5th to 6th
+                \coordinate (a9) at (9.3, 0.5);
+                \coordinate (a10) at (9.7, 0.5);
+                % 6th
+                \coordinate [label=above:$a$] (18) at (10,1);
+                \coordinate [label=below:$d$] (19) at (10,0);
+                \coordinate [label=above:$b$] (20) at (11,1);
+                \coordinate [label=below:$c$] (21) at (11,0);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (0) circle [radius=0.03];
+                  \draw[fill] (1) circle [radius=0.03];
+                  \draw[fill] (2) circle [radius=0.03];
+                  \draw[fill] (3) circle [radius=0.03];
+                  \draw[fill] (4) circle [radius=0.03];
+                  \draw[fill] (5) circle [radius=0.03];
+                  \draw[fill] (6) circle [radius=0.03];
+                  \draw[fill] (7) circle [radius=0.03];
+                  \draw[fill] (8) circle [radius=0.03];
+                  \draw[fill] (9) circle [radius=0.03];
+                  \draw[fill] (10) circle [radius=0.03];
+                  \draw[fill] (11) circle [radius=0.03];
+                  \draw[fill] (12) circle [radius=0.03];
+                  \draw[fill] (13) circle [radius=0.03];
+                  \draw[fill] (14) circle [radius=0.03];
+                  \draw[fill] (15) circle [radius=0.03];
+                  \draw[fill] (16) circle [radius=0.03];
+                  \draw[fill] (17) circle [radius=0.03];
+                  \draw[fill] (18) circle [radius=0.03];
+                  \draw[fill] (19) circle [radius=0.03];
+                  \draw[fill] (20) circle [radius=0.03];
+                  \draw[fill] (21) circle [radius=0.03];
+                  % hooks
+                  \draw [right hook->] (a1) -- (a2);
+                  \draw [right hook->] (a3) -- (a4);
+                  \draw [right hook->] (a5) -- (a6);
+                  \draw [right hook->] (a7) -- (a8);
+                  \draw [right hook->] (a9) -- (a10);
+                  % 2nd
+                  \draw[thick] (5)--(4);
+                  \draw[thick] (2)--(4);
+                  % 3rd
+                  \draw[thick] (6)--(7);
+                  \draw[thick] (6)--(8);
+                  \draw[thick] (7)--(9);
+                  \draw[thick] (8)--(9);
+                  % 4th
+                  \draw[thick] (10)--(11);
+                  \draw[thick] (10)--(12);
+                  \draw[thick] (11)--(13);
+                  \draw[thick] (12)--(13);
+                  \draw[thick] (10)--(13);
+                  % 5th
+                  \draw[thick] (14)--(15);
+                  \draw[thick] (14)--(16);
+                  \draw[thick] (15)--(17);
+                  \draw[thick] (16)--(17);
+                  \draw[thick] (14)--(17);
+                  % 6th
+                  \draw[thick] (18)--(19);
+                  \draw[thick] (18)--(20);
+                  \draw[thick] (19)--(21);
+                  \draw[thick] (20)--(21);
+                  \draw[thick] (18)--(21);
+                \end{scope}
+                \filldraw [opacity=.33,red] (8,1) -- (9,1) -- (9,0) -- cycle;
+                \filldraw [opacity=.33,red] (10,1) -- (11,1) -- (11,0) -- cycle;
+                \filldraw [opacity=.33,blue] (10,1) -- (10,0) -- (11,0) -- cycle;
+              \end{tikzpicture}
+              \\
+              \[
+                \begin{tikzcd}[ampersand replacement=\&, sep=small]
+                  \& 0     \&\& 1    \&\& 2     \&\& 3     \&\& 4     \&\& 5\\
+                  \& C_\bullet^0 \arrow[rr] \&\& C_\bullet^1 \arrow[rr] \&\& C_\bullet^2 \arrow[rr] \&\& C_\bullet^3 \arrow[rr] \&\& C_\bullet^4 \arrow[rr] \&\& C_\bullet^5\\
+                  2 \& 0 \arrow[d]  \arrow[rr]           \&\& 0 \arrow[d]  \arrow[rr]           \&\& 0 \arrow[d]  \arrow[rr]           \&\& 0 \arrow[d]  \arrow[rr]           \&\& \mathbb{Z} \arrow[rr] \arrow[d]  \&\& \mathbb{Z}^2 \arrow[d]\\
+                  1 \& 0 \arrow[d]  \arrow[rr]           \&\& \mathbb{Z}^2 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^5 \arrow[rr] \arrow[d,"\partial_1^3"] \&\& \mathbb{Z}^5 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^5 \arrow[d]\\
+                  0 \& \mathbb{Z}^2 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[rr] \arrow[d] \&\& \mathbb{Z}^4 \arrow[d]\\
+                  \& 0 \&\& 0 \&\& 0 \&\& 0 \&\& 0 \&\& 0\\
+                \end{tikzcd}
+              \]
+\end{frame}
+
+\begin{frame}
+ In particular, consider the last simplicial complex in the filtration:
+
+              \begin{center}
+              \begin{tikzpicture}[line join = round, line cap = round]
+                \coordinate [label=above:$a$] (a) at (10,1);
+                \coordinate [label=below:$d$] (d) at (10,0);
+                \coordinate [label=above:$b$] (b) at (11,1);
+                \coordinate [label=below:$c$] (c) at (11,0);
+
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (a) circle [radius=0.03];
+                  \draw[fill] (d) circle [radius=0.03];
+                  \draw[fill] (b) circle [radius=0.03];
+                  \draw[fill] (c) circle [radius=0.03];
+                  % 6th
+                  \draw[thick, postaction={decorate}] (a)--(b);
+                  \draw[thick, postaction={decorate}] (a)--(d);
+                  \draw[thick, postaction={decorate}] (b)--(c);
+                  \draw[thick, postaction={decorate}] (c)--(d);
+                  \draw[thick, postaction={decorate}] (a)--(c);
+                \end{scope}
+                \filldraw [opacity=.33,red] (10,1) -- (11,1) -- (11,0) -- cycle;
+                \filldraw [opacity=.33,blue] (10,1) -- (10,0) -- (11,0) -- cycle;
+              \end{tikzpicture}
+              \end{center}
+              
+              The chain complex is $0 \rightarrow \mathbb{Z}^2 \xrightarrow{\partial_2} \mathbb{Z}^5 \xrightarrow{\partial_1} \mathbb{Z}^4 \rightarrow 0$. The matrices $M_2$ and $M_1$ of $\partial_2$ and $\partial_1$ without the indicated bases are:
+              \begin{align*}
+                M_2 = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\1&0\\1&0\\0&1\\0&-1\\-1&1\end{array}\right), M_1 = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&1&1&0\\0&1&-1&0&1\\1&-1&0&0&0\\-1&0&0&-1&-1\end{array}\right)
+              \end{align*}
+\end{frame}
+
+\begin{frame}
+  Then $\partial_1$ (ie $M_1$) induces a map of $\mathbb{Z}[t]$ - modules $\mathbb{Z}[t]^{\oplus5} \xrightarrow{M_1} \mathbb{Z}[t]^{\oplus4}$:
+              \begin{align*}
+                \underline{V} = \left(\begin{array}{c}p_1(t)\\p_2(t)\\p_3(t)\\p_4(t)\\p_5(t)\\\end{array}\right) \mapsto M_1 \underline{V}_\bullet
+              \end{align*}
+              \\
+              Using the grading (filtration) on the simplicial complex we get a chain complex of graded $\mathbb{Z}[t]$ - modules\\
+              $0 \rightarrow (t^4)\oplus(t^5) \xrightarrow{\partial_2^1} (t)^{\oplus2}\oplus(t^2)^{\oplus2}\oplus(t^3) \xrightarrow{\partial_1^1} (t)^{\oplus2}\oplus(1)^{\oplus2} \rightarrow 0$\\
+              by the procedure defined on. The respective matrices are (without same bases)
+              \begin{align*}
+                M_2' = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\t^3&0\\t^3&0\\0&t^3\\0&-t^3\\-t^3&t^3\end{array}\right), M_1' = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&t&t&0\\0&1&-t&0&t^2\\t&-t&0&0&0\\-t&0&0&-t^2&-t^2\end{array}\right)
+              \end{align*}
+\end{frame}
+
  
 \begin{frame}
 \begin{figure}
@@ -621,9 +1093,8 @@ If $\mathcal{X}$ is a metric space and $r \geq 0$:
     \caption{An example of barcode representations of the homology of the sampling of
 points in an annulus }
     \label{fig:fig1}
-    \end{figure}
-
-    \end{frame}
+\end{figure}
+\end{frame}
 
   
  \subsection{Computations}
@@ -642,6 +1113,7 @@ points in an annulus }
     \label{fig:fig1}
     \end{figure}
  \end{frame}
+ 
  \begin{frame}
  \begin{figure}
   \includegraphics[width=80mm,scale=1.5]{circle_lifetime.png}
@@ -649,6 +1121,7 @@ points in an annulus }
     \label{fig:fig1}
     \end{figure}
  \end{frame}
+ 
  \begin{frame}
  \begin{figure}
   \includegraphics[width=80mm,scale=1.5]{timeseries.png}
@@ -656,21 +1129,19 @@ points in an annulus }
     \label{fig:fig1}
     \end{figure}
  \end{frame}
-  \begin{frame}
-  \frametitle{References}
-  \begin{itemize}
-   \item A. Zomorodian and G. Carlsson, “Computing Persistent Homology,” Discrete Comput.
-Geom., 33, (2005), 249–274.
-   \item  A. Hatcher, Algebraic Topology, Cambridge University Press, (2002).
-   \item  V. de Silva and G. Carlsson. “Topological estimation using witness complexes,” in SPBG04
-Symposium on Point-Based Graphics (2004), 157-166
-    \item Perea, J.A., Harer, J. Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis. Found Comput Math 15, 799–838 (2015).
-    \item H. Kantz and T. Schreiber, Nonlinear Time Series Analysis, Cambridge University Press, 2003.
-    \tiem Ghrist, Robert. (2008). Barcodes: The persistent topology of data. BULLETIN (New Series) OF THE AMERICAN MATHEMATICAL SOCIETY. 45. 10.1090/S0273-0979-07-01191-3. 
-  \end{itemize}
-
-\end{frame}
  
-
- 
+%   \begin{frame}
+%   \frametitle{References}
+%   \begin{itemize}
+%    \item A. Zomorodian and G. Carlsson, “Computing Persistent Homology,” Discrete Comput.
+% Geom., 33, (2005), 249–274.
+%    \item  A. Hatcher, Algebraic Topology, Cambridge University Press, (2002).
+%    \item  V. de Silva and G. Carlsson. “Topological estimation using witness complexes,” in SPBG04
+% Symposium on Point-Based Graphics (2004), 157-166
+%     \item Perea, J.A., Harer, J. Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis. Found Comput Math 15, 799–838 (2015).
+%     \item H. Kantz and T. Schreiber, Nonlinear Time Series Analysis, Cambridge University Press, 2003.
+%     \tiem Ghrist, Robert. (2008). Barcodes: The persistent topology of data. BULLETIN (New Series) OF THE AMERICAN MATHEMATICAL SOCIETY. 45. 10.1090/S0273-0979-07-01191-3. 
+%   \end{itemize}
+% \end{frame}
+%  
 \end{document}

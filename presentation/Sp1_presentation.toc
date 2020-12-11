@@ -1,13 +1,13 @@
-\beamer@sectionintoc {1}{Simplicial Homology}{3}{0}{1}
+\beamer@sectionintoc {1}{Chain Complex and Simplicial Homology}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{$n-simplex$}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{$\Delta -complex$}{4}{0}{1}
-\beamer@subsectionintoc {1}{3}{Chain Complex}{5}{0}{1}
-\beamer@subsectionintoc {1}{4}{Computing Homology}{8}{0}{1}
-\beamer@sectionintoc {2}{Maps of Complexes and Maps on Homology}{12}{0}{2}
-\beamer@sectionintoc {3}{\v {C}ech and Vietoris-Rips Complex}{15}{0}{3}
-\beamer@subsectionintoc {3}{1}{Definition}{15}{0}{3}
-\beamer@subsectionintoc {3}{2}{\v {C}ech Complex Example}{16}{0}{3}
-\beamer@subsectionintoc {3}{3}{Vietoris-Rips Complex Example}{17}{0}{3}
-\beamer@sectionintoc {4}{Persistent Homology}{19}{0}{4}
-\beamer@subsectionintoc {4}{1}{Persistance}{19}{0}{4}
-\beamer@subsectionintoc {4}{2}{Computations}{21}{0}{4}
+\beamer@subsectionintoc {1}{3}{Chain Complex}{10}{0}{1}
+\beamer@subsectionintoc {1}{4}{Computing Homology}{13}{0}{1}
+\beamer@sectionintoc {2}{Maps of Complexes and Maps on Homology}{19}{0}{2}
+\beamer@sectionintoc {3}{\v {C}ech and Vietoris-Rips Complex}{25}{0}{3}
+\beamer@subsectionintoc {3}{1}{Definition}{25}{0}{3}
+\beamer@subsectionintoc {3}{2}{\v {C}ech Complex Example}{26}{0}{3}
+\beamer@subsectionintoc {3}{3}{Vietoris-Rips Complex Example}{27}{0}{3}
+\beamer@sectionintoc {4}{Persistent Homology}{29}{0}{4}
+\beamer@subsectionintoc {4}{1}{Persistance}{29}{0}{4}
+\beamer@subsectionintoc {4}{2}{Computations}{31}{0}{4}
