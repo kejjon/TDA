@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 09:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 09:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1922,9 +1922,6 @@ Package hyperref Warning: Composite letter `\textasciicaron+C'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 2938.
 
-
-LaTeX Warning: Citation `Ghrist_2007' on page 35 undefined on input line 2954.
-
 [35]
 Underfull \hbox (badness 10000) in paragraph at lines 3096--3101
 
@@ -2020,24 +2017,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 3527--3530
  []
 
 [42] [43] [44]
-<./ripser/on_sphere.PNG, id=435, 481.04718pt x 413.29407pt>
+<./ripser/on_sphere.PNG, id=437, 481.04718pt x 413.29407pt>
 File: ./ripser/on_sphere.PNG Graphic file (type png)
 <use ./ripser/on_sphere.PNG>
 Package pdftex.def Info: ./ripser/on_sphere.PNG  used on input line 3614.
 (pdftex.def)             Requested size: 203.83417pt x 175.12737pt.
-<./ripser/on_sphere_homology.PNG, id=437, 535.2497pt x 458.46281pt>
+<./ripser/on_sphere_homology.PNG, id=439, 535.2497pt x 458.46281pt>
 File: ./ripser/on_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_homology.PNG>
 Package pdftex.def Info: ./ripser/on_sphere_homology.PNG  used on input line 36
 18.
 (pdftex.def)             Requested size: 203.83417pt x 174.59543pt.
-<./ripser/on_sphere_sep_homology.PNG, id=438, 922.19531pt x 352.31625pt>
+<./ripser/on_sphere_sep_homology.PNG, id=440, 922.19531pt x 352.31625pt>
 File: ./ripser/on_sphere_sep_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_sep_homology.PNG>
 Package pdftex.def Info: ./ripser/on_sphere_sep_homology.PNG  used on input lin
 e 3627.
 (pdftex.def)             Requested size: 452.9679pt x 173.05042pt.
-<./ripser/on_sphere_lifetime.PNG, id=439, 512.66531pt x 453.94594pt>
+<./ripser/on_sphere_lifetime.PNG, id=441, 512.66531pt x 453.94594pt>
 File: ./ripser/on_sphere_lifetime.PNG Graphic file (type png)
 <use ./ripser/on_sphere_lifetime.PNG>
 Package pdftex.def Info: ./ripser/on_sphere_lifetime.PNG  used on input line 36
@@ -2045,18 +2042,18 @@ Package pdftex.def Info: ./ripser/on_sphere_lifetime.PNG  used on input line 36
 (pdftex.def)             Requested size: 256.33202pt x 226.97241pt.
  [45 <./ripser/on_sphere.PNG> <./ripser/on_sphere_homology.PNG> <./ripser/on_sp
 here_sep_homology.PNG>]
-<./ripser/on_cylinder.png, id=449, 462.528pt x 346.896pt>
+<./ripser/on_cylinder.png, id=451, 462.528pt x 346.896pt>
 File: ./ripser/on_cylinder.png Graphic file (type png)
 <use ./ripser/on_cylinder.png>
 Package pdftex.def Info: ./ripser/on_cylinder.png  used on input line 3645.
 (pdftex.def)             Requested size: 203.83417pt x 152.87819pt.
-<./ripser/on_cylinder_pers_homology.jpg, id=450, 602.25pt x 470.50781pt>
+<./ripser/on_cylinder_pers_homology.jpg, id=452, 602.25pt x 470.50781pt>
 File: ./ripser/on_cylinder_pers_homology.jpg Graphic file (type jpg)
 <use ./ripser/on_cylinder_pers_homology.jpg>
 Package pdftex.def Info: ./ripser/on_cylinder_pers_homology.jpg  used on input 
 line 3649.
 (pdftex.def)             Requested size: 203.83417pt x 159.24542pt.
-<./ripser/on_cylinder_pers_homology_sep.jpg, id=451, 922.94812pt x 407.27156pt>
+<./ripser/on_cylinder_pers_homology_sep.jpg, id=453, 922.94812pt x 407.27156pt>
 
 File: ./ripser/on_cylinder_pers_homology_sep.jpg Graphic file (type jpg)
 <use ./ripser/on_cylinder_pers_homology_sep.jpg>
@@ -2065,18 +2062,18 @@ put line 3658.
 (pdftex.def)             Requested size: 452.9679pt x 199.88174pt.
  [46 <./ripser/on_sphere_lifetime.PNG> <./ripser/on_cylinder.png> <./ripser/on_
 cylinder_pers_homology.jpg>]
-<./ripser/on_cylinder_lifetime.jpg, id=460, 609.77812pt x 480.29437pt>
+<./ripser/on_cylinder_lifetime.jpg, id=462, 609.77812pt x 480.29437pt>
 File: ./ripser/on_cylinder_lifetime.jpg Graphic file (type jpg)
 <use ./ripser/on_cylinder_lifetime.jpg>
 Package pdftex.def Info: ./ripser/on_cylinder_lifetime.jpg  used on input line 
 3665.
 (pdftex.def)             Requested size: 304.8883pt x 240.14659pt.
-<./ripser/rand_sphere.PNG, id=461, 508.14844pt x 350.81062pt>
+<./ripser/rand_sphere.PNG, id=463, 508.14844pt x 350.81062pt>
 File: ./ripser/rand_sphere.PNG Graphic file (type png)
 <use ./ripser/rand_sphere.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere.PNG  used on input line 3676.
 (pdftex.def)             Requested size: 203.83417pt x 140.71786pt.
-<./ripser/rand_sphere_homology.PNG, id=462, 567.62062pt x 487.8225pt>
+<./ripser/rand_sphere_homology.PNG, id=464, 567.62062pt x 487.8225pt>
 File: ./ripser/rand_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_homology.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_homology.PNG  used on input line 
@@ -2084,14 +2081,14 @@ Package pdftex.def Info: ./ripser/rand_sphere_homology.PNG  used on input line
 (pdftex.def)             Requested size: 203.83417pt x 175.17679pt.
  [47 <./ripser/on_cylinder_pers_homology_sep.jpg> <./ripser/on_cylinder_lifetim
 e.jpg>]
-<./ripser/rand_sphere_homology_seperate.PNG, id=469, 912.40875pt x 380.17032pt>
+<./ripser/rand_sphere_homology_seperate.PNG, id=471, 912.40875pt x 380.17032pt>
 
 File: ./ripser/rand_sphere_homology_seperate.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_homology_seperate.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_homology_seperate.PNG  used on in
 put line 3689.
 (pdftex.def)             Requested size: 452.9679pt x 188.73308pt.
-<./ripser/rand_sphere_lifetime.PNG, id=470, 572.89032pt x 475.7775pt>
+<./ripser/rand_sphere_lifetime.PNG, id=472, 572.89032pt x 475.7775pt>
 File: ./ripser/rand_sphere_lifetime.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_lifetime.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_lifetime.PNG  used on input line 
@@ -2100,18 +2097,18 @@ Package pdftex.def Info: ./ripser/rand_sphere_lifetime.PNG  used on input line
 
 [48 <./ripser/rand_sphere.PNG> <./ripser/rand_sphere_homology.PNG> <./ripser/ra
 nd_sphere_homology_seperate.PNG> <./ripser/rand_sphere_lifetime.png>]
-<./ripser/rand_cyl.PNG, id=483, 398.99063pt x 328.22626pt>
+<./ripser/rand_cyl.PNG, id=485, 398.99063pt x 328.22626pt>
 File: ./ripser/rand_cyl.PNG Graphic file (type png)
 <use ./ripser/rand_cyl.PNG>
 Package pdftex.def Info: ./ripser/rand_cyl.PNG  used on input line 3707.
 (pdftex.def)             Requested size: 203.83417pt x 167.68365pt.
-<./ripser/rand_cyclinder_per_homology.jpg, id=484, 557.83406pt x 462.22687pt>
+<./ripser/rand_cyclinder_per_homology.jpg, id=486, 557.83406pt x 462.22687pt>
 File: ./ripser/rand_cyclinder_per_homology.jpg Graphic file (type jpg)
 <use ./ripser/rand_cyclinder_per_homology.jpg>
 Package pdftex.def Info: ./ripser/rand_cyclinder_per_homology.jpg  used on inpu
 t line 3711.
 (pdftex.def)             Requested size: 203.83417pt x 168.8983pt.
-<./ripser/rand_cyclinder_per_homology_seperate.jpg, id=485, 938.00438pt x 382.4
+<./ripser/rand_cyclinder_per_homology_seperate.jpg, id=487, 938.00438pt x 382.4
 2876pt>
 File: ./ripser/rand_cyclinder_per_homology_seperate.jpg Graphic file (type jpg)
 
@@ -2119,7 +2116,7 @@ File: ./ripser/rand_cyclinder_per_homology_seperate.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./ripser/rand_cyclinder_per_homology_seperate.jpg  use
 d on input line 3720.
 (pdftex.def)             Requested size: 452.9679pt x 184.67242pt.
-<./ripser/rand_cylinder_lifetime.jpg, id=486, 627.09282pt x 487.8225pt>
+<./ripser/rand_cylinder_lifetime.jpg, id=488, 627.09282pt x 487.8225pt>
 File: ./ripser/rand_cylinder_lifetime.jpg Graphic file (type jpg)
 <use ./ripser/rand_cylinder_lifetime.jpg>
 Package pdftex.def Info: ./ripser/rand_cylinder_lifetime.jpg  used on input lin
@@ -2141,9 +2138,6 @@ Package rerunfilecheck Info: File `Kejsi_thesis2.out' has not changed.
 (rerunfilecheck)             Checksum: 7F237D0EBA32481C0F47A59DD81D2044;1018.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3741.
@@ -2151,7 +2145,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3741.
 Here is how much of TeX's memory you used:
  44886 strings out of 480876
  1016672 string characters out of 5911488
- 1487709 words of memory out of 5000000
+ 1487710 words of memory out of 5000000
  59405 multiletter control sequences out of 15000+600000
  553823 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2179,10 +2173,10 @@ dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist
 e1/public/stmaryrd/stmary10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/
 xypic/xyatip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xybtip1
 0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash10.pfb>
-Output written on Kejsi_thesis2.pdf (51 pages, 1245550 bytes).
+Output written on Kejsi_thesis2.pdf (51 pages, 1245384 bytes).
 PDF statistics:
- 619 PDF objects out of 1000 (max. 8388607)
- 494 compressed objects within 5 object streams
+ 620 PDF objects out of 1000 (max. 8388607)
+ 495 compressed objects within 5 object streams
  168 named destinations out of 1000 (max. 500000)
  309 words of extra memory for PDF output out of 10000 (max. 10000000)
 
