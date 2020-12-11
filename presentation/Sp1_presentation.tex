@@ -57,7 +57,7 @@
   \end{frame}
   
   \section{Chain Complex and Simplicial Homology}
-  \subsection{$n-simplex$}
+  \subsection{$\Delta-complex$}
   
   \begin{frame}
   \frametitle{Standard Simplex - \emph{n-simplex}}
@@ -121,7 +121,7 @@
 		     
     \end{frame}
  
-  \subsection{$\Delta-complex$}
+
   \begin{frame}
   \frametitle{$\Delta-complex$}
   \begin{definition}[$\Delta$-complex]
@@ -137,7 +137,7 @@
 \end{frame}
 
 \begin{frame}
-        \frametitle{Example - $S^1$}
+        \frametitle{$\Delta-complex - S^1$}
         Consider   $X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $. 
         We are going to describe  explicitly two  maps $\sigma_0: \Delta^0 \rightarrow S^1$, $\sigma_1:\Delta^1\to S^1$, which equip
         $S^1$ with the structure of a $\Delta$-complex. 
@@ -239,7 +239,7 @@
  \end{frame}
 
  
-  \subsection{Chain Complex}
+  \subsection{Chain Complex and Homology}
   \begin{frame}
    \begin{definition}[Chain complex]
 		      	   Complex of abelian groups.\\
@@ -401,6 +401,7 @@ In terms of t and c, $H_1 = \frac{ \langle t, \,c \rangle  }{ \langle t,\, 2c \r
  \end{frame}
 
  \begin{frame}
+ \subsection {Maps of Complexes}
  \frametitle{Maps of Chain Complexes}
 
      Let $(C_\bullet, \partial)$ and $(D_\bullet, \delta)$ be two chain complexes.
@@ -465,141 +466,7 @@ In terms of t and c, $H_1 = \frac{ \langle t, \,c \rangle  }{ \langle t,\, 2c \r
                 \end{align*}
  \end{frame}
 
- 
-%  \begin{frame}
-%   \frametitle{Computing Homology of $S^1$ in $\mathbb{Z}$}
-% 
-% Space $\mathcal{X} = S^1$  \\~\\
-%         \begin{figure}
-%             \begin{tikzpicture}[line join = round, line cap = round]
-%               
-%                                 2-simplex
-%                                 \coordinate [label=below:$v_0$] (3) at (3,0);
-%                                 \coordinate [label=below:$v_1$] (4) at (5,0);
-%                                 \coordinate [label=above:$v_2$] (5) at (4,{sqrt(3)});
-%                                 \coordinate [label=above:$\simeq$] (1) at (2,0.5);
-%                                 \coordinate (0) at (3.8, 0.5);
-%                                 
-%                                 \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
-%                                     
-%                                     \draw[fill] (1) circle [radius=0];
-%                                     \draw[fill] (3) circle [radius=0.025];
-%                                     \draw[fill] (4) circle [radius=0.025];
-%                                     \draw[fill] (5) circle [radius=0.025];
-%                                     
-%                                     \draw[thick, postaction={decorate}] (3)--(4) node [midway, below] {a};
-%                                     \draw[thick, postaction={decorate}] (3)--(5) node [near start, above=10pt] {c};
-%                                     \draw[thick, postaction={decorate}] (4)--(5) node [near start, above=10pt] {b};
-%                                     \draw[->,>=latex'] (0) arc[radius=0.25,start angle=225,delta angle=300];
-%                                     \draw[thick] (0,{sqrt(3)/2}) circle (1.2cm);
-% 
-%                                     
-%                             \end{scope}
-%                 \end{tikzpicture} 
-%                 \caption{Triangulation of $S^1$}
-%             \end{figure}
-%             
-%  \end{frame}
-%  
-%  \begin{frame}
-%  
-%    We can construct the following chain complex which is a sequence of homomorphisms of abelian groups: 
-% 
-% 	\[
-% 		\xymatrix{
-% 			0  \ar[r]^{\partial_2 = 0} & 
-% 			C_1  \ar[r]^{\partial_1} & 
-% 			C_0  \ar[r]^{\partial_0 = 0}
-% 			& 0 \\ }
-% 	\]
-% 
-%  where \(\partial_n\partial_{n+1}=0\) for each n  in $\mathbb{Z}$ and 
-%  
-% 			\[
-% 				\left|
-% 				  \begin{array}{l}
-% 				  	C_0= \langle v_0, v_1, v_2 \rangle \\
-% 				  	C_1=\langle a, b, c \rangle \\
-%                     C_n=\{0\} \quad \forall n \geqslant 2 
-% 				  \end{array}
-% 				\right., 
-% 			\]
-% 
-% 			\[
-%                 \xymatrix{
-%                     0  \ar[r]^{\partial_2 = 0} & 
-%                     \mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_1} & 
-%                     \mathbb{Z}^{\oplus^3}  \ar[r]^{\partial_0 = 0}
-%                     & 0 \\ }
-% 	        \]
-% 	        
-%  \end{frame}
-%  
-%     \begin{frame}
-%     \frametitle{$H_0$ - \# of connected components}
-%             The n-th homology group is defined as $H_n = \frac{\ker\partial_n}{\Ima\partial_{n+1}}$. \\
-% 
-% 
-% First, let's compute $H_0$: 
-% 
-% $\ker\partial_0 = C_0 = \langle v_0, v_1, v_2 \rangle$ since $\partial_0 = 0$.
-% 
-% To calculate $\Ima\partial_1$, let's compute:
-% $\partial_1(\alpha a + \beta b + \gamma c) = \alpha (v_1-v_0) + \beta (v_2-v_1) - \gamma (v_2-v_0) 
-% = (\gamma -\alpha)v_0 + (\alpha - \beta)v_1 + (-(\gamma - \alpha)-(\alpha - \beta))v_2 $ 
-%  \[ \Ima\partial_1 = \left\{ \left(\begin{array}{c}
-%           		                 	( \gamma - \alpha )\\
-%           		                 	(\alpha - \beta)\\
-%           		                 	-(\gamma - \alpha)-(\alpha - \beta)\\
-%           		                 \end{array} \right), \quad \alpha, \beta, \gamma \subseteq \mathbb{Z} \right\} 
-%           		                 \subseteq \mathbb{Z}^{\oplus^3} \]
-%     There exist an isomorphism $\Ima\partial_1 \simeq \mathbb{Z}^2$
-%     
-% $H_0 = \frac{\ker\partial_0}{\Ima\partial_1} = \mathbb{Z}^{3} \left/ {
-%     \left(\begin{array}{c}
-%                     1\\
-%                     0\\
-%                     -1\\
-%             \end{array} \right)\mathbb{Z} \oplus
-%     \left(\begin{array}{c}
-%                     0\\
-%                     1\\
-%                     -1\\
-%             \end{array} \right)\mathbb{Z}} \right. \simeq \mathbb{Z}$ 
-% 
-%     \end{frame}
-%  
-%   \begin{frame}
-%   \frametitle{$H_1$ - \# of holes}
-%         Second, let's compute $H_1$: \\
-%         $\ker\partial_1 = \left\{ \left(\begin{array}{c}
-%                             m\\
-%                             m\\
-%                             m\\
-%                     \end{array} \right), m \in \mathbb{Z} = \right\} = \left(\begin{array}{c}
-%                             1\\
-%                             1\\
-%                             1\\
-%                     \end{array} \right) \mathbb{Z} \simeq \mathbb{Z}$ \\ 
-%         $\Ima\partial_2 = \{0\}$ since $C_2 = \{0\}$ \\
-%         $H_1 = \frac{\ker\partial_1}{\Ima\partial_2} = 
-%                 \frac{ \ker{\partial_1} }{ \{0\} } = \ker{\partial_1} \simeq \mathbb{Z}$ 
-% 
-%                 
-%         Finally, the homology groups of the circle are: 
-%                 \[
-%                     H_n^\Delta(S^1) \simeq \left\{
-%                         \begin{array}{rl}
-%                         \mathbb{Z}, & \textrm{for} \: n = 0, 1\\
-%                         
-%                                 0 & \textrm{for} \: n \geqslant 2
-%                         \end{array}
-%                     \right.
-%                 \]
-%  \end{frame}
 
-
-  \section{Maps of Complexes and Maps on Homology}
   
   \begin{frame}
   \frametitle{Filtered Complex}
@@ -695,7 +562,9 @@ In terms of t and c, $H_1 = \frac{ \langle t, \,c \rangle  }{ \langle t,\, 2c \r
     \end{frame}
     
     
+    \section{Singular Homology}
     \begin{frame}
+    \frametitle{Exact Sequence}
      Consider a short exact sequence of chain complexes: \\
                 \[
                 0 \rightarrow A_\bullet \xrightarrow{i} B_\bullet \xrightarrow{\pi} C_\bullet \rightarrow 0
@@ -711,10 +580,8 @@ In terms of t and c, $H_1 = \frac{ \langle t, \,c \rangle  }{ \langle t,\, 2c \r
 
     \begin{frame}
      \frametitle{The Equivalence of Simplicial and Singular Homology}
-     singular $n-simplex$ in a space $X$ is a map $\sigma: \Delta^n \rightarrow X$
-     We considered a parameterization of a space by simplexes, where the maps $\sigma_\alpha: \Delta^n \rightarrow X$ had restrictions. If we only require that the $\sigma$ map is continous, then by definition that would be a singular $n-simplex$ in a space $X$.\\
-     The lack of other restrictions on the map $\sigma: \Delta^n \rightarrow X$, convey that $\sigma$ does not need to be a `nice` embedding, in fact it can have singularities, where its image does not look like a simplex.
-
+     A singular $n-simplex$ in a space $X$ is a map $\sigma: \Delta^n \rightarrow X$\\~\\
+     
      $C_n(X)$ is a free abelian group with generators the set of singluar $n-simplexes$ in X: the continous maps $\sigma: \Delta^n \rightarrow X$.
      \begin{theorem}
      The homomorphisms $H^{\Delta}_{n}(X,A) \rightarrow H_n(X,A)$ are isomorphisms for
@@ -723,6 +590,7 @@ all $n$ and all $\Delta$-complex pairs $(X, A)$.
     \end{frame}
 
     \begin{frame}
+    \frametitle{Mayer-Vietoris sequence}
      In addition to the long exact sequence of homology groups for a pair $(X, A)$, there is another sort of long exact sequence, known as a Mayer-Vietoris sequence, which is equally powerful but is sometimes more convenient to use. For a pair of subspaces $A, B \subset X$ such that $X$ is the union of the interiors of $A$ and $B$ , this exact sequence has the form
      \[ ... \rightarrow H_n(A \cap B) \xrightarrow{\phi} H_n(A) \oplus H_n(B) \xrightarrow{\Psi} H_n(X) \xrightarrow{\partial} H_{n-1}(A \cap B) \rightarrow ... \rightarrow H_0(X) \rightarrow 0 \]
      \\
@@ -732,11 +600,8 @@ all $n$ and all $\Delta$-complex pairs $(X, A)$.
     
     \begin{frame}
     \frametitle{The Nerve Theorem}
-      If $X$ is a topological space, and $X = \underset{\alpha}{\cup} \quad \mathcal{U}_\alpha$ 
-             where $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ are cover indexes, $\mathcal{U} = \{\mathcal{U}_1, \mathcal{U}_2, \cdots, \mathcal{U}_n\}$, given a cover $\mathcal{U}$ (not necessarily open) of a space $X$, the nerve of $\mathcal{U}$ is a simplicial complex  $\mathcal{N}(\mathcal{U})$ whose n-simplices consist of sets of $n+1$ elements of $\mathcal{U}$ with non-empty intersections.
-              Vertices of $\mathcal{N}(\mathcal{U})= \{1, 2, \cdots, m\}$ are 
-              $(k - 1)$ - faces if $\ \mathcal{U}_{i_{1}} \cap \cdots \cap \mathcal{U}_{i_{k}} 
-              \ne \emptyset$ for $ \{i_1, \cdots, i_k \} \in \mathcal{N}(\mathcal{U})$
+      Consider $X$ is a topological space, and $X = \underset{\alpha}{\cup} \quad \mathcal{U}_\alpha$ 
+             where $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ are cover indexes.
               \\
               \begin{theorem}[The Nerve Theorem]
               
@@ -921,6 +786,55 @@ If $\mathcal{X}$ is a metric space and $r \geq 0$:
 \end{frame}
 
 \begin{frame}
+ \begin{definition} [Persistence Complex]
+
+             A persistence complex $\mathcal{C}$ is a family of chain complexes $\{C_*^i\}_{i \geq 0}$ over R, together with a chain map's $f_i: C_*^i \rightarrow C_*^{i+1}$ so that we have the following diagram:
+
+             \[
+               C_*^0 \xrightarrow{f^0} C_*^1 \xrightarrow{f^1} C_*^2 \xrightarrow{f^2} \dots
+             \]
+
+
+             \end{definition}
+             
+             \begin{definition} [Persistence Module]
+             A persistence module $\mathcal{M}$ is a family of $R-modules$, $M^i$, together
+             with homomorphism $\varphi^i: M^i \rightarrow M^{i+1}\}$
+             \end{definition}
+
+             \end{frame}
+             
+             \begin{frame}
+             Suppose we have a persistence module  $\mathcal{M} = \{M^i, \varphi^i: M^i \rightarrow M^{i+1}\}$ over a
+             ring $R$, We can equip $R[t]$ with the standard grading and define a graded module over $R[t]$ by
+                \[ \alpha(M) = \underset{i \ge 0}{\oplus} M_i \],
+                where the $R-module$ structure is the sum of the structures on the individual components, and where the action of t is given by:
+
+              \begin{align*}
+                &t \cdot(m^0,m^1, \cdots) = (0, \varphi^0(m^0), \varphi^1(m^1), \cdots)\\
+                &\left(\begin{array}{c|c|c|c}
+                        0 &&& \\ \hline \varphi^0 & 0 && \\ \hline & \varphi^1 & 0 & \\ \hline && \varphi^2 &
+                      \end{array}\right)
+              \end{align*}
+
+              $t$ simply shift elements of the module up in gradation.
+             
+\end{frame}
+
+\begin{frame}
+ 
+ \begin{theorem} [Correspondence] The correspondence $\alpha$ defines an equivalence of categories between the category of persistence modules of finite type over $R$ and the category of finitely generated non-negatively graded modules over $R[t]$.
+              \end{theorem}
+
+            The Correspondence theorem gives us a simple decomposition when the ground ring is a field $F$. In this case the graded ring $F[t]$ is a PID and its only graded ideals are homogeneous of form $(t_n)$, so the structure of the $F[t]-module$ is described in structure theorem:
+
+            \begin{align}
+                (\underset{i}{\oplus} \Sigma^{\alpha_i} F[t]) \oplus (\underset{j}{\oplus} \Sigma ^{\gamma_j} F[t]/(t^{n^j})).
+              \end{align}
+\end{frame}
+
+
+\begin{frame}
   \begin{tikzpicture}[line join = round, line cap = round]
                 % 1st
                 \coordinate [label=above:$a$] (0) at (0,1);
@@ -1100,48 +1014,48 @@ points in an annulus }
  \subsection{Computations}
  \begin{frame}
  \begin{figure}
-  \includegraphics[width=80mm,scale=1.5]{circle.png}
-    \caption{10 points on a cicle}
+  \includegraphics[width=80mm,scale=1.5]{rand_sphere.png}
+    \caption{Points on a sphere with noise}
     \label{fig:fig1}
     \end{figure}
  \end{frame}
   
   \begin{frame}
  \begin{figure}
-  \includegraphics[width=80mm,scale=1.5]{Circle_homology.png}
-    \caption{Persistent diagram of homology of circle (10 points)}
+  \includegraphics[width=80mm,scale=1.5]{rand_sphere_homology.png}
+    \caption{Persistent diagram of homology of sphere (300 points)}
     \label{fig:fig1}
     \end{figure}
  \end{frame}
  
  \begin{frame}
  \begin{figure}
-  \includegraphics[width=80mm,scale=1.5]{circle_lifetime.png}
-    \caption{Lifetime diagram of homology of circle (10 points)}
+  \includegraphics[width=80mm,scale=1.5]{rand_sphere_homology_seperate.png}
+    \caption{Persistent diagram of homology of sphere, separate (300 points)}
     \label{fig:fig1}
     \end{figure}
  \end{frame}
  
  \begin{frame}
  \begin{figure}
-  \includegraphics[width=80mm,scale=1.5]{timeseries.png}
-    \caption{Peridicity in Timeseries}
+  \includegraphics[width=80mm,scale=1.5]{rand_sphere_lifetime.png}
+    \caption{Lifetime persistence}
     \label{fig:fig1}
     \end{figure}
  \end{frame}
  
-%   \begin{frame}
-%   \frametitle{References}
-%   \begin{itemize}
-%    \item A. Zomorodian and G. Carlsson, “Computing Persistent Homology,” Discrete Comput.
-% Geom., 33, (2005), 249–274.
-%    \item  A. Hatcher, Algebraic Topology, Cambridge University Press, (2002).
-%    \item  V. de Silva and G. Carlsson. “Topological estimation using witness complexes,” in SPBG04
-% Symposium on Point-Based Graphics (2004), 157-166
-%     \item Perea, J.A., Harer, J. Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis. Found Comput Math 15, 799–838 (2015).
-%     \item H. Kantz and T. Schreiber, Nonlinear Time Series Analysis, Cambridge University Press, 2003.
-%     \tiem Ghrist, Robert. (2008). Barcodes: The persistent topology of data. BULLETIN (New Series) OF THE AMERICAN MATHEMATICAL SOCIETY. 45. 10.1090/S0273-0979-07-01191-3. 
-%   \end{itemize}
-% \end{frame}
-%  
+  \begin{frame}
+  \frametitle{References}
+  \begin{itemize}
+   \item A. Zomorodian and G. Carlsson, "Computing Persistent Homology," Discrete Comput.
+Geom., 33, (2005), 249–274.
+   \item  A. Hatcher, Algebraic Topology, Cambridge University Press, (2002).
+   \item  V. de Silva and G. Carlsson. "Topological estimation using witness complexes," in SPBG04
+Symposium on Point-Based Graphics (2004), 157-166
+    \item Perea, J.A., Harer, J. Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis. Found Comput Math 15, 799–838 (2015).
+    \item H. Kantz and T. Schreiber, Nonlinear Time Series Analysis, Cambridge University Press, 2003.
+    \item Ghrist, Robert. (2008). Barcodes: The persistent topology of data. BULLETIN (New Series) OF THE AMERICAN MATHEMATICAL SOCIETY. 45. 10.1090/S0273-0979-07-01191-3. 
+  \end{itemize}
+\end{frame}
+ 
 \end{document}

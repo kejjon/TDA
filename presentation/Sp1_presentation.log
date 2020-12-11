@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 14:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 16:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1767,6 +1767,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Delta' on input line 60.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 60.
 
 
@@ -1777,19 +1781,6 @@ Overfull \hbox (172.29233pt too wide) has occurred while \output is active
 [3
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 124.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 124.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 124.
-
-
 Overfull \hbox (172.29233pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -1818,7 +1809,7 @@ Overfull \hbox (172.29233pt too wide) has occurred while \output is active
 [7
 
 ]
-<Simplicial_complex_example.png, id=340, 533.995pt x 518.93875pt>
+<Simplicial_complex_example.png, id=341, 533.995pt x 518.93875pt>
 File: Simplicial_complex_example.png Graphic file (type png)
 <use Simplicial_complex_example.png>
 Package pdftex.def Info: Simplicial_complex_example.png  used on input line 197
@@ -1881,12 +1872,12 @@ Overfull \hbox (172.29233pt too wide) has occurred while \output is active
 [15
 
 ]
-Overfull \hbox (1.38646pt too wide) detected at line 425
+Overfull \hbox (1.38646pt too wide) detected at line 426
 []
  []
 
 
-Overfull \vbox (9.3704pt too high) detected at line 425
+Overfull \vbox (9.3704pt too high) detected at line 426
  []
 
 
@@ -1946,6 +1937,234 @@ Overfull \hbox (172.29233pt too wide) has occurred while \output is active
 [23
 
 ]
+Overfull \hbox (29.78996pt too wide) detected at line 599
+\OML/cmm/m/it/10.95 ::: \OMS/cmsy/m/n/10.95 ! \OT1/mathkerncmss/m/sl/10.95 H[]\
+OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 A \OMS/cmsy/m/n/10.95 \ \OT1/m
+athkerncmss/m/sl/10.95 B\OT1/cmss/m/n/10.95 ) [] \OT1/mathkerncmss/m/sl/10.95 H
+[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 A\OT1/cmss/m/n/10.95 ) \OMS
+/cmsy/m/n/10.95 ^^H \OT1/mathkerncmss/m/sl/10.95 H[]\OT1/cmss/m/n/10.95 (\OT1/m
+athkerncmss/m/sl/10.95 B\OT1/cmss/m/n/10.95 ) [] \OT1/mathkerncmss/m/sl/10.95 H
+[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X\OT1/cmss/m/n/10.95 ) [] \
+OT1/mathkerncmss/m/sl/10.95 H[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.9
+5 A \OMS/cmsy/m/n/10.95 \ \OT1/mathkerncmss/m/sl/10.95 B\OT1/cmss/m/n/10.95 ) \
+OMS/cmsy/m/n/10.95 ! \OML/cmm/m/it/10.95 ::: \OMS/cmsy/m/n/10.95 ! \OT1/mathker
+ncmss/m/sl/10.95 H[]\OT1/cmss/m/n/10.95 (\OT1/mathkerncmss/m/sl/10.95 X\OT1/cms
+s/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ! \OT1/cmss/m/n/10.95 0
+ []
+
+
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[24
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[25
+
+]
+
+Package hyperref Warning: Composite letter `\textasciicaron+C'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 617.
+
+
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[26
+
+]
+
+Package hyperref Warning: Composite letter `\textasciicaron+C'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 638.
+
+
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[27
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[28
+
+]
+<rips_of_annulus.png, id=937, 431.36156pt x 268.00125pt>
+File: rips_of_annulus.png Graphic file (type png)
+<use rips_of_annulus.png>
+Package pdftex.def Info: rips_of_annulus.png  used on input line 765.
+(pdftex.def)             Requested size: 647.04076pt x 402.00087pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.765             \end{frame}
+                             
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[29
+
+ <./rips_of_annulus.PNG>]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[30
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[31
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[32
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[33
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[34
+
+]
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[35
+
+]
+Overfull \vbox (10.65543pt too high) detected at line 1001
+ []
+
+
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[36
+
+]
+<barcodes.png, id=1165, 489.32813pt x 304.88907pt>
+File: barcodes.png Graphic file (type png)
+<use barcodes.png>
+Package pdftex.def Info: barcodes.png  used on input line 1011.
+(pdftex.def)             Requested size: 733.99037pt x 457.33247pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1011 \end{frame}
+                  
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[37
+
+ <./barcodes.PNG>]
+<./ripser/rand_sphere.png, id=1195, 508.14844pt x 350.81062pt>
+File: ./ripser/rand_sphere.png Graphic file (type png)
+<use ./ripser/rand_sphere.png>
+Package pdftex.def Info: ./ripser/rand_sphere.png  used on input line 1021.
+(pdftex.def)             Requested size: 762.22078pt x 526.21463pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1021  \end{frame}
+                   
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[38
+
+ <./ripser/rand_sphere.PNG>]
+<./ripser/rand_sphere_homology.png, id=1225, 567.62062pt x 487.8225pt>
+File: ./ripser/rand_sphere_homology.png Graphic file (type png)
+<use ./ripser/rand_sphere_homology.png>
+Package pdftex.def Info: ./ripser/rand_sphere_homology.png  used on input line 
+1029.
+(pdftex.def)             Requested size: 851.42882pt x 731.73195pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1029  \end{frame}
+                   
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[39
+
+ <./ripser/rand_sphere_homology.PNG>]
+<./ripser/rand_sphere_homology_seperate.png, id=1256, 912.40875pt x 380.17032pt
+>
+File: ./ripser/rand_sphere_homology_seperate.png Graphic file (type png)
+<use ./ripser/rand_sphere_homology_seperate.png>
+Package pdftex.def Info: ./ripser/rand_sphere_homology_seperate.png  used on in
+put line 1037.
+(pdftex.def)             Requested size: 1368.60979pt x 570.25407pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1037  \end{frame}
+                   
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[40
+
+ <./ripser/rand_sphere_homology_seperate.PNG>]
+<./ripser/rand_sphere_lifetime.png, id=1286, 572.89032pt x 475.7775pt>
+File: ./ripser/rand_sphere_lifetime.png Graphic file (type png)
+<use ./ripser/rand_sphere_lifetime.png>
+Package pdftex.def Info: ./ripser/rand_sphere_lifetime.png  used on input line 
+1045.
+(pdftex.def)             Requested size: 859.33337pt x 713.66447pt.
+pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1045  \end{frame}
+                   
+Overfull \hbox (172.29233pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[41
+
+ <./ripser/rand_sphere_lifetime.png>]
 
 ! Package inputenc Error: Invalid UTF-8 byte "96.
 
@@ -1953,8 +2172,23 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.728     \end{frame}
-                     
+l.1059 \end{frame}
+                  
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+! Package inputenc Error: Invalid UTF-8 byte "96.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1059 \end{frame}
+                  
 The document does not appear to be in UTF-8 encoding.
 Try adding \UseRawInputEncoding as the first line of the file
 or specify an encoding such as \usepackage [latin1]{inputenc}
@@ -1966,157 +2200,9 @@ Overfull \hbox (172.29233pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-[24
+[42
 
 ]
-
-Package hyperref Warning: Composite letter `\textasciicaron+C'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 731.
-
-
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[25
-
-]
-
-Package hyperref Warning: Composite letter `\textasciicaron+C'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 760.
-
-
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[26
-
-]
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[27
-
-]
-<rips_of_annulus.png, id=907, 431.36156pt x 268.00125pt>
-File: rips_of_annulus.png Graphic file (type png)
-<use rips_of_annulus.png>
-Package pdftex.def Info: rips_of_annulus.png  used on input line 887.
-(pdftex.def)             Requested size: 647.04076pt x 402.00087pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.887             \end{frame}
-                             
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[28
-
- <./rips_of_annulus.PNG>]
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[29
-
-]
-<barcodes.png, id=967, 489.32813pt x 304.88907pt>
-File: barcodes.png Graphic file (type png)
-<use barcodes.png>
-Package pdftex.def Info: barcodes.png  used on input line 917.
-(pdftex.def)             Requested size: 733.99037pt x 457.33247pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.917 \end{frame}
-                 
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[30
-
- <./barcodes.PNG>]
-<circle.png, id=996, 462.528pt x 346.896pt>
-File: circle.png Graphic file (type png)
-<use circle.png>
-Package pdftex.def Info: circle.png  used on input line 927.
-(pdftex.def)             Requested size: 693.79028pt x 520.34271pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.927  \end{frame}
-                  
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[31
-
- <./circle.png>]
-<Circle_homology.png, id=1027, 462.528pt x 346.896pt>
-File: Circle_homology.png Graphic file (type png)
-<use Circle_homology.png>
-Package pdftex.def Info: Circle_homology.png  used on input line 935.
-(pdftex.def)             Requested size: 693.79028pt x 520.34271pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.935  \end{frame}
-                  
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[32
-
- <./Circle_homology.png>]
-<circle_lifetime.png, id=1058, 578.16pt x 397.485pt>
-File: circle_lifetime.png Graphic file (type png)
-<use circle_lifetime.png>
-Package pdftex.def Info: circle_lifetime.png  used on input line 943.
-(pdftex.def)             Requested size: 867.23787pt x 596.22603pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.943  \end{frame}
-                  
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[33
-
- <./circle_lifetime.png>]
-<timeseries.png, id=1088, 555.07375pt x 182.6825pt>
-File: timeseries.png Graphic file (type png)
-<use timeseries.png>
-Package pdftex.def Info: timeseries.png  used on input line 951.
-(pdftex.def)             Requested size: 832.60855pt x 274.02306pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:fig1}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.951  \end{frame}
-                  
-Overfull \hbox (172.29233pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-[34
-
- <./timeseries.png>]
 \tf@nav=\write7
 \openout7 = `Sp1_presentation.nav'.
 
@@ -2126,70 +2212,50 @@ Overfull \hbox (172.29233pt too wide) has occurred while \output is active
 \tf@snm=\write9
 \openout9 = `Sp1_presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 967.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 967.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1061.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1061.
  (./Sp1_presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 967.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 967.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1061.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1061.
 
+Package rerunfilecheck Info: File `Sp1_presentation.out' has not changed.
+(rerunfilecheck)             Checksum: 35617BA3D542EBA31E4469EEA85A64D5;847.
 
-Package rerunfilecheck Warning: File `Sp1_presentation.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Sp1_presentation.out':
-(rerunfilecheck)             Before: 7A4E8BAE430C16502D7BE6DEA75A5CBC;846
-(rerunfilecheck)             After:  767748FB9BAEBD56C8DEE4FC23DEC4C3;846.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 47449 strings out of 480876
- 1074185 string characters out of 5911488
- 1580058 words of memory out of 5000000
- 61882 multiletter control sequences out of 15000+600000
+ 48065 strings out of 480876
+ 1087290 string characters out of 5911488
+ 1632400 words of memory out of 5000000
+ 62485 multiletter control sequences out of 15000+600000
  553631 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,19n,103p,3240b,1506s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Outline0.4.2.28} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.4.1.26} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.3.24} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.2.23} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3.1.22} has been referenced but does not e
-xist, replaced by a fixed one
-
-<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2020/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmss10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-s12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c
-:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><c:/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><c:/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2020/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmssi9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/
-texlive/2020/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb><c:/texlive/2020/
-texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on Sp1_presentation.pdf (34 pages, 571748 bytes).
+<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2020/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmss10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mss12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb>
+<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb><c:/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2020/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><c:/texlive/2020/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmssi9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
+b><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb><c:/texlive/202
+0/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on Sp1_presentation.pdf (42 pages, 691449 bytes).
 PDF statistics:
- 1208 PDF objects out of 1440 (max. 8388607)
- 1096 compressed objects within 11 object streams
- 88 named destinations out of 1000 (max. 500000)
+ 1437 PDF objects out of 1440 (max. 8388607)
+ 1314 compressed objects within 14 object streams
+ 99 named destinations out of 1000 (max. 500000)
  320 words of extra memory for PDF output out of 10000 (max. 10000000)
 

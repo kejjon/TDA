@@ -6,98 +6,114 @@
 \headcommand {\beamer@subsectionpages {1}{2}}
 \headcommand {\sectionentry {1}{Chain Complex and Simplicial Homology}{3}{Chain Complex and Simplicial Homology}{0}}
 \headcommand {\beamer@subsectionpages {3}{2}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{$n-simplex$}}
-\headcommand {\slideentry {1}{1}{1}{3/3}{$n-simplex$}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{$\Delta -complex$}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\beamer@subsectionpages {3}{3}}
-\headcommand {\beamer@subsectionentry {0}{1}{2}{4}{$\Delta -complex$}}
-\headcommand {\slideentry {1}{2}{1}{4/4}{$\Delta -complex$}{0}}
+\headcommand {\slideentry {1}{1}{2}{4/4}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\slideentry {1}{2}{2}{5/5}{$\Delta -complex$}{0}}
+\headcommand {\slideentry {1}{1}{3}{5/5}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\slideentry {1}{2}{3}{6/6}{$\Delta -complex$}{0}}
+\headcommand {\slideentry {1}{1}{4}{6/6}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {1}{2}{4}{7/7}{$\Delta -complex$}{0}}
+\headcommand {\slideentry {1}{1}{5}{7/7}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {1}{2}{5}{8/8}{$\Delta -complex$}{0}}
+\headcommand {\slideentry {1}{1}{6}{8/8}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {1}{2}{6}{9/9}{$\Delta -complex$}{0}}
+\headcommand {\slideentry {1}{1}{7}{9/9}{$\Delta -complex$}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionpages {4}{9}}
-\headcommand {\beamer@subsectionentry {0}{1}{3}{10}{Chain Complex}}
-\headcommand {\slideentry {1}{3}{1}{10/10}{Chain Complex}{0}}
+\headcommand {\beamer@subsectionpages {3}{9}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{10}{Chain Complex and Homology}}
+\headcommand {\slideentry {1}{2}{1}{10/10}{Chain Complex and Homology}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {1}{3}{2}{11/11}{Chain Complex}{0}}
+\headcommand {\slideentry {1}{2}{2}{11/11}{Chain Complex and Homology}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\slideentry {1}{3}{3}{12/12}{Chain Complex}{0}}
+\headcommand {\slideentry {1}{2}{3}{12/12}{Chain Complex and Homology}{0}}
 \headcommand {\beamer@framepages {12}{12}}
 \headcommand {\beamer@subsectionpages {10}{12}}
-\headcommand {\beamer@subsectionentry {0}{1}{4}{13}{Computing Homology}}
-\headcommand {\slideentry {1}{4}{1}{13/13}{Computing Homology}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{13}{Computing Homology}}
+\headcommand {\slideentry {1}{3}{1}{13/13}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {1}{4}{2}{14/14}{Computing Homology}{0}}
+\headcommand {\slideentry {1}{3}{2}{14/14}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {1}{4}{3}{15/15}{Computing Homology}{0}}
+\headcommand {\slideentry {1}{3}{3}{15/15}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {1}{4}{4}{16/16}{Computing Homology}{0}}
+\headcommand {\beamer@subsectionpages {13}{15}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{16}{Maps of Complexes}}
+\headcommand {\slideentry {1}{4}{0}{16/16}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {1}{4}{5}{17/17}{Computing Homology}{0}}
+\headcommand {\slideentry {1}{4}{1}{17/17}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {1}{4}{6}{18/18}{Computing Homology}{0}}
+\headcommand {\slideentry {1}{4}{2}{18/18}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\beamer@sectionpages {3}{18}}
-\headcommand {\beamer@subsectionpages {13}{18}}
-\headcommand {\sectionentry {2}{Maps of Complexes and Maps on Homology}{19}{Maps of Complexes and Maps on Homology}{0}}
-\headcommand {\slideentry {2}{0}{1}{19/19}{}{0}}
+\headcommand {\slideentry {1}{4}{3}{19/19}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {19}{19}}
-\headcommand {\slideentry {2}{0}{2}{20/20}{}{0}}
+\headcommand {\slideentry {1}{4}{4}{20/20}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {2}{0}{3}{21/21}{}{0}}
+\headcommand {\slideentry {1}{4}{5}{21/21}{Computing Homology}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {2}{0}{4}{22/22}{}{0}}
+\headcommand {\beamer@sectionpages {3}{21}}
+\headcommand {\beamer@subsectionpages {13}{21}}
+\headcommand {\sectionentry {2}{Singular Homology}{22}{Singular Homology}{0}}
+\headcommand {\slideentry {2}{0}{1}{22/22}{}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\slideentry {2}{0}{5}{23/23}{}{0}}
+\headcommand {\slideentry {2}{0}{2}{23/23}{}{0}}
 \headcommand {\beamer@framepages {23}{23}}
-\headcommand {\slideentry {2}{0}{6}{24/24}{}{0}}
+\headcommand {\slideentry {2}{0}{3}{24/24}{}{0}}
 \headcommand {\beamer@framepages {24}{24}}
-\headcommand {\beamer@sectionpages {19}{24}}
-\headcommand {\beamer@subsectionpages {19}{24}}
-\headcommand {\sectionentry {3}{\v {C}ech and Vietoris-Rips Complex}{25}{\v {C}ech and Vietoris-Rips Complex}{0}}
-\headcommand {\beamer@subsectionpages {25}{24}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{25}{Definition}}
-\headcommand {\slideentry {3}{1}{1}{25/25}{Definition}{0}}
+\headcommand {\slideentry {2}{0}{4}{25/25}{}{0}}
 \headcommand {\beamer@framepages {25}{25}}
-\headcommand {\beamer@subsectionpages {25}{25}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{26}{\v {C}ech Complex Example}}
-\headcommand {\slideentry {3}{2}{1}{26/26}{\v {C}ech Complex Example}{0}}
+\headcommand {\beamer@sectionpages {22}{25}}
+\headcommand {\beamer@subsectionpages {22}{25}}
+\headcommand {\sectionentry {3}{\v {C}ech and Vietoris-Rips Complex}{26}{\v {C}ech and Vietoris-Rips Complex}{0}}
+\headcommand {\beamer@subsectionpages {26}{25}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{26}{Definition}}
+\headcommand {\slideentry {3}{1}{1}{26/26}{Definition}{0}}
 \headcommand {\beamer@framepages {26}{26}}
 \headcommand {\beamer@subsectionpages {26}{26}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{27}{Vietoris-Rips Complex Example}}
-\headcommand {\slideentry {3}{3}{1}{27/27}{Vietoris-Rips Complex Example}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{27}{\v {C}ech Complex Example}}
+\headcommand {\slideentry {3}{2}{1}{27/27}{\v {C}ech Complex Example}{0}}
 \headcommand {\beamer@framepages {27}{27}}
-\headcommand {\slideentry {3}{3}{2}{28/28}{Vietoris-Rips Complex Example}{0}}
+\headcommand {\beamer@subsectionpages {27}{27}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{28}{Vietoris-Rips Complex Example}}
+\headcommand {\slideentry {3}{3}{1}{28/28}{Vietoris-Rips Complex Example}{0}}
 \headcommand {\beamer@framepages {28}{28}}
-\headcommand {\beamer@sectionpages {25}{28}}
-\headcommand {\beamer@subsectionpages {27}{28}}
-\headcommand {\sectionentry {4}{Persistent Homology}{29}{Persistent Homology}{0}}
-\headcommand {\beamer@subsectionpages {29}{28}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{29}{Persistance}}
-\headcommand {\slideentry {4}{1}{1}{29/29}{Persistance}{0}}
+\headcommand {\slideentry {3}{3}{2}{29/29}{Vietoris-Rips Complex Example}{0}}
 \headcommand {\beamer@framepages {29}{29}}
-\headcommand {\slideentry {4}{1}{2}{30/30}{Persistance}{0}}
+\headcommand {\beamer@sectionpages {26}{29}}
+\headcommand {\beamer@subsectionpages {28}{29}}
+\headcommand {\sectionentry {4}{Persistent Homology}{30}{Persistent Homology}{0}}
+\headcommand {\beamer@subsectionpages {30}{29}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{30}{Persistance}}
+\headcommand {\slideentry {4}{1}{1}{30/30}{Persistance}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\beamer@subsectionpages {29}{30}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{31}{Computations}}
-\headcommand {\slideentry {4}{2}{1}{31/31}{Computations}{0}}
+\headcommand {\slideentry {4}{1}{2}{31/31}{Persistance}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\slideentry {4}{2}{2}{32/32}{Computations}{0}}
+\headcommand {\slideentry {4}{1}{3}{32/32}{Persistance}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {4}{2}{3}{33/33}{Computations}{0}}
+\headcommand {\slideentry {4}{1}{4}{33/33}{Persistance}{0}}
 \headcommand {\beamer@framepages {33}{33}}
-\headcommand {\slideentry {4}{2}{4}{34/34}{Computations}{0}}
+\headcommand {\slideentry {4}{1}{5}{34/34}{Persistance}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\beamer@partpages {1}{34}}
-\headcommand {\beamer@subsectionpages {31}{34}}
-\headcommand {\beamer@sectionpages {29}{34}}
-\headcommand {\beamer@documentpages {34}}
-\headcommand {\gdef \inserttotalframenumber {34}}
+\headcommand {\slideentry {4}{1}{6}{35/35}{Persistance}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\slideentry {4}{1}{7}{36/36}{Persistance}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {4}{1}{8}{37/37}{Persistance}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\beamer@subsectionpages {30}{37}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{38}{Computations}}
+\headcommand {\slideentry {4}{2}{1}{38/38}{Computations}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {4}{2}{2}{39/39}{Computations}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\slideentry {4}{2}{3}{40/40}{Computations}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {4}{2}{4}{41/41}{Computations}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {4}{2}{5}{42/42}{Computations}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\beamer@partpages {1}{42}}
+\headcommand {\beamer@subsectionpages {38}{42}}
+\headcommand {\beamer@sectionpages {30}{42}}
+\headcommand {\beamer@documentpages {42}}
+\headcommand {\gdef \inserttotalframenumber {42}}
