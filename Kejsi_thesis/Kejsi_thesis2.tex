@@ -3233,23 +3233,23 @@ of a parameterized version of a Betti number: a barcode
                 n \in \mathbb{N}\\
                 \equalto{(t^n)}{\{\equalto{t^n}{t^nk[t]} P(t), P \in k[t]\}} \subseteq k[t]
               \end{align*}
-              is a $k[t]$ - module. This is a free $k[t]$ - module.\\
+              is a free $k[t]$ - module.\\
               \item 
               $R = k[t]$ has a natural structure of \underline{graded ring}. The deg $i$ - elements are the (non-zero) elements of the line $R_i := kt^i \subseteq k[t]$ (in general: $R = \oplus R_i, R_iR_j \subseteq R_{i+j}$).
               The ideal $(t^n) \subseteq k[t]$ is then a graded $k[t]$ - module (in general, this means $M = \underset{i}{\oplus} M_j, R = \underset{i}{\oplus} R_i, R_i \cdot M_j \subseteq M_{i+j}$) $(t^n) = t^n, k[t] = \underset{i \ge 0}{\oplus} \underbrace{kt^{n+i}}_{(t^{n})}$\\
               i.e.\\
               degree - i elements of $(t^n)$ are the monomials of degree $(n+i)$\\
               \item 
-              While $(t^n) \subseteq k[t]$ is an ideal, so $k[t]$ - module - and so $k[t]$ - submodule; and a graded $k[t]$ - module, it is \underline{not} a graded $k[t]$ - submodule!\\
+              While $(t^n) \subseteq k[t]$ is an ideal, so is $k[t]$ - module and $k[t]$ - submodule; and a graded $k[t]$ - module, it is \underline{not} a graded $k[t]$ - submodule!\\
               \item
               The grading of $(t^n)$ is \underline{not} the grading that is induced by the \underline{ambient} $k[t]$: it is \underline{shifted up} by $n$: $t^{n+i}$, as an alternative of $(t^n) = t^nk[t]$, has degree $i$, not degree $(n+i)$.\\
               \item 
               In general, for a graded module $M$ over a graded ring $R$ we can define the \underline{twist of $M$ by $n$}, $M[n]$, also denoted by $\sum^nM$, is defined by $(\sum^nM)_i = M_{n+i}$.\\
               i.e., by redefining/shifting the grading up by $n$. We see that we can identify $\sum^nk[t]$ with $(t^n) = t^nk[t]$ as \underline{graded modules} $(\sum^nk[t])_i = k[t]_{n+i} = kt^{n+i} \xrightarrow{id} kt^n\cdot t^i$\\
               \item
-              A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ ie of the kind $p(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus m} \rightarrow k[t]^{\oplus r}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
+              A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ ie of the kind $q(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus^{m}} \rightarrow k[t]^{\oplus^{r}}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
               \item
-              A map (morphism) if \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (ie: R - linear, ie: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
+              A map (morphism) of \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (ie: R - linear, ie: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
               In particular, a map of graded modules $\varphi: \sum^n\simequalto{k[t]}{(t^n)} \rightarrow \sum^p\simequalto{k[t]}{(t^p)}$ must send $(t^n)_i = kt^{n+i}$ to $(t^p)_i = kt^{p+i}$.\\
               \item
               As the shifts $\sum^nk[t]$ are still free modules, any $k[t]$ - module homomorphism $\varphi: (t^n) \rightarrow (t^n)$ is determined by some polynomial $p(t) \in k[t]$, ie by the image of a generator: $\varphi(t^n) = p(t)t^p$ as $\varphi(t^nq(t)) = q(t)\varphi(t^n)$. \underline{However} if $\varphi$ is a \underline{graded} module homomorphism, we must have that $\varphi(t^n) = \underbrace{(mt^p)}_{p(t)}t^p$, ie, that $p(t)$ be homogeneous. Similarly, for direct sums $\underset{i}{\oplus}(t^{ni}) \rightarrow \underset{i}{\oplus}(t^{pj})$.\\
@@ -3617,7 +3617,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
 
             If the space is embedded in $\mathbb{R}^3$ the points generated on the surface will be plotted in a 3D graph. Regardless the generated points will be outputted on the console. Then the application will pop out a figure of the calculation of Vietoris-Rips persistence barcodes up to the homology specified in the code. Each persistent diagram is a pair (birth time, death time). After that another figure will pop up showing separately the computations of the Vietoris-Rips persistence barcodes in the respective homology. The last graph plots life time of each point instead of birth and death.
 
-
+            \subsection*{Results}
             \textbf{Sphere in $\mathbb{R}^3$}.\\
               Command: \textit{python generator.py --space sphere\_3 -points 500}
 
@@ -3629,7 +3629,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \end{subfigure}
                 \begin{subfigure}[b]{0.45\linewidth}
                   \includegraphics[width=\linewidth]{./ripser/on_sphere_homology.PNG}
-                  \caption{Death birth all together.}
+                  \caption{Birth-death persistent diagram.}
                 \end{subfigure}
                 \caption{Plot and Death birth graphs.}
                 \label{fig: plot death}
@@ -3638,7 +3638,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
               \begin{figure}[H]
                 \centering
                 \includegraphics[width=\linewidth]{./ripser/on_sphere_sep_homology.PNG}
-                \caption{Separate homology.}
+                \caption{Birth-death persistent diagram separate homology.}
                 \label{fig:sep hom}
               \end{figure}
 
@@ -3660,7 +3660,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \end{subfigure}
                 \begin{subfigure}[b]{0.45\linewidth}
                   \includegraphics[width=\linewidth]{./ripser/on_cylinder_pers_homology.jpg}
-                  \caption{Death birth all together.}
+                  \caption{Birth-death persistent diagram.}
                 \end{subfigure}
                 \caption{Plot and Death birth graphs.}
                 \label{fig: plot death}
@@ -3669,7 +3669,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
               \begin{figure}[H]
                 \centering
                 \includegraphics[width=\linewidth]{./ripser/on_cylinder_pers_homology_sep.jpg}
-                \caption{Separate homology.}
+                \caption{Birth-death persistent diagram separate homology.}
                 \label{fig:sep hom}
               \end{figure}
 
@@ -3691,7 +3691,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \end{subfigure}
                 \begin{subfigure}[b]{0.45\linewidth}
                   \includegraphics[width=\linewidth]{./ripser/rand_sphere_homology.PNG}
-                  \caption{Death birth all together.}
+                  \caption{Birth-death persistent diagram.}
                 \end{subfigure}
                 \caption{Plot and Death birth graphs.}
                 \label{fig: plot death}
@@ -3700,7 +3700,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
               \begin{figure}[H]
                 \centering
                 \includegraphics[width=\linewidth]{./ripser/rand_sphere_homology_seperate.PNG}
-                \caption{Separate homology.}
+                \caption{Birth-death persistent diagram separate homology.}
                 \label{fig:sep hom}
               \end{figure}
 
@@ -3722,7 +3722,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \end{subfigure}
                 \begin{subfigure}[b]{0.45\linewidth}
                   \includegraphics[width=\linewidth]{./ripser/rand_cyclinder_per_homology.jpg}
-                  \caption{Death birth all together.}
+                  \caption{Birth-death persistent diagram.}
                 \end{subfigure}
                 \caption{Plot and Death birth graphs.}
                 \label{fig: plot death}
@@ -3731,7 +3731,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
               \begin{figure}[H]
                 \centering
                 \includegraphics[width=\linewidth]{./ripser/rand_cyclinder_per_homology_seperate.jpg}
-                \caption{Separate homology.}
+                \caption{Birth-death persistent diagram separate homology.}
                 \label{fig:sep hom}
               \end{figure}
 
