@@ -42,62 +42,65 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 
+     
       \chapter{Chain Complexes And Simplicial Homology}
       \label{chapter1}
-      \section{Introduction}
 
-
+      \section{Introduction} 
+      
+	      
 	      The key method of  algebraic topology is to assign various \emph{algebraic structures} -- groups, rings, modules --  to topological spaces.
 	      This should be done in a
-	      \emph{ functorial way}.
-	      Roughly, functoriality means that maps of topological spaces (and compositions thereof) give rise to
+	      \emph{ functorial way}. 
+	      Roughly, functoriality means that maps of topological spaces (and compositions thereof) give rise to 
 	      homomorphisms of the respective algebraic structures
-	      (and compositions thereof), and that the structures assigned to homeomorphic spaces are isomorphic.
+	      (and compositions thereof), and that the structures assigned to homeomorphic spaces are isomorphic. 
 	      See (\ref{functoriality}) or \cite{hatcher}[Ch.2.3] for a more detailed discussion.
 	      %
 	      In this way,
 	      we can think of these algebraic structures as \emph{invariants} of the spaces under consideration.
 	      Questions about topological
 	      spaces  are converted into questions about algebraic structures, which  are typically ``more rigid''. This rigidity can
-	      be used to demonstrate, for example,  that maps between certain spaces do not exist, or that certain spaces are not homeomorphic, etc.
-
+	      be used to demonstrate, for example,  that maps between certain spaces do not exist, or that certain spaces are not homeomorphic, etc. 
+	      
 	      \emph{Computing} these algebraic invariants is a different matter altogether. There are notorious examples of invariants that are unknown or
 	      hard to compute even for simple enough spaces, such as spheres.
-
+	      
 	      \section{$\Delta$-complexes}
-
+	      
 	      We begin now with a setup that allows for fairly easy calculations. We shall
 	      assign a collection of abelian groups to a topological space $X$ \emph{equipped with some additional structure}.
-	      This additional structure -- called \emph{$\Delta$-complex structure} -- is a way of ``parameterizing'' $X$ by points,
+	      This additional structure -- called \emph{$\Delta$-complex structure} -- is a way of ``parametrizing'' $X$ by points, 
 	      segments, triangles, tetrahedra (and their higher-dimensional analogues) and will be introduced in Definition \ref{Delta-complex}.
 	      %
 	      While the structure of a $\Delta$-complex makes computations easy, it will be completely unclear whether the groups that we obtain are sensitive
-	      to this additional structure, or are in fact invariants of the space $X$ itself. In other words, the functoriality of this construction will be completely unclear.
+	      to this additional structure, or are in fact invariants  of the space $X$ itself. In other words, the functoriality of this construction will be completely unclear.
 	      %
 	      This will be rectified in Chapter \ref{SingularHomology}.
-
+	      
 	       We start with the basic building blocks: simplices.
-
+		   
             \begin{defn}[Standard Simplex]
 			    \label {n-simplex} The \emph{standard $n$-simplex in $\RR^{n+1}$} is the convex hull $\Delta^n$ of the standard basis vectors
 			    $\{e_0,\ldots, e_n\}$, i.e.,
 			    \[
-			     \Delta^n = \{(t_0, t_1, ... , t_n) \in \RR^{n+1}
-			     | \; \sum\limits_i t_i = 1 \; and \; t_i \geq 0 \; \forall \, i \}\subseteq \RR^{n+1}.
+			     \Delta^n = \left\{(t_0, t_1, ... , t_n) \in \RR^{n+1} 
+			     \left| \; \sum_{i=0}^n t_i = 1, \;  \; t_i \geq 0 \; \forall \, i\right. \right\}\subseteq \RR^{n+1}.
 			    \]
 			    More generally, an \emph{$n$-simplex in $\RR^{n+1}$} is the convex hull $[v_0,\ldots,v_n]$ of any $(n+1)$-tuple of
 			    vectors $v_0,\ldots,v_n\in \RR^{n+1}$ that do not lie in an $n$-dimensional hyperplane.
 		      \end{defn}
-
+		      
 		      Notice that with this definition, $\Delta^n=[e_0,\ldots,e_n]$.
-
-
+		      
+		      
 		      Thus an $n$-simpex (plural simplices) is an $n$-dimensional analog of a triangle.
 		      %
 		      %
 		       A  \emph{0-simplex} is a point, a \emph{1-simplex} is a line segment, a \emph{2-simplex} is a triangle, \emph{3-simplex} is a tetrahedron, as shown below. \\
-
+		      
 		      \begin{tikzpicture}[line join = round, line cap = round]
+
                         % 0-simplex
                         \coordinate [label=below:$v_0$] (0) at (0,0);
                         % 1-simplex
@@ -112,6 +115,7 @@
                         \coordinate [label=left:$v_0$] (7) at ({-.5*sqrt(3)+8},0,-.5);
                         \coordinate [label=below:$v_1$] (8) at (8,0,1);
                         \coordinate [label=right:$v_2$] (9) at ({.5*sqrt(3)+8},0,-.5);
+
                         \begin{scope}[decoration={markings,mark=at position 0.5 with
                             {\arrow{to}}}]
                             % 0-simplex
@@ -139,52 +143,54 @@
                             \draw[thick, postaction={decorate}] (8)--(6);
                             \draw[thick, postaction={decorate}] (9)--(6);
                         \end{scope}
+
                     \end{tikzpicture}
-
-
-
+		      
+		      
+		      
 		      The vectors $v_i$, determining  $ [v_0,... , v_n] $
 		      are the \emph{vertices} of the simplex.
 		      %
-		      In our calculations we are going to work with a chosen \emph{ordering} of the vertices of the simplex. I.e.,
+		      In our calculations we are going to work with a chosen \emph{ordering} of the vertices of the simplex. I.e., 
 		      we are going to use  ``simplex'' when we  mean ``a simplex together with an ordering of the vertices''.
 		      %
 		      This has a number of consequences. First, it
               determines orientations of the edges $[v_i, v_j]$ according to increasing subscripts.
               Second, specifying an ordering of the vertices  determines
-              a canonical linear homeomorphism from
-              $\Delta^n$ onto any $n$-simpex $ [v_0,... , v_n] $ preserving
+              a canonical linear homeomorphism from   
+              $\Delta^n$ onto any $n$-simpex $ [v_0,... , v_n] $ preserving 
               the order of vertices, namely,
               $\sum_i t_i\be_i\mapsto \sum_i t_i \bv_i$.
 	      %
 	      Once we fix an ordering of the vertices, we also obtain  an orientation of the $n$-simplex, i.e., the sign of
 	      $\det(v_0,\ldots,v_n)$. Two orderings determine the same orientation when they differ by an even permutation.
-
+	      
 	      By a \emph{face} of a $n$-simplex we shall mean an $(n-1)$-simplex spanned by some $n$-tuple of vertices of the simplex. That is,
 	      the $i$-th face of $[v_0,\ldots,v_n]$ is
 	       $[v_0,\ldots,\widehat{v_i},\ldots,v_n]$, where the hat indicates omission. Some sources refer to this face as an
-	       $(n-1)$-face, and talk, more generally about $k$-faces, for $0\leq k\leq n-1$. These are $k$-simplices, obtained as
+	       $(n-1)$-face, and introduce, more generally  \emph{$k$-faces}, for $0\leq k\leq n-1$. These are $k$-simplices, obtained as
 	       the convex hull of  a $k$-tuple of vertices. We always order the vertices of a face according to their order
 	       in the larger simplex.
-
+	       
 	       \begin{Ex}
 	       	Consider the (second) face $[v_0,v_1,v_3]$ of the $3$-simplex $[v_0,v_1,v_2,v_3]$ in $\RR^4$. The canonical order-preserving map
 	       	$\Delta^2\to [v_0,v_1,v_3]$ is determined by $e_0\mapsto v_0$, $e_1\mapsto v_1$, $e_2\mapsto v_3$. The canonical order-preserving
 	       	map from $\Delta^1$ to the edge $[v_1,v_3]$ is determined by $e_0\mapsto v_1$, $e_1\mapsto v_3$.
 	       \end{Ex}
 
-
-
-
+	      
+		      
+		     
+                    
              The \emph{boundary} $\partial\Delta^n$ of the standard simplex is defined as the union of all the faces of $\Delta^n$, and
              $\mathring{\Delta}^n = \Delta^n - \partial\Delta^n $ denotes interior of $\Delta^n$. We define analogously the boundary and
-             interior of an arbitrary simplex in $\RR^n$.
+             interior of an arbitary simplex in $\RR^n$.
              %
              Notice that with this definition  $\partial \Delta^0=\varnothing$ and $\mathring{\Delta}^0= \Delta^0$!
-
-             We now equip $X$ with additional structure: ``parametrization'' of $X$ by simplices of various dimensions that satisfies a number of
+             
+             We now equip $X$ with additional structure: ``parametrization'' of $X$ by simplices of various dimensions that satisfies a number of 
              compatibility conditions.
-
+             
 		      \begin{defn}[$\Delta$-complex]\label{Delta-complex}
 		      	A $\Delta-complex$ structure on a topological space X is a collection of maps $\left\{\sigma_\alpha: \Delta^n \rightarrow X\right\}_\alpha $,
 		      	with $n=n(\alpha)$ depending on the index $\alpha$, such that:
@@ -192,45 +198,30 @@
                         \item Each restriction $\sigma_\alpha | \mathring{\Delta}^n$ is                      injective, and each point of X is in the image of exactly one such
                         restriction $\sigma_\alpha | \mathring{\Delta}^n$.
                         \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the  maps
-                        $\sigma_\beta: \Delta^{n-1} \rightarrow X $. Here a face of $\Delta^n$ is identified with $\Delta^{n-1}$
-                        via the canonical order-preserving linear homeomorphism.
+                        $\sigma_\beta: \Delta^{n-1} \rightarrow X $. Here a face of $\Delta^n$ is identified with $\Delta^{n-1}$ 
+                        via the canonical order-preserving linear homeomorphism. 
                         \item A set $A \subset X$ is open iff $\sigma^{-1}_{\alpha}(A)$ is open in $\Delta^n$ for each $\sigma_\alpha$
                     \end{enumerate}
+
 		      \end{defn}
-
-
-
-
-		     \begin{Ex}
-
-        Consider   $ X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $
-        and the following maps $\sigma_\alpha: \Delta^n \rightarrow X $.
-
-
-		       \begin{tikzpicture}[scale=1.5]
-                \draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2);
-                \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);
-                \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);
-                \draw (0,0) circle (1cm);
-                \draw[fill] (1,0) circle (0.04);
-                \foreach \x/\xtext in {-1, 1}
-                \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
-                \foreach \y/\ytext in {-1, 1}
-                \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
-                \end{tikzpicture}
-
-
-		      %For n = 0, $\alpha = 0$:
-		      First, $\sigma_0: \Delta^0 \rightarrow S^1 $, with  $\sigma_0(1) = (1, 0)$. Next,
-		       $\sigma_1: \Delta^1 \rightarrow S^1 $, defined by  $\sigma_1(t_0,t_1) = (\cos(2\pi t_0), \sin(2\pi t_0))$ \\
-              %For n = 1, $\alpha = 1$:
-              Recall (see the  figure) that $\Delta^1$ is the set of pairs $(t_0,t_1)$ with $t_0 + t_1 = 1$, $t_0, t_1 \geq 0$,
-              or equivalently,
-              $ \Delta^1 = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} = [e_0, e_1] $ \\
-
-
-
-
+		
+		     
+		     
+		     
+		     \begin{Ex}\label{circle_1}
+        
+        Consider   $ X = S^1 = \{ (x,y) \in \RR^2 \, | \, x^2 + y^2 = 1 \} $. 
+        We are going to describe  explicitly two  maps $\sigma_0: \Delta^0 \rightarrow S^1$, $\sigma_1:\Delta^1\to S^1$, which equip
+        $S^1$ with the structure of a $\Delta$-complex. 
+        
+        For the explicit description, keep in mind that $\Delta^0=\{1\}\subseteq \RR$ and that 
+         \[ \Delta^1 = \left\{(t_0,t_1)\left| t_0+t_1=1\right.   \right\}  = \{ (t_0, 1-t_0) \, , \, t_0 \in [0, 1] \} \]
+         So in particular, any (continuous) map
+          $\Delta^1\to S^1$ is determined by and determines  a (continuous) map $[0;1]\to S^1$.
+        
+	
+              
+             
               \begin{tikzpicture}
                     \tikzstyle{point}=[thick,draw=black,cross out,inner sep=0pt,minimum width=4pt,minimum height=4pt]
                     \begin{axis}[
@@ -256,22 +247,130 @@
                     \node[point,label={[label distance=0cm]0:$e_1$}] at (axis cs:0,1) {};
                     \end{axis}
             \end{tikzpicture}
+	      
+	      
+	            First, we define $\sigma_0: \Delta^0 \rightarrow S^1 $ by  $\sigma_0(1) = (1, 0)$. Next,
+		       $\sigma_1: \Delta^1 \rightarrow S^1 $ is defined by  $\sigma_1(t_0,t_1) = (\cos(2\pi t_0), \sin(2\pi t_0))$, 
+		       which is clearly continuous.
+		       %
+		       The map $\sigma_1$ is one-to-one on $\mathring{\Delta}^1$, and so is, trivially, $\sigma_0$ on $\mathring{\Delta}^0$.  The images of the two
+		       maps cover the circle, with $\sigma_1\left( \mathring{\Delta}^1\right)=S^1\backslash\{(1,0)\}$ and
+		        $\sigma_0\left( \mathring{\Delta}^0\right)=\{(1,0)\}$.
+              
+              	     
+		       \begin{tikzpicture}[scale=1.5]
+                \draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2); 
+                \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);
+                \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);
+                \draw (0,0) circle (1cm);
+                \draw[fill] (1,0) circle (0.04);
 
-              $\sigma|_{[e_0]} = \sigma_1(0) = (\cos(0), \sin(0)) = (1, 0)$ \\
-              $\sigma|_{[e_1]} = \sigma_1(1) = (\cos(2\pi), \sin(2\pi)) = (1, 0)$
-
+                \foreach \x/\xtext in {-1, 1} 
+                \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+                \foreach \y/\ytext in {-1, 1} 
+                \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
+                \end{tikzpicture}
+              
+              
+		
+              
+              
+            
+              Finally, we check the compatibility property (2) of $\sigma_1$ and $\sigma_0$.
+              %
+              The restrictions of $\sigma_1$ to the two faces of $\Delta^1$ coincide with $\sigma_0$:
+              
+              \[
+		  \sigma_1|_{[e_1]} = \sigma_1(0,1) = (\cos(0), \sin(0)) = (1, 0)=\sigma_0(1)
+              \]
+              \[
+		  \sigma_1|_{[e_0]} = \sigma_1(1,0) = (\cos(2\pi), \sin(2\pi)) = (1, 0)=\sigma_0(1)
+	      \]
+              
+              Property (3) holds as well.
+              There are numerous other $\Delta$-complex structures on $S^1$, and we shall discuss some of them later on.
      \end{Ex}
-     \begin{Ex}
 
-        Consider $\sigma_\alpha: \Delta^n \rightarrow X $ where $ X = S^2 = \{ (x,y,z) \in \RR^2 \, | \, x^2 + y^2 + z^2 = 1 \} $ \\
+     \begin{Ex}\label{sphere_1}
+        Our next example is a $\Delta$-complex structure on $ X = S^2 = \{ (x,y,z) \in \RR^2 \, | \, x^2 + y^2 + z^2 = 1 \} $.
+        
+	  Notice first that there is a homeomorphism between the $L^1$-sphere
+	  \[
+	  	\left\{(x_0,x_1,x_2)\left|\, |x_0|+|x_1|+|x_2|=1 \right. \right\}\subseteq \RR^3
+	  \]
+	  and $S^2$, given by 
+	  \[
+	  	(x_0,x_1,x_2)\longmapsto \left(\frac{x_0}{\sqrt{x_0^2+ x_1^2 +x^2_2}}, \frac{x_1}{\sqrt{x^2_0 + x^2_1 + x^2_2}}, \frac{x_2}{\sqrt{x_0^2+ x^2_1 + x^2_2}}, \right),
+	  \]
+	  that is, by $\bx\longmapsto \frac{\bx}{\|\bx\|}$.
+	  
+	  On the other hand, the $L^1$-sphere is the union of eight $2$-simplices: one of them is the standard simplex $\Delta^2$ in $\RR^3$, 
+	  while the others are obtained from $\Delta^2$ by reflection with respect to a coordinate plane, i.e.,  by multiplying one of the variables by $\pm 1$.
+	   Composing with the map between the $L^1$ and $L^2$ sphere, we obtain the
+	  eight continuous maps
+	  %
+	  \[
+	  	\sigma_{s_0s_1s_2}:\Delta^2= [e_0, e_1, e_2] \longrightarrow S^2,
+	  \]
+	  $s_i\in \{\pm 1\}$, $i\in \{0,1,2\}$,
+	  \[
+	  	\sigma_{s_0s_1s_2}:\ (t_0,t_1,t_2)\longmapsto \left(s_0t_0, s_1t_1, s_2 t_2 \right) \longmapsto \frac{ \left(s_0t_0, s_1t_1, s_2 t_2 \right)  }{\sqrt{t_0^2+t_1^2+t_2^2}}.
+	  \]
+	  
+	  Next, we have the three standard order-preserving homeomorphisms, identifying $\Delta^1$ with the three faces (edges) of
+	  $\Delta^1$, $[e_1, e_2]$, $[e_0, e_2]$,  $[e_0, e_1]$. Each of these edges is contained in a coordinate plane in $\RR^3$, 
+	  and performing a reflection with respect to the coordinates planes orthogonal to the plane containing the edge gives rise
+	  to $12$ maps from $\Delta^1$ to the sphere.
+	  
+	  Explicitly, these are the 12 continuous maps
+	  \[
+	  	\lambda_{0s_0s_1}, \lambda_{s_00s_1},\lambda_{s_0s_10}: \Delta^1 \longrightarrow S^2,\ 
+	  \]
+	  where $s_i\in \{\pm 1\}$ and
+	  \[
+	  	\lambda_{0s_0s_1}: (t_0,t_1)\longmapsto (0,s_0t_0,s_1t_1)\longmapsto \frac{(0,s_0t_0,s_1t_1)}{\sqrt{t_0^2+t_1^2}}
+	  \]
+	  \[
+	  	\lambda_{s_00s_1}: (t_0,t_1)\longmapsto (s_0t_0,0,s_1t_1)\longmapsto \frac{(s_0t_0,0,s_1t_1)}{\sqrt{t_0^2+t_1^2}}
+	  \]
+	  \[
+	  	\lambda_{s_0s_10}: (t_0,t_1)\longmapsto (s_0t_0,s_1t_1,0)\longmapsto \frac{(s_0t_0,s_1t_1,0)}{\sqrt{t_0^2+t_1^2}}.
+	  \]
+	  
+	  Finally, we have six maps $\Delta^0\to S^2$, obtained by composing the three inclusions of $\Delta^0$ as a $0$-face in $\Delta^2$, c
+	  composed with reflections with respect to the coordinate planes. Explicitly, these are the 6 maps
+	  \[
+	  	\mu_{s00}, \mu_{0s0},\mu_{00s}: \Delta^1 \longrightarrow S^2,
+	  \]
+	  where $s\in \{\pm 1\}$ and
+	  \[
+	  	\mu_{s00}(1)=(s,0,0), \ \mu_{0s0}(1)=(0,s,0),\ \mu_{00s}(1)= (0,0,s).
+	  \]
+	  
+	  The images of the maps cover $S^2$, they are injective when restricted to the interiors of the simplices
+	  and are compatible. For example, $ \sigma_{s_0s_1s_2}\left|_{[e_1,e_2]}\right. = \lambda_{0s_1s_2}$, 
+	  $\lambda_{s_0s_10}|_{[e_0]}=\mu_{s_000}$, etc. suppressing the canonical orientation-preserving 
+	  homeomorphism between simplices.
+	  %
+	  Moreover, property (3) is satisfied. We do not check it explicitly, but it follows from the fact that
+	  our maps are obtained as composition of inclusion of a face into a simplex, followed by a reflection and 
+	  a homeomorphism between the $L^1$ and $L^2$ sphere.
+	  
+	  Altogether, this $\Delta$-complex structure on $S^2$ consists of the eight maps $\sigma_{s_0s_1s_2}$, 
+	  the twelve maps $\lambda_{0s_0s_1}, \lambda_{s_00s_1},\lambda_{s_0s_10}$ and the six maps
+	  $\mu_{s00}, \mu_{0s0},\mu_{00s}$.
 
 
 
 
 
-		      For n = 2, $\alpha = 2$:  $\sigma_2: \Delta^2 \rightarrow S^2 $
 
-              $ \Delta^1 = \{ (t_0, t_1, t_2) \, | \, t_0 + t_1 + t_2 = 1, \, t_i \geq 0 \; for \, i = 1, 2, 3] \} = [e_0, e_1, e_2] $ \\
+
+
+		     
+		      
+              
+              
             \tdplotsetmaincoords{70}{130}
             \begin{tikzpicture}[tdplot_main_coords, scale=2]
                     \def\laxis{2}
@@ -281,7 +380,7 @@
                     \draw [->] (0,0,0) -- (\laxis,0,0) node [below] {$t_0$};
                     \draw [->] (0,0,0) -- (0,\laxis,0) node [right] {$t_1$};
                     \draw [->] (0,0,0) -- (0,0,\laxis) node [left] {$t_2$};
-
+                    
                     \draw [->, ultra thick] (0,0,0) -- (\ltriangle,0,0) node [below] {$e_0$};
                     \draw [->, ultra thick] (0,0,0) -- (0,\ltriangle,0) node [right] {$e_1$};
                     \draw [->, ultra thick] (0,0,0) -- (0,0,\ltriangle) node [left] {$e_2$};
@@ -304,62 +403,116 @@
                     \filldraw [opacity=.33,red] (\ltriangle,0,0) -- (0,\ltriangle,0)
                     -- (0,0,\ltriangle) -- cycle;
             \end{tikzpicture}
+              
 
-            The faces are $[e_1, e_2]$ or $(0, t_1, t_2)$, where $t_1 + t_2 = 1$, \\
-            $[e_0, e_2]$ or $(t_0, 0, t_2)$, where $t_0 + t_2 = 1$, \\
-            $[e_0, e_1]$ or $(t_0, t_1, 0)$, where $t_0 + t_1 = 1$. \\
-
-            %Notice that to get  the other faces of the delta-complex structure on the sphere you can use the "l_1 sphere",
-            % |x|+|y|+|z|=1, which is mapped to S^2 by (x,y,z)\mapsto (x,y,z)/\sqrt{x^2+y^2+z^2}.
-              $\sigma_2((t_0, t_1, t_2)) = \frac{(t_0, t_1, t_2)}{\sqrt{(t_0^2 + t_1^2 + t_2^2)}}$ \\
-              $\sigma|_{[e_1, e_2]}(t_1, t_2) =\frac{(t_1, t_2)}{\sqrt{(t_1^2 + t_2^2)}}$, \quad
-              $\sigma|_{[e_0, e_2]]}(t_0, t_2) =\frac{(t_0, t_2)}{\sqrt{(t_0^2 + t_2^2)}}$ , \quad
-              $\sigma|_{[e_0, e_1]}(t_1, t_2) =\frac{(t_0, t_1)}{\sqrt{(t_0^2 + t_1^2)}}$ ,
      \end{Ex}
-
-	  Here are some ``non-examples'': collections of maps $\sigma_\alpha:\Delta^n\to X$ that satisfy conditions (1) and (2), but not condition (3) from Definiton \ref{Delta-complex}.
+     
+	  For completeness, we mention  some ``non-examples'': collections of maps $\sigma_\alpha:\Delta^n\to X$ that satisfy conditions (1) and (2), but not condition (3) from Definiton \ref{Delta-complex}.
      \begin{Ex}
      	Let $X=[0;1]$ or more generally, any other non-discrete space, having infinitely many points. Then the collection
-     	of  maps $\{\sigma_x:\Delta^0\to X\}_{x\in X}$, $\sigma_x(1)=x$
+     	of  maps $\{\sigma_x:\Delta^0\to X\}_{x\in X}$, $\sigma_x(1)=x$ 
      	satisfies (1) and (2), but not (3). We place  one $0$-simplex for each point of $X$, but  points in $[0;1]$ are not open.
-
+     	
      	Another  example is as follows. Let $X$ be the unit square $X=[0;1]\times [0;1]$. Consider, for each $y\in [0;1]$, a  map
      	$\lambda_y:\Delta^0\to X$, $\lambda_y(1)=(0,y)$, a map $\rho_y:\Delta^0\to X$, $\rho_y(1)=(1,y)$ and a map
-     	$\sigma_y:\Delta^1\to X$, $\sigma_y(t_0,t_1)= (t_0,y)$. In this way we place  at height $y$ one $1$-simplex (as a horizontal segment),
-     	and two $0$-simplices, as its left and right end. The collection of maps $\{\sigma_y, \lambda_y, \rho_y\}_{y\in[0;1]}$ satisfies (1) and (2),
+     	$\sigma_y:\Delta^1\to X$, $\sigma_y(t_0,t_1)= (t_0,y)$. In this way we place  at height $y$ one $1$-simplex (as a horizontal segment), 
+     	and two $0$-simplices, as its left and right end. The collection of maps $\{\sigma_y, \lambda_y, \rho_y\}_{y\in[0;1]}$ satisfies (1) and (2), 
      	but not (3).
      \end{Ex}
 	  Thus condition (3) precludes inadequate choices of maps $\sigma_\alpha$, for example, covering a manifold (with boundary) of dimension $n$ by simplices
 	  of smaller dimension.
 	  More generally, condition (3) is important when one needs to deal with  infinite collections of simplices, in particular, when dealing with
 	  infinite-dimensional (in appropriate sense) spaces $X$.
+	  
+	  
+	  
+	  Given a $\Delta$-complex structure on $X$, we can recover the space just from the combinatorics of the maps $\left\{\sigma_\alpha:\Delta^{n(\alpha)}\to X\right\}_{\alpha\in A}$.
+	  More precisely, we can consider the disjoint union of  simplices $\Delta_\alpha^n$, labelled by the respective maps $\sigma_\alpha$. We then impose an
+	  equivalence relation $\sim$ on the disjoint union: the $i$-th face of $\Delta^n_\alpha$ is identified with $\Delta^{n-1}_\beta$ 
+	  via the canonical order-preserving isomorphism
+	  if $\left. \sigma_\alpha\right|_{[e_0,\ldots, \widehat{e_i},\ldots e_n]}$
+	  coincides with $\sigma_\beta:\Delta^{n-1}\to X$ (under the canonical isomorphism).
+	  
+	  The properties (1), (2), (3) from Definition \ref{Delta-complex} guarantee that the quotient space is indeed homeomorphic to $X$:
+	  
+	  \[
+	  	X \simeq \left. \coprod_{\alpha\in A}\Delta^{n}_\alpha\right/ \sim.
+	  \]
+	  
+	  Turning this viewpoint backwords, we can consider $X$ as being built up, inductively, by simplices of dimension $0$, $1$, $2$, \ldots, 
+	  by imposing an equivalence relation, encoded combinatorially.
+	  
+	  \begin{Ex}
+	  	Consider the $\Delta$-complex structure on $S^1$, discussed in Example \ref{circle_1}. It gives an identification
+	  	of $S^1$ as a quotient of $\Delta^0\sqcup \Delta^1$, i.e., 
+	  	\[
+	  		S^1\simeq \left. \Delta_0^0\coprod \Delta^1_1\right/\sim,
+	  	\]
+	  	where the equivalence relation identifies the point $\Delta_0^0$ with each of the endpoints of the $1$-simplex $\Delta_1^1$.
+	  	
+	  	Similarly, the $\Delta$-complex structure on $S^2$ from Example  \ref{sphere_1} identifies $S^2$ with a quotient of
+	  	\[
+	  		\underbrace{\Delta^0\sqcup \ldots \sqcup \Delta^0}_{6}\coprod \underbrace{\Delta^1\sqcup \ldots \sqcup\Delta^1}_{12}\coprod \underbrace{\Delta^2\sqcup \ldots \sqcup\Delta^2}_{8}.
+	  	\]
+	  	The equivalence relation is encoded in the maps, and can be made explicit by labelling each simplex with the respective map, 
+	  	e.g., $\Delta^0_{\mu_{s00}}$, $\Delta^0_{\mu_{0s0}}$, $\Delta^0_{\mu_{00s}}$, $\Delta^1_{\lambda_{0s_0s_1}}$,\ldots, $\Delta^2_{\sigma_{s_0s_1s_2}}$.
 
-		     Usually simplicial homology is defined by simplicial complexes, which are the $\Delta-complexes$ whose simplices are uniquely determined by their vertices. In a simplicial complex any n-simplex has n+1 distinct vertices, and no other n-simplex has the same set of vertices.
 
-		     Another definition of simplicial complexes that will be important in introducing Persistent Homology is a combinatorical description.
+	  \end{Ex}
+	  
+	  One often constructs topological spaces as quotients, i.e., we write $X=Y/\sim$, where $Y$ is a possibly simpler space. This is the case, for instance, for
+	  $X=S^1\times S^1$, $X=\RR\PP^2$, the Klein bottle, etc. In all of these examples $Y=[0;1]\times [0;1]$. One can try to build a $\Delta$-complex structure
+	  on $X$ by constructing first a $\Delta$-complex structure on $Y$. We are going to see such examples in Section \ref{homology_ex}.
+	  
+	  \subsection*{A Remark on Simplicial Complexes}
+	  
+	  The $\Delta$-complex structure on $S^1$ from Example \ref{circle_1} involves one $1$-simplex and one $0$-simplex, and the gluing identifies the two vertices of
+	  $\Delta^1$. We could, however, choose different $\Delta$-structures, e.g., one involving two (or more) $1$-simplices -- see Section \ref{homology_ex}.
+	  In that case each $1$-simplex in $X$ will have two distinct vertices -- i.e., the maps $\sigma_\alpha:\Delta^1\to S^1$ do not identify the vertices
+	  of $\Delta^1$. (Equivalently, the equivalence relation $\sim$ does not identify distinct vertices.)
+	  
+	  More generally, we say that a $\Delta$-complex (structure on a topological space) $X$ is a \emph{simplicial complex} (structure on $X$) if all  simplices are
+	  uniquely determined by their vertices. That is, for all $n\in \NN$ it is the case that each $n$-simplex in $X$ has $n+1$ 
+	  distinct vertices and there are no other $n$-simplices with this set of vertices. 
+	  %
+	  %
+	  Now, in such a situation, every face of an $n$-simplex in $X$ is an $(n-1)$-simplex in $X$, and so on. 
+	  
+	  But 
+	  such a structure is  a  completely combinatorial object! It is specified by a finite set -- the $0$-complexes of our $\Delta$-structure,
+	  together with finite subsets (corresponding to simplices in $X$), having the property that all of their subsets are also simplices.
+	  
+	  
+	  
+	  
+	   Here is the formal combinatorial description of a simplicial complex, given as the definition of an \emph{abstract simplicial complex}. 
 
-		     \emph{Combinatorically} we can define a simplicial complex as:
 
-		     \begin{defn} [Simplicial Complex]
-              Given a partially ordered set: $V = \{1, 2, \cdots, m\} (=[m])$
-              a simplicial complex is a collection $\mathcal{K}$ of subsets of $V$, such that:\\
+		     
+		     
+		     \begin{defn} [Abstract  Simplicial Complex] 
+              Given a finite  set $  \{1, 2, \cdots, m\} (=[m])$ 
+              an \emph{ abstract simplicial complex} is a collection $\mathcal{K}$ of subsets of $[m]$,  such that:
               \begin{enumerate}
               \item $\emptyset \in \mathcal{K}$
-              \item $\{i\} \in \mathcal{K}$ (singleton)
-              \item If $\mathcal{J} \subseteq I \in \mathcal{K} \Rightarrow \mathcal{J} \in \mathcal{K}$
+              \item $\{i\} \in \mathcal{K}$ (singletons are in $\cK$)
+              \item If $ I \in \mathcal{K} $ and $J\subseteq I$, then $\mathcal{J} \in \mathcal{K}$
               \end{enumerate}
-
+              The elements of $[m]$ are the \emph{vertices}, and the elements of $\cK$ are the \emph{simplices}, where $I\in \cK$ is
+              an $(|I|-1)$-simplex.
 		     \end{defn}
+		     Sometimes, the condition $\varnothing\in \cK$ is omitted. Abstract simplices are subsets of the power set of the given set of vertices, 
+		     which are partially ordered by inclusion.
 
-
+            
 %               $(\forall I \in \mathcal{K} (\forall J \subseteq I)) \Rightarrow \mathcal{J} \in \mathcal{K}$\\
             \begin{Ex}
-              Consider the following partially ordered set  $ V = \{1, 2, 3, 4\}$:
-              The simplicial complex
+              Consider the following partially ordereed set  $ V = \{1, 2, 3, 4\}$: 
+              The simplicial complex 
               $\mathcal{K} = \{I = \{1, 2, 3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{4\}, \emptyset\}$
-
+             
              \begin{center}
-
+              
 
               \begin{tikzpicture}[line join = round, line cap = round]
 
@@ -385,23 +538,31 @@
 
                 \end{scope}
               \end{tikzpicture}
-
+             
              \end{center}
-             The topological realization of $\mathcal{K}$ is:
-
-              $|\mathcal{K}| = \underset{I\in K \ne \emptyset}{\cup} (Conv(e_i))$ where $e_i$ is in the standard basis $e_1, \cdots e_n \in \mathbb{R}^n$
+             
+             Given an abstract simplex $\cK$, we can construct its
+             \emph{topological realization}  as
+             
+              \[|\mathcal{K}| = \underset{\varnothing \neq I\in \cK }{\bigcup} (\textrm{Conv}(e_i),i\in I)\subseteq \RR^m\] 
+              where $\{e_i\}$ is in the standard basis $e_1, \cdots e_m \in \mathbb{R}^m$. 
             \end{Ex}
-
+            
+            
+            Classically, homology theories were introduced for simplicial complexes (while $\Delta$-complexes were also called semi-simplicial complexes).
+            Simplicial complexes have simple combinatorial description and are widely used in computer implementations of homology calculations. For the purposes of human 
+            understanding, however, $\Delta$-complexes are much more convenient.
+            
             A subcomplex of $\mathcal{K}$ is a subset $L \subseteq \mathcal{K}$ that is also a simplicial complex.
             \label{complexfiltration}
-            A \emph{filtration} of complex $\mathcal{K}$ is a nested sub-sequence of complexes:
+            A \emph{filtration} of complex $\mathcal{K}$ is a nested subsequence of complexes: 
              \[
-              \emptyset = \mathcal{K}^0 \subseteq \mathcal{K}^1 \subseteq \dots \mathcal{K}^m = \mathcal{K}
+              \emptyset = \mathcal{K}^0 \subseteq \mathcal{K}^1 \subseteq \dots \mathcal{K}^m = \mathcal{K}  
              \]
-             For generality, we let $\mathcal{K}^i = \mathcal{K}^m$ for all $i \geq m$. $\mathcal{K}$ is called a filtered complex, and below there is a short example of a filtered complex:
-
+             For generality, we let $\mathcal{K}^i = \mathcal{K}^m$ for all $i \geq m$. $\mathcal{K}$ is called a filetered complex, and below there is a short example of a filtered complex: 
+             
              \begin{center}
-
+              
             \begin{tikzpicture}[line join = round, line cap = round]
                 % 1st
                 \coordinate (0) at (0,1);
@@ -486,8 +647,7 @@
               \end{tikzpicture}
              \end{center}
 
-
-
+		      
 
 		\section{Chain Complexes}
 
@@ -582,7 +742,7 @@
         Chain complexes together with morphisms of chain complexes (and composition given by
         degree-wise composition of R-morphisms) form a category, which we will denote by $Ch(_RMod)$
 
-		 \section{Homology Calculations: Examples}
+		 \section{Homology Calculations: Examples}\label{homology_ex}
 
 		 In the first example of Homology calculations, it is important to notice that the homology groups are
 		 calculated in two methods, with different $\Delta$-structure on $S^1$. Even though, the circle is
@@ -2776,6 +2936,7 @@ Finally, the homology groups of the projective plane are:
               
               
               \section{\v{C}ech and Vietoris-Rips Complex}
+              \label{CechRips}
               
               In a ever-increasing world of data, the need for data analysis techniques and method is very high. 
               Topological Data Analysis is a relatively new sphere in Data Analysis, that is bringing new insights in the study of data. 
@@ -2791,6 +2952,23 @@ of a parameterized version of a Betti number: a barcode
               
               Data is collected from different number of sources, and comes in a variety of form and shapes. Often data is represented as a unordered sequence of points in a Euclidean $n-dimentional$ space $\mathbb{E}^n$. The overall shape of data might provide important information about the underlying phenomena that
               the data repesents. A \textbf{point cloud data} is the type of dataset where global feature are present and important. It is exaclty this type of data that is tackled by persistent homology.
+              
+              Naturally, the question of how to represent a collection of points $\{x_\alpha\}$, rises. 
+              A straightforward approach would be to use the point cloud as vertices of a combinatorial graph whose
+              edges are determined by proximity, for example within a specific distance $\epsilon$. A graph of this type can capture the connection of the point cloud,
+              but it will fail to detect any higher order features beyond clustering. 
+              A good way to tackle this issue, it to complete the graph to a simplicial complex. The choice of how to fill in the higher dimensional simplices of the proximity graph will result in different global representaions. 
+              
+              Two more prominant ways on how to fill in the higher dimensional simplices are:  \v{C}ech and Vietoris-Rips Complex: 
+              
+              \begin{defn} \label{cech} (\v{C}ech Complex)
+           Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the \v{C}ech Complex, $\mathcal{C}_\epsilon$, is the abstract simplicial complex whose k-simplices are determined by unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ whose closed $\epsilon/2-ball$ neighborhoods have a point of common intersection. 
+              \end{defn}
+           
+           \begin{defn} (Vietoris-Rips Complex)
+              Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the Rips Complex, $\mathcal{R}_\epsilon$, is the abstract simplicial complex whose k-simplices correspond to unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ which are pairwise within distance $\epsilon$. 
+            \end{defn}
+
 
 
 
