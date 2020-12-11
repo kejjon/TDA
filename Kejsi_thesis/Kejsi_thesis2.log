@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 02:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 04:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1523,210 +1523,261 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.45       \chapter
+l.47       \chapter
                    {Chain Complexes And Simplicial Homology} [1
 
 ]
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 67.
+(hyperref)                removing `math shift' on input line 70.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 67.
+(hyperref)                removing `\Delta' on input line 70.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 67.
+(hyperref)                removing `math shift' on input line 70.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--99
+Underfull \hbox (badness 10000) in paragraph at lines 98--102
 
  []
 
 [2
 
-] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 224--230
+] [3] [4] [5]
+
+LaTeX Warning: Reference `sphere_1' on page 6 undefined on input line 449.
+
+
+! LaTeX Error: \begin{document} ended by \end{Ex}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.457 	  \end{Ex}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.457 	  \end{Ex}
+                 
+Things are pretty mixed up, but I think the worst is over.
+
+
+LaTeX Warning: Reference `homology_ex' on page 6 undefined on input line 461.
+
+
+LaTeX Warning: Reference `circle_1' on page 6 undefined on input line 465.
+
+
+LaTeX Warning: Reference `homology_ex' on page 6 undefined on input line 466.
+
+[6] <xymatrix 8x1 307> [7] <xymatrix 3x1 96> <xymatrix 3x1 96> [8] <xymatrix
+5x1 179>
+Underfull \hbox (badness 10000) in paragraph at lines 792--793
+
+ []
+
+<xymatrix 4x1 141> [9] <xymatrix 4x1 141>
+Underfull \hbox (badness 10000) in paragraph at lines 847--849
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
+Underfull \hbox (badness 10000) in paragraph at lines 851--859
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--311
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 344--346
-
- []
-
-<xymatrix 8x1 307> [5] <xymatrix 3x1 96> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 535--539
-
- []
-
-<xymatrix 5x1 179> [6]
-Underfull \hbox (badness 10000) in paragraph at lines 592--593
-
- []
-
-<xymatrix 4x1 141> <xymatrix 4x1 141>
-Underfull \hbox (badness 10000) in paragraph at lines 647--649
+Underfull \hbox (badness 10000) in paragraph at lines 890--901
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+Underfull \hbox (badness 10000) in paragraph at lines 902--913
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--701
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 702--713
+Underfull \hbox (badness 10000) in paragraph at lines 914--963
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--763
+Underfull \hbox (badness 10000) in paragraph at lines 964--977
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 764--777
+Underfull \hbox (badness 10000) in paragraph at lines 984--985
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 787--800
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 814--815
-
- []
-
-<xymatrix 4x1 141> [8] <xymatrix 4x1 141>
-Underfull \hbox (badness 10000) in paragraph at lines 854--856
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 858--864
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 866--872
-
- []
-
-<xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
-Underfull \hbox (badness 10000) in paragraph at lines 931--933
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 935--939
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 941--951
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 953--959
-
- []
-
-<xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
-Underfull \hbox (badness 10000) in paragraph at lines 1019--1022
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1033
+Underfull \hbox (badness 10000) in paragraph at lines 987--1000
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 1035--1049
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
+
+ []
+
+<xymatrix 4x1 141> <xymatrix 4x1 141>
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1057
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1064
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 1111--1113
+
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1072
 
  []
 
-[12] [13]
+[11] <xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
+Underfull \hbox (badness 10000) in paragraph at lines 1131--1133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1141--1151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1159
+
+ []
+
+<xymatrix 2x2 307> [12] <xymatrix 5x1 186> <xymatrix 5x1 186>
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1222
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1233
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1235--1249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1251--1257
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 1311--1313
+
+ []
+
+[14] [15]
+
+LaTeX Warning: Reference `circle_1' on page 16 undefined on input line 1422.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1425 
+       
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.1425 
+       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \@@par 
+l.1425 
+       
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+! Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.1425 
+       
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[16]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1230--1232
+Underfull \hbox (badness 10000) in paragraph at lines 1436--1438
 
  []
 
-[14
+[17
 
 ] <xymatrix 3x1 96> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 1266--1267
+Underfull \hbox (badness 10000) in paragraph at lines 1472--1473
 
  []
 
-<xymatrix 2x2 123> [15]
-Underfull \hbox (badness 10000) in paragraph at lines 1323--1324
+<xymatrix 2x2 123> [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1529--1530
 
  []
 
 <xymatrix 4x2 532> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 1361--1365
+Underfull \hbox (badness 10000) in paragraph at lines 1567--1571
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1371--1373
+Underfull \hbox (badness 10000) in paragraph at lines 1577--1579
 
  []
 
-<xymatrix 5x2 454> [16]
-Underfull \hbox (badness 10000) in paragraph at lines 1400--1401
+<xymatrix 5x2 454> [19]
+Underfull \hbox (badness 10000) in paragraph at lines 1606--1607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1411--1413
+Underfull \hbox (badness 10000) in paragraph at lines 1617--1619
 
  []
 
 <xymatrix 5x2 786>
-Underfull \hbox (badness 10000) in paragraph at lines 1469--1472
+Underfull \hbox (badness 10000) in paragraph at lines 1675--1678
 
  []
 
-[17]
+[20]
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no - in font nullfont!
 Missing character: There is no s in font nullfont!
@@ -1764,385 +1815,430 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
  <xymatrix 5x1 145> <xymatrix 5x1 145> <xymatrix 5x2 531> <xymatrix 3x1
-89> [18] <xymatrix 3x1 89> <xymatrix 3x1 89> <xymatrix 5x2 438> <xymatrix 6x1
-231> <xymatrix 5x2 452> <xymatrix 3x1 110> [19] <xymatrix 5x1 145> <xymatrix
-5x1 145> <xymatrix 5x2 495> <xymatrix 6x1 183> [20]
-Underfull \hbox (badness 10000) in paragraph at lines 1843--1845
+89> [21] <xymatrix 3x1 89> <xymatrix 3x1 89> <xymatrix 5x2 438> <xymatrix 6x1
+231> <xymatrix 5x2 452> <xymatrix 3x1 110> [22] <xymatrix 5x1 145> <xymatrix
+5x1 145> <xymatrix 5x2 495> <xymatrix 6x1 183> [23]
+Underfull \hbox (badness 10000) in paragraph at lines 2049--2051
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1871--1872
+Underfull \hbox (badness 10000) in paragraph at lines 2077--2078
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1876--1878
+Underfull \hbox (badness 10000) in paragraph at lines 2082--2084
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1889--1890
+Underfull \hbox (badness 10000) in paragraph at lines 2095--2096
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1892--1895
-
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 1924--1925
-
- []
-
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 2044--2046
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2047--2048
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2050--2052
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 2072--2073
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2075--2079
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2089--2090
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2091--2094
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2096--2098
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2122--2123
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2101
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 2160--2161
+Underfull \hbox (badness 10000) in paragraph at lines 2130--2131
+
+ []
+
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 2250--2252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2164--2165
+Underfull \hbox (badness 10000) in paragraph at lines 2253--2254
 
  []
 
-[25] [26]
+
+Underfull \hbox (badness 10000) in paragraph at lines 2256--2258
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 2278--2279
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2281--2285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2295--2296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2297--2300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2302--2304
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2328--2329
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 2366--2367
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2370--2371
+
+ []
+
+[28] [29]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2420--2423
+Underfull \hbox (badness 10000) in paragraph at lines 2626--2629
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2437--2439
+Underfull \hbox (badness 10000) in paragraph at lines 2643--2645
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2452--2454
+Underfull \hbox (badness 10000) in paragraph at lines 2658--2660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2458--2459
+Underfull \hbox (badness 10000) in paragraph at lines 2664--2665
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2462--2463
+Underfull \hbox (badness 10000) in paragraph at lines 2668--2669
 
  []
 
-[27
+[30
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 2503--2505
+Underfull \hbox (badness 10000) in paragraph at lines 2709--2711
 
  []
 
-[28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 2593--2595
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2608--2609
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 2636--2637
-
- []
-
-[32]
-
-Package hyperref Warning: Composite letter `\textasciicaron+C'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 2778.
-
-[33]
-Chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2811--2813
-
- []
-
-[34
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 2855--2856
+[31] [32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 2799--2801
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2976--2982
+Underfull \hbox (badness 10000) in paragraph at lines 2814--2815
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2992--2995
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 2842--2843
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 3003--3004
+
+Package hyperref Warning: Composite letter `\textasciicaron+C'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 2984.
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 3142--3147
 
  []
 
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 3080--3100
+
+Underfull \hbox (badness 10000) in paragraph at lines 3148--3149
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 3100--3101
+Underfull \hbox (badness 10000) in paragraph at lines 3161--3172
 
  []
 
-[38] [39]
-<./ripser/on_sphere.PNG, id=395, 481.04718pt x 413.29407pt>
+[38]
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3252--3254
+
+ []
+
+[39
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 3296--3297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3417--3423
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3433--3436
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 3444--3445
+
+ []
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 3521--3541
+
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 3541--3542
+
+ []
+
+[43]
+
+LaTeX Warning: Reference `rips' on page 44 undefined on input line 3584.
+
+[44]
+<./ripser/on_sphere.PNG, id=427, 481.04718pt x 413.29407pt>
 File: ./ripser/on_sphere.PNG Graphic file (type png)
 <use ./ripser/on_sphere.PNG>
-Package pdftex.def Info: ./ripser/on_sphere.PNG  used on input line 3193.
+Package pdftex.def Info: ./ripser/on_sphere.PNG  used on input line 3633.
 (pdftex.def)             Requested size: 203.83417pt x 175.12737pt.
-<./ripser/on_sphere_homology.PNG, id=397, 535.2497pt x 458.46281pt>
+<./ripser/on_sphere_homology.PNG, id=429, 535.2497pt x 458.46281pt>
 File: ./ripser/on_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_homology.PNG>
-Package pdftex.def Info: ./ripser/on_sphere_homology.PNG  used on input line 31
-97.
+Package pdftex.def Info: ./ripser/on_sphere_homology.PNG  used on input line 36
+37.
 (pdftex.def)             Requested size: 203.83417pt x 174.59543pt.
- [40]
-<./ripser/on_sphere_sep_homology.PNG, id=403, 922.19531pt x 352.31625pt>
+ [45]
+<./ripser/on_sphere_sep_homology.PNG, id=435, 922.19531pt x 352.31625pt>
 File: ./ripser/on_sphere_sep_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_sep_homology.PNG>
 Package pdftex.def Info: ./ripser/on_sphere_sep_homology.PNG  used on input lin
-e 3206.
+e 3646.
 (pdftex.def)             Requested size: 452.9679pt x 173.05042pt.
-<./ripser/on_sphere_lifetime.PNG, id=404, 512.66531pt x 453.94594pt>
+<./ripser/on_sphere_lifetime.PNG, id=436, 512.66531pt x 453.94594pt>
 File: ./ripser/on_sphere_lifetime.PNG Graphic file (type png)
 <use ./ripser/on_sphere_lifetime.PNG>
-Package pdftex.def Info: ./ripser/on_sphere_lifetime.PNG  used on input line 32
-13.
+Package pdftex.def Info: ./ripser/on_sphere_lifetime.PNG  used on input line 36
+53.
 (pdftex.def)             Requested size: 256.33202pt x 226.97241pt.
- [41 <./ripser/on_sphere.PNG> <./ripser/on_sphere_homology.PNG> <./ripser/on_sp
+ [46 <./ripser/on_sphere.PNG> <./ripser/on_sphere_homology.PNG> <./ripser/on_sp
 here_sep_homology.PNG> <./ripser/on_sphere_lifetime.PNG>]
-<./ripser/on_cylinder.png, id=416, 462.528pt x 346.896pt>
+<./ripser/on_cylinder.png, id=448, 462.528pt x 346.896pt>
 File: ./ripser/on_cylinder.png Graphic file (type png)
 <use ./ripser/on_cylinder.png>
-Package pdftex.def Info: ./ripser/on_cylinder.png  used on input line 3224.
+Package pdftex.def Info: ./ripser/on_cylinder.png  used on input line 3664.
 (pdftex.def)             Requested size: 203.83417pt x 152.87819pt.
-<./ripser/on_cylinder_pers_homology.jpg, id=417, 602.25pt x 470.50781pt>
+<./ripser/on_cylinder_pers_homology.jpg, id=449, 602.25pt x 470.50781pt>
 File: ./ripser/on_cylinder_pers_homology.jpg Graphic file (type jpg)
 <use ./ripser/on_cylinder_pers_homology.jpg>
 Package pdftex.def Info: ./ripser/on_cylinder_pers_homology.jpg  used on input 
-line 3228.
+line 3668.
 (pdftex.def)             Requested size: 203.83417pt x 159.24542pt.
-<./ripser/on_cylinder_pers_homology_sep.jpg, id=418, 922.94812pt x 407.27156pt>
+<./ripser/on_cylinder_pers_homology_sep.jpg, id=450, 922.94812pt x 407.27156pt>
 
 File: ./ripser/on_cylinder_pers_homology_sep.jpg Graphic file (type jpg)
 <use ./ripser/on_cylinder_pers_homology_sep.jpg>
 Package pdftex.def Info: ./ripser/on_cylinder_pers_homology_sep.jpg  used on in
-put line 3237.
+put line 3677.
 (pdftex.def)             Requested size: 452.9679pt x 199.88174pt.
-<./ripser/on_cylinder_lifetime.jpg, id=419, 609.77812pt x 480.29437pt>
+<./ripser/on_cylinder_lifetime.jpg, id=451, 609.77812pt x 480.29437pt>
 File: ./ripser/on_cylinder_lifetime.jpg Graphic file (type jpg)
 <use ./ripser/on_cylinder_lifetime.jpg>
 Package pdftex.def Info: ./ripser/on_cylinder_lifetime.jpg  used on input line 
-3244.
+3684.
 (pdftex.def)             Requested size: 304.8883pt x 240.14659pt.
-
-[42 <./ripser/on_cylinder.png> <./ripser/on_cylinder_pers_homology.jpg> <./rips
-er/on_cylinder_pers_homology_sep.jpg>]
-<./ripser/rand_sphere.PNG, id=428, 508.14844pt x 350.81062pt>
+ [47 <./ripser/on_cylinder.png> <./ripser/on_cylinder_pers_homology.jpg> <./rip
+ser/on_cylinder_pers_homology_sep.jpg>]
+<./ripser/rand_sphere.PNG, id=459, 508.14844pt x 350.81062pt>
 File: ./ripser/rand_sphere.PNG Graphic file (type png)
 <use ./ripser/rand_sphere.PNG>
-Package pdftex.def Info: ./ripser/rand_sphere.PNG  used on input line 3255.
+Package pdftex.def Info: ./ripser/rand_sphere.PNG  used on input line 3695.
 (pdftex.def)             Requested size: 203.83417pt x 140.71786pt.
-<./ripser/rand_sphere_homology.PNG, id=429, 567.62062pt x 487.8225pt>
+<./ripser/rand_sphere_homology.PNG, id=460, 567.62062pt x 487.8225pt>
 File: ./ripser/rand_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_homology.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_homology.PNG  used on input line 
-3259.
+3699.
 (pdftex.def)             Requested size: 203.83417pt x 175.17679pt.
-<./ripser/rand_sphere_homology_seperate.PNG, id=430, 912.40875pt x 380.17032pt>
+<./ripser/rand_sphere_homology_seperate.PNG, id=461, 912.40875pt x 380.17032pt>
 
 File: ./ripser/rand_sphere_homology_seperate.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_homology_seperate.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_homology_seperate.PNG  used on in
-put line 3268.
+put line 3708.
 (pdftex.def)             Requested size: 452.9679pt x 188.73308pt.
- [43 <./ripser/on_cylinder_lifetime.jpg> <./ripser/rand_sphere.PNG> <./ripser/r
+ [48 <./ripser/on_cylinder_lifetime.jpg> <./ripser/rand_sphere.PNG> <./ripser/r
 and_sphere_homology.PNG>]
-<./ripser/rand_sphere_lifetime.PNG, id=440, 572.89032pt x 475.7775pt>
+<./ripser/rand_sphere_lifetime.PNG, id=471, 572.89032pt x 475.7775pt>
 File: ./ripser/rand_sphere_lifetime.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_lifetime.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_lifetime.PNG  used on input line 
-3275.
+3715.
 (pdftex.def)             Requested size: 286.44446pt x 237.88815pt.
-<./ripser/rand_cyl.PNG, id=441, 398.99063pt x 328.22626pt>
+<./ripser/rand_cyl.PNG, id=472, 398.99063pt x 328.22626pt>
 File: ./ripser/rand_cyl.PNG Graphic file (type png)
 <use ./ripser/rand_cyl.PNG>
-Package pdftex.def Info: ./ripser/rand_cyl.PNG  used on input line 3286.
+Package pdftex.def Info: ./ripser/rand_cyl.PNG  used on input line 3726.
 (pdftex.def)             Requested size: 203.83417pt x 167.68365pt.
-<./ripser/rand_cyclinder_per_homology.jpg, id=442, 557.83406pt x 462.22687pt>
+<./ripser/rand_cyclinder_per_homology.jpg, id=473, 557.83406pt x 462.22687pt>
 File: ./ripser/rand_cyclinder_per_homology.jpg Graphic file (type jpg)
 <use ./ripser/rand_cyclinder_per_homology.jpg>
 Package pdftex.def Info: ./ripser/rand_cyclinder_per_homology.jpg  used on inpu
-t line 3290.
+t line 3730.
 (pdftex.def)             Requested size: 203.83417pt x 168.8983pt.
- [44 <./ripser/rand_sphere_homology_seperate.PNG> <./ripser/rand_sphere_lifetim
+ [49 <./ripser/rand_sphere_homology_seperate.PNG> <./ripser/rand_sphere_lifetim
 e.png>]
-<./ripser/rand_cyclinder_per_homology_seperate.jpg, id=451, 938.00438pt x 382.4
+<./ripser/rand_cyclinder_per_homology_seperate.jpg, id=482, 938.00438pt x 382.4
 2876pt>
 File: ./ripser/rand_cyclinder_per_homology_seperate.jpg Graphic file (type jpg)
 
 <use ./ripser/rand_cyclinder_per_homology_seperate.jpg>
 Package pdftex.def Info: ./ripser/rand_cyclinder_per_homology_seperate.jpg  use
-d on input line 3299.
+d on input line 3739.
 (pdftex.def)             Requested size: 452.9679pt x 184.67242pt.
-<./ripser/rand_cylinder_lifetime.jpg, id=452, 627.09282pt x 487.8225pt>
+<./ripser/rand_cylinder_lifetime.jpg, id=483, 627.09282pt x 487.8225pt>
 File: ./ripser/rand_cylinder_lifetime.jpg Graphic file (type jpg)
 <use ./ripser/rand_cylinder_lifetime.jpg>
 Package pdftex.def Info: ./ripser/rand_cylinder_lifetime.jpg  used on input lin
-e 3306.
+e 3746.
 (pdftex.def)             Requested size: 313.54564pt x 243.91064pt.
-
-(./Kejsi_thesis2.bbl [45 <./ripser/rand_cyl.PNG> <./ripser/rand_cyclinder_per_h
-omology.jpg> <./ripser/rand_cyclinder_per_homology_seperate.jpg> <./ripser/rand
-_cylinder_lifetime.jpg>]) [46
+ (./Kejsi_thesis2.bbl [50 <./ripser/rand_cyl.PNG> <./ripser/rand_cyclinder_per_
+homology.jpg> <./ripser/rand_cyclinder_per_homology_seperate.jpg> <./ripser/ran
+d_cylinder_lifetime.jpg>]) [51
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3320.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3320.
- (./Kejsi_thesis2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3320.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3320.
 
-Package rerunfilecheck Info: File `Kejsi_thesis2.out' has not changed.
-(rerunfilecheck)             Checksum: 7F237D0EBA32481C0F47A59DD81D2044;1018.
+! LaTeX Error: \begin{equation*} on input line 1424 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3760 \end{document}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3760.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3760.
+(./Kejsi_thesis2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3760.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3760.
+
+
+
+Package rerunfilecheck Warning: File `Kejsi_thesis2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Kejsi_thesis2.out':
+(rerunfilecheck)             Before: 7F237D0EBA32481C0F47A59DD81D2044;1018
+(rerunfilecheck)             After:  71219320B55CDFBCA547F11F2B260338;1031.
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3320.
- ) 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3760.
+ )
+(\end occurred inside a group at level 2)
+
+### semi simple group (level 2) entered at line 1424 (\begingroup)
+### semi simple group (level 1) entered at line 1421 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 44850 strings out of 480876
- 1016166 string characters out of 5911488
- 1487147 words of memory out of 5000000
- 59381 multiletter control sequences out of 15000+600000
+ 44883 strings out of 480876
+ 1016625 string characters out of 5911488
+ 1487975 words of memory out of 5000000
+ 59403 multiletter control sequences out of 15000+600000
  553823 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,23n,100p,818b,2153s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/
-type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2020/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
-b><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texl
-ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/
-texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2020/texmf-dist
-/fonts/type1/public/stmaryrd/stmary10.pfb><c:/texlive/2020/texmf-dist/fonts/typ
-e1/public/xypic/xyatip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xyp
-ic/xybtip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash10.p
-fb>
-Output written on Kejsi_thesis2.pdf (47 pages, 1215643 bytes).
+ 63i,23n,100p,818b,2294s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
+s1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fo
+nts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/
+texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2020/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texli
+ve/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2
+020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2020/texmf-
+dist/fonts/type1/public/stmaryrd/stmary10.pfb><c:/texlive/2020/texmf-dist/fonts
+/type1/public/xypic/xyatip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
+/xypic/xybtip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash
+10.pfb>
+Output written on Kejsi_thesis2.pdf (52 pages, 1248349 bytes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 459 compressed objects within 5 object streams
- 156 named destinations out of 1000 (max. 500000)
+ 615 PDF objects out of 1000 (max. 8388607)
+ 489 compressed objects within 5 object streams
+ 167 named destinations out of 1000 (max. 500000)
  309 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2965,11 +2965,228 @@ of a parameterized version of a Betti number: a barcode
            Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the \v{C}ech Complex, $\mathcal{C}_\epsilon$, is the abstract simplicial complex whose k-simplices are determined by unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ whose closed $\epsilon/2-ball$ neighborhoods have a point of common intersection. 
               \end{defn}
            
-           \begin{defn} (Vietoris-Rips Complex)
+
+            For example: 
+             \begin{center}
+              
+
+
+            \begin{tikzpicture}[line join = round, line cap = round]
+
+                        % first-simplex
+                        \coordinate (0) at (0,0);
+                        \coordinate (1) at (2,0);
+                        \coordinate (2) at (1,{sqrt(3)});
+                       
+                         % second-simplex
+                        \coordinate  (3) at (4,0);
+                        \coordinate  (4) at (6,0);
+                        \coordinate  (5) at (5,{sqrt(3)});
+                        
+                        % third-simpex
+                        \coordinate  (6) at (8.5,0);
+                        \coordinate  (7) at (10.5,0);
+                        \coordinate  (8) at (9.5,{sqrt(3)});
+
+                        \begin{scope}[decoration={markings,mark=at position 0.5 with
+                            {\arrow{to}}}]
+                            
+                            % first-simplex
+                            \draw[fill] (0) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (0) circle [radius=0.3];
+                            \draw[fill] (1) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (1) circle [radius=0.3];
+                            \draw[fill] (2) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (2) circle [radius=0.3];
+                            \draw [thin, right hook->] (2.75, 0.86) -- (3.25, 0.86);  
+                            
+                            % second-simplex
+                            \draw[fill] (3) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (3) circle [radius=1.05];
+                            \draw[fill] (4) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (4) circle [radius=1.05];
+                            \draw[fill] (5) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (5) circle [radius=1.05];
+                            \draw[thick] (3)--(4);
+                            \draw[thick] (3)--(5);
+                            \draw[thick] (4)--(5);
+                            \draw [thin, right hook->] (6.75, 0.86) -- (7.25, 0.86);  
+            
+                            
+                           % third-simpex
+                            \draw[fill] (6) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (6) circle [radius=1.2];
+                            \draw[fill] (7) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (7) circle [radius=1.2];
+                            \draw[fill] (8) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (8) circle [radius=1.2];
+                            \draw[thick] (6)--(7);
+                            \draw[thick] (6)--(8);
+                            \draw[thick] (7)--(8);
+                            \filldraw[opacity=.5, gray] (6) --  (7) --  (8) -- cycle;
+                        \end{scope}
+
+                    \end{tikzpicture} 
+                    
+
+             \end{center}
+
+           \begin{defn} (Vietoris-Rips Complex) \label{rips}
               Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the Rips Complex, $\mathcal{R}_\epsilon$, is the abstract simplicial complex whose k-simplices correspond to unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ which are pairwise within distance $\epsilon$. 
             \end{defn}
+            
+            For example: 
+            \begin{center}
+             \begin{tikzpicture}[line join = round, line cap = round]
 
+                       % first-simplex
+                        \coordinate (0) at (0,0);
+                        \coordinate (1) at (2,0);
+                        \coordinate (2) at (1,{sqrt(3)});
+                       
+                         % second-simplex
+                        \coordinate  (3) at (4,0);
+                        \coordinate  (4) at (6,0);
+                        \coordinate  (5) at (5,{sqrt(3)});
+                        
+                        % third-simpex
+                        \coordinate  (6) at (8.5,0);
+                        \coordinate  (7) at (10.5,0);
+                        \coordinate  (8) at (9.5,{sqrt(3)});
 
+                        \begin{scope}[decoration={markings,mark=at position 0.5 with
+                            {\arrow{to}}}]
+                            % first-simplex
+                            \draw[fill] (0) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (0) circle [radius=0.3];
+                            \draw[fill] (1) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (1) circle [radius=0.3];
+                            \draw[fill] (2) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (2) circle [radius=0.3];
+                            \draw [thin, right hook->] (2.75, 0.86) -- (3.25, 0.86);  
+                            % second-simplex
+                            \draw[fill] (3) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (3) circle [radius=1.05];
+                            \draw[fill] (4) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (4) circle [radius=1.05];
+                            \draw[fill] (5) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (5) circle [radius=1.05];
+
+                            \draw[thick] (3)--(4);
+                            \draw[thick] (3)--(5);
+                            \draw[thick] (4)--(5);
+                           \draw [thin, right hook->] (6.75, 0.86) -- (7.25, 0.86);  
+                            \filldraw[opacity=.5, gray] (3) --  (4) --  (5) -- cycle;
+                           % third-simpex
+                            \draw[fill] (6) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (6) circle [radius=1.2];
+                            \draw[fill] (7) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (7) circle [radius=1.2];
+                            \draw[fill] (8) circle [radius=0.05];
+                            \draw[fill, opacity=0.3, blue] (8) circle [radius=1.2];
+                            \draw[thick] (6)--(7);
+                            \draw[thick] (6)--(8);
+                            \draw[thick] (7)--(8);
+                            \filldraw[opacity=.5, gray] (6) --  (7) --  (8) -- cycle;
+                        \end{scope}
+
+                    \end{tikzpicture} 
+            \end{center}
+            
+             If $X$ is a topological space, and $X = \underset{\alpha}{\cup} \quad \mathcal{U}_\alpha$ 
+             where $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ are cover indexes, $\mathcal{U} = \{\mathcal{U}_1, \mathcal{U}_2, \cdots, \mathcal{U}_n\}$, given a cover $\mathcal{U}$ (not necessarily open) of a space $X$, the nerve of $\mathcal{U}$ is a simplicial complex  $\mathcal{N}(\mathcal{U})$ whose n-simplices consist of sets of $n+1$ elements of $\mathcal{U}$ with non-empty intersections.
+              Vertices of $\mathcal{N}(\mathcal{U})= \{1, 2, \cdots, m\}$ are 
+              $(k - 1)$ - faces if $\ \mathcal{U}_{i_{1}} \cap \cdots \cap \mathcal{U}_{i_{k}} 
+              \ne \emptyset$ for $ \{i_1, \cdots, i_k \} \in \mathcal{N}(\mathcal{U})$\\
+              
+              \begin{Ex} Let's break the circle $S^1$ into the following spaces $U, V$: \\
+              \begin{center}
+              \begin{tikzpicture}
+                \node[circle,draw] (a) at (0,0) {};
+                \draw[thick,-] (a) to[in=220,out=330,looseness=20] node[midway,below] {$U$}(a);
+                \node[circle,draw] (b) at (2,-1) {};
+                \draw[thick,-] (b) to[in=140,out=40,looseness=20] node[midway,above] {$V$} (b);
+                
+              \end{tikzpicture}
+            \end{center}
+               \begin{align*}
+                &S^1 = \mathcal{U} \cup V\\
+                &\textrm{The cover } \mathcal{U} = \{U, V\}\\
+              \end{align*}
+              \\
+%               $\mathcal{U} = S' \backslash \{0, 0\}$\\
+              \begin{tikzpicture}
+                \node[circle,draw] (a) at (0,0) {};
+                \node[circle,draw] (b) at (0,-2) {};
+                \draw[thick,-] (b) to[in=180,out=180] node[midway,left] {$\underset{U_1}{\mathcal{U}} \cap \underset{U_2}{V} = $} (a);
+                \draw[thick,-] (b) to[in=0,out=0] (a);
+              \end{tikzpicture}
+              \\
+              $\{\{1, 2\}, \{1\},\{2\}, \emptyset\} = \mathcal{N}(\mathcal{U})$\\
+              \end{Ex}
+
+              
+              The $\check{C}$ech complex $\mathcal{C}_\epsilon$ is the nerve of the collection of closed discs of radius $\epsilon/2$ around the points of the cloud, thought of as a cover of its union.
+              \begin{thm}(The Nerve Theorem)
+              
+            If $X$ is a paracompact space, and $U$ is an open cover of $X$ such that the
+            intersection of any finite subfamily of $U$ is either empty or contractible,
+            then the realization of the nerve of $U$ is homotopy equivalent to X.\cite{hatcher}
+            
+              \end{thm}
+
+    
+
+%             \begin{align*}
+%                 \xymatrix{
+%                 X
+%                 \\
+%                 & V \amalg U \ar@<0ex>[ul]|-{!}
+%                 & V \ar@/_/[ull]_{i_{v}} \ar@{_{(}->}[l]
+%                 \\
+%                 & U \ar@/^/[uul]^{i_{u}} \ar@{_{(}->}[u]
+%                 & U \cap V \ar@{_{(}->}[l] \ar@{_{(}->}[u]
+%                   }
+%               \end{align*}
+% 
+%               \begin{align*}
+%                 \xymatrix{
+%                 H_n(X)
+%                 \\
+%                 & H_n(V) \oplus H_n(U) \ar@<0ex>[ul]
+%                 & H_n(V) \ar@/_/[ull] \ar[l]
+%                 \\
+%                 & H_n(U) \ar@/^/[uul] \ar[u]
+%                 & H_n(U \cap V) \ar[l] \ar[u]
+%                   }
+%               \end{align*}
+%               \\
+%               $X$ - topological spaces, $X = \cup_i \mathcal{U}_i$\\
+%               Say $\{i_0, \cdots, i_k\}$ form a $k$ - simplex, $\mathcal{U}_{i_{m}} \cap \mathcal{U}_{i_{n}} \ne \emptyset, \quad \forall i_m, i_n \in \{i_0, \cdots, i_k\}$\\
+%               Variants:\\
+%               1) $x$  - metric space $\{B_{\epsilon}(p), p\in x\}$, $VR_\epsilon(x)$\\
+%               2) $x$ - finite metric space. $x = \{p_1, \cdots, p_N\}$, $x \le \mathbb{R}^N$\\
+%               $[p_{i_{0}}, \cdots, p_{i_{k}}]$ is a $k$ - simplex, when $dist(p_{i_{j_{1}}}, p_{i_{j_{2}}}) \le 2 \epsilon$\\
+%               $\check{C}_\epsilon\cdot(x) \hookrightarrow VR_\epsilon\cdot(x) \hookrightarrow \check{C}_{2\epsilon}\cdot(x)$ improved to $\sqrt{2}$\\
+%               Good news:\\
+%               Both $cxs$ (complexes) are functorial in $\epsilon$ \& $x$. If $\epsilon_1 < \epsilon_2$ we get simplical map $VR_{\epsilon_{1}}\cdot (x) \rightarrow VR_{\epsilon_{2}}(x)$\\
+%               ie $VR(x) \cdot R \rightarrow $ simplicial\\
+%               If $f: x\rightarrow y$ Lipschitz with constant k\\
+%               $d(f(p), f(q)) < kd(p,q), \quad \forall p,q \in x$\\
+%               $VR_\epsilon(x) \rightarrow VR_{k\epsilon}(y)$
+%               \\
+%               Compose with $H_n$\\
+%               $H_n(VR_{(-)}(x)): R \rightarrow Ab$\\
+%               $H_n(VR_\epsilon(-)):$ {finite metric space} $\rightarrow$ Al\\
+%               \\
+%               Have finite set $\epsilon_1 < \epsilon_2 < \cdots$ where $H_n$ "jumps"\\
+%               ie
+%               \begin{align*}
+%                 H_n(VR_\epsilon(x)) = \left\{\begin{array}{cc}G_1& \epsilon\in[0, \epsilon)\\G_2& \epsilon\in[\epsilon_1, \epsilon_2)\end{array}\right.
+%               \end{align*}
+%               \\
+%               Get maps $VR_{\epsilon_{1}}(x) \rightarrow VR_{\epsilon_{2}}(x) \rightarrow H_n(VR_{\epsilon_{1}}(x)) \rightarrow H_n(VR_{\epsilon_{2}}(x))$\\
+%               \\
 
 
 
@@ -3318,8 +3535,7 @@ of a parameterized version of a Betti number: a barcode
             certain easily identified type of persistence pair, called an emergent co-face pair, is encountered
             \end{enumerate}
 
-            To construct the algorithm, Ripser Software makes use of simplicial complexes and filtaration introduced in chapter \ref{chapter1}, with focus on the Vietoris Ripser complex, introduced in
-            section [kejsi ref]. Despite the Vietris -Rips filtration, a re-indexing and refinement of the filtration is used. In order to compute persistent homology, one needs to apply one further step of
+            To construct the algorithm, Ripser Software makes use of simplicial complexes and filtaration introduced in chapter \ref{chapter1}, with focus on the Vietoris Ripser complex, defined in \ref{rips}. Despite the Vietris -Rips filtration, a re-indexing and refinement of the filtration is used. In order to compute persistent homology, one needs to apply one further step of
             re-indexing, refining the essential filtration to an essential simplexwise one.
 
             To ease the computation of the Vietoris-Rips filtration, Ripser makes use of sub-level sets of functions and persistent homology. The Ripser package considers only simplicial homology with
