@@ -2951,7 +2951,7 @@ of a parameterized version of a Betti number: a barcode
               \end{enumerate}
               
               Data is collected from different number of sources, and comes in a variety of form and shapes. Often data is represented as a unordered sequence of points in a Euclidean $n-dimentional$ space $\mathbb{E}^n$. The overall shape of data might provide important information about the underlying phenomena that
-              the data repesents. A \textbf{point cloud data} is the type of dataset where global feature are present and important. It is exaclty this type of data that is tackled by persistent homology.
+              the data repesents. A \textbf{point cloud data} is the type of dataset where global feature are present and important. It is exaclty this type of data that is tackled by persistent homology. \cite{Ghrist_2007}
               
               Naturally, the question of how to represent a collection of points $\{x_\alpha\}$, rises. 
               A straightforward approach would be to use the point cloud as vertices of a combinatorial graph whose
@@ -3115,14 +3115,20 @@ of a parameterized version of a Betti number: a barcode
               \end{align*}
               \\
 %               $\mathcal{U} = S' \backslash \{0, 0\}$\\
+                \begin{center}
+ 
+
               \begin{tikzpicture}
                 \node[circle,draw] (a) at (0,0) {};
                 \node[circle,draw] (b) at (0,-2) {};
                 \draw[thick,-] (b) to[in=180,out=180] node[midway,left] {$\underset{U_1}{\mathcal{U}} \cap \underset{U_2}{V} = $} (a);
                 \draw[thick,-] (b) to[in=0,out=0] (a);
               \end{tikzpicture}
-              \\
-              $\{\{1, 2\}, \{1\},\{2\}, \emptyset\} = \mathcal{N}(\mathcal{U})$\\
+                \end{center}
+              
+              \[
+              \{\{1, 2\}, \{1\},\{2\}, \emptyset\} = \mathcal{N}(\mathcal{U})
+              \]
               \end{Ex}
 
               
@@ -3202,6 +3208,47 @@ of a parameterized version of a Betti number: a barcode
                 & where \ Z_k^i = \ker (\partial_k^i : C_k^i \rightarrow C_{k-1}^i)
                 =\Ima ((H_k^i = H_k ( C_\bullet^i) \rightarrow (H_k ( C_\bullet^{i+p}))\\
               \end{align*}
+              \section*{Remarks on Computing Persistent Homology}
+              
+              \begin{itemize}
+               \item 
+
+              
+              Any ideal $\omega \subseteq R$ in a commutative ring in as R - module in a natural way: $\forall a \in \omega, \forall r \in R, r\cdot a \in \omega$ and $\omega \subseteq R$ is an ab\. group\. (R is a module over itself \& $\omega$ is a submodule)\\
+              Hence, for any
+              \begin{align*}
+                n \in \mathbb{N}\\
+                \equalto{(t^n)}{\{\equalto{t^n}{t^nk[t]} P(t), P \in k[t]\}} \subseteq k[t]
+              \end{align*}
+              is a $k[t]$ - module. This is a free $k[t]$ - module.\\
+              \item 
+              $R = k[t]$ has a natural structure of \underline{graded ring}. The deg $i$ - elements are the (non-zero) elements of the line $R_i := kt^i \subseteq k[t]$ (in general: $R = \oplus R_i, R_iR_j \subseteq R_{i+j}$).
+              The ideal $(t^n) \subseteq k[t]$ is then a graded $k[t]$ - module (in general, this means $M = \underset{i}{\oplus} M_j, R = \underset{i}{\oplus} R_i, R_i \cdot M_j \subseteq M_{i+j}$) $(t^n) = t^n, k[t] = \underset{i \ge 0}{\oplus} \underbrace{kt^{n+i}}_{(t^{n})}$\\
+              i.e.\\
+              degree - i elements of $(t^n)$ are the monomials of degree $(n+i)$\\
+              \item 
+              While $(t^n) \subseteq k[t]$ is an ideal, so $k[t]$ - module - and so $k[t]$ - submodule; and a graded $k[t]$ - module, it is \underline{not} a graded $k[t]$ - submodule!\\
+              \item
+              The grading of $(t^n)$ is \underline{not} the grading that is induced by the \underline{ambient} $k[t]$: it is \underline{shifted up} by $n$: $t^{n+i}$, as an alternative of $(t^n) = t^nk[t]$, has degree $i$, not degree $(n+i)$.\\
+              \item 
+              In general, for a graded module $M$ over a graded ring $R$ we can define the \underline{twist of $M$ by $n$}, $M[n]$, also denoted by $\sum^nM$, is defined by $(\sum^nM)_i = M_{n+i}$.\\
+              i.e., by redefining/shifting the grading up by $n$. We see that we can identify $\sum^nk[t]$ with $(t^n) = t^nk[t]$ as \underline{graded modules} $(\sum^nk[t])_i = k[t]_{n+i} = kt^{n+i} \xrightarrow{id} kt^n\cdot t^i$\\
+              \item
+              A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ ie of the kind $p(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus m} \rightarrow k[t]^{\oplus r}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
+              \item
+              A map (morphism) if \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (ie: R - linear, ie: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
+              In particular, a map of graded modules $\varphi: \sum^n\simequalto{k[t]}{(t^n)} \rightarrow \sum^p\simequalto{k[t]}{(t^p)}$ must send $(t^n)_i = kt^{n+i}$ to $(t^p)_i = kt^{p+i}$.\\
+              \item
+              As the shifts $\sum^nk[t]$ are still free modules, any $k[t]$ - module homomorphism $\varphi: (t^n) \rightarrow (t^n)$ is determined by some polynomial $p(t) \in k[t]$, ie by the image of a generator: $\varphi(t^n) = p(t)t^p$ as $\varphi(t^nq(t)) = q(t)\varphi(t^n)$. \underline{However} if $\varphi$ is a \underline{graded} module homomorphism, we must have that $\varphi(t^n) = \underbrace{(mt^p)}_{p(t)}t^p$, ie, that $p(t)$ be homogeneous. Similarly, for direct sums $\underset{i}{\oplus}(t^{ni}) \rightarrow \underset{i}{\oplus}(t^{pj})$.\\
+              \item
+              \underline{In particular:} if $n \ge p$, any map of modules $\varphi: k[t] \rightarrow k[t], 1 \mapsto p(t)$ determines a map of \underline{graded} modules
+              \begin{align*}
+                &(t^n) = \sum^nk[t] \rightarrow (t^p) = \sum^pk[t]\\
+                &t^n \mapsto (p(t)t^{n-p})t^p
+              \end{align*}
+              \\
+              E.g, the identity map on $k[t]$ induces $t^n \mapsto t^{n-p} \cdot t^p$ (The "matrix element" of the identity on $k[t]$ is $t^{n-p}$).
+              \end{itemize}
 
               \begin{Ex} Consider $X$ to be a space consisting of two points and $Y$, of an edge.
               Then we can construct the following persistence complex: \\
@@ -3244,6 +3291,34 @@ of a parameterized version of a Betti number: a barcode
                 &H_1^{0,1} = Z_0^1 / B_1^{1} \cap Z_1^0 = (0) \quad H_1^{1,1} = (0)\\
                 &H_0^{0,1} = Z_0^0 / B_0^{1} \cap Z_0^0 = \mathbb{Z}^2 / \Ima \begin{bmatrix}-1\\1\end{bmatrix} \simeq \mathbb{Z}\\
               \end{align*}
+              
+              \begin{center}
+              \begin{tikzpicture}[line join = round, line cap = round]
+                \coordinate [label=above:$a$] (a) at (0,0);
+                \coordinate [label=above:$b$] (b) at (2,0);
+                \coordinate (c) at (4,0);
+                \coordinate (d) at (6,0);
+                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
+                  \draw[fill] (a) circle [radius=0.04];
+                  \draw[fill] (d) circle [radius=0.04];
+                  \draw[fill] (b) circle [radius=0.04];
+                  \draw[fill] (c) circle [radius=0.04];
+                  \draw[draw=none] (a)--(b) node[midway,below] {deg 0};
+                  \draw[thick, postaction={decorate}] (c)--(d) node[midway,above] {ab} node[midway,below] {deg 1};
+                \end{scope}
+              \end{tikzpicture}
+              \end{center}
+              
+              The final complex is $0 \rightarrow \mathbb{Z} \xrightarrow{\partial_1} \mathbb{Z}^{\oplus2} \rightarrow 0$. The matrix of $\partial_1$ is \begin{align*}M_1 = \begin{bmatrix}-1\\1\end{bmatrix}.\end{align*}
+              This gives rise to the complexes of $\mathbb{Z}[t] - modules$.\\
+              \begin{align*}
+                0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-1\\1\end{bmatrix}} \mathbb{Z}t^{\oplus2} \rightarrow 0
+              \end{align*}
+              and of \underline{graded} $\mathbb{Z}[t]$ -modules.
+              \begin{align*}
+                0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-t\\t\end{bmatrix}} \equalto{(1)^{\oplus2}}{\mathbb{Z}t^{\oplus2}} \rightarrow 0
+              \end{align*}
+
               \end{Ex}
 
               \begin{Ex}
@@ -3375,27 +3450,26 @@ of a parameterized version of a Betti number: a barcode
               Some explicit computations are: \\
               Here the matrix of $\partial_1^3$ is\\
               \begin{align*}
-                \left(\begin{array}{c|ccccc}
+                M_1 = \left(\begin{array}{c|ccccc}
                         &ab&bc&cd&ad&ac\\\hline
                         d&0&0&1&1&0\\
                         c&0&1&-1&0&1\\
                         b&1&-1&0&0&0\\
                         a&-1&0&0&-1&-1\\
-                      \end{array}\right) = M_1
+                      \end{array}\right)
               \end{align*}
               \end{Ex}
               \
-              Introduce the structure of a graded module over $k[t]$ (on $R[t]$)\\
-              Degrees $\iff$ appearance in the translation\\
+              If we introduce the structure of a graded module over $k[t]$ (on $R[t]$) where degrees of a simplex signifiy the appearance in the filtration:\\
               \begin{itemize}
-              \item $a,b \}$ deg 0
-              \item $\left.\begin{array}{c}c,d\\ab,bc\end{array}\right\}$ deg 1
-              \item $ab, dc$ deg2
-              \item $ac$ deg 3
-              \item $abc$ deg 4
-              \item $adc$ deg 5
+              \item $a,b \longleftrightarrow$ deg 0
+              \item $c,d,ab,bc \longleftrightarrow$ deg 1
+              \item $ab, dc \longleftrightarrow$ deg2
+              \item $ac \longleftrightarrow$ deg 3
+              \item $abc \longleftrightarrow$ deg 4
+              \item $adc \longleftrightarrow$ deg 5
               \end{itemize}
-              If we work in ($\mathbb{Z}/2\mathbb{Z}$)$[t]$\\
+              If we work in the graded PID ($\mathbb{Z}/2\mathbb{Z}$)$[t]$\\
               \begin{align*}
                 M_1 = \left(\begin{array}{c|ccccc}
                         &ab&bc&cd&ad&ac\\\hline
@@ -3405,36 +3479,13 @@ of a parameterized version of a Betti number: a barcode
                         a&t&0&0&t^2&t^3\\
                       \end{array}\right)
               \end{align*}
-              \\
-              \underline{Remarks:}\\
-              * Any ideal $\omega \subseteq R$ in a commutative ring in as R - module in a natural way: $\forall a \in \omega, \forall r \in R, r\cdot a \in \omega$ and $\omega \subseteq R$ is an ab\. group\. (R is a module over itself \& $\omega$ is a submodule)\\
-              * Hence for any
-              \begin{align*}
-                n \in \mathbb{N}\\
-                \equalto{(t^n)}{\{\equalto{t^n}{t^nk[t]} P(t), P \in k[t]\}} \subseteq k[t]
-              \end{align*}
-              is a $k[t]$ - module. This is a free $k[t]$ - module.\\
-              * $R = k[t]$ has a natural structure of \underline{graded ring}. The deg $i$ - elements are the (non-zero) elements of the line $R_i := kt^i \subseteq k[t]$ (in general: $R = \oplus R_i, R_iR_j \subseteq R_{i+j}$).
-              The ideal $(t^n) \subseteq k[t]$ is then a graded $k[t]$ - module (in general, this means $M = \underset{i}{\oplus} M_j, R = \underset{i}{\oplus} R_i, R_i \cdot M_j \subseteq M_{i+j}$) $(t^n) = t^n, k[t] = \underset{i \ge 0}{\oplus} \underbrace{kt^{n+i}}_{(t^{n})}$\\
-              i.e.\\
-              degree - i elements of $(t^n)$ are the monomials of degree $(n+i)$\\
-              * While $(t^n) \subseteq k[t]$ is an ideal, so $k[t]$ - module - and so $k[t]$ - submodule; and a graded $k[t]$ - module, it is \underline{not} a graded $k[t]$ - submodule!\\
-              The grading of $(t^n)$ is \underline{not} the grading that is induced by the \underline{ambient} $k[t]$: it is \underline{shifted up} by $n$: $t^{n+i}$, as an alternative of $(t^n) = t^nk[t]$, has degree $i$, not degree $(n+i)$.\\
-              * In general, for a graded module $M$ over a graded ring $R$ we can define the \underline{twist of $M$ by $n$}, $M[n]$, also denoted by $\sum^nM$, is defined by $(\sum^nM)_i = M_{n+i}$.\\
-              i.e., by redefining/shifting the grading up by $n$. We see that we can identify $\sum^nk[t]$ with $(t^n) = t^nk[t]$ as \underline{graded modules} $(\sum^nk[t])_i = k[t]_{n+i} = kt^{n+i} \xrightarrow{id} kt^n\cdot t^i$\\
-              * A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ ie of the kind $p(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus m} \rightarrow k[t]^{\oplus r}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
-              * A map (morphism) if \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (ie: R - linear, ie: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
-              * In particular, a map of graded modules $\varphi: \sum^n\simequalto{k[t]}{(t^n)} \rightarrow \sum^p\simequalto{k[t]}{(t^p)}$ must send $(t^n)_i = kt^{n+i}$ to $(t^p)_i = kt^{p+i}$.\\
-              * As the shifts $\sum^nk[t]$ are still free modules, any $k[t]$ - module homomorphism $\varphi: (t^n) \rightarrow (t^n)$ is determined by some polynomial $p(t) \in k[t]$, ie by the image of a generator: $\varphi(t^n) = p(t)t^p$ as $\varphi(t^nq(t)) = q(t)\varphi(t^n)$. \underline{However} if $\varphi$ is a \underline{graded} module homomorphism, we must have that $\varphi(t^n) = \underbrace{(mt^p)}_{p(t)}t^p$, ie, that $p(t)$ be homogeneous. Similarly, for direct sums $\underset{i}{\oplus}(t^{ni}) \rightarrow \underset{i}{\oplus}(t^{pj})$.\\
-              * \underline{In particular:} if $n \ge p$, any map of modules $\varphi: k[t] \rightarrow k[t], 1 \mapsto p(t)$ determines a map of \underline{graded} modules
-              \begin{align*}
-                &(t^n) = \sum^nk[t] \rightarrow (t^p) = \sum^pk[t]\\
-                &t^n \mapsto (p(t)t^{n-p})t^p
-              \end{align*}
-              \\
-              E.g, the identity map on $k[t]$ induces $t^n \mapsto t^{n-p} \cdot t^p$ (The "matrix element" of the identity on $k[t]$ is $t^{n-p}$). Ditto for direct sums.\\
-              * Everything so far works similarly for $\mathbb{Z}[t]$ or $A[t]$, A - common ring. In particular, look again at the simplicial complex
+              
+              
+              * Everything mentioned in Remarks works similarly for $\mathbb{Z}[t]$ or $A[t]$, A - common ring. 
+              
+              In particular, consider the last simplicial complex in the filtration:
 
+              \begin{center}
               \begin{tikzpicture}[line join = round, line cap = round]
                 \coordinate [label=above:$a$] (a) at (10,1);
                 \coordinate [label=below:$d$] (d) at (10,0);
@@ -3456,7 +3507,8 @@ of a parameterized version of a Betti number: a barcode
                 \filldraw [opacity=.33,red] (10,1) -- (11,1) -- (11,0) -- cycle;
                 \filldraw [opacity=.33,blue] (10,1) -- (10,0) -- (11,0) -- cycle;
               \end{tikzpicture}
-              \\
+              \end{center}
+              
               The chain complex is $0 \rightarrow \mathbb{Z}^2 \xrightarrow{\partial_2} \mathbb{Z}^5 \xrightarrow{\partial_1} \mathbb{Z}^4 \rightarrow 0$. The matrices $M_2$ and $M_1$ of $\partial_2$ and $\partial_1$ without the indicated bases are:
               \begin{align*}
                 M_2 = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\1&0\\1&0\\0&1\\0&-1\\-1&1\end{array}\right), M_1 = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&1&1&0\\0&1&-1&0&1\\1&-1&0&0&0\\-1&0&0&-1&-1\end{array}\right)
@@ -3467,40 +3519,15 @@ of a parameterized version of a Betti number: a barcode
                 \underline{V} = \left(\begin{array}{c}p_1(t)\\p_2(t)\\p_3(t)\\p_4(t)\\p_5(t)\\\end{array}\right) \mapsto M_1 \underline{V}_\bullet
               \end{align*}
               \\
-              Using the grading (filtration) on the simplicial $cx$ we get a chain complex of graded $\mathbb{Z}[t]$ - modules\\
+              Using the grading (filtration) on the simplicial complex we get a chain complex of graded $\mathbb{Z}[t]$ - modules\\
               $0 \rightarrow (t^4)\oplus(t^5) \xrightarrow{\partial_2^1} (t)^{\oplus2}\oplus(t^2)^{\oplus2}\oplus(t^3) \xrightarrow{\partial_1^1} (t)^{\oplus2}\oplus(1)^{\oplus2} \rightarrow 0$\\
-              by the procedure on pg. The respective matrices are (without same bases)
+              by the procedure defined on \cite{Zomorodian_Carlsson_2005}. The respective matrices are (without same bases)
               \begin{align*}
                 M_2' = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\t^3&0\\t^3&0\\0&t^3\\0&-t^3\\-t^3&t^3\end{array}\right), M_1' = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&t&t&0\\0&1&-t&0&t^2\\t&-t&0&0&0\\-t&0&0&-t^2&-t^2\end{array}\right)
               \end{align*}
               \\
               \underline{Note:} In Carlsson-Zomordian there is no difference in notation between $M_i$ and $M_i'$. Also, for the algorithm they order the elements such that the degree decreases down to rows. If we work in $\mathbb{R}[t]$, the matrices will be the same. In $\mathbb{Z}/2\mathbb{Z}[t]$ there won't be difference between $\pm 1$.\\
-              \underline{The example from p.1}\\
-              \\
-              \begin{tikzpicture}[line join = round, line cap = round]
-                \coordinate [label=above:$a$] (a) at (0,0);
-                \coordinate [label=above:$b$] (b) at (2,0);
-                \coordinate (c) at (4,0);
-                \coordinate (d) at (6,0);
-                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
-                  \draw[fill] (a) circle [radius=0.04];
-                  \draw[fill] (d) circle [radius=0.04];
-                  \draw[fill] (b) circle [radius=0.04];
-                  \draw[fill] (c) circle [radius=0.04];
-                  \draw[draw=none] (a)--(b) node[midway,below] {deg 0};
-                  \draw[thick, postaction={decorate}] (c)--(d) node[midway,above] {ab} node[midway,below] {deg 1};
-                \end{scope}
-              \end{tikzpicture}
-              \\
-              The final $cx$ is $0 \rightarrow \mathbb{Z} \xrightarrow{\partial_1} \mathbb{Z}^{\oplus2} \rightarrow 0$. The matrix of $\partial_1$ is \begin{align*}M_1 = \begin{bmatrix}-1\\1\end{bmatrix}\end{align*}. This gives rise to the complexes of $\mathbb{Z}[t] - modules$.\\
-              \begin{align*}
-                0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-1\\1\end{bmatrix}} \mathbb{Z}t^{\oplus2} \rightarrow 0
-              \end{align*}
-              and of \underline{graded} $\mathbb{Z}[t]$ -modules.
-              \begin{align*}
-                0 \rightarrow \mathbb{Z}[t] \xrightarrow{\begin{bmatrix}-t\\t\end{bmatrix}} \equalto{(1)^{\oplus2}}{\mathbb{Z}t^{\oplus2}} \rightarrow 0
-              \end{align*}
-
+              
             \section{Computing Vietoris-Rips persistence barcodes using Ripser}
 
             In order to explicitly calculate persistence homology groups of point cloud data, I have created a Python scrip, that randomly generates points in a topological space, with and without noise, and then by
