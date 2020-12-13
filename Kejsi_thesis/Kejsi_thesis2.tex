@@ -44,7 +44,7 @@
 
 \author{Kejsi Jonuzaj}
 \title{Persistent Homology and Topological Data Analysis}
-\affil{American University in Bulgaria\\Department of Mathemathics and Science\\Supervisor: Prof. Peter Dalakov\\ \ \\Senior Thesis}
+\affil{American University in Bulgaria\\Department of Mathematics and Science\\Supervisor: Prof. Peter Dalakov\\ \ \\Senior Thesis}
 
 
 \begin{document}
@@ -194,7 +194,7 @@
                     
              The \emph{boundary} $\partial\Delta^n$ of the standard simplex is defined as the union of all the faces of $\Delta^n$, and
              $\mathring{\Delta}^n = \Delta^n - \partial\Delta^n $ denotes interior of $\Delta^n$. We define analogously the boundary and
-             interior of an arbitary simplex in $\RR^n$.
+             interior of an arbitrary simplex in $\RR^n$.
              %
              Notice that with this definition  $\partial \Delta^0=\varnothing$ and $\mathring{\Delta}^0= \Delta^0$!
              
@@ -417,7 +417,7 @@
 
      \end{Ex}
      
-	  For completeness, we mention  some ``non-examples'': collections of maps $\sigma_\alpha:\Delta^n\to X$ that satisfy conditions (1) and (2), but not condition (3) from Definiton \ref{Delta-complex}.
+	  For completeness, we mention  some ``non-examples'': collections of maps $\sigma_\alpha:\Delta^n\to X$ that satisfy conditions (1) and (2), but not condition (3) from Definition \ref{Delta-complex}.
      \begin{Ex}
      	Let $X=[0;1]$ or more generally, any other non-discrete space, having infinitely many points. Then the collection
      	of  maps $\{\sigma_x:\Delta^0\to X\}_{x\in X}$, $\sigma_x(1)=x$ 
@@ -449,7 +449,7 @@
 	  	X \simeq \left. \coprod_{\alpha\in A}\Delta^{n}_\alpha\right/ \sim.
 	  \]
 	  
-	  Turning this viewpoint backwords, we can consider $X$ as being built up, inductively, by simplices of dimension $0$, $1$, $2$, \ldots, 
+	  Turning this viewpoint backwards, we can consider $X$ as being built up, inductively, by simplices of dimension $0$, $1$, $2$, \ldots, 
 	  by imposing an equivalence relation, encoded combinatorially.
 	  
 	  \begin{Ex}
@@ -517,7 +517,7 @@
             
              
             \begin{Ex}
-              Consider the following partially ordereed set  $ V = \{1, 2, 3, 4\}$: 
+              Consider the following partially ordered set  $ V = \{1, 2, 3, 4\}$: 
               The simplicial complex 
               $\mathcal{K} = \{I = \{1, 2, 3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{4\}, \emptyset\}$
              
@@ -552,7 +552,7 @@
              \end{center}
              
              Given an abstract simplex $\cK$, we can construct its
-             \emph{topological realization}  as
+             \emph{topological realisation}  as
              
               \[|\mathcal{K}| = \underset{\varnothing \neq I\in \cK }{\bigcup} (\textrm{Conv}(e_i),i\in I)\subseteq \RR^m\] 
               where $\{e_i\}$ is in the standard basis $e_1, \cdots e_m \in \mathbb{R}^m$. 
@@ -565,11 +565,11 @@
             
             A subcomplex of $\mathcal{K}$ is a subset $L \subseteq \mathcal{K}$ that is also a simplicial complex.
             \label{complexfiltration}
-            A \emph{filtration} of complex $\mathcal{K}$ is a nested subsequence of complexes: 
+            A \emph{filtration} of complex $\mathcal{K}$ is a nested sub-sequence of complexes: 
              \[
               \emptyset = \mathcal{K}^0 \subseteq \mathcal{K}^1 \subseteq \dots \mathcal{K}^m = \mathcal{K}  
              \]
-             For generality, we let $\mathcal{K}^i = \mathcal{K}^m$ for all $i \geq m$. $\mathcal{K}$ is called a filetered complex, and below there is a short example of a filtered complex: 
+             For generality, we let $\mathcal{K}^i = \mathcal{K}^m$ for all $i \geq m$. $\mathcal{K}$ is called a filtered complex, and below there is a short example of a filtered complex: 
              
              \begin{center}
               
@@ -724,7 +724,7 @@
                 \end{aligned}
             \end{equation}
 
-        In case of arbitary  $n$ the proof proceeds analogously.
+        In case of arbitrary $n$ the proof proceeds analogously.
 
             \begin{equation}
                 \begin{aligned}
@@ -763,7 +763,7 @@
         %Also, a complex $C_\bullet$ is called non-negative (resp. positive) if $C_n = 0$, for all $n \in \ZZ_{<0}$ (resp. $n \in \ZZ_{\leq 0}$)
 
         Chain complexes together with morphisms of chain complexes (and composition given by
-        degreewise composition of $R$-morphisms) form a category, which we will denote by $Ch(_RMod)$
+        degree-wise composition of $R$-morphisms) form a category, which we will denote by $Ch(_RMod)$
 
 		 \section{Homology Calculations: Examples}\label{homology_ex}
 
@@ -772,7 +772,7 @@
                 $\Delta$-complex structures and will observe that, while the complexes $\Delta_n(S^1)$ will be different, their homology will be isomorphic.
                 
                 \subsubsection{Method I: Triangulation}
-                To compute the homolgy group of the circle $S^1$ we can triangulate the circle in the following way: \\
+                To compute the homology group of the circle $S^1$ we can triangulate the circle in the following way: \\
 
                 \[
                        \begin{tikzpicture}[line join = round, line cap = round]
@@ -994,7 +994,7 @@ Finally, the homology groups of the circle are:
 	  	\]
 
  \subsubsection{Method II}
-                  To compute the homolgy group of the circle $S^1$ we can construct the circle, by two vertices and two edges, in the following way: \\
+                  To compute the homology group of the circle $S^1$ we can construct the circle, by two vertices and two edges, in the following way: \\
 
               \[
               \begin{tikzpicture}[>=stealth',x=1cm, y=1cm]
@@ -1404,10 +1404,10 @@ Finally, the homology groups of the projective plane are:
         \label{SingularHomology}
 
 
-     In the previous chapter, we considered a parameterization of a space by simplexes, where the maps $\sigma_\alpha: \Delta^n \rightarrow X$ had restrictions defined in \ref{Delta-complex}. If we only require that the $\sigma$ map is continous, then by definition that would be a singular $n-simplex$ in a space $X$.
+     In the previous chapter, we considered a parameterization of a space by simplexes, where the maps $\sigma_\alpha: \Delta^n \rightarrow X$ had restrictions defined in \ref{Delta-complex}. If we only require that the $\sigma$ map is continuous, then by definition that would be a singular $n-simplex$ in a space $X$.
      The lack of other restrictions on the map $\sigma: \Delta^n \rightarrow X$, convey that $\sigma$ does not need to be a `nice` embedding, in fact it can have singularities, where its image does not look like a simplex.
 
-     $C_n(X)$ is a free abelian group with generators the set of singluar $n-simplexes$ in X: the continous maps $\sigma: \Delta^n \rightarrow X$. The elements of $C_n(X)$ are singular $n-chains$ defined as $\sum_i(n_i\sigma_i)$ for $n_i \in \ZZ$. The boundary operator $\partial_n: C_n(x) \rightarrow C_{n-1}(X)$ is defined the same way as in simplicial $n-chains$, by the formula:
+     $C_n(X)$ is a free abelian group with generators the set of singular $n-simplexes$ in X: the continuous maps $\sigma: \Delta^n \rightarrow X$. The elements of $C_n(X)$ are singular $n-chains$ defined as $\sum_i(n_i\sigma_i)$ for $n_i \in \ZZ$. The boundary operator $\partial_n: C_n(x) \rightarrow C_{n-1}(X)$ is defined the same way as in simplicial $n-chains$, by the formula:
      \[
 		         \partial_n(\sigma) = \sum\limits_i (-1)^i \sigma | [v_0, ... ,\hat{v_i}, ... , v_n]
               \]
@@ -1431,9 +1431,9 @@ Finally, the homology groups of the projective plane are:
     At first glance, singular homology seems to be more general than simplicial homology, however if for an arbitrary space X , we define the singular complex $S(X)$ as a $\Delta-complex$ with one $n-simplex \ \Delta_\sigma^n$ for each singular $n-simplex$ $\sigma: \Delta^n \rightarrow X$, then $H_n^\Delta(S(X))$ is the same as $H_n(X)$. In this case singular homology can be viewed as a special case of simplicial homology.
 
 
-    \section{Homotopy invariance}
+    \section{Homotopy Invariance}
 
-    A significant result that can be proven by singluar homology is that if two spaces $X, Y$ are homeomorphic, the singular homology groups are isomorphic $ H_n(X) \simeq H_n(Y)$.
+    A significant result that can be proven by singular homology is that if two spaces $X, Y$ are homeomorphic, the singular homology groups are isomorphic $ H_n(X) \simeq H_n(Y)$.
 
     \emph{More generally},
     A continuous map $f: X \rightarrow Y$ induces a chain map: $f_\#: C_n(X) \rightarrow C_n(Y)$.
@@ -1481,7 +1481,7 @@ Finally, the homology groups of the projective plane are:
 
 	\[ {Hom}_{HoTop}(X, Y) = {Hom}_{Top}(X, Y) \left/ \simeq \right. \]
 
-    \emph{Remark}: The continous maps $f, g: X \rightarrow Y$ are homotopic if
+    \emph{Remark}: The continuous maps $f, g: X \rightarrow Y$ are homotopic if
     \begin{align*}
      &\exists \ H: X \times [0, 1] \rightarrow Y , \\
      &for \ x \in X \ and \ t \in [0, 1]: H(x, t) = H_t(x) \\
@@ -1531,7 +1531,7 @@ Finally, the homology groups of the projective plane are:
 
 
 
-        For $\sigma: \Delta^n \rightarrow X$ the map $p_n(\sigma): \Delta^{n+1} \rightarrow Y$ should be a continous map. \\
+        For $\sigma: \Delta^n \rightarrow X$ the map $p_n(\sigma): \Delta^{n+1} \rightarrow Y$ should be a continuous map. \\
         $H: X \times [0, 1] \rightarrow Y$, $H|_{x \times \{0\}} = f \ and \ H|_{x \times \{1\}} = g $
         \[
          \xymatrix{
@@ -1543,7 +1543,7 @@ Finally, the homology groups of the projective plane are:
         \begin{itemize}
          \item $p_0: C_0(X) \rightarrow C_1(Y)$ \\
          $p_0(\sigma) = H_0(\sigma \times 1) |_{[v_0w_0]}: \Delta^1 \rightarrow Y$ \\
-         We can parameterize $\Delta^1$, as $\Delta^1 = \{ (t_0, t_1) | \ t_0 + t_1 = 1, \ t_0, t_1 \geq 1 \}$ \\
+         We can parameterise $\Delta^1$, as $\Delta^1 = \{ (t_0, t_1) | \ t_0 + t_1 = 1, \ t_0, t_1 \geq 1 \}$ \\
          $\Delta^1 = \{1\} \subseteq \RR$, $\sigma(1) = q$ \\
          \begin{align*}
              \Delta^0 \times [0, 1] &\simeq \Delta^{1} \\
@@ -2302,7 +2302,7 @@ Finally, the homology groups of the projective plane are:
                 \end{align*}
                \end{Ex}
 
-                \emph{Remark:} Sometimes one introduces ``reduced homolgy''
+                \emph{Remark:} Sometimes one introduces ``reduced homology''
                 \begin{align*}
                   &\dots \rightarrow C_n(X) \rightarrow C_{n-1} \rightarrow \cdots \xrightarrow{\partial_1} C_0(X) \xrightarrow{\epsilon} \mathbb{Z} \rightarrow 0, \quad \tilde{H_n}(X) \textrm{ - reduced homology}\\
                   & \sum n_i\sigma_ i \mapsto \sum_in_i \in C_0(X)\\
@@ -2556,7 +2556,7 @@ Finally, the homology groups of the projective plane are:
 
                The null-space of $M_k$ corresponds to $Z_k$ and its range-space to
                 $B_{k?1}$. The reduction algorithm derives alternate bases for the
-                chain groups, relative to which the matrix for $\partial_k$ is diagonal. The algorithm utilizes the following elementary column operations on $M_k$:
+                chain groups, relative to which the matrix for $\partial_k$ is diagonal. The algorithm utilises the following elementary column operations on $M_k$:
 
                 \begin{itemize}
                  \item exchange column i, and column j,
@@ -2816,8 +2816,8 @@ Finally, the homology groups of the projective plane are:
                 (\underset{i}{\oplus} \Sigma^{\alpha_i} F[t]) \oplus (\underset{j}{\oplus} \Sigma ^{\gamma_j} F[t]/(t^{n^j})).
               \end{align}
               
-              By using the result from the correspondence theorem, we can build a singe structure that contains all the simplicial complexes in the filtration. The computation start with the direct sum of complexes, and developes into a larger space graded according to the filtration order. The fitration order represents the time when each simplex enters the filtration. The main idea is that the filtration ordering is encoded in the coefficient
-              polynomial ring. For examples on how this encoding is calulated, Chapter \ref{chapter4}
+              By using the result from the correspondence theorem, we can build a singe structure that contains all the simplicial complexes in the filtration. The computation start with the direct sum of complexes, and develops into a larger space graded according to the filtration order. The filtration order represents the time when each simplex enters the filtration. The main idea is that the filtration ordering is encoded in the coefficient
+              polynomial ring. For examples on how this encoding is calculated, Chapter \ref{chapter4}
               
               
               \section{\v{C}ech and Vietoris-Rips Complex}
@@ -2829,25 +2829,25 @@ Finally, the homology groups of the projective plane are:
               The principal themes is previous surveys from Carlsson, de Silva, Harer, Zomorodian and other, are:
               \begin{enumerate}
                \item It is useful to replace a set of data points with a family of simplicial complexes, indexed by a 
-               procimity parameter. 
+               proximity parameter. 
                \item It is beneficial to use persistent homology to calculate these topological complexes.
                \item It is helpful to encode the persistent homology of a data set in the form
-of a parameterized version of a Betti number: a barcode
+of a parameterised version of a Betti number: a barcode
               \end{enumerate}
               
               Data is collected from different number of sources, and comes in a variety of form and shapes. Often data is represented as a unordered sequence of points in a Euclidean $n-dimentional$ space $\mathbb{E}^n$. The overall shape of data might provide important information about the underlying phenomena that
-              the data repesents. A \textbf{point cloud data} is the type of dataset where global feature are present and important. It is exaclty this type of data that is tackled by persistent homology. \cite{Ghrist_2007}
+              the data represents. A \textbf{point cloud data} is the type of dataset where global feature are present and important. It is exactly this type of data that is tackled by persistent homology. \cite{Ghrist_2007}
               
               Naturally, the question of how to represent a collection of points $\{x_\alpha\}$, rises. 
               A straightforward approach would be to use the point cloud as vertices of a combinatorial graph whose
               edges are determined by proximity, for example within a specific distance $\epsilon$. A graph of this type can capture the connection of the point cloud,
               but it will fail to detect any higher order features beyond clustering. 
-              A good way to tackle this issue, it to complete the graph to a simplicial complex. The choice of how to fill in the higher dimensional simplices of the proximity graph will result in different global representaions. 
+              A good way to tackle this issue, it to complete the graph to a simplicial complex. The choice of how to fill in the higher dimensional simplices of the proximity graph will result in different global representation. 
               
-              Two more prominant ways on how to fill in the higher dimensional simplices are:  \v{C}ech and Vietoris-Rips Complex: 
+              Two more prominent ways on how to fill in the higher dimensional simplices are:  \v{C}ech and Vietoris-Rips Complex: 
               
               \begin{defn} \label{cech} (\v{C}ech Complex)
-           Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the \v{C}ech Complex, $\mathcal{C}_\epsilon$, is the abstract simplicial complex whose k-simplices are determined by unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ whose closed $\epsilon/2-ball$ neighborhoods have a point of common intersection. 
+           Given a collection of points $\{x_\alpha\}$ in Euclidean space $\mathbb{E}^n$, the \v{C}ech Complex, $\mathcal{C}_\epsilon$, is the abstract simplicial complex whose k-simplices are determined by unordered (k+1)-uple of points $\{x_\alpha\}_0^k$ whose closed $\epsilon/2-ball$ neighbourhoods have a point of common intersection. 
               \end{defn}
            
 
@@ -3030,14 +3030,14 @@ of a parameterized version of a Betti number: a barcode
               
             If $X$ is a paracompact space, and $U$ is an open cover of $X$ such that the
             intersection of any finite subfamily of $U$ is either empty or contractible,
-            then the realization of the nerve of $U$ is homotopy equivalent to X.\cite{hatcher}
+            then the realisation of the nerve of $U$ is homotopy equivalent to X.\cite{hatcher}
             
               \end{thm}
               
             The nerve theorem shows that we can recover $X$ by the homotopic equivalence of the $\mathcal{N}(\mathcal{U})$. Actually, the nerve theorem also shows that the \v{C}ech complex
-            is a better topological model for the point cloud data. However, computing persistent homology using the \v{C}ech complex turns out to be difficult and computationally expensive, because the program should either have precise distances between vertices or load in memory and the entire complex. This is why we also define the Rips complex that is often refered to as a 'flag' complex. The Vietoris-Rips complex is completely determined by its 1-skeleton, so there is not need to load the entire complex in memory. To compute homology, it is enough to store its 1-skeleton, and reconstruct higher dimensional simplexes whenever it is needed.
+            is a better topological model for the point cloud data. However, computing persistent homology using the \v{C}ech complex turns out to be difficult and computationally expensive, because the program should either have precise distances between vertices or load in memory and the entire complex. This is why we also define the Rips complex that is often referred to as a 'flag' complex. The Vietoris-Rips complex is completely determined by its 1-skeleton, so there is not need to load the entire complex in memory. To compute homology, it is enough to store its 1-skeleton, and reconstruct higher dimensional simplexes whenever it is needed.
             
-            It is not easy to show why we can use the Rips complex to compute homolgy without linking
+            It is not easy to show why we can use the Rips complex to compute homology without linking
             it to the \v{C}ech complex and take advantage of its nice properties, stated in the nerve theorem above.
             
             Using the triangle inequality, if closed balls of radius $\epsilon/2$ of a set of n points,
@@ -3053,12 +3053,12 @@ of a parameterized version of a Betti number: a barcode
             \]
             This embedding shows that the Rips complex is bounded on both sides by a \v{C}ech complex, and every topological feature that persists from $\epsilon$ to $\epsilon^\prime$, will also persists in a Rips complex if  $\frac{\epsilon}{\epsilon^\prime} \geq 2$. 
             
-            In fact this lower bound can be further imporved to $\sqrt{2}$, which can be proved using the result from \cite{Silva_Ghrist_2007}. 
+            In fact this lower bound can be further improved to $\sqrt{2}$, which can be proved using the result from \cite{Silva_Ghrist_2007}. 
             
             In conclusion, the \v{C}ech complex is a good model for the "shape" of the point cloud data, 
-            and because of the chain of embeddings above, the Rips complex not only facilites computation and its persistent homology precisely models that of the \v{C}ech complex.
+            and because of the chain of embeddings above, the Rips complex not only facilities computation and its persistent homology precisely models that of the \v{C}ech complex.
             
-            We will see in section \ref{ripser_sec}, how the Vietrois Rips complex is used in computing barcodes. 
+            We will see in section \ref{ripser_sec}, how the Vietoris Rips complex is used in computing barcodes. 
 
               
 
@@ -3131,7 +3131,7 @@ of a parameterized version of a Betti number: a barcode
                 =\Ima ((H_k^i = H_k ( C_\bullet^i) \rightarrow (H_k ( C_\bullet^{i+p}))\\
               \end{align*}
               
-              For a complete picture, we can encasulate the process of computing and visualazing persistent homology, by the following "persistent homology pipeline" stated in \cite{Rabadan_Blumberg_2019}:
+              For a complete picture, we can encapsulate the process of computing and visualising persistent homology, by the following "persistent homology pipeline" stated in \cite{Rabadan_Blumberg_2019}:
               \[
                \{\textrm{finite metric space}\} \longrightarrow \{\textrm{filtered simplicial complex}\} \longrightarrow \{\textrm{barcodes / persistence diagrams}\},
               \]
@@ -3147,7 +3147,7 @@ of a parameterized version of a Betti number: a barcode
                the set of isomorphism classes of filtered $\mathbb{F}$-vectors spaces of finite type
               \end{thm}
               
-              The connection between the filtered simplicial complexes and filtered $\mathbb{F}$-vectors spaces, will be claried in the computations below. 
+              The connection between the filtered simplicial complexes and filtered $\mathbb{F}$-vectors spaces, will be clarified in the computations below. 
               
               In order to understand the computations, it is important to pay attention to the following remarks. 
             
@@ -3177,12 +3177,12 @@ of a parameterized version of a Betti number: a barcode
               In general, for a graded module $M$ over a graded ring $R$ we can define the \underline{twist of $M$ by $n$}, $M[n]$, also denoted by $\sum^nM$, is defined by $(\sum^nM)_i = M_{n+i}$.\\
               i.e., by redefining/shifting the grading up by $n$. We see that we can identify $\sum^nk[t]$ with $(t^n) = t^nk[t]$ as \underline{graded modules} $(\sum^nk[t])_i = k[t]_{n+i} = kt^{n+i} \xrightarrow{id} kt^n\cdot t^i$\\
               \item
-              A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ ie of the kind $q(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus^{m}} \rightarrow k[t]^{\oplus^{r}}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
+              A map of free $k[t]$ - modules $k[t] \rightarrow k[t]$ is multiplication by some polynomial $p(t)$ i.e. of the kind $q(t) \mapsto p(t)q(t)$ ($p(t)$ is the image of $1 \in k[k]$). More generally, a map of free $k[t]$ - module, $k[t]^{\oplus^{m}} \rightarrow k[t]^{\oplus^{r}}$ is given by some $r \times m$ matrix with $k[t]$ - entries.\\
               \item
-              A map (morphism) of \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (ie: R - linear, ie: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
+              A map (morphism) of \underline{graded R-modules} $\varphi: M \rightarrow N$ is a map of R - modules (i.e.: R - linear, i.e.: $\varphi(rm) = r \varphi(m), \varphi(m_1 + m_2) = \varphi(m_1) + \varphi(m_2)$) which \underline{preserves the degrees}. That is $\varphi(M_i) \subseteq N_i, \forall i$.\\
               In particular, a map of graded modules $\varphi: \sum^n\simequalto{k[t]}{(t^n)} \rightarrow \sum^p\simequalto{k[t]}{(t^p)}$ must send $(t^n)_i = kt^{n+i}$ to $(t^p)_i = kt^{p+i}$.\\
               \item
-              As the shifts $\sum^nk[t]$ are still free modules, any $k[t]$ - module homomorphism $\varphi: (t^n) \rightarrow (t^n)$ is determined by some polynomial $p(t) \in k[t]$, ie by the image of a generator: $\varphi(t^n) = p(t)t^p$ as $\varphi(t^nq(t)) = q(t)\varphi(t^n)$. \underline{However} if $\varphi$ is a \underline{graded} module homomorphism, we must have that $\varphi(t^n) = \underbrace{(mt^p)}_{p(t)}t^p$, ie, that $p(t)$ be homogeneous. Similarly, for direct sums $\underset{i}{\oplus}(t^{ni}) \rightarrow \underset{i}{\oplus}(t^{pj})$.\\
+              As the shifts $\sum^nk[t]$ are still free modules, any $k[t]$ - module homomorphism $\varphi: (t^n) \rightarrow (t^n)$ is determined by some polynomial $p(t) \in k[t]$, i.e. by the image of a generator: $\varphi(t^n) = p(t)t^p$ as $\varphi(t^nq(t)) = q(t)\varphi(t^n)$. \underline{However} if $\varphi$ is a \underline{graded} module homomorphism, we must have that $\varphi(t^n) = \underbrace{(mt^p)}_{p(t)}t^p$, ie, that $p(t)$ be homogeneous. Similarly, for direct sums $\underset{i}{\oplus}(t^{ni}) \rightarrow \underset{i}{\oplus}(t^{pj})$.\\
               \item
               \underline{In particular:} if $n \ge p$, any map of modules $\varphi: k[t] \rightarrow k[t], 1 \mapsto p(t)$ determines a map of \underline{graded} modules
               \begin{align*}
@@ -3403,7 +3403,7 @@ of a parameterized version of a Betti number: a barcode
               \end{align*}
               \end{Ex}
               \
-              If we introduce the structure of a graded module over $k[t]$ (on $R[t]$) where degrees of a simplex signifiy the appearance in the filtration:\\
+              If we introduce the structure of a graded module over $k[t]$ (on $R[t]$) where degrees of a simplex signify the appearance in the filtration:\\
               \begin{itemize}
               \item $a,b \longleftrightarrow$ deg 0
               \item $c,d,ab,bc \longleftrightarrow$ deg 1
@@ -3475,7 +3475,7 @@ of a parameterized version of a Betti number: a barcode
 
             In order to explicitly calculate persistence homology groups of point cloud data, I have created a Python scrip, that randomly generates points in a topological space, with and without noise, and then by
             using Ripser.py package, it calculates and plots Vietoris-Rips persistence barcodes. The project can be found in 
-            \href{https://github.com/kejjon/persistent_homology}{persitent homology repository}. The library used is actually a wrapper around the original software written in C++. Before introducing details and results of my implementation, we will consider details in optimization, methodology, computation and implementation of the Ripser software.
+            \href{https://github.com/kejjon/persistent_homology}{persitent homology repository}. The library used is actually a wrapper around the original software written in C++. Before introducing details and results of my implementation, we will consider details in optimisation, methodology, computation and implementation of the Ripser software.
 
             Ripser is a software design and implemented to calculate Vietoris-Rips persistence barcodes. The algorithm uses
             an implicit representation of the co-boundary operator and of the filtration order. Ripser has been optimized by
@@ -3490,7 +3490,7 @@ of a parameterized version of a Betti number: a barcode
             comparing simplices with respect to their appearance in the filtration order.
 
             The computation of persistent homology implemented in Ripser is based on matrix reduction and uses four key
-            optimizations in order to achieve an efficient implementation:
+            optimisations in order to achieve an efficient implementation:
 
             \begin{enumerate}
              \item Clearing birth columns:
@@ -3507,20 +3507,20 @@ of a parameterized version of a Betti number: a barcode
             \end{enumerate}
 
             To construct the algorithm, Ripser Software makes use of simplicial complexes and filtaration introduced in chapter \ref{chapter1}, with focus on the Vietoris Ripser complex, defined in \ref{rips}. Despite the Vietris -Rips filtration, a re-indexing and refinement of the filtration is used. In order to compute persistent homology, one needs to apply one further step of
-            re-indexing, refining the essential filtration to an essential simplexwise one.
+            re-indexing, refining the essential filtration to an essential simplex-wise one.
 
             To ease the computation of the Vietoris-Rips filtration, Ripser makes use of sub-level sets of functions and persistent homology. The Ripser package considers only simplicial homology with
-            coefficients in prime field $\mathbb{F}_p$. The homology computation is made possible by using simplexwise refinement. A simplexwise filtration gives rise to a filtration boundary matrix,
+            coefficients in prime field $\mathbb{F}_p$. The homology computation is made possible by using simplex-wise refinement. A simplex-wise filtration gives rise to a filtration boundary matrix,
             which is the matrix of the boundary operator of the chain complex $C_*(K)$ with respect to the ordered basis given by the oriented simplices in filtration order.
 
-            During computation simplices are indexed in a combinatorial number system. Also, Ripser defines a refinement of the Vietoris-Rips filtration to an essential simplexwise filtration, as required for the computation of persistent homology. The simplexes are ordered by increasing diameter, then by increasing dimension and then by decreasing lexicographic vertex order. The result is called the
+            During computation simplices are indexed in a combinatorial number system. Also, Ripser defines a refinement of the Vietoris-Rips filtration to an essential simplex-wise filtration, as required for the computation of persistent homology. The simplexes are ordered by increasing diameter, then by increasing dimension and then by decreasing lexicographic vertex order. The result is called the
             \emph{lexicographically refined Vietoris-Rips filtration}.
 
             \subsection{Computation and Implementation}
 
-            In the center of the algorithm for computing persistent homology, there is the matrix reduction method. The matrix reduction method is similar to the one introduced in the previous section. However, since the matrix reduction process can be expensive in time and memory usage, a technique for clearing columns is used.
-            Another interesting approach is the choice to opt for computing persistence barcodes using co-homology instead of homology of Vietoris-Rips filtration. This approach is backed up by de Silva at all \cite{de_Silvia}, and it further optimizes the clearing of columns. Furthermore, as already mentioned before, the matrix reduction is done implicitly.
-            Apart from the computation techniques mentioned above, there are several more optimizations that are
+            In the centre of the algorithm for computing persistent homology, there is the matrix reduction method. The matrix reduction method is similar to the one introduced in the previous section. However, since the matrix reduction process can be expensive in time and memory usage, a technique for clearing columns is used.
+            Another interesting approach is the choice to opt for computing persistence barcodes using co-homology instead of homology of Vietoris-Rips filtration. This approach is backed up by de Silva at all \cite{de_Silvia}, and it further optimises the clearing of columns. Furthermore, as already mentioned before, the matrix reduction is done implicitly.
+            Apart from the computation techniques mentioned above, there are several more optimisations that are
             presented in detail in \cite{Bauer_2019}
 
             In regards to the implementation, some important data structures of the C++ implementation of Ripser algorithm are:
@@ -3550,7 +3550,7 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
             After that, another figure will pop up showing separately the computations of the Vietoris-Rips persistence barcodes in the respective homology. The last graph plots life time of each point instead of birth and death.
 
             
-            \emph{Note:} It is often useful to use persistence diagrams that present point plotted in $\RR^2$ in a birth-death ratio, where there is an entire diagonal consisting of size zero bars. However, there is a direct translation of a persitent diagram to a barcode one: a point in a birth-death ratio shows the start and end point($\epsilon$ distance) of a barcode.
+            \emph{Note:} It is often useful to use persistence diagrams that present point plotted in $\RR^2$ in a birth-death ratio, where there is an entire diagonal consisting of size zero bars. However, there is a direct translation of a persistent diagram to a barcode one: a point in a birth-death ratio shows the start and end point($\epsilon$ distance) of a barcode.
             
             \subsection*{Results}
             \textbf{Sphere in $\mathbb{R}^3$}.\\

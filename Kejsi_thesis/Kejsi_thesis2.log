@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  13 DEC 2020 19:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  13 DEC 2020 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2062,11 +2062,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 3470--3473
  []
 
 [45] [46] [47]
-<./ripser/on_sphere.PNG, id=468, 481.04718pt x 413.29407pt>
+<./ripser/on_sphere.PNG, id=468, 462.22687pt x 354.57469pt>
 File: ./ripser/on_sphere.PNG Graphic file (type png)
 <use ./ripser/on_sphere.PNG>
 Package pdftex.def Info: ./ripser/on_sphere.PNG  used on input line 3562.
-(pdftex.def)             Requested size: 203.83417pt x 175.12737pt.
+(pdftex.def)             Requested size: 203.83417pt x 156.3596pt.
 <./ripser/on_sphere_homology.PNG, id=470, 535.2497pt x 458.46281pt>
 File: ./ripser/on_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_homology.PNG>
@@ -2340,7 +2340,7 @@ pe1/public/cm-super/sfrm1095.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
 /stmaryrd/stmary10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xya
 tip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb><c:
 /texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash10.pfb>
-Output written on Kejsi_thesis2.pdf (64 pages, 1678881 bytes).
+Output written on Kejsi_thesis2.pdf (64 pages, 1673045 bytes).
 PDF statistics:
  760 PDF objects out of 1000 (max. 8388607)
  584 compressed objects within 6 object streams
