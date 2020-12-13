@@ -2,26 +2,29 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{cancel}
+\usepackage[affil-it]{authblk}
 \graphicspath{{./ripser/}}
 \usepackage[utf8]{inputenc}
+
 \usepackage{amsmath}
-%\usepackage{tabto}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+
 \usepackage{mathtools}
 \usepackage{stmaryrd}
 \usepackage{xcolor}
 \usepackage{pst-solides3d}
+
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \usepackage{tkz-fct}
 \usepackage{tikz-cd}
-\usepackage[affil-it]{authblk}
 \usepackage{tkz-euclide}
 \usetikzlibrary{decorations.markings,shapes.misc,arrows.meta,shapes.geometric,intersections}
-\usepackage{cancel}
+
 \usepackage[margin=1in]{geometry}
 \usepackage[colorlinks=true,          % link colors, set to 'false' for print version
             linkcolor=blue,
@@ -30,15 +33,20 @@
 
 \include{defs}
 \include{biblio}
+
 \DeclareMathOperator{\Ima}{Im}
+
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
 \newcommand{\vertsimeq}{\rotatebox{90}{$\,\simeq$}}
 \newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
 \newcommand{\simequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertsimeq}{#2}}{#1}}
+
+
 \author{Kejsi Jonuzaj}
-\title{Persistent Homology and TDA}
+\title{Persistent Homology and Topological Data Analysis}
 \affil{American University in Bulgaria\\Department of Mathemathics and Science\\Supervisor: Prof. Peter Dalakov\\ \ \\Senior Thesis}
-%\input{preamble}
+
+
 \begin{document}
 \maketitle
 \setcounter{tocdepth}{1}
@@ -507,7 +515,7 @@
 		     which are partially ordered by inclusion.
 
             
-%               $(\forall I \in \mathcal{K} (\forall J \subseteq I)) \Rightarrow \mathcal{J} \in \mathcal{K}$\\
+             
             \begin{Ex}
               Consider the following partially ordereed set  $ V = \{1, 2, 3, 4\}$: 
               The simplicial complex 
@@ -1403,7 +1411,7 @@ Finally, the homology groups of the projective plane are:
      \[
 		         \partial_n(\sigma) = \sum\limits_i (-1)^i \sigma | [v_0, ... ,\hat{v_i}, ... , v_n]
               \]
-     By preserving the order of the vertices, the $\sigma |[v_0, ... ,\hat{v_i}, ... , v_n]$ is identified with the map $\Delta^{n-1} \rightarrow X$. The proof of lemma \ref{delta2}, $\partial_2 = 0$, holds true also for singular simplexes. Therefore, the singular homology group is defined the same way: $H_n(x) = \ker\partial_n \left/ \Ima \partial_{n+1} \right.$. The elements in the $\ker$ are singular cycles, and the elements in the $\Ima$ singular boundaries. \\
+     By preserving the order of the vertices, the $\sigma |[v_0, ... ,\hat{v_i}, ... , v_n]$ is identified with the map $\Delta^{n-1} \rightarrow X$. The proof of lemma \ref{delta2}, $\partial_2 = 0$, holds true also for singular simplexes. Therefore, the singular homology group is defined the same way: $H_n(x) = \ker\partial_n \left/ \Ima \partial_{n+1} \right.$. The elements in the $\ker$ are singular cycles, and the elements in the $\Ima$ singular boundaries \cite{hatcher}. \\
 
       Let us consider some explicit examples of $C_n(X)$:
       \begin{itemize}
@@ -1986,12 +1994,12 @@ Finally, the homology groups of the projective plane are:
          $(g_0 \circ f_0 - id_{\ZZ^{\oplus^2}})\begin{bmatrix} x \\ y \end{bmatrix} =
          \begin{bmatrix} 0 & 1 \\ 0 & -1 \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} = 0 $ and
           $(\partial_1^\prime p_0 + 0 \circ \partial_0) \begin{bmatrix} x \\ y \end{bmatrix} = 0 \Longrightarrow g_0 \circ f_0 \simeq id_{\ZZ^{\oplus^2}}$ \\
-%          For $n = 1$:
-%          \begin{align*}
-%             &f_1 \circ g_1 \simeq id_0 = 0 \\
-%             &g_1 \circ f_1 \, is \, not \,  homotopic \, equivalent \, to \, id_\ZZ \; since \; g_1 \circ f_1 = 0
-%          \end{align*}
-         To be continued and rechecked
+         For $n = 1$:
+         \begin{align*}
+            &f_1 \circ g_1 \simeq id_0 = 0 \\
+            &g_1 \circ f_1 \simeq id_\ZZ \\
+         \end{align*}
+         So, by theorem \ref{homotopic} $\Rightarrow f_* = (g_*)^{-1}$.
         \end{Ex}
 
 
@@ -2166,36 +2174,6 @@ Finally, the homology groups of the projective plane are:
                   \mapsto (a+b)
                 \end{align*}
 
-
-%                 \begin{align*}
-%                   \begin{bmatrix}
-%                     1\\0
-%                   \end{bmatrix}
-%                   \mapsto
-%                   \begin{bmatrix}
-%                     1\\0\\0
-%                   \end{bmatrix}
-%                   \begin{bmatrix}
-%                     a\\b
-%                   \end{bmatrix}
-%                   \mapsto (a+b)
-%                   \\
-%                   \begin{bmatrix}
-%                     a\\b
-%                   \end{bmatrix}
-%                   =
-%                   \begin{bmatrix}
-%                     a\\-a+a+b
-%                   \end{bmatrix}
-%                   =
-%                   \begin{bmatrix}
-%                     a\\-a
-%                   \end{bmatrix}
-%                   +
-%                   \begin{bmatrix}
-%                     0\\a+b
-%                   \end{bmatrix}
-%                 \end{align*}
 
                 \begin{align*}
                   \begin{bmatrix}
@@ -2478,123 +2456,12 @@ Finally, the homology groups of the projective plane are:
 
               \end{Ex}
 
-%               Notes on 4 November
-%               \\
-%               Gradient Ring and Module.
-%               \\
-%               R. Gradient ring $R = \underset{i \in \mathbb{Z}}{\oplus} R_i, \quad R_i \subseteq R$, Ab subgroups\\
-%               Ex.
-%               \begin{align*}
-%                 &R = A[t], (A \textrm{ - commutative ring})\\
-%                 &R_0 = A, R_1 = \{at, a \in A\}, \cdots, R_i = \{at', a \in A\}
-%               \end{align*}
-%               Ex. $R = R[x,y,z], \quad R_i = \{cx^{d_{1}}y^{d_{2}}z^{d_{3}} | \sum^3_{k=1}d_k = i\}$\\
-%               Ex. $R_1 \approxeq \mathbb{R}^3$ as a vector space $\{ax + by + cz\}$\\
-%               \\
-%               \begin{align*}
-%                 &\mathbb{N} \textrm{ - graded}, \quad \underset{i \ge 0}{\oplus}R_i, \quad M = \underset{i \in \mathbb{Z}}{\oplus} M \in R \textrm{ - mod}\\
-%                 &\textrm{Graded module over } R_i, \ni M_i \subseteq M \textrm{ - ab. subgroups}\\
-%                 &R_i: M_k \subseteq M_{k+1}\\
-%                 &\textrm{Reminder: } R \textrm{ is a PID if it's a domain (no zero divizors)}\\
-%               \end{align*}
-%               Ex.
-%               \begin{align*}
-%                 &R = \mathbb{Z},\ or\ = (n),\ n \in \mathbb{Z}\\
-%                 &R = k[1],\ b\ -\ field\\
-%               \end{align*}
-%               $\ast$ Check classification then for modules over PID. Thm 21. ZC and Artiin.\\
-%               $\oplus D^\beta \oplus \underset{i}{\oplus} (D/d_1D)$\\
-%               Graded version, $\underset{i}{\oplus} \sum^{\alpha_i}D \oplus(\underset{i}{\oplus}\sum^{\alpha_i}D/d_iD), \quad \sum^{\alpha_i}$ shift by $\alpha_i$\\
-%               Ex. $D = h[t], \quad (e.g. \mathbb{R}[t])$\\
-%               We can think of $D$ as module over itself\\
-%               $K \oplus Kt \oplus Kt^2 \oplus \cdots$\\
-%               It's also a graded module over itself\\
-%               $\sum^\alpha D = t^\alpha K[t] \subseteq k[t]$, idea of $D \Rightarrow D$ - module\\
-%               $M = M_\alpha \oplus M_{\alpha+1} \oplus \cdots$\\
-%               $(\sum^\alpha D)_i = D_{\alpha+i}$\\
-%               Comment or reduction (on the index that changes the basis): $\partial_k: \underset{\{e_i\}}{C_k} \rightarrow \underset{\{e_i^n\}}{C_{k-1}}$\\
-%               $(C_{k}, C_{k1}: $ free ab groups or free R module)\\
-%               \begin{align*}
-%                 &\textrm{Get} M_K: \textrm{ matrix of } \partial_K. \quad e_n: {\begin{pmatrix}e_1, \cdots, e_{mk}\end{pmatrix}}{\begin{pmatrix}u_1\\\vdots\\u_{mk}\end{pmatrix}} \in C_k\\
-%                 &\partial_k(eu) = \overset{n}{e}(H_u)\\
-%                 &\mathcal{U}
-%               \end{align*}
-%               \\
-%               Simplicial Complexes Combinatorically:
-%               $l = \{1, 2, \cdots, m\} (=[m])$ partially ordered\\
-%               Simplicial Complex is a collection $\mathcal{K}$ of subsetsof $V$\\
-%               \begin{enumerate}
-%               \item $\emptyset \in \mathcal{K}$
-%               \item $\{i\} \in \mathcal{K}$ (simplicial)
-%               \item $I \in \mathcal{K}$ and $\mathcal{J} \subseteq I \Rightarrow \mathcal{J} \in \mathcal{K}$
-%               \end{enumerate}
-%               $(\forall I \in \mathcal{K} (\forall J \subseteq I)) \Rightarrow \mathcal{J} \in \mathcal{K}$\\
-%               Example: $\{1, 2, 3, 4\} = V$\\
-%               $\mathcal{K} = \{\{1, 2, 3\} = I, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1\}, \{2\}, \{3\}, \{4\}, \emptyset\}$
-%               \\
-%               \\
-%               \begin{tikzpicture}[line join = round, line cap = round]
-%
-%                 0-simplex
-%                 \coordinate [label=below:$4$] (0) at (3,1.5);
-%                 2-simplex
-%                 \coordinate [label=below:$1$] (1) at (4,0);
-%                 \coordinate [label=below:$2$] (2) at (6,0);
-%                 \coordinate [label=above:$3$] (3) at (5,{sqrt(3)});
-%
-%                 \begin{scope}[decoration={markings,mark=at position 0.5 with
-%                     {\arrow{to}}}]
-%                   0-simplex
-%                   \draw[fill] (0) circle [radius=0.03];
-%                   2-simplex
-%                   \draw[fill] (1) circle [radius=0.025];
-%                   \draw[fill] (2) circle [radius=0.025];
-%                   \draw[fill] (3) circle [radius=0.025];
-%                   \draw[thick, postaction={decorate}] (1)--(2);
-%                   \draw[thick, postaction={decorate}] (1)--(3);
-%                   \draw[thick, postaction={decorate}] (2)--(3);
-%                 \end{scope}
-%               \end{tikzpicture}
-%               \\
-%               $\underset{I\in K \ne \emptyset}{\cup} (Conv(e_i)) = |\mathcal{K}|$ topology realization of $e_1, \cdots e_n \in \mathbb{R}^n$ standard basis\\
-%               $X$ - top. sp\\
-%               $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ - cover indexes, $\mathcal{U} = \{\mathcal{U}_1, \mathcal{U}_2, \cdots, \mathcal{U}_n\}$\\
-%               $\underset{\alpha}{\cup} \quad \mathcal{U}_\alpha = X$\\
-%               $\underset{"nerve\ of\ the\ cover"}{\mathcal{N}(\mathcal{U})}$: simplix of $cx$\\
-%               Vertices of $\mathcal{N}(\mathcal{U}), \quad (\mathcal{N}(\mathcal{U}) = \{1, 2, \cdots, m\})$\\
-%               $(k - 1)$ - faces, $\quad \{i_1, \cdots, i_k \} \in \mathcal{N}(\mathcal{U}), \quad i1 U_{1_{i}} \cap \cdots \cap \mathcal{U}_{i_{k}} \ne \emptyset$\\
-%               Examples:
-%               \begin{align*}
-%                 &S^1 = \mathcal{U} \cup V\\
-%                 &\textrm{Cover} \mathcal{U} = {U, V}\\
-%               \end{align*}
-%               \begin{tikzpicture}
-%                 \node[circle,draw] (a) at (0,0) {};
-%                 \draw[thick,-] (a) to[in=220,out=330,looseness=20] (a);
-%                 \node[circle,draw] (b) at (2,-1) {};
-%                 \draw[thick,-] (b) to[in=140,out=40,looseness=20] node[midway,above] {$V$} (b);
-%               \end{tikzpicture}
-%               \\
-%               $\mathcal{U} = S' \backslash \{0, 0\}$\\
-%               \begin{tikzpicture}
-%                 \node[circle,draw] (a) at (0,0) {};
-%                 \node[circle,draw] (b) at (0,-2) {};
-%                 \draw[thick,-] (b) to[in=180,out=180] node[midway,left] {$\underset{U_1}{\mathcal{U}} \cap \underset{U_2}{V} = $} (a);
-%                 \draw[thick,-] (b) to[in=0,out=0] (a);
-%               \end{tikzpicture}
-%               \\
-%               $\{\{1, 2\}, \{1\},\{2\}, \emptyset\} = \mathcal{N}(\mathcal{U})$\\
-%               Thm: (Alexandroff, ``nerve thm'') of $X$ - paracompact\\
-%               $\mathcal{U} = \{\mathcal{U}_2\}$ - open cover ($\mathcal{V}_2 \subseteq X$ - open) and a good cover ($all\ \mathcal{V}_2 \&\ all\ \mathcal{V}_i \cap \cdots \cap \mathcal{V}_{i_{k}}$ are contractable or $\emptyset$)\\
-%               $\underset{\underset{redirohan}{topological}}{\mathcal{N}(\mathcal{U})}$ is homotopic eq to $X$\\
-%               Yes can recover $X$ by the homotopic equivalence of the nerve $(\mathcal{U})$\\
-
 
              \chapter{Persistent Homology}
 
                 Persistent homology (PH) is a method used in topological data analysis (TDA) to study
                 qualitative features of data that persist across multiple scales. Due to its construction, persistent homology computations are
-                robust to perturbation of the data. Also, PH is used to extract relevant features of the data, and separate them from noise. \\
+                robust to perturbation of the data \cite{Otter_Porter_Tillmann_Grindrod_Harrington_2017}. Also, PH is used to extract relevant features of the data, and separate them from noise. 
 
                 An important result in computing persistent homology is that the persistent homology of a filtered d-dimensional simplicial
                 complex is simply the standard homology of a particular graded module over a polynomial ring \cite{Zomorodian_Carlsson_2005}.\\
@@ -2612,7 +2479,7 @@ Finally, the homology groups of the projective plane are:
               A graded ring is a ring $\langle R, +, \cdot \rangle$ equipped with a direct sum decomposition of Abelian
               groups $R \cong \underset{i \in \mathbb{Z}}{\oplus} R_i$, so multiplication is defined by bilinear pairings $R_n \otimes R_m \rightarrow R_{n+m}$. \\
 
-              Elements in a single $R_i$ are called homogeneous and have degree i, $\deg e = i$ for all $e \in R_i$.
+              Elements in a single $R_i$ are called homogeneous and have degree i, $\deg e = i$ for all $e \in R_i$ \cite{Artin_2011}.
 
               \begin{Ex}
                 $ R = A[t]$, where  $(A \textrm{ - commutative ring})$
@@ -2941,6 +2808,7 @@ Finally, the homology groups of the projective plane are:
 
               \begin{thm} (Correspondence) The correspondence $\alpha$ defines an equivalence of categories between the category of persistence modules of finite type over $R$ and the category of finitely generated non-negatively graded modules over $R[t]$.
               \end{thm}
+              The proof is the Artin-Rees theory in commutative algebra \cite{Eisenbud_1995}
 
             The Correspondence theorem gives us a simple decomposition when the ground ring is a field $F$. In this case the graded ring $F[t]$ is a PID and its only graded ideals are homogeneous of form $(t_n)$, so the structure of the $F[t]-module$ is described by sum (3.2) in structure theorem \ref{Structure}:
 
@@ -2948,6 +2816,8 @@ Finally, the homology groups of the projective plane are:
                 (\underset{i}{\oplus} \Sigma^{\alpha_i} F[t]) \oplus (\underset{j}{\oplus} \Sigma ^{\gamma_j} F[t]/(t^{n^j})).
               \end{align}
               
+              By using the result from the correspondence theorem, we can build a singe structure that contains all the simplicial complexes in the filtration. The computation start with the direct sum of complexes, and developes into a larger space graded according to the filtration order. The fitration order represents the time when each simplex enters the filtration. The main idea is that the filtration ordering is encoded in the coefficient
+              polynomial ring. For examples on how this encoding is calulated, Chapter \ref{chapter4}
               
               
               \section{\v{C}ech and Vietoris-Rips Complex}
@@ -3107,8 +2977,19 @@ of a parameterized version of a Betti number: a barcode
 
                     \end{tikzpicture} 
             \end{center}
+            \par
+            A useful tool that is relevant to building our argument is 
+            Mayer-Vietoris sequences which is the analog for homology of van Kampen's theorem for the
+            fundamental group.
             
-             If $X$ is a topological space, and $X = \underset{\alpha}{\cup} \quad \mathcal{U}_\alpha$ 
+             In addition to the long exact sequence of homology groups for a pair $(X, A)$, there is another sort of long exact sequence, known as a Mayer-Vietoris sequence, which is equally powerful but is sometimes more convenient to use. For a pair of subspaces $A, B \subset X$ such that $X$ is the union of the interiors of $A$ and $B$ , this exact sequence has the form
+     \[ ... \rightarrow H_n(A \cap B) \xrightarrow{\phi} H_n(A) \oplus H_n(B) \xrightarrow{\Psi} H_n(X) \xrightarrow{\partial} H_{n-1}(A \cap B) \rightarrow ... \rightarrow H_0(X) \rightarrow 0 \]
+     \\
+      The Mayer-Vietoris sequence is then the long exact sequence of homology groups associated to the short exact sequence of chain complexes formed by the short exact sequences
+      \[ 0 \rightarrow C_n(A \cap B) \xrightarrow{\Phi} C_n(A) \oplus C_n(B) \xrightarrow{\Psi} C_n(A + B) \rightarrow 0 \]
+
+            
+             If we think of $X$, not only as the union of two interiors but as a topological space, where $X = \underset{\alpha}{\cup} \quad \mathcal{U}_\alpha$ 
              where $\mathcal{U} = \{\mathcal{U}_\alpha\}_{\alpha\in A}$ are cover indexes, $\mathcal{U} = \{\mathcal{U}_1, \mathcal{U}_2, \cdots, \mathcal{U}_n\}$, given a cover $\mathcal{U}$ (not necessarily open) of a space $X$, the nerve of $\mathcal{U}$ is a simplicial complex  $\mathcal{N}(\mathcal{U})$ whose n-simplices consist of sets of $n+1$ elements of $\mathcal{U}$ with non-empty intersections.
               Vertices of $\mathcal{N}(\mathcal{U})= \{1, 2, \cdots, m\}$ are 
               $(k - 1)$ - faces if $\ \mathcal{U}_{i_{1}} \cap \cdots \cap \mathcal{U}_{i_{k}} 
@@ -3123,15 +3004,12 @@ of a parameterized version of a Betti number: a barcode
                 \draw[thick,-] (b) to[in=140,out=40,looseness=20] node[midway,above] {$V$} (b);
                 
               \end{tikzpicture}
-            \end{center}
+            
                \begin{align*}
+                &where \ \mathcal{U} = S' \backslash \{0, 1\} \ and \  \mathcal{V} = S' \backslash \{1, 0\}\ \\
                 &S^1 = \mathcal{U} \cup V\\
                 &\textrm{The cover } \mathcal{U} = \{U, V\}\\
               \end{align*}
-              \\
-%               $\mathcal{U} = S' \backslash \{0, 0\}$\\
-                \begin{center}
- 
 
               \begin{tikzpicture}
                 \node[circle,draw] (a) at (0,0) {};
@@ -3155,6 +3033,35 @@ of a parameterized version of a Betti number: a barcode
             then the realization of the nerve of $U$ is homotopy equivalent to X.\cite{hatcher}
             
               \end{thm}
+              
+            The nerve theorem shows that we can recover $X$ by the homotopic equivalence of the $\mathcal{N}(\mathcal{U})$. Actually, the nerve theorem also shows that the \v{C}ech complex
+            is a better topological model for the point cloud data. However, computing persistent homology using the \v{C}ech complex turns out to be difficult and computationally expensive, because the program should either have precise distances between vertices or load in memory and the entire complex. This is why we also define the Rips complex that is often refered to as a 'flag' complex. The Vietoris-Rips complex is completely determined by its 1-skeleton, so there is not need to load the entire complex in memory. To compute homology, it is enough to store its 1-skeleton, and reconstruct higher dimensional simplexes whenever it is needed.
+            
+            It is not easy to show why we can use the Rips complex to compute homolgy without linking
+            it to the \v{C}ech complex and take advantage of its nice properties, stated in the nerve theorem above.
+            
+            Using the triangle inequality, if closed balls of radius $\epsilon/2$ of a set of n points,
+            intersect then the pairwise distance between the points is $\leq \epsilon$. Therefore, 
+            there is a embedding $\mathcal{R}_{\epsilon/2} \hookrightarrow \mathcal{C}_\epsilon$. This result is easily seen in the examples of three points given above. 
+            
+            Furthermore, if n + 1 points are within distance $\epsilon/2$ of one another, then
+            each of them is contained in the intersection of the closed balls of radius $\epsilon/2$. Thus we also have an embedding $\mathcal{R}_{\epsilon/2} \hookrightarrow \mathcal{C}_\epsilon$.
+            
+            Combining the two results above, we can construct the following chain of embeddings:
+            \[
+             \mathcal{C}_{\epsilon/2} \hookrightarrow \mathcal{R}_{\epsilon/2} \hookrightarrow \mathcal{C}_\epsilon \hookrightarrow \mathcal{R}_{\epsilon}
+            \]
+            This embedding shows that the Rips complex is bounded on both sides by a \v{C}ech complex, and every topological feature that persists from $\epsilon$ to $\epsilon^\prime$, will also persists in a Rips complex if  $\frac{\epsilon}{\epsilon^\prime} \geq 2$. 
+            
+            In fact this lower bound can be further imporved to $\sqrt{2}$, which can be proved using the result from \cite{Silva_Ghrist_2007}. 
+            
+            In conclusion, the \v{C}ech complex is a good model for the "shape" of the point cloud data, 
+            and because of the chain of embeddings above, the Rips complex not only facilites computation and its persistent homology precisely models that of the \v{C}ech complex.
+            
+            We will see in section \ref{ripser_sec}, how the Vietrois Rips complex is used in computing barcodes. 
+
+              
+
 
     
 
@@ -3214,7 +3121,7 @@ of a parameterized version of a Betti number: a barcode
               
               
               
-            \chapter{Computing Persistent Homology}
+            \chapter{Computing Persistent Homology}\label{chapter4}
 
             So far we have build the following setup to compute persistence homology on persistence chain complex:
               \begin{align*}
@@ -3223,6 +3130,27 @@ of a parameterized version of a Betti number: a barcode
                 & where \ Z_k^i = \ker (\partial_k^i : C_k^i \rightarrow C_{k-1}^i)
                 =\Ima ((H_k^i = H_k ( C_\bullet^i) \rightarrow (H_k ( C_\bullet^{i+p}))\\
               \end{align*}
+              
+              For a complete picture, we can encasulate the process of computing and visualazing persistent homology, by the following "persistent homology pipeline" stated in \cite{Rabadan_Blumberg_2019}:
+              \[
+               \{\textrm{finite metric space}\} \longrightarrow \{\textrm{filtered simplicial complex}\} \longrightarrow \{\textrm{barcodes / persistence diagrams}\},
+              \]
+              
+              where a barcode is defined as a multiset of non-empty intervals of the form either
+              $[x, y) \subset \RR \ or \ [x, \infty]$
+              
+              The following theorem, which is a key classification result in \cite{Zomorodian_Carlsson_2005}, shows that all the information in a filtered system of vector spaces
+              can be encoded into barcodes. 
+              
+              \begin{thm}
+               Let $\mathbb{F}$ be a field. There is a bijection between the set of finite barcodes and
+               the set of isomorphism classes of filtered $\mathbb{F}$-vectors spaces of finite type
+              \end{thm}
+              
+              The connection between the filtered simplicial complexes and filtered $\mathbb{F}$-vectors spaces, will be claried in the computations below. 
+              
+              In order to understand the computations, it is important to pay attention to the following remarks. 
+            
               \section*{Remarks on Computing Persistent Homology}
               
               \begin{itemize}
@@ -3541,12 +3469,13 @@ of a parameterized version of a Betti number: a barcode
                 M_2' = \begin{array}{c}\\ab\\bc\\cd\\ad\\ac\end{array}\left(\begin{array}{cc}abc&acd\\t^3&0\\t^3&0\\0&t^3\\0&-t^3\\-t^3&t^3\end{array}\right), M_1' = \begin{array}{c}\\d\\c\\b\\a\end{array}\left(\begin{array}{ccccc}ab&bc&cd&ad&ac\\0&0&t&t&0\\0&1&-t&0&t^2\\t&-t&0&0&0\\-t&0&0&-t^2&-t^2\end{array}\right)
               \end{align*}
               \\
-              \underline{Note:} In Carlsson-Zomordian there is no difference in notation between $M_i$ and $M_i'$. Also, for the algorithm they order the elements such that the degree decreases down to rows. If we work in $\mathbb{R}[t]$, the matrices will be the same. In $\mathbb{Z}/2\mathbb{Z}[t]$ there won't be difference between $\pm 1$.\\
+              \emph{Note:} In Carlsson-Zomordian there is no difference in notation between $M_i$ and $M_i'$. Also, for the algorithm they order the elements such that the degree decreases down to rows. If we work in $\mathbb{R}[t]$, the matrices will be the same. In $\mathbb{Z}/2\mathbb{Z}[t]$ there won't be difference between $\pm 1$.\\
               
-            \section{Computing Vietoris-Rips persistence barcodes using Ripser}
+            \section{Computing Vietoris-Rips persistence barcodes using Ripser} \label{ripser_sec}
 
             In order to explicitly calculate persistence homology groups of point cloud data, I have created a Python scrip, that randomly generates points in a topological space, with and without noise, and then by
-            using Ripser.py package, it calculates and plots Vietoris-Rips persistence barcodes. The library used is actually a wrapper around the original software written in C++. Before introducing details and results of my implementation, we will consider details in optimization, methodology, computation and implementation of the Ripser software.
+            using Ripser.py package, it calculates and plots Vietoris-Rips persistence barcodes. The project can be found in 
+            \href{https://github.com/kejjon/persistent_homology}{persitent homology repository}. The library used is actually a wrapper around the original software written in C++. Before introducing details and results of my implementation, we will consider details in optimization, methodology, computation and implementation of the Ripser software.
 
             Ripser is a software design and implemented to calculate Vietoris-Rips persistence barcodes. The algorithm uses
             an implicit representation of the co-boundary operator and of the filtration order. Ripser has been optimized by
@@ -3615,13 +3544,17 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
 
             The application can be supplied with 3 different options - ``space'', ``points'', and ''no\_noise``. The options ``space'' (--space or -s) stands for the different types of spaces that can be used. By default a sphere in $\RR^3$  shall be applied. Other options include a cylinder in $\RR^3$ (cylinder\_3), a torus in $\RR^3$ (torus\_3) and $\RR^4$ (torus\_4), klein bottle in $\RR^4$ (klein\_bottle\_4), projective plane in $\RR^4$ (pro\_plane\_4) and $\RR^6$ (pro\_plane\_6). After that, we have a ``points'' (--points or -p) parameter, indicating the number of points to be generated, where by default 500 shall be outputted. Last, the ``no\_noise'' (-n or --no-noise) parameter is whether or not to add noise to the generated points - it being enabled by default.
 
-            The application uniformly generates the number of points inputted by the user into a square $1 \times 1$. Then the resulting points are saved in a $n$-dimensional array and used as a domain for the functions that are parameterizing surfaces that are included in the application. The points in the square are mapped on the surface of a common space. When the parameter "$-n$" is passed through the command line to the application, noise is introduced in the mapping of the points to the appropriate surface. The noise can generated randomly as uniform distribution or a Gaussian distribution, where the user can choose the $\sigma$ and standard deviation, or the bounds for the uniform segment.
+            The application uniformly generates the number of points inputted by the user into a square $1 \times 1$. Then the resulting points are saved in a $n$-dimensional array and used as a domain for the functions that are parameterizing surfaces that are included in the application. The points in the square are mapped on the surface of a common space. When the parameter "$-n$" is passed through the command line to the application, noise is introduced in the mapping of the points to the appropriate surface. The noise can generated randomly as uniform distribution or a Gaussian distribution, where the user can choose the $\sigma$ and standard deviation, or the bounds for the uniform segment as an argument parameter.
 
-            If the space is embedded in $\mathbb{R}^3$ the points generated on the surface will be plotted in a 3D graph. Regardless the generated points will be outputted on the console. Then the application will pop out a figure of the calculation of Vietoris-Rips persistence barcodes up to the homology specified in the code. Each persistent diagram is a pair (birth time, death time). After that another figure will pop up showing separately the computations of the Vietoris-Rips persistence barcodes in the respective homology. The last graph plots life time of each point instead of birth and death.
+            If the space is embedded in $\mathbb{R}^3$ the points generated on the surface will be plotted in a 3D graph. Regardless the generated points will be outputted on the console. Then the application will pop out a figure of the calculation of Vietoris-Rips persistence diagram up to the homology specified in the code. Each persistent diagram is a pair (birth time, death time).  
+            After that, another figure will pop up showing separately the computations of the Vietoris-Rips persistence barcodes in the respective homology. The last graph plots life time of each point instead of birth and death.
 
+            
+            \emph{Note:} It is often useful to use persistence diagrams that present point plotted in $\RR^2$ in a birth-death ratio, where there is an entire diagonal consisting of size zero bars. However, there is a direct translation of a persitent diagram to a barcode one: a point in a birth-death ratio shows the start and end point($\epsilon$ distance) of a barcode.
+            
             \subsection*{Results}
             \textbf{Sphere in $\mathbb{R}^3$}.\\
-              Command: \textit{python generator.py --space sphere\_3 -points 500}
+              Command: \textit{python generator.py --space sphere\_3 -points 500 -n}
 
               \begin{figure}[H]
                 \centering
@@ -3650,40 +3583,8 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \caption{Lifetime persistent diagram.}
                 \label{fig:sep hom}
               \end{figure}
-
-              \textbf{Cylinder in $\mathbb{R}^3$}.\\
-              Command: \textit{python generator.py --space cylinder\_3 -points 500}
-
-              \begin{figure}[H]
-                \centering
-                \begin{subfigure}[b]{0.45\linewidth}
-                  \includegraphics[width=\linewidth]{./ripser/on_cylinder.png}
-                  \caption{Plot.}
-                \end{subfigure}
-                \begin{subfigure}[b]{0.45\linewidth}
-                  \includegraphics[width=\linewidth]{./ripser/on_cylinder_pers_homology.jpg}
-                  \caption{Birth-death persistent diagram.}
-                \end{subfigure}
-                \caption{Plot and Death birth graphs.}
-                \label{fig: plot death}
-              \end{figure}
-
-              \begin{figure}[H]
-                \centering
-                \includegraphics[width=\linewidth]{./ripser/on_cylinder_pers_homology_sep.jpg}
-                \caption{Birth-death persistent diagram separate homology.}
-                \label{fig:sep hom}
-              \end{figure}
-
-              \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/on_cylinder_lifetime.jpg}
-                \caption{Lifetime persistent diagram.}
-                \label{fig:sep hom}
-              \end{figure}
-
-              \textbf{Random Sphere in $\mathbb{R}^3$}.\\
-              Command: \textit{python generator.py --space sphere\_3 -points 500 -n}
+              \textbf{Sphere in $\mathbb{R}^3$ with noise}.\\
+              Command: \textit{python generator.py --space sphere\_3 -points 500}
 
               \begin{figure}[H]
                 \centering
@@ -3713,8 +3614,40 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \label{fig:sep hom}
               \end{figure}
 
-              \textbf{Random Cylinder in $\mathbb{R}^3$}.\\
+              \textbf{Cylinder in $\mathbb{R}^3$}.\\
               Command: \textit{python generator.py --space cylinder\_3 -points 500 -n}
+
+              \begin{figure}[H]
+                \centering
+                \begin{subfigure}[b]{0.45\linewidth}
+                  \includegraphics[width=\linewidth]{./ripser/on_cylinder.png}
+                  \caption{Plot.}
+                \end{subfigure}
+                \begin{subfigure}[b]{0.45\linewidth}
+                  \includegraphics[width=\linewidth]{./ripser/on_cylinder_pers_homology.jpg}
+                  \caption{Birth-death persistent diagram.}
+                \end{subfigure}
+                \caption{Plot and Death birth graphs.}
+                \label{fig: plot death}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_cylinder_pers_homology_sep.jpg}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/on_cylinder_lifetime.jpg}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
+
+
+              \textbf{Cylinder in $\mathbb{R}^3$ with noise}.\\
+              Command: \textit{python generator.py --space cylinder\_3 -points 500}
 
               \begin{figure}[H]
                 \centering
@@ -3744,9 +3677,149 @@ the diameter of the simplex with that index, and a coefficient $(coeff_t)$ if co
                 \label{fig:sep hom}
               \end{figure}
 
+              \textbf{Projective plane in $\mathbb{R}^4$}.\\
+              Command: \textit{python generator.py --space pro\_plane\_4 --points 300 -n --mean 1 -d 0.2 --up\_to\_homology 2}
 
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_PP4.png}
+                \caption{Plot and Death birth graphs.}
+                \label{fig:sep hom}
+              \end{figure}
 
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_PP4_sep.png}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
 
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/on_PP4_lifetime.png}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
+              
+             \textbf{Projective plane in $\mathbb{R}^4$ with noise}.\\
+              Command: \textit{python generator.py --space pro\_plane\_4 --points 300 --mean 1 -d 0.2 --up\_to\_homology 2}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/pro_plane_homology.png}
+                \caption{Plot and Death birth graphs.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/pro_plane_sep.png}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/pro_plane4_lifetime.png}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \textbf{Torus in $\mathbb{R}^4$}.\\
+              Command: \textit{python generator.py --space torus\_4 --points 200 -n --mean 1 -d 0.2 --up\_to\_homology 3}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_torus4.png}
+                \caption{Plot and Death birth graphs.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_torus4_sep.png}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/on_torus4_lifetime.png}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
+              
+             \textbf{Torus in $\mathbb{R}^4$ with noise}.\\
+              Command: \textit{python generator.py --space pro\_plane\_4 --points 300 --mean 1 -d 0.2 --up\_to\_homology 2}
+
+               \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/torus4.png}
+                \caption{Plot and Death birth graphs.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/torus4_sep.png}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/torus4_lifetime.png}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
+              
+              \textbf{Klein Bottle in $\mathbb{R}^4$}.\\
+              Command: \textit{python generator.py --space klein\_bottle\_4 --points 200 -n --mean 1 -d 0.2 --up\_to\_homology 3}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_klein4.png}
+                \caption{Plot and Death birth graphs.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/on_klein4_sep.png}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/on_klein4_lifetime.png}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
+              
+             \textbf{Klein Bottle in $\mathbb{R}^4$ with noise}.\\
+              Command: \textit{python generator.py --space klein\_bottle\_4 --points 200 --mean 1 -d 0.2 --up\_to\_homology 3}
+
+                \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/klein4.png}
+                \caption{Plot and Death birth graphs.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=\linewidth]{./ripser/klein4_sep.png}
+                \caption{Birth-death persistent diagram separate homology.}
+                \label{fig:sep hom}
+              \end{figure}
+
+              \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\linewidth, scale=0.5]{./ripser/klein4_lifetime.png}
+                \caption{Lifetime persistent diagram.}
+                \label{fig:sep hom}
+              \end{figure}
 
 \bibliographystyle{alpha}
 \bibliography{biblio}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  11 DEC 2020 09:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.8)  13 DEC 2020 19:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -80,6 +80,17 @@ Package caption Info: float package is loaded.
 \c@subfigure=\count180
 \c@subtable=\count181
 )
+(c:/texlive/2020/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
+(c:/texlive/2020/texmf-dist/tex/latex/preprint/authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip49
+\@affilsep=\skip50
+\c@Maxaffil=\count182
+\c@authors=\count183
+\c@affil=\count184
+)
 (c:/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks18
@@ -87,7 +98,7 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 )
 (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
-\@mathmargin=\skip49
+\@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
 (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -105,13 +116,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count182
+\inf@bad=\count185
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count183
-\leftroot@=\count184
+\uproot@=\count186
+\leftroot@=\count187
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count185
-\DOTSCASE@=\count186
+\classnum@=\count188
+\DOTSCASE@=\count189
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
@@ -120,15 +131,15 @@ LaTeX Info: Redefining \cdots on input line 610.
 \big@size=\dimen146
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count187
-\c@MaxMatrixCols=\count188
+\macc@depth=\count190
+\c@MaxMatrixCols=\count191
 \dotsspace@=\muskip16
-\c@parentequation=\count189
-\dspbrk@lvl=\count190
+\c@parentequation=\count192
+\dspbrk@lvl=\count193
 \tag@help=\toks21
-\row@=\count191
-\column@=\count192
-\maxfields@=\count193
+\row@=\count194
+\column@=\count195
+\maxfields@=\count196
 \andhelp@=\toks22
 \eqnshift@=\dimen147
 \alignsep@=\dimen148
@@ -137,8 +148,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \totwidth@=\dimen151
 \lineht@=\dimen152
 \@envbody=\toks23
-\multlinegap=\skip50
-\multlinetaggap=\skip51
+\multlinegap=\skip52
+\multlinetaggap=\skip53
 \mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
@@ -161,9 +172,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks27
 \thm@notefont=\toks28
 \thm@headpunct=\toks29
-\thm@preskip=\skip52
-\thm@postskip=\skip53
-\thm@headsep=\skip54
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
 \dth@everypar=\toks30
 )
 (c:/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty
@@ -171,16 +182,16 @@ Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
 
 (c:/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count194
-\calc@Bcount=\count195
+\calc@Acount=\count197
+\calc@Bcount=\count198
 \calc@Adimen=\dimen153
 \calc@Bdimen=\dimen154
-\calc@Askip=\skip55
-\calc@Bskip=\skip56
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count196
-\calc@Cskip=\skip57
+\calc@Ccount=\count199
+\calc@Cskip=\skip59
 )
 (c:/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
@@ -189,9 +200,9 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count197
+\g_MT_multlinerow_int=\count266
 \l_MT_multwidth_dim=\dimen155
-\origjot=\skip58
+\origjot=\skip60
 \l_MT_shortvdotswithinadjustabove_dim=\dimen156
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen157
 \l_MT_above_intertext_sep=\dimen158
@@ -242,21 +253,21 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks31
 \XKV@tempa@toks=\toks32
 )
-\XKV@depth=\count198
+\XKV@depth=\count267
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
 (c:/texlive/2020/texmf-dist/tex/generic/pstricks/pstricks.tex
 (c:/texlive/2020/texmf-dist/tex/generic/pstricks/pst-fp.tex
 `pst-fp' v0.05, 2010/01/17 (hv)
-\pstFP@xs=\count199
-\pstFP@xia=\count266
-\pstFP@xib=\count267
-\pstFP@xfa=\count268
-\pstFP@xfb=\count269
-\pstFP@rega=\count270
-\pstFP@regb=\count271
-\pstFP@regs=\count272
-\pstFP@times=\count273
+\pstFP@xs=\count268
+\pstFP@xia=\count269
+\pstFP@xib=\count270
+\pstFP@xfa=\count271
+\pstFP@xfb=\count272
+\pstFP@rega=\count273
+\pstFP@regb=\count274
+\pstFP@regs=\count275
+\pstFP@times=\count276
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks33
@@ -283,16 +294,16 @@ Loading pgffor.code.tex
 \pgf@ya=\dimen170
 \pgf@yb=\dimen171
 \pgf@yc=\dimen172
-\c@pgf@counta=\count274
-\c@pgf@countb=\count275
-\c@pgf@countc=\count276
-\c@pgf@countd=\count277
-\pgfutil@tempcnta=\count278
-\pgfutil@tempcntb=\count279
+\c@pgf@counta=\count277
+\c@pgf@countb=\count278
+\c@pgf@countc=\count279
+\c@pgf@countd=\count280
+\pgfutil@tempcnta=\count281
+\pgfutil@tempcntb=\count282
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen173
-\pgfmath@count=\count280
+\pgfmath@count=\count283
 \pgfmath@box=\box50
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
@@ -316,14 +327,14 @@ x)
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithm
 etics.code.tex)))
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count281
+\c@pgfmathroundto@lastzeros=\count284
 ))
 \pgffor@iter=\dimen174
 \pgffor@skip=\dimen175
 \pgffor@stack=\toks40
 \pgffor@toks=\toks41
 )
-\psLoopIndex=\count282
+\psLoopIndex=\count285
 
 `PSTricks' v2.97  <2019/05/11> (tvz,hv)
 \pst@dima=\dimen176
@@ -339,23 +350,23 @@ etics.code.tex)))
 \pst@hbox=\box51
 \pst@ibox=\box52
 \pst@boxg=\box53
-\pst@cnta=\count283
-\pst@cntb=\count284
-\pst@cntc=\count285
-\pst@cntd=\count286
-\pst@cntg=\count287
-\pst@cnth=\count288
-\pst@cntm=\count289
-\pst@cntn=\count290
-\pst@cnto=\count291
-\pst@cntp=\count292
-\@zero=\count293
+\pst@cnta=\count286
+\pst@cntb=\count287
+\pst@cntc=\count288
+\pst@cntd=\count289
+\pst@cntg=\count290
+\pst@cnth=\count291
+\pst@cntm=\count292
+\pst@cntn=\count293
+\pst@cnto=\count294
+\pst@cntp=\count295
+\@zero=\count296
 \pst@toks=\toks42
 (c:/texlive/2020/texmf-dist/tex/generic/pstricks/pstricks.con)
 \psunit=\dimen186
 \psxunit=\dimen187
 \psyunit=\dimen188
-\pst@C@@rType=\count294
+\pst@C@@rType=\count297
 \pslinewidth=\dimen189
 \psk@startLW=\dimen190
 \psk@endLW=\dimen191
@@ -381,22 +392,22 @@ Package: pst-solides3d 2017/03/03 package wrapper for pst-solides3d
 (c:/texlive/2020/texmf-dist/tex/generic/pst-solides3d/pst-solides3d.tex
 (c:/texlive/2020/texmf-dist/tex/generic/pst-node/pst-node.tex
  v1.42a, 2020/04/01
-\psrow=\count295
-\pscol=\count296
-\psmatrixcnt=\count297
-\psrowsep=\skip59
-\pscolsep=\skip60
-\pst@args=\count298
-\num@pts=\count299
-\pst@argcnt=\count300
+\psrow=\count298
+\pscol=\count299
+\psmatrixcnt=\count300
+\psrowsep=\skip61
+\pscolsep=\skip62
+\pst@args=\count301
+\num@pts=\count302
+\pst@argcnt=\count303
 )
 (c:/texlive/2020/texmf-dist/tex/generic/multido/multido.tex
  v1.42, 2010/05/14 <tvz>
-\multido@count=\count301
-\multidocount=\count302
+\multido@count=\count304
+\multidocount=\count305
 \multido@stuff=\toks45
 ) `PSTSOLIDESIIID' v4.34a, 2018/12/27
-\test@mode=\count303
+\test@mode=\count306
 )
 File: pst-solides3d.tex 2018/12/27 v4.34a `PST-solides3D'
 )
@@ -439,14 +450,14 @@ Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@yd=\dimen268
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count304
-\c@pgf@countb=\count305
-\c@pgf@countc=\count306
-\c@pgf@countd=\count307
+\c@pgf@counta=\count307
+\c@pgf@countb=\count308
+\c@pgf@countc=\count309
+\c@pgf@countd=\count310
 \t@pgf@toka=\toks47
 \t@pgf@tokb=\toks48
 \t@pgf@tokc=\toks49
-\pgf@sys@id@count=\count308
+\pgf@sys@id@count=\count311
 
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
@@ -461,8 +472,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 )))
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count309
-\pgfsyssoftpath@bigbuffer@items=\count310
+\pgfsyssoftpath@smallbuffer@items=\count312
+\pgfsyssoftpath@bigbuffer@items=\count313
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -505,7 +516,7 @@ File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfpic=\box55
 \pgf@hbox=\box56
 \pgf@layerbox@main=\box57
-\pgf@picture@serial@count=\count311
+\pgf@picture@serial@count=\count314
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
 .tex
@@ -536,8 +547,8 @@ File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@max=\dimen292
-\pgf@sys@shading@range@num=\count312
-\pgf@shadingcount=\count313
+\pgf@sys@shading@range@num=\count315
+\pgf@shadingcount=\count316
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -594,7 +605,7 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
 de.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count314
+\pgf@plot@mark@count=\count317
 \pgfplotmarksize=\dimen297
 )
 \tikz@lastx=\dimen298
@@ -609,18 +620,18 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@figbox@bg=\box61
 \tikz@tempbox=\box62
 \tikz@tempbox@bg=\box63
-\tikztreelevel=\count315
-\tikznumberofchildren=\count316
-\tikznumberofcurrentchild=\count317
-\tikz@fig@count=\count318
+\tikztreelevel=\count318
+\tikznumberofchildren=\count319
+\tikznumberofcurrentchild=\count320
+\tikz@fig@count=\count321
 
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count319
-\pgfmatrixcurrentcolumn=\count320
-\pgf@matrix@numberofcolumns=\count321
+\pgfmatrixcurrentrow=\count322
+\pgfmatrixcurrentcolumn=\count323
+\pgf@matrix@numberofcolumns=\count324
 )
-\tikz@expandcount=\count322
+\tikz@expandcount=\count325
 
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarytopaths.code.tex
@@ -655,8 +666,8 @@ Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
 \t@pgfplots@tokb=\toks53
 \t@pgfplots@tokc=\toks54
 \pgfplots@tmpa=\dimen307
-\c@pgfplots@coordindex=\count323
-\c@pgfplots@scanlineindex=\count324
+\c@pgfplots@coordindex=\count326
+\c@pgfplots@scanlineindex=\count327
 
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.te
 x))
@@ -672,13 +683,13 @@ cture.code.tex)
 ctureext.code.tex)
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.co
 de.tex
-\c@pgfplotsarray@tmp=\count325
+\c@pgfplotsarray@tmp=\count328
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.c
 ode.tex)
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.c
 ode.tex
-\c@pgfplotstable@counta=\count326
+\c@pgfplotstable@counta=\count329
 \t@pgfplotstable@a=\toks55
 )
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.co
@@ -690,7 +701,7 @@ tex))
 x)
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfsh
 ading.code.tex
-\c@pgfplotslibrarysurf@no=\count327
+\c@pgfplotslibrarysurf@no=\count330
 
 (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfsha
 ding.pgfsys-pdftex.def)))
@@ -718,7 +729,7 @@ ex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen310
 \pgfdecoratedinputsegmentremainingdistance=\dimen311
 \pgf@decorate@distancetomove=\dimen312
-\pgf@decorate@repeatstate=\count328
+\pgf@decorate@repeatstate=\count331
 \pgfdecorationsegmentamplitude=\dimen313
 \pgfdecorationsegmentlength=\dimen314
 )
@@ -732,7 +743,7 @@ orations.pathmorphing.code.tex))
 brarydecorations.pathreplacing.code.tex
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
 orations.pathreplacing.code.tex))
-\pgfplots@numplots=\count329
+\pgfplots@numplots=\count332
 \pgfplots@xmin@reg=\dimen315
 \pgfplots@xmax@reg=\dimen316
 \pgfplots@ymin@reg=\dimen317
@@ -750,7 +761,7 @@ File: pgflibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ))) (c:/texlive/2020/texmf-dist/tex/latex/tkz-fct/tkz-fct.sty
 2020/05/01 1.4c function tkz-fct
 Package: tkz-fct 2020/05/01 1.4c function 
-\tkz@tkzf@fct=\count330
+\tkz@tkzf@fct=\count333
 (c:/texlive/2020/texmf-dist/tex/latex/tkz-base/tkz-base.sty
 2020/03/18 3.06c tkz-base.sty
 Package: tkz-base 2020/03/18 3.06c tkz-base
@@ -791,7 +802,7 @@ orations.text.code.tex
 braryintersections.code.tex
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.c
 ode.tex
-\pgf@intersect@solutions=\count331
+\pgf@intersect@solutions=\count334
 ))
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarypatterns.code.tex
@@ -842,27 +853,27 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \ar@mcellbox=\box67
 \extrarowheight=\dimen326
 \NC@list=\toks56
-\extratabsurround=\skip61
-\backup@length=\skip62
+\extratabsurround=\skip63
+\backup@length=\skip64
 \ar@cellbox=\box68
 )
-\c@nprt@mantissa@digitsbefore=\count332
-\c@nprt@mantissa@digitsafter=\count333
-\c@nprt@exponent@digitsbefore=\count334
-\c@nprt@exponent@digitsafter=\count335
-\nprt@digitwidth=\skip63
-\nprt@sepwidth=\skip64
-\nprt@decimalwidth=\skip65
-\nprt@blockwidth=\skip66
+\c@nprt@mantissa@digitsbefore=\count335
+\c@nprt@mantissa@digitsafter=\count336
+\c@nprt@exponent@digitsbefore=\count337
+\c@nprt@exponent@digitsafter=\count338
+\nprt@digitwidth=\skip65
+\nprt@sepwidth=\skip66
+\nprt@decimalwidth=\skip67
+\nprt@blockwidth=\skip68
 \nprt@digittoks=\toks57
 \nprt@pretoks=\toks58
 \nprt@posttoks=\toks59
-\nprt@thisdigit=\count336
-\nprt@curpos=\count337
-\nprt@rndpos=\count338
-\c@nprt@digitsfirstblock=\count339
-\c@nprt@blockcnt=\count340
-\c@nprt@cntprint=\count341
+\nprt@thisdigit=\count339
+\nprt@curpos=\count340
+\nprt@rndpos=\count341
+\c@nprt@digitsfirstblock=\count342
+\c@nprt@blockcnt=\count343
+\c@nprt@cntprint=\count344
 
 No configuration file `numprint.cfg' found.)
 (c:/texlive/2020/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
@@ -871,17 +882,17 @@ Package: expl3 2020-09-06 L3 programming layer (loader)
 
 (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-09-01 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count342
+\l__kernel_color_stack_int=\count345
 \l__pdf_internal_box=\box69
 ))
 (c:/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-05-15 L3 Experimental document command parser
 
 (c:/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex
-\l__xparse_current_arg_int=\count343
-\g__xparse_grabber_int=\count344
-\l__xparse_m_args_int=\count345
-\l__xparse_v_nesting_int=\count346
+\l__xparse_current_arg_int=\count346
+\g__xparse_grabber_int=\count347
+\l__xparse_m_args_int=\count348
+\l__xparse_v_nesting_int=\count349
 ))
 Package: xfp 2020-05-15 L3 Floating point unit
 )
@@ -891,19 +902,19 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (c:/texlive/2020/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count347
+\actioncount=\count350
 )
 (c:/texlive/2020/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count348
-\FP@xia=\count349
-\FP@xib=\count350
-\FP@xfa=\count351
-\FP@xfb=\count352
-\FP@rega=\count353
-\FP@regb=\count354
-\FP@regs=\count355
-\FP@times=\count356
+\FP@xs=\count351
+\FP@xia=\count352
+\FP@xib=\count353
+\FP@xfa=\count354
+\FP@xfb=\count355
+\FP@rega=\count356
+\FP@regb=\count357
+\FP@regs=\count358
+\FP@times=\count359
 )
 (c:/texlive/2020/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -922,7 +933,7 @@ Package: fp-pas 1994/08/29
 )
 (c:/texlive/2020/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count357
+\FPseed=\count360
 )
 (c:/texlive/2020/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -952,7 +963,7 @@ Package: fp-eval 1995/04/03
 \tkz@tcy=\dimen343
 \tkz@tdx=\dimen344
 \tkz@tdy=\dimen345
-\tkz@cntmk=\count358
+\tkz@cntmk=\count361
 
 Local configuration file tkz-base.cfg found and used
 (c:/texlive/2020/texmf-dist/tex/latex/tkz-base/tkz-base.cfg
@@ -1052,18 +1063,14 @@ File: tikzlibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.g
 eometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (c:/texlive/2020/texmf-dist/tex/latex/cancel/cancel.sty
-Package: cancel 2013/04/12 v2.2 Cancel math terms
-)
-(c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+)) (c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-
 (c:/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count359
-\Gm@cntv=\count360
-\c@Gm@tempcnt=\count361
+\Gm@cnth=\count362
+\Gm@cntv=\count363
+\c@Gm@tempcnt=\count364
 \Gm@bindingoffset=\dimen348
 \Gm@wd@mp=\dimen349
 \Gm@odd@mp=\dimen350
@@ -1113,8 +1120,8 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen356
-\Hy@linkcounter=\count362
-\Hy@pagecounter=\count363
+\Hy@linkcounter=\count365
+\Hy@pagecounter=\count366
 
 (c:/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
@@ -1127,7 +1134,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (c:/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count364
+\Hy@SavedSpaceFactor=\count367
 Package hyperref Info: Option `colorlinks' set `true' on input line 4338.
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
@@ -1136,7 +1143,7 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count365
+\c@Hy@tempcnt=\count368
 
 (c:/texlive/2020/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
@@ -1152,7 +1159,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count366
+\Fld@menulength=\count369
 \Field@Width=\dimen358
 \Fld@charsize=\dimen359
 Package hyperref Info: Hyper figures OFF on input line 6347.
@@ -1168,9 +1175,9 @@ LaTeX Info: Redefining \pageref on input line 6421.
 (c:/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count367
-\c@Item=\count368
-\c@Hfootnote=\count369
+\Hy@abspage=\count370
+\c@Item=\count371
+\c@Hfootnote=\count372
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -1181,8 +1188,8 @@ File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count370
-\c@bookmark@seq@number=\count371
+\Fld@listcount=\count373
+\c@bookmark@seq@number=\count374
 
 (c:/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -1193,21 +1200,21 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip67
+\Hy@SectionHShift=\skip69
 )
 \@input{defs.aux}
 \openout2 = `defs.aux'.
 
 (./defs.tex
-\c@defn=\count372
-\c@thm=\count373
-\c@Lemma=\count374
-\c@Claim=\count375
-\c@Prop=\count376
-\c@Ex=\count377
-\c@Cor=\count378
-\c@claim=\count379
-\c@conj=\count380
+\c@defn=\count375
+\c@thm=\count376
+\c@Lemma=\count377
+\c@Claim=\count378
+\c@Prop=\count379
+\c@Ex=\count380
+\c@Cor=\count381
+\c@claim=\count382
+\c@conj=\count383
  (c:/texlive/2020/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup7
@@ -1257,14 +1264,14 @@ Loading kernel: messages; fonts; allocations: state,
  direction,
 \d@X=\dimen383
 \d@Y=\dimen384
-\K@=\count381
-\KK@=\count382
-\Direction=\count383
+\K@=\count384
+\KK@=\count385
+\Direction=\count386
 \K@dXdY=\dimen385
 \K@dYdX=\dimen386
 \xyread@=\read3
 \xywrite@=\write4
-\csp@=\count384
+\csp@=\count387
 \quotPTK@=\dimen387
 
 utility macros; pictures: \xy, positions,
@@ -1279,7 +1286,7 @@ edges, connections;  Xy-pic loaded)
  Xy-pic option: All features v.3.8
 (c:/texlive/2020/texmf-dist/tex/generic/xypic/xycurve.tex
  Xy-pic option: Curve and Spline extension v.3.12 curve,
-\crv@cnt@=\count385
+\crv@cnt@=\count388
 \crvpts@=\toks65
 \splinebox@=\box73
 \splineval@=\dimen388
@@ -1305,13 +1312,13 @@ edges, connections;  Xy-pic loaded)
  Xy-pic option: Colour extension v.3.11 loaded)
 (c:/texlive/2020/texmf-dist/tex/generic/xypic/xymatrix.tex
  Xy-pic option: Matrix feature v.3.14
-\Row=\count386
-\Col=\count387
+\Row=\count389
+\Col=\count390
 \queue@=\toks66
 \queue@@=\toks67
-\qcount@=\count388
-\qcount@@=\count389
-\matrixsize@=\count390
+\qcount@=\count391
+\qcount@@=\count392
+\matrixsize@=\count393
  loaded)
 (c:/texlive/2020/texmf-dist/tex/generic/xypic/xyarrow.tex
  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
@@ -1352,37 +1359,91 @@ LaTeX Warning: Label `fig:sep hom' multiply defined.
 
 LaTeX Warning: Label `fig:sep hom' multiply defined.
 
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
+
+LaTeX Warning: Label `fig:sep hom' multiply defined.
+
 )
 \openout1 = `Kejsi_thesis2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
  (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count391
+\scratchcounter=\count394
 \scratchdimen=\dimen394
 \scratchbox=\box74
-\nofMPsegments=\count392
-\nofMParguments=\count393
+\nofMPsegments=\count395
+\nofMParguments=\count396
 \everyMPshowfont=\toks68
-\MPscratchCnt=\count394
+\MPscratchCnt=\count397
 \MPscratchDim=\dimen395
-\MPnumerator=\count395
-\makeMPintoPDFobject=\count396
+\MPnumerator=\count398
+\makeMPintoPDFobject=\count399
 \everyMPtoPDFconversion=\toks69
 ) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1402,7 +1463,7 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 40.
+ on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1439,7 +1500,7 @@ your preamble.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box75
-Package hyperref Info: Link coloring ON on input line 40.
+Package hyperref Info: Link coloring ON on input line 50.
 (c:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -1449,44 +1510,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (c:/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count397
+\c@section@level=\count400
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
 
 (./Kejsi_thesis2.out) (./Kejsi_thesis2.out)
 \@outlinefile=\write5
 \openout5 = `Kejsi_thesis2.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
-
-
-(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
-
-
-(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
-2.
-
-(c:/texlive/2020/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 42
-.
-
-(c:/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 42
-.
-
-(c:/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1
+ [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
 Non-PDF special ignored!
@@ -1515,7 +1549,32 @@ Non-PDF special ignored!
 
 
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./Kejsi_thesis2.toc)
+(./Kejsi_thesis2.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+
+(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
+.
+
+(c:/texlive/2020/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 2.
+
+
+(c:/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+
+
+(c:/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+))
 \tf@toc=\write6
 \openout6 = `Kejsi_thesis2.toc'.
 
@@ -1523,72 +1582,58 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46       \chapter
+l.56       \chapter
                    {Chain Complexes And Simplicial Homology} [1
 
 ]
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 69.
+(hyperref)                removing `math shift' on input line 79.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 69.
+(hyperref)                removing `\Delta' on input line 79.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 69.
+(hyperref)                removing `math shift' on input line 79.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--101
+Underfull \hbox (badness 10000) in paragraph at lines 107--111
 
  []
 
 [2
 
-] [3] [4] [5] [6] <xymatrix 8x1 307> [7] <xymatrix 3x1 96> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 695--699
+] [3] [4] [5] [6] [7] <xymatrix 8x1 307> <xymatrix 3x1 96> <xymatrix 3x1 96>
+[8] <xymatrix 5x1 179>
+Underfull \hbox (badness 10000) in paragraph at lines 775--776
 
  []
 
-<xymatrix 5x1 179> [8]
-Underfull \hbox (badness 10000) in paragraph at lines 752--753
-
- []
-
-<xymatrix 4x1 141> <xymatrix 4x1 141>
-Underfull \hbox (badness 10000) in paragraph at lines 807--809
+<xymatrix 4x1 141> [9] <xymatrix 4x1 141>
+Underfull \hbox (badness 10000) in paragraph at lines 830--832
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 811--819
+Underfull \hbox (badness 10000) in paragraph at lines 834--842
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 850--861
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 862--873
+Underfull \hbox (badness 10000) in paragraph at lines 873--884
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 874--923
+Underfull \hbox (badness 10000) in paragraph at lines 885--896
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--937
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 944--945
+Underfull \hbox (badness 10000) in paragraph at lines 897--946
 
  []
 
@@ -1598,115 +1643,125 @@ Underfull \hbox (badness 10000) in paragraph at lines 947--960
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--975
-
- []
-
-<xymatrix 4x1 141> [10] <xymatrix 4x1 141>
-Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1024
+Underfull \hbox (badness 10000) in paragraph at lines 970--983
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 997--998
+
+ []
+
+<xymatrix 4x1 141> <xymatrix 4x1 141>
+Underfull \hbox (badness 10000) in paragraph at lines 1037--1039
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1032
-
- []
-
-<xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
-Underfull \hbox (badness 10000) in paragraph at lines 1091--1093
+Underfull \hbox (badness 10000) in paragraph at lines 1041--1047
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1099
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1055
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 1101--1111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1113--1119
-
- []
-
-<xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
-Underfull \hbox (badness 10000) in paragraph at lines 1179--1182
+[11] <xymatrix 2x2 307> <xymatrix 5x1 186> <xymatrix 5x1 186>
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1193
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 1195--1209
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1211--1217
+Underfull \hbox (badness 10000) in paragraph at lines 1124--1134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1136--1142
+
+ []
+
+<xymatrix 2x2 307> [12] <xymatrix 5x1 186> <xymatrix 5x1 186>
+Underfull \hbox (badness 10000) in paragraph at lines 1202--1205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1209--1216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1218--1232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1234--1240
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 1271--1273
+Underfull \hbox (badness 10000) in paragraph at lines 1294--1296
 
  []
 
-[14] [15]
+[14] [15] [16]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1390--1392
+Underfull \hbox (badness 10000) in paragraph at lines 1413--1415
 
  []
 
-[16
+[17
 
 ] <xymatrix 3x1 96> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 1426--1427
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1450
 
  []
 
-<xymatrix 2x2 123> [17]
-Underfull \hbox (badness 10000) in paragraph at lines 1483--1484
+<xymatrix 2x2 123> [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1507
 
  []
 
 <xymatrix 4x2 532> <xymatrix 3x1 96>
-Underfull \hbox (badness 10000) in paragraph at lines 1521--1525
+Underfull \hbox (badness 10000) in paragraph at lines 1544--1548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1531--1533
+Underfull \hbox (badness 10000) in paragraph at lines 1554--1556
 
  []
 
-<xymatrix 5x2 454> [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1560--1561
+<xymatrix 5x2 454> [19]
+Underfull \hbox (badness 10000) in paragraph at lines 1583--1584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1571--1573
+Underfull \hbox (badness 10000) in paragraph at lines 1594--1596
 
  []
 
 <xymatrix 5x2 786>
-Underfull \hbox (badness 10000) in paragraph at lines 1629--1632
+Underfull \hbox (badness 10000) in paragraph at lines 1652--1655
 
  []
 
-[19]
+[20]
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no - in font nullfont!
 Missing character: There is no s in font nullfont!
@@ -1744,410 +1799,521 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no x in font nullfont!
  <xymatrix 5x1 145> <xymatrix 5x1 145> <xymatrix 5x2 531> <xymatrix 3x1
-89> [20] <xymatrix 3x1 89> <xymatrix 3x1 89> <xymatrix 5x2 438> <xymatrix 6x1
-231> <xymatrix 5x2 452> <xymatrix 3x1 110> [21] <xymatrix 5x1 145> <xymatrix
-5x1 145> <xymatrix 5x2 495> <xymatrix 6x1 183> [22]
-Underfull \hbox (badness 10000) in paragraph at lines 2003--2005
+89> [21] <xymatrix 3x1 89> <xymatrix 3x1 89> <xymatrix 5x2 438> <xymatrix 6x1
+231> <xymatrix 5x2 452> <xymatrix 3x1 110> [22] <xymatrix 5x1 145> <xymatrix
+5x1 145> <xymatrix 5x2 495> [23] <xymatrix 6x1 183>
+Underfull \hbox (badness 10000) in paragraph at lines 2026--2028
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2031--2032
+Underfull \hbox (badness 10000) in paragraph at lines 2054--2055
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2036--2038
+Underfull \hbox (badness 10000) in paragraph at lines 2059--2061
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2049--2050
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2052--2055
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 2084--2085
-
- []
-
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no x in font nullfont!
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 2204--2206
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2073
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2207--2208
+Underfull \hbox (badness 10000) in paragraph at lines 2075--2078
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2210--2212
+Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
 
  []
 
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 2232--2233
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2235--2239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2249--2250
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2251--2254
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2256--2258
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2282--2283
+Underfull \hbox (badness 10000) in paragraph at lines 2200--2201
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 2320--2321
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2324--2325
+Underfull \hbox (badness 10000) in paragraph at lines 2225--2226
 
  []
 
-[27] [28]
+
+Underfull \hbox (badness 10000) in paragraph at lines 2228--2232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2242--2243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2244--2247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2249--2251
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 2275--2276
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2313--2314
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 2317--2318
+
+ []
+
+[29] [30]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2580--2583
+Underfull \hbox (badness 10000) in paragraph at lines 2479--2481
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2597--2599
+Underfull \hbox (badness 10000) in paragraph at lines 2494--2496
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2612--2614
+Underfull \hbox (badness 10000) in paragraph at lines 2500--2501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2618--2619
+Underfull \hbox (badness 10000) in paragraph at lines 2504--2505
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2622--2623
-
- []
-
-[29
+[31
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 2663--2665
+Underfull \hbox (badness 10000) in paragraph at lines 2545--2547
 
  []
 
-[30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 2753--2755
+[32] [33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 2635--2637
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2768--2769
+Underfull \hbox (badness 10000) in paragraph at lines 2650--2651
 
  []
-
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 2796--2797
-
- []
-
-[34]
-
-Package hyperref Warning: Composite letter `\textasciicaron+C'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 2938.
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 3096--3101
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3102--3103
+Underfull \hbox (badness 10000) in paragraph at lines 2678--2679
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 3115--3118
+
+Package hyperref Warning: Composite letter `\textasciicaron+C'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 2823.
+
+[37] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 2992--2997
 
  []
 
-[37]
+
+Underfull \hbox (badness 10000) in paragraph at lines 2998--2999
+
+ []
+
+[39] [40]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3222--3225
+Underfull \hbox (badness 10000) in paragraph at lines 3165--3168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3225--3230
+Underfull \hbox (badness 10000) in paragraph at lines 3168--3173
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 3230--3232
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3232--3234
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3234--3237
-
- []
-
-[38
+[41
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 3237--3239
+Underfull \hbox (badness 10000) in paragraph at lines 3173--3175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3239--3242
+Underfull \hbox (badness 10000) in paragraph at lines 3175--3177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3242--3244
+Underfull \hbox (badness 10000) in paragraph at lines 3177--3180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3253--3255
-
- []
-
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 3312--3314
+Underfull \hbox (badness 10000) in paragraph at lines 3180--3182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3325--3326
-
- []
-
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 3446--3452
+Underfull \hbox (badness 10000) in paragraph at lines 3182--3185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3462--3464
+Underfull \hbox (badness 10000) in paragraph at lines 3185--3187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3472--3473
+Underfull \hbox (badness 10000) in paragraph at lines 3196--3198
 
  []
 
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 3527--3530
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 3255--3257
 
  []
 
-[42] [43] [44]
-<./ripser/on_sphere.PNG, id=437, 481.04718pt x 413.29407pt>
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 3268--3269
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3389--3395
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3405--3407
+
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 3415--3416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3470--3473
+
+ []
+
+[45] [46] [47]
+<./ripser/on_sphere.PNG, id=468, 481.04718pt x 413.29407pt>
 File: ./ripser/on_sphere.PNG Graphic file (type png)
 <use ./ripser/on_sphere.PNG>
-Package pdftex.def Info: ./ripser/on_sphere.PNG  used on input line 3614.
+Package pdftex.def Info: ./ripser/on_sphere.PNG  used on input line 3562.
 (pdftex.def)             Requested size: 203.83417pt x 175.12737pt.
-<./ripser/on_sphere_homology.PNG, id=439, 535.2497pt x 458.46281pt>
+<./ripser/on_sphere_homology.PNG, id=470, 535.2497pt x 458.46281pt>
 File: ./ripser/on_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_homology.PNG>
-Package pdftex.def Info: ./ripser/on_sphere_homology.PNG  used on input line 36
-18.
+Package pdftex.def Info: ./ripser/on_sphere_homology.PNG  used on input line 35
+66.
 (pdftex.def)             Requested size: 203.83417pt x 174.59543pt.
-<./ripser/on_sphere_sep_homology.PNG, id=440, 922.19531pt x 352.31625pt>
+<./ripser/on_sphere_sep_homology.PNG, id=471, 922.19531pt x 352.31625pt>
 File: ./ripser/on_sphere_sep_homology.PNG Graphic file (type png)
 <use ./ripser/on_sphere_sep_homology.PNG>
 Package pdftex.def Info: ./ripser/on_sphere_sep_homology.PNG  used on input lin
-e 3627.
+e 3575.
 (pdftex.def)             Requested size: 452.9679pt x 173.05042pt.
-<./ripser/on_sphere_lifetime.PNG, id=441, 512.66531pt x 453.94594pt>
+ [48 <./ripser/on_sphere.PNG> <./ripser/on_sphere_homology.PNG>]
+<./ripser/on_sphere_lifetime.PNG, id=481, 512.66531pt x 453.94594pt>
 File: ./ripser/on_sphere_lifetime.PNG Graphic file (type png)
 <use ./ripser/on_sphere_lifetime.PNG>
-Package pdftex.def Info: ./ripser/on_sphere_lifetime.PNG  used on input line 36
-34.
+Package pdftex.def Info: ./ripser/on_sphere_lifetime.PNG  used on input line 35
+82.
 (pdftex.def)             Requested size: 256.33202pt x 226.97241pt.
- [45 <./ripser/on_sphere.PNG> <./ripser/on_sphere_homology.PNG> <./ripser/on_sp
-here_sep_homology.PNG>]
-<./ripser/on_cylinder.png, id=451, 462.528pt x 346.896pt>
-File: ./ripser/on_cylinder.png Graphic file (type png)
-<use ./ripser/on_cylinder.png>
-Package pdftex.def Info: ./ripser/on_cylinder.png  used on input line 3645.
-(pdftex.def)             Requested size: 203.83417pt x 152.87819pt.
-<./ripser/on_cylinder_pers_homology.jpg, id=452, 602.25pt x 470.50781pt>
-File: ./ripser/on_cylinder_pers_homology.jpg Graphic file (type jpg)
-<use ./ripser/on_cylinder_pers_homology.jpg>
-Package pdftex.def Info: ./ripser/on_cylinder_pers_homology.jpg  used on input 
-line 3649.
-(pdftex.def)             Requested size: 203.83417pt x 159.24542pt.
-<./ripser/on_cylinder_pers_homology_sep.jpg, id=453, 922.94812pt x 407.27156pt>
-
-File: ./ripser/on_cylinder_pers_homology_sep.jpg Graphic file (type jpg)
-<use ./ripser/on_cylinder_pers_homology_sep.jpg>
-Package pdftex.def Info: ./ripser/on_cylinder_pers_homology_sep.jpg  used on in
-put line 3658.
-(pdftex.def)             Requested size: 452.9679pt x 199.88174pt.
- [46 <./ripser/on_sphere_lifetime.PNG> <./ripser/on_cylinder.png> <./ripser/on_
-cylinder_pers_homology.jpg>]
-<./ripser/on_cylinder_lifetime.jpg, id=462, 609.77812pt x 480.29437pt>
-File: ./ripser/on_cylinder_lifetime.jpg Graphic file (type jpg)
-<use ./ripser/on_cylinder_lifetime.jpg>
-Package pdftex.def Info: ./ripser/on_cylinder_lifetime.jpg  used on input line 
-3665.
-(pdftex.def)             Requested size: 304.8883pt x 240.14659pt.
-<./ripser/rand_sphere.PNG, id=463, 508.14844pt x 350.81062pt>
+<./ripser/rand_sphere.PNG, id=482, 508.14844pt x 350.81062pt>
 File: ./ripser/rand_sphere.PNG Graphic file (type png)
 <use ./ripser/rand_sphere.PNG>
-Package pdftex.def Info: ./ripser/rand_sphere.PNG  used on input line 3676.
+Package pdftex.def Info: ./ripser/rand_sphere.PNG  used on input line 3592.
 (pdftex.def)             Requested size: 203.83417pt x 140.71786pt.
-<./ripser/rand_sphere_homology.PNG, id=464, 567.62062pt x 487.8225pt>
+<./ripser/rand_sphere_homology.PNG, id=483, 567.62062pt x 487.8225pt>
 File: ./ripser/rand_sphere_homology.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_homology.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_homology.PNG  used on input line 
-3680.
+3596.
 (pdftex.def)             Requested size: 203.83417pt x 175.17679pt.
- [47 <./ripser/on_cylinder_pers_homology_sep.jpg> <./ripser/on_cylinder_lifetim
-e.jpg>]
-<./ripser/rand_sphere_homology_seperate.PNG, id=471, 912.40875pt x 380.17032pt>
+
+[49 <./ripser/on_sphere_sep_homology.PNG> <./ripser/on_sphere_lifetime.PNG>]
+<./ripser/rand_sphere_homology_seperate.PNG, id=492, 912.40875pt x 380.17032pt>
 
 File: ./ripser/rand_sphere_homology_seperate.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_homology_seperate.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_homology_seperate.PNG  used on in
-put line 3689.
+put line 3605.
 (pdftex.def)             Requested size: 452.9679pt x 188.73308pt.
-<./ripser/rand_sphere_lifetime.PNG, id=472, 572.89032pt x 475.7775pt>
+<./ripser/rand_sphere_lifetime.PNG, id=493, 572.89032pt x 475.7775pt>
 File: ./ripser/rand_sphere_lifetime.PNG Graphic file (type png)
 <use ./ripser/rand_sphere_lifetime.PNG>
 Package pdftex.def Info: ./ripser/rand_sphere_lifetime.PNG  used on input line 
-3696.
+3612.
 (pdftex.def)             Requested size: 286.44446pt x 237.88815pt.
 
-[48 <./ripser/rand_sphere.PNG> <./ripser/rand_sphere_homology.PNG> <./ripser/ra
+[50 <./ripser/rand_sphere.PNG> <./ripser/rand_sphere_homology.PNG> <./ripser/ra
 nd_sphere_homology_seperate.PNG> <./ripser/rand_sphere_lifetime.png>]
-<./ripser/rand_cyl.PNG, id=485, 398.99063pt x 328.22626pt>
+<./ripser/on_cylinder.png, id=505, 462.528pt x 346.896pt>
+File: ./ripser/on_cylinder.png Graphic file (type png)
+<use ./ripser/on_cylinder.png>
+Package pdftex.def Info: ./ripser/on_cylinder.png  used on input line 3623.
+(pdftex.def)             Requested size: 203.83417pt x 152.87819pt.
+<./ripser/on_cylinder_pers_homology.jpg, id=506, 602.25pt x 470.50781pt>
+File: ./ripser/on_cylinder_pers_homology.jpg Graphic file (type jpg)
+<use ./ripser/on_cylinder_pers_homology.jpg>
+Package pdftex.def Info: ./ripser/on_cylinder_pers_homology.jpg  used on input 
+line 3627.
+(pdftex.def)             Requested size: 203.83417pt x 159.24542pt.
+<./ripser/on_cylinder_pers_homology_sep.jpg, id=507, 922.94812pt x 407.27156pt>
+
+File: ./ripser/on_cylinder_pers_homology_sep.jpg Graphic file (type jpg)
+<use ./ripser/on_cylinder_pers_homology_sep.jpg>
+Package pdftex.def Info: ./ripser/on_cylinder_pers_homology_sep.jpg  used on in
+put line 3636.
+(pdftex.def)             Requested size: 452.9679pt x 199.88174pt.
+<./ripser/on_cylinder_lifetime.jpg, id=508, 609.77812pt x 480.29437pt>
+File: ./ripser/on_cylinder_lifetime.jpg Graphic file (type jpg)
+<use ./ripser/on_cylinder_lifetime.jpg>
+Package pdftex.def Info: ./ripser/on_cylinder_lifetime.jpg  used on input line 
+3643.
+(pdftex.def)             Requested size: 304.8883pt x 240.14659pt.
+ [51 <./ripser/on_cylinder.png> <./ripser/on_cylinder_pers_homology.jpg> <./rip
+ser/on_cylinder_pers_homology_sep.jpg>]
+<./ripser/rand_cyl.PNG, id=516, 398.99063pt x 328.22626pt>
 File: ./ripser/rand_cyl.PNG Graphic file (type png)
 <use ./ripser/rand_cyl.PNG>
-Package pdftex.def Info: ./ripser/rand_cyl.PNG  used on input line 3707.
+Package pdftex.def Info: ./ripser/rand_cyl.PNG  used on input line 3655.
 (pdftex.def)             Requested size: 203.83417pt x 167.68365pt.
-<./ripser/rand_cyclinder_per_homology.jpg, id=486, 557.83406pt x 462.22687pt>
+<./ripser/rand_cyclinder_per_homology.jpg, id=517, 557.83406pt x 462.22687pt>
 File: ./ripser/rand_cyclinder_per_homology.jpg Graphic file (type jpg)
 <use ./ripser/rand_cyclinder_per_homology.jpg>
 Package pdftex.def Info: ./ripser/rand_cyclinder_per_homology.jpg  used on inpu
-t line 3711.
+t line 3659.
 (pdftex.def)             Requested size: 203.83417pt x 168.8983pt.
-<./ripser/rand_cyclinder_per_homology_seperate.jpg, id=487, 938.00438pt x 382.4
+<./ripser/rand_cyclinder_per_homology_seperate.jpg, id=518, 938.00438pt x 382.4
 2876pt>
 File: ./ripser/rand_cyclinder_per_homology_seperate.jpg Graphic file (type jpg)
 
 <use ./ripser/rand_cyclinder_per_homology_seperate.jpg>
 Package pdftex.def Info: ./ripser/rand_cyclinder_per_homology_seperate.jpg  use
-d on input line 3720.
+d on input line 3668.
 (pdftex.def)             Requested size: 452.9679pt x 184.67242pt.
-<./ripser/rand_cylinder_lifetime.jpg, id=488, 627.09282pt x 487.8225pt>
+<./ripser/rand_cylinder_lifetime.jpg, id=519, 627.09282pt x 487.8225pt>
 File: ./ripser/rand_cylinder_lifetime.jpg Graphic file (type jpg)
 <use ./ripser/rand_cylinder_lifetime.jpg>
 Package pdftex.def Info: ./ripser/rand_cylinder_lifetime.jpg  used on input lin
-e 3727.
+e 3675.
 (pdftex.def)             Requested size: 313.54564pt x 243.91064pt.
+ [52 <./ripser/on_cylinder_lifetime.jpg> <./ripser/rand_cyl.PNG> <./ripser/rand
+_cyclinder_per_homology.jpg> <./ripser/rand_cyclinder_per_homology_seperate.jpg
+>]
+Overfull \hbox (9.11076pt too wide) in paragraph at lines 3680--3682
+\OT1/cmr/m/n/10.95 Command: \OT1/cmr/m/it/10.95 python gen-er-a-tor.py --space 
+pro[]plane[]4 --points 300 -n --mean 1 -d 0.2 --up[]to[]homology
+ []
 
-(./Kejsi_thesis2.bbl [49 <./ripser/rand_cyl.PNG> <./ripser/rand_cyclinder_per_h
-omology.jpg> <./ripser/rand_cyclinder_per_homology_seperate.jpg> <./ripser/rand
-_cylinder_lifetime.jpg>]) [50
+<./ripser/on_PP4.png, id=528, 440.39531pt x 344.03531pt>
+File: ./ripser/on_PP4.png Graphic file (type png)
+<use ./ripser/on_PP4.png>
+Package pdftex.def Info: ./ripser/on_PP4.png  used on input line 3685.
+(pdftex.def)             Requested size: 452.9679pt x 353.87212pt.
+<./ripser/on_PP4_sep.png, id=529, 543.53062pt x 229.60782pt>
+File: ./ripser/on_PP4_sep.png Graphic file (type png)
+<use ./ripser/on_PP4_sep.png>
+Package pdftex.def Info: ./ripser/on_PP4_sep.png  used on input line 3692.
+(pdftex.def)             Requested size: 452.9679pt x 191.35922pt.
+[53 <./ripser/rand_cylinder_lifetime.jpg> <./ripser/on_PP4.PNG>]
+<./ripser/on_PP4_lifetime.png, id=537, 480.29437pt x 385.44pt>
+File: ./ripser/on_PP4_lifetime.png Graphic file (type png)
+<use ./ripser/on_PP4_lifetime.png>
+Package pdftex.def Info: ./ripser/on_PP4_lifetime.png  used on input line 3699.
+
+(pdftex.def)             Requested size: 240.14659pt x 192.71953pt.
+<./ripser/pro_plane_homology.png, id=538, 435.12563pt x 350.05782pt>
+File: ./ripser/pro_plane_homology.png Graphic file (type png)
+<use ./ripser/pro_plane_homology.png>
+Package pdftex.def Info: ./ripser/pro_plane_homology.png  used on input line 37
+09.
+(pdftex.def)             Requested size: 452.9679pt x 364.43611pt.
+ [54 <./ripser/on_PP4_sep.PNG> <./ripser/on_PP4_lifetime.PNG>]
+<./ripser/pro_plane_sep.png, id=548, 550.30594pt x 256.70906pt>
+File: ./ripser/pro_plane_sep.png Graphic file (type png)
+<use ./ripser/pro_plane_sep.png>
+Package pdftex.def Info: ./ripser/pro_plane_sep.png  used on input line 3716.
+(pdftex.def)             Requested size: 452.9679pt x 211.3097pt.
+<./ripser/pro_plane4_lifetime.png, id=549, 457.71pt x 382.42876pt>
+File: ./ripser/pro_plane4_lifetime.png Graphic file (type png)
+<use ./ripser/pro_plane4_lifetime.png>
+Package pdftex.def Info: ./ripser/pro_plane4_lifetime.png  used on input line 3
+723.
+(pdftex.def)             Requested size: 228.85445pt x 191.2139pt.
+ [55 <./ripser/pro_plane_homology.PNG> <./ripser/pro_plane_sep.PNG>]
+<./ripser/on_torus4.png, id=558, 442.65375pt x 338.76563pt>
+File: ./ripser/on_torus4.png Graphic file (type png)
+<use ./ripser/on_torus4.png>
+Package pdftex.def Info: ./ripser/on_torus4.png  used on input line 3733.
+(pdftex.def)             Requested size: 452.9679pt x 346.67873pt.
+<./ripser/on_torus4_sep.png, id=559, 556.32843pt x 237.13594pt>
+File: ./ripser/on_torus4_sep.png Graphic file (type png)
+<use ./ripser/on_torus4_sep.png>
+Package pdftex.def Info: ./ripser/on_torus4_sep.png  used on input line 3740.
+(pdftex.def)             Requested size: 452.9679pt x 193.08134pt.
+ [56 <./ripser/pro_plane4_lifetime.PNG> <./ripser/on_torus4.PNG>]
+<./ripser/on_torus4_lifetime.png, id=568, 449.42906pt x 374.90062pt>
+File: ./ripser/on_torus4_lifetime.png Graphic file (type png)
+<use ./ripser/on_torus4_lifetime.png>
+Package pdftex.def Info: ./ripser/on_torus4_lifetime.png  used on input line 37
+47.
+(pdftex.def)             Requested size: 224.71397pt x 187.44984pt.
+<./ripser/torus4.png, id=569, 398.99063pt x 341.02406pt>
+File: ./ripser/torus4.png Graphic file (type png)
+<use ./ripser/torus4.png>
+Package pdftex.def Info: ./ripser/torus4.png  used on input line 3757.
+(pdftex.def)             Requested size: 452.9679pt x 387.17915pt.
+ [57 <./ripser/on_torus4_sep.PNG> <./ripser/on_torus4_lifetime.PNG>]
+<./ripser/torus4_sep.png, id=578, 561.59813pt x 271.76532pt>
+File: ./ripser/torus4_sep.png Graphic file (type png)
+<use ./ripser/torus4_sep.png>
+Package pdftex.def Info: ./ripser/torus4_sep.png  used on input line 3764.
+(pdftex.def)             Requested size: 452.9679pt x 219.19566pt.
+<./ripser/torus4_lifetime.png, id=579, 495.35063pt x 382.42876pt>
+File: ./ripser/torus4_lifetime.png Graphic file (type png)
+<use ./ripser/torus4_lifetime.png>
+Package pdftex.def Info: ./ripser/torus4_lifetime.png  used on input line 3771.
+
+(pdftex.def)             Requested size: 247.67471pt x 191.2139pt.
+ [58 <./ripser/torus4.PNG> <./ripser/torus4_sep.PNG>]
+Overfull \hbox (16.2464pt too wide) in paragraph at lines 3776--3778
+\OT1/cmr/m/n/10.95 Command: \OT1/cmr/m/it/10.95 python gen-er-a-tor.py --space 
+klein[]bottle[]4 --points 200 -n --mean 1 -d 0.2 --up[]to[]homology
+ []
+
+<./ripser/on_klein4.png, id=588, 386.19281pt x 344.78813pt>
+File: ./ripser/on_klein4.png Graphic file (type png)
+<use ./ripser/on_klein4.png>
+Package pdftex.def Info: ./ripser/on_klein4.png  used on input line 3781.
+(pdftex.def)             Requested size: 452.9679pt x 404.40533pt.
+<./ripser/on_klein4_sep.png, id=589, 1102.1175pt x 374.14781pt>
+File: ./ripser/on_klein4_sep.png Graphic file (type png)
+<use ./ripser/on_klein4_sep.png>
+Package pdftex.def Info: ./ripser/on_klein4_sep.png  used on input line 3788.
+(pdftex.def)             Requested size: 452.9679pt x 153.77267pt.
+[59 <./ripser/torus4_lifetime.PNG> <./ripser/on_klein4.PNG>]
+<./ripser/on_klein4_lifetime.png, id=598, 431.36156pt x 375.65344pt>
+File: ./ripser/on_klein4_lifetime.png Graphic file (type png)
+<use ./ripser/on_klein4_lifetime.png>
+Package pdftex.def Info: ./ripser/on_klein4_lifetime.png  used on input line 37
+95.
+(pdftex.def)             Requested size: 215.68025pt x 187.82625pt.
+
+Overfull \hbox (3.37416pt too wide) in paragraph at lines 3800--3802
+\OT1/cmr/m/n/10.95 Command: \OT1/cmr/m/it/10.95 python gen-er-a-tor.py --space 
+klein[]bottle[]4 --points 200 --mean 1 -d 0.2 --up[]to[]homology
+ []
+
+<./ripser/klein4.png, id=599, 374.14781pt x 342.5297pt>
+File: ./ripser/klein4.png Graphic file (type png)
+<use ./ripser/klein4.png>
+Package pdftex.def Info: ./ripser/klein4.png  used on input line 3805.
+(pdftex.def)             Requested size: 452.9679pt x 414.71309pt.
+[60 <./ripser/on_klein4_sep.PNG> <./ripser/on_klein4_lifetime.PNG>]
+<./ripser/klein4_sep.png, id=610, 935.74594pt x 348.55219pt>
+File: ./ripser/klein4_sep.png Graphic file (type png)
+<use ./ripser/klein4_sep.png>
+Package pdftex.def Info: ./ripser/klein4_sep.png  used on input line 3812.
+(pdftex.def)             Requested size: 452.9679pt x 168.72849pt.
+<./ripser/klein4_lifetime.png, id=611, 480.29437pt x 367.3725pt>
+File: ./ripser/klein4_lifetime.png Graphic file (type png)
+<use ./ripser/klein4_lifetime.png>
+Package pdftex.def Info: ./ripser/klein4_lifetime.png  used on input line 3819.
+
+(pdftex.def)             Requested size: 240.14659pt x 183.68579pt.
+ [61 <./ripser/klein4.PNG> <./ripser/klein4_sep.PNG>] (./Kejsi_thesis2.bbl [62 
+<./ripser/klein4_lifetime.PNG>]) [63
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3741.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3741.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3829.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3829.
  (./Kejsi_thesis2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3741.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3741.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3829.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3829.
 
 Package rerunfilecheck Info: File `Kejsi_thesis2.out' has not changed.
-(rerunfilecheck)             Checksum: 7F237D0EBA32481C0F47A59DD81D2044;1018.
+(rerunfilecheck)             Checksum: 71219320B55CDFBCA547F11F2B260338;1031.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3741.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3829.
  ) 
 Here is how much of TeX's memory you used:
- 44886 strings out of 480876
- 1016672 string characters out of 5911488
- 1487710 words of memory out of 5000000
- 59405 multiletter control sequences out of 15000+600000
- 553823 words of font info for 113 fonts, out of 8000000 for 9000
+ 45115 strings out of 480876
+ 1021108 string characters out of 5911488
+ 1489307 words of memory out of 5000000
+ 59573 multiletter control sequences out of 15000+600000
+ 554170 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,23n,100p,818b,2153s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
@@ -2167,16 +2333,17 @@ sfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
 <c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texliv
 e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist
-/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2020/texmf-dist/fonts/typ
-e1/public/stmaryrd/stmary10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/
-xypic/xyatip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xybtip1
-0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash10.pfb>
-Output written on Kejsi_thesis2.pdf (51 pages, 1245384 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2020/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2020/texmf-dist/font
+s/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/ty
+pe1/public/cm-super/sfrm1095.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
+/stmaryrd/stmary10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xya
+tip10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb><c:
+/texlive/2020/texmf-dist/fonts/type1/public/xypic/xydash10.pfb>
+Output written on Kejsi_thesis2.pdf (64 pages, 1678881 bytes).
 PDF statistics:
- 620 PDF objects out of 1000 (max. 8388607)
- 495 compressed objects within 5 object streams
- 168 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 760 PDF objects out of 1000 (max. 8388607)
+ 584 compressed objects within 6 object streams
+ 206 named destinations out of 1000 (max. 500000)
+ 399 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,10 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{dSMVJ11}
+
+\bibitem[Art11]{Artin_2011}
+Michael Artin.
+\newblock {\em Algebra}.
+\newblock Pearson Education, 2nd ed edition, 2011.
 
 \bibitem[Bau19]{Bauer_2019}
 Ulrich Bauer.
@@ -6,10 +12,20 @@ Ulrich Bauer.
 \newblock {\em arXiv:1908.02518 [cs, math]}, Aug 2019.
 \newblock arXiv: 1908.02518.
 
+\bibitem[dSG07]{Silva_Ghrist_2007}
+Vin de~Silva and Robert Ghrist.
+\newblock Coverage in sensor networks via persistent homology.
+\newblock {\em Algebraic and Geometric Topology}, 7(1):339–358, Apr 2007.
+
 \bibitem[dSMVJ11]{de_Silvia}
 Vin de~Silva, Dmitriy Morozov, and Mikael Vejdemo-Johansson.
 \newblock Dualities in persistent (co)homology.
 \newblock {\em Inverse Problems}, 27(12):124003, Dec 2011.
+
+\bibitem[Eis95]{Eisenbud_1995}
+David Eisenbud.
+\newblock {\em Commutative Algebra: with a View Toward Algebraic Geometry}.
+\newblock 1995.
 
 \bibitem[Ghr07]{Ghrist_2007}
 Robert Ghrist.
@@ -21,6 +37,19 @@ Robert Ghrist.
 Allen Hatcher.
 \newblock {\em Algebraic topology}.
 \newblock Cambridge University Press, Cambridge, 2002.
+
+\bibitem[OPT{\etalchar{+}}17]{Otter_Porter_Tillmann_Grindrod_Harrington_2017}
+Nina Otter, Mason~A. Porter, Ulrike Tillmann, Peter Grindrod, and Heather~A.
+  Harrington.
+\newblock A roadmap for the computation of persistent homology.
+\newblock {\em EPJ Data Science}, 6(1):17, Dec 2017.
+\newblock arXiv: 1506.08903.
+
+\bibitem[RB19]{Rabadan_Blumberg_2019}
+Raúl Rabadán and Andrew~J. Blumberg.
+\newblock {\em Topological Data Analysis for Genomics and Evolution: Topology
+  in Biology}.
+\newblock Cambridge University Press, 1 edition, Dec 2019.
 
 \bibitem[ZC05]{Zomorodian_Carlsson_2005}
 Afra Zomorodian and Gunnar Carlsson.
