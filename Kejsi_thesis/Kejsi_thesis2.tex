@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{report}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{kantlipsum}
 \usepackage{subcaption}
 \usepackage{cancel}
 \usepackage[affil-it]{authblk}
@@ -42,13 +43,44 @@
 \newcommand{\simequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertsimeq}{#2}}{#1}}
 
 
-\author{Kejsi Jonuzaj}
-\title{Persistent Homology and Topological Data Analysis}
-\affil{American University in Bulgaria\\Department of Mathematics and Science\\Supervisor: Prof. Peter Dalakov\\ \ \\Senior Thesis}
-
 
 \begin{document}
-\maketitle
+\begin{titlepage}
+    \centering
+    \vspace*{0.6in}
+    \bgroup
+    \Huge\bfseries Persistent Homology and Topological Data Analysis \par
+    \egroup
+    \vspace{0.5in}
+    \bgroup
+    \Large Kejsi Jonuzaj\\ Supervisor: Prof. Peter Dalakov\\[0.1in]
+    \egroup
+    Department of Mathematics and Science \par
+    \vspace{0.5in}
+    \bgroup
+    Thesis submitted to the\\[0.2in]
+    \Large American University in Bulgaria
+    \egroup
+    \par
+    \vspace{0.5in}
+    {\LARGE\bfseries Abstract}
+    \par
+    \vspace{0.1in}
+    \hrule
+    \vspace{0.1in}
+    \begin{minipage}{0.9\textwidth}
+     Here is the abstract \\
+     \\
+     \\
+    \end{minipage}
+    \vspace{0.1in}
+    \hrule
+    \vspace{0.2in}
+    \includegraphics[width=2cm]{aubg.png}
+    \vfill
+    \today
+  \end{titlepage}
+
 \setcounter{tocdepth}{1}
 \tableofcontents
 
@@ -1071,14 +1103,33 @@ Finally, the homology groups of the circle with a different $\Delta- complex$ on
 		      \subsection{Torus}
 
 One way to calculate the homology groups of a torus $T$ is by triangulating it into two 2-simplices A and B, upper triangle and lower one respectively.
+                
+                \begin{center}
+                \begin{tikzpicture}[line join = round, line cap = round]
+                
+                                \coordinate [label=below:$v$] (0) at (0,0);
+                                \coordinate [label=below:$v$] (1) at (2,0);
+                                \coordinate [label=above:$v$] (2) at (2,2);
+                                \coordinate [label=above:$v$] (3) at (0,2);
+                                \coordinate [label=above:$A$] (4) at (0.6, 1.2);
+                                \coordinate [label=above:$B$] (4) at (1.4, 0.4);
+            
+                                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
 
-	\[
-		\xymatrix{
-			v  \ar[r]^b \ar @{} [d]^(0.3) {\; A }
-			& v \ar @{} [dl]^(0.55) {\; B} \\
-			v \ar[u]^a \ar[r]_b \ar[ur]|{c}
-			& v \ar[u]_a }
-	\]
+
+                                    \draw[fill] (0) circle [radius=0.03];
+                                    \draw[fill] (1) circle [radius=0.03];
+                                    \draw[fill] (2) circle [radius=0.03];
+                                    \draw[fill] (3) circle [radius=0.03];
+                                    \draw[thick, postaction={decorate}] (0)--(1) node [midway, below] {b};
+                                    \draw[thick, postaction={decorate}] (1)--(2) node [midway, right] {a};
+                                    \draw[thick, postaction={decorate}] (0)--(3) node [midway, left] {a};
+                                    \draw[thick, postaction={decorate}] (3)--(2) node [midway, above] {b};
+                                    \draw[thick, postaction={decorate}] (0)--(2) node [midway, above] {c};
+
+                                \end{scope}
+                    \end{tikzpicture}
+                \end{center}
 
  We can construct the following chain complex which is a sequence of homomorphisms of abelian groups:
 
@@ -1160,14 +1211,33 @@ Finally, the homology groups of the torus are:
 
 One way to calculate the homology groups of a projective plain $\mathbb{R} \mathbb{P}^2$ is by triangulating it into two 2-simplices A and B, upper triangle and lower one respectively.
 
-	\[
-		\xymatrix{
-			w \ar @{} [d]^(0.3) {\;\, A }
-			& v  \ar[l]_b \ar[d]^a  \\
-			v \ar[u]^a \ar[r]_b \ar[ur]|{c}
-			& w \ar @{} [u]^(0.3) {B \;\, } }
-	\]
+            \begin{center}
+                \begin{tikzpicture}[line join = round, line cap = round]
+                
+                                \coordinate [label=below:$v$] (0) at (0,0);
+                                \coordinate [label=below:$w$] (1) at (2,0);
+                                \coordinate [label=above:$v$] (2) at (2,2);
+                                \coordinate [label=above:$w$] (3) at (0,2);
+                                \coordinate [label=above:$A$] (4) at (0.6, 1.2);
+                                \coordinate [label=above:$B$] (4) at (1.4, 0.4);
+            
+                                \begin{scope}[decoration={markings,mark=at position 0.5 with {\arrow{to}}}]
 
+
+                                    \draw[fill] (0) circle [radius=0.03];
+                                    \draw[fill] (1) circle [radius=0.03];
+                                    \draw[fill] (2) circle [radius=0.03];
+                                    \draw[fill] (3) circle [radius=0.03];
+                                    \draw[thick, postaction={decorate}] (0)--(1) node [midway, below] {b};
+                                    \draw[thick, postaction={decorate}] (2)--(1) node [midway, right] {a};
+                                    \draw[thick, postaction={decorate}] (0)--(3) node [midway, left] {a};
+                                    \draw[thick, postaction={decorate}] (2)--(3) node [midway, above] {b};
+                                    \draw[thick, postaction={decorate}] (0)--(2) node [midway, above] {c};
+
+                                \end{scope}
+                    \end{tikzpicture}
+                \end{center}
+	
  We can construct the following chain complex which is a sequence of homomorphisms of abelian groups:
 
     \[
